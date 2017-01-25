@@ -78,14 +78,13 @@ measurand name described on the `measurand` array. The structure of such an attr
 
 Certain weather conditions have an influence over the observed air quality. There are two options for representing them:
 
-+ A/ Through a linked entity of type `WeatherObserved` (attribute named `refWeatherObserved`) which will capture the associated weather conditions.
-+ B/ Through a set of attributes defined by [WeatherObserved](../../Weather/WeatherObserved/doc/spec.md)
-which denote the different meteorological conditions under which air quality data was captured. 
++ A/ Through a linked entity of type `WeatherObserved` (attribute named `refWeatherObserved`).
++ B/ Through a group of weather-related properties already defined by [WeatherObserved](../../../Weather/WeatherObserved/doc/spec.md). 
 
 Below is the description of the attribute to be used for option A/. 
 
 + `refWeatherObserved` : Weather observed associated to the air quality conditions described by this entity.
-    + Attribute type: Reference to a [WeatherObserved](../../Weather/WeatherObserved/doc/spec.md) entity.
+    + Attribute type: Reference to a [WeatherObserved](../../../Weather/WeatherObserved/doc/spec.md) entity.
     + Optional
     
     
