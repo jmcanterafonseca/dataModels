@@ -52,7 +52,7 @@
           "type": "number"
         },
         "refDevice": {
-          "type": "string"
+          "type": "EntityIdentiferType"
         }
       }
     }

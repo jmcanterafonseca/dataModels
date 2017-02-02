@@ -27,13 +27,13 @@
           "minItems": 1
         },
         "refDevice": {
-          "type": "string"
+          "type": "EntityIdentiferType"
         },
         "refPointOfInterest": {
-          "type": "string"
+          "type": "EntityIdentiferType"
         },
         "refWeatherObserved": {
-          "type": "string"
+          "type": "EntityIdentiferType"
         }
       }
     }

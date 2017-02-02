@@ -95,7 +95,7 @@
           "minimum": 0
         },
         "refPointOfInterest": {
-          "type": "string"
+          "type": "EntityIdentiferType"
         }
       }
     }
