@@ -2,9 +2,11 @@
 
 ## Description
 
-A waste container.
+A waste container. 
 
 ## Data Model
+
+A JSON Schema corresponding to this data model can be found [here](http://fiware.github.io/dataModels/WasteManagement/WasteContainer/schema.json).
 
 + `id` : Unique identifier.
 
