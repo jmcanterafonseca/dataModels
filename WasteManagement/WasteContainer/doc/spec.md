@@ -2,7 +2,7 @@
 
 ## Description
 
-A waste container. 
+A waste container.
 
 ## Data Model
 
