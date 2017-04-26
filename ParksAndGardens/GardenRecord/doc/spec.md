@@ -3,7 +3,7 @@
 ## Description
 
 This entity contains a harmonised description of the conditions recorded on a particular area or point inside a garden. An instance of this entity type
-can be associated, if necessary, to a specific flower bed. This entity type has been inspired by the `AgriParcelRecord` entity type
+can be associated, if necessary, to an specific flower bed. This entity type has been inspired by the `AgriParcelRecord` entity type
 defined by the GSMA Harmonized Data Models. 
 
 ## Data Model
@@ -37,14 +37,14 @@ A JSON Schema corresponding to this data model can be found {{add link to JSON S
 
 + `soilTemperature` : The observed soil temperature in degrees centigrade. 
     + Attribute type: [Number](https://schema.org/Number)
-    + Default unit: Degrees centigrades.
+    + Default unit: Degrees centigrade.
     + Attribute metadata:
         + `timestamp` : optional timestamp for the observed value. It can be ommitted if the observation time is the same as the one captured
         by the `dateObserved` attribute at entity level.
     + Optional
     
 + `soilMoistureVwc` : The observed soil moisture measured as Volumetric Water Content, VWC (percentage, expressed in parts per one).
-    + Attribute type: [Number](https://schema.org/Number)
+    + Attribute type: [Number](https://schema.org/Number) between 0 and 1. 
     + Attribute metadata:
         + `timestamp` : optional timestamp for the observed value. It can be ommitted if the observation time is the same as the one captured
         by the `dateObserved` attribute at entity level.
@@ -64,6 +64,7 @@ A JSON Schema corresponding to this data model can be found {{add link to JSON S
 
 + `refDevice` : The device or devices used to obtain the data expressed by this record.
     + Attribute type: Reference to an entity of type `Device`
+    + Optional
 
 ### Representing related weather conditions
 
