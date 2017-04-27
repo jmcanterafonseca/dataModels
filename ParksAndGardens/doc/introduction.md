@@ -1,7 +1,6 @@
 # Parks and gardens datamodels
 
-These data models are intended to model parks, gardens and related green areas in a city.
-In the future low granularity entities such as trees or bushes might be modelled as well.
+These data models are intended to model parks, gardens and related green spaces in a city.
 
 The main entity types identified are:
 
@@ -13,16 +12,16 @@ Parks are often but not always municipal. Typically open to the public, but may 
 and enjoyment of plants and other forms of nature.
 A garden can incorporate both natural and man-made materials. Western gardens are almost universally based on plants.
 A garden can also be a part of a park and open to the public. [See OpenStreetMap](http://wiki.openstreetmap.org/wiki/Tag:leisure%3Dgarden).
-A garden can be divided into several smaller parts, named flower beds (parterres). 
+A garden can be divided into several smaller parts, named flower beds (`parterres` in Spanish). 
 
 + [FlowerBed](../FlowerBed/doc/spec.md). A garden plot in which flowers (or other plants) are grown.
-Usually you will find flowerbeds in parks, gardens, pedestrian areas or at big highway interchanges.
+Usually you will find flower beds in parks, gardens, pedestrian areas or at big highway interchanges.
 [See OpenStreetMap](http://wiki.openstreetmap.org/wiki/Proposed_features/flowerbed)
 
-+ [GardenRecord](../GardenRecord/doc/spec.md). This entity contains a harmonised description of the conditions recorded on a particular area or point inside a garden. Such record
-can be associated to a garden or to an specific flowerbed inside a garden.
++ [GreenSpaceRecord](../GreenSpaceRecord/doc/spec.md). This entity contains a harmonised description of the conditions recorded on a particular area or point
+inside a garden or related green space. Such record can be associated to a garden, to an specific flower bed, etc.
 
 New entities pending to be defined:
 
-+ `WateringPoint`
-+ `GardenOperation`
++ `WateringPoint` . To model watering points and how they could be controlled by means of IoT. 
++ `GreenSpaceOperation` . To model operations to be done on green spaces in a city. Operations can be watering, fertilization, pesticide drop, etc. 

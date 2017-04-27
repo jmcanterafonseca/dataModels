@@ -3,6 +3,7 @@
 ## Description
 
  A garden plot in which flowers (or other plants) are grown.
+ Usually you will find flower beds in parks, gardens, pedestrian areas or at big highway interchanges.
  
 ## Data Model
 
@@ -10,7 +11,7 @@ A JSON Schema corresponding to this data model can be found {{add link to JSON S
 
 + `id` : Unique identifier. 
 
-+ `type` : Entity type. It must be equal to `FlowerBed. 
++ `type` : Entity type. It must be equal to `FlowerBed`. 
 
 + `dateModified` : Last update timestamp of this entity.
     + Attribute type: [DateTime](https://schema.org/DateTime)
@@ -27,10 +28,34 @@ to which the trees, or plants in the flower bed belong.
     
 + `category` : Category of this flower bed. 
     + Attribute type: List of [Text](https://schema.org/Text)
-    + Allowed values: (`hedge`, `lawn`, `tree`) or any extended value needed by the application.
+    + Allowed values: (`hedge`, `lawnArea`, `portable`, `urbanTreeSpot`) or any extended value needed by the application.
+    + Optional
+    
++ `width`. Width of this flower bed.
+    + Attribute type: [Number](https://schema.org/Number).
+    + Default Unit: Meters
+    + See also: [https://schema.org/width](https://schema.org/width)
+    + Optional 
+
++ `height`. Height of this flower bed. 
+    + Attribute type: [Number](https://schema.org/Number).
+    + Default Unit: Meters
+    + See also: [https://schema.org/height](https://schema.org/height)
+    + Optional 
+
++ `depth`. Depth of this flower bed.
+    + Attribute type: [Number](https://schema.org/Number).
+    + Default Unit: Meters
+    + See also: [https://schema.org/depth](https://schema.org/depth)
+    + Optional
+
++ `shape`. Shape of this flower bed.
+    + Attribute type: [Text](https://schema.org/Text)
+    + Allowed values: One Of (`rectangular`, `square`, `elliptic`, `polygonal`, `circular`) or any other required by an application.
+    + Optional
 
 + `location` : Location of the flower bed represented by a GeoJSON geometry. 
-    + Attribute type: `geo:json`.
+    + Attribute type: `geo:json.
     + Normative References: [https://tools.ietf.org/html/rfc7946](https://tools.ietf.org/html/rfc7946)
     + Mandatory if `address` is not defined
     
@@ -46,29 +71,39 @@ to which the trees, or plants in the flower bed belong.
     + Attribute type: [DateTime](https://schema.org/DateTime)
     + Optional
     
-+ `refGarden` : Flower bed's garden. 
++ `refGarden` : Flower bed's garden (if it belongs to any). 
     + Attribute type: Reference to an entity of type `Garden`
     + Optional
     
+### Representing measurements related to a flower bed
+
+ There are two options for representing measurements observed:
+
++ A/ Through a linked entity of type `GreenAreaRecord` (attribute named `refRecord`).
++ B/ Through a group of measurement properties already defined by [GreenAreaRecord](../../GreenAreaRecord/doc/spec.md). 
+
+Below is the description of the attribute to be used for option A/. 
+    
 + `refRecord` : List of records which contain measurements related to this flower bed.
-    + Attribute type: List of references to entities of type `GardenRecord`
+    + Attribute type: List of references to entities of type `GreenAreaRecord`
     + Optional
 
     
 ## Examples of use
 
-``json
+```json
 {
   "id": "FlowerBed-345",
   "type": "FlowerBed",
-  "category": ["tree"],
+  "category": ["urbanTreeSpot"],
   "dateLastWatering": "2017-03-31T08:00",
   "address": {
     "streetAddress": "Paseo Zorrilla, 122",
     "adressLocality": "Valladolid",
     "addressCountry": "Spain"
   },
-  "refRecord": ["FlowerBed-345-Record-1"]
+  "soilTemperature": 17,
+  "soilMoistureVwc": 0.85
 }
 ```
     

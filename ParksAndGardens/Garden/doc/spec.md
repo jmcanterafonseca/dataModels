@@ -41,6 +41,10 @@ A JSON Schema corresponding to this data model can be found {{add link to JSON S
 + `alternateName` : Garden's alternate name. 
     + Normative References: [https://schema.org/alternateName](https://schema.org/alternateName)
     + Optional
+    
++ `description` : Garden's description
+    + Normative References: [https://schema.org/description]
+    + Optional
 
 + `category` : Garden's category. 
     + Attribute type: List of [Text](https://schema.org/Text)
@@ -66,12 +70,12 @@ responsible, district, neighbourhood, etc.
     + Attribute type: [DateTime](https://schema.org/DateTime)
     + Optional
 
-+ `nextWateringDeadline` : Deadline for next watering operation. to be done on this garden.
++ `nextWateringDeadline` : Deadline for next watering operation to be done on this garden.
     + Attribute type: [DateTime](https://schema.org/DateTime)
     + Optional
     
 + `refRecord` : List of records which contain measurements related to this garden.
-    + Attribute type: List of references to entities of type `GardenRecord`
+    + Attribute type: List of references to entities of type `GreenAreaRecord`
     + Optional
     
 ## Examples of use
