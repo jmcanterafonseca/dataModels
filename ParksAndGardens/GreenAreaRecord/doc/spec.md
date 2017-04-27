@@ -34,9 +34,9 @@ A JSON Schema corresponding to this data model can be found {{add link to JSON S
     + Attribute type: [DateTime](https://schema.org/DateTime). 
     + Mandatory
 
-+ `soilTemperature` : The observed soil temperature in degrees centigrade. 
++ `soilTemperature` : The observed soil temperature in Celsius degrees. 
     + Attribute type: [Number](https://schema.org/Number)
-    + Default unit: Degrees centigrade.
+    + Default unit: Celsius degrees.
     + Attribute metadata:
         + `timestamp` : optional timestamp for the observed value. It can be ommitted if the observation time is the same as the one captured
         by the `dateObserved` attribute at entity level.
