@@ -15,9 +15,4 @@ shingle, pebbles, cobblestones or sometimes shell fragments, etc.
 which has exhibitions on scientific, historical, cultural topics. Typically open to the public as a tourist attraction.
 May be more heavily involved in acquiring, conserving or researching such topics.
 
-+ `TouristInformationCenter`. According to [OpenStreetMap](http://wiki.openstreetmap.org/wiki/Tag:tourism%3Dinformation):
-An information source for tourists, travellers and visitors. May include:
-    + Tourist information centres and offices.
-    + Map boards, such as town maps, site maps, hiking and other sport trail maps.
-    + Informational boards specifically for tourists.
-    + Informational boards showing details about local history, wildlife etc.
++ `TouristInformationCenter`. A tourist information center which serves as an information source for tourists, travellers and visitors. 
