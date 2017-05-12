@@ -113,7 +113,7 @@ Precise semantics might depend on the application or target country or region. F
     + Attribute type: [Text](https://schema.org/Text)
     + Optional
     
-+ `contactPoint` : Contact point for the museum
++ `contactPoint` : Contact point for the museum.
     + Attribute type: [https://schema.org/ContactPoint](https://schema.org/ContactPoint)
 
 + `refSeeAlso` : Reference to one or more related entities.
