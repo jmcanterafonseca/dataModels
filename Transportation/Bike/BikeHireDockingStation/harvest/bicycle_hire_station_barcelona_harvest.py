@@ -6,16 +6,22 @@ Harmonises data from the city of Barcelona corresponding to
 the bicycle hiring stations
 """
 
+from __future__ import with_statement
 from __future__ import print_function
-import urllib2
+import contextlib
 import json
 from datetime import datetime
 from pytz import timezone
 import re
+try:                 # Python 3
+    from urllib.request import Request, urlopen
+    from urllib.error import URLError
+except ImportError:  # Python 2
+    from urllib2 import Request, URLError, urlopen
 
 
 # Origin of the Data (Barcelona's open data)
-source = 'http://wservice.viabicing.cat/v2/stations'
+SOURCE = 'http://wservice.viabicing.cat/v2/stations'
 
 status_dictionary = {
     'OPN': 'working',
@@ -46,18 +52,15 @@ def sanitize(str_in):
 
 
 # Reads the data from the data source and returns a dictionary
-def read_data():
-    req = urllib2.Request(url=source)
+def read_data(source):
+    req = Request(url=source)
     f = None
     try:
-        f = urllib2.urlopen(req)
-        json_data = f.read()
-        f.close()
-        return json_data
-    except urllib2.URLError as e:
+        with contextlib.closing(urlopen(req)) as f:
+            json_data = f.read()
+            return json_data
+    except URLError as e:
         print('Error while calling: %s : %s' % (source, e))
-        if f is not None:
-            f.close()
         return None
 
 
@@ -130,26 +133,26 @@ def persist_data(entity_list):
         'Fiware-Servicepath': FIWARE_SERVICE_PATH
     }
 
-    req = urllib2.Request(
+    req = Request(
         url=(
             DATA_BROKER +
             '/v2/op/update'),
         data=data_as_str,
         headers=headers)
-    f = None
+
     try:
-        f = urllib2.urlopen(req)
-        f.close()
-        print('Entities successfully created')
-    except urllib2.URLError as e:
+        with contextlib.closing(urlopen(req)) as f:
+            print('Entities successfully created')
+    except URLError as e:
         print('Error while POSTing data to Orion: %d %s' % (e.code, e.read()))
 
 
 # Main module
 def main():
-    data = read_data()
+    data = read_data(SOURCE)
 
     if data is None:
+        print("Source data could not be read")
         exit()
 
     parsed_data = json.loads(data)
