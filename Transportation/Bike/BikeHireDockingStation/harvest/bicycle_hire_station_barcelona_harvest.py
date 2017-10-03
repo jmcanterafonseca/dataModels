@@ -11,6 +11,7 @@ import json
 from datetime import datetime
 from pytz import timezone
 import re
+from __future__ import print_function
 
 # Origin of the Data (Barcelona's open data)
 source = 'http://wservice.viabicing.cat/v2/stations'
@@ -46,8 +47,8 @@ def read_data():
     f.close()
     return json_data
   except urllib2.URLError as e:
-    print 'Error while calling: %s : %s' % (source, e)
-    if f <> None:
+    print('Error while calling: %s : %s' % (source, e))
+    if f != None:
       f.close()
     return None
 
@@ -124,7 +125,7 @@ def persist_data(entity_list):
     f.close()
     print('Entities successfully created')
   except urllib2.URLError as e:
-    print 'Error while POSTing data to Orion: %d %s' % (e.code, e.read())
+    print('Error while POSTing data to Orion: %d %s' % (e.code, e.read()))
 
 
 # Main module
