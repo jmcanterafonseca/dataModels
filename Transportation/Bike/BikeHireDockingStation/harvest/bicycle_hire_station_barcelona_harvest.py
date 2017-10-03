@@ -8,7 +8,6 @@ the bicycle hiring stations
 
 from __future__ import print_function
 import urllib2
-# from pytz import timezone
 import json
 from datetime import datetime
 from pytz import timezone
