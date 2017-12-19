@@ -43,7 +43,7 @@ If the device is not a constrained device this property can be left as `null` or
         `gasComsumption`, `electricityConsumption`, `soilMoisture`, `trafficFlow`)
     + Mandatory
         
-+ `function :  The functionality necessary to accomplish the task for which a Device is designed. A device can be designed to perform more than one function.
++ `function` :  The functionality necessary to accomplish the task for which a Device is designed. A device can be designed to perform more than one function.
     Defined by [SAREF](https://w3id.org/saref#Function).
     + Attribute type: List of [Text](https://schema.org/Text)
     + Allowed values: (`levelControl`, `sensing`, `onOff`, `openClose`, `metering`, `eventNotification`), from SAREF.
