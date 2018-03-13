@@ -123,7 +123,7 @@ def get_weather_observed_spain():
         if station_code in station_code_exceptions:
             continue
         
-        if len(stations_to_retrieve_data) > 0 and  station_code not in stations_to_retrieve_data:
+        if len(stations_to_retrieve_data) > 0 and station_code not in stations_to_retrieve_data:
             continue
 
         source = weather_observed.format(station_code, station_code)
@@ -333,7 +333,7 @@ if __name__ == '__main__':
     if len(stations_to_retrieve_data) == 0:
         logger.debug('Retrieving data for all stations ....')
     else:
-        logger.debug('Only retrieving data for stations: ' + str(stations_to_retrieve_data));
+        logger.debug('Only retrieving data for stations: ' + str(stations_to_retrieve_data))
 
     read_station_csv()
 
