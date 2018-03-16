@@ -324,7 +324,7 @@ if __name__ == '__main__':
         description='Station Codes to be harvested')
     parser.add_argument('stations', metavar='stations', type=str, nargs='*',
                         help='Station Codes separated by spaces. ' +
-                        'For a list see https://jmcanterafonseca.carto.com/viz/e7ccc6c6-9e5b-11e5-a595-0ef7f98ade21/public_map')
+                        'See https://jmcanterafonseca.carto.com/viz/e7ccc6c6-9e5b-11e5-a595-0ef7f98ade21/public_map')
 
     args = parser.parse_args()
 
