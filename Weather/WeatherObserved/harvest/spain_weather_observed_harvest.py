@@ -119,10 +119,10 @@ def get_data(row, index, conversion=float, factor=1.0):
 def get_weather_observed_spain():
     for station_code in station_data:
         out = []
-        
+
         if station_code in station_code_exceptions:
             continue
-        
+
         if len(stations_to_retrieve_data) > 0 and station_code not in stations_to_retrieve_data:
             continue
 
@@ -320,20 +320,24 @@ def setup_logger():
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Station Codes to be harvested')
-    parser.add_argument('stations', metavar='stations', type=str, nargs='*', help='Station Code')
-    
+    parser = argparse.ArgumentParser(
+        description='Station Codes to be harvested')
+    parser.add_argument('stations', metavar='stations', type=str, nargs='*',
+                        help='Station Codes separated by spaces. ' +
+                        'For a list see https://jmcanterafonseca.carto.com/viz/e7ccc6c6-9e5b-11e5-a595-0ef7f98ade21/public_map')
+
     args = parser.parse_args()
-    
+
     for s in args.stations:
         stations_to_retrieve_data.append(s)
-    
+
     setup_logger()
-    
+
     if len(stations_to_retrieve_data) == 0:
         logger.debug('Retrieving data for all stations ....')
     else:
-        logger.debug('Only retrieving data for stations: ' + str(stations_to_retrieve_data))
+        logger.debug('Only retrieving data for stations: ' +
+                     str(stations_to_retrieve_data))
 
     read_station_csv()
 
