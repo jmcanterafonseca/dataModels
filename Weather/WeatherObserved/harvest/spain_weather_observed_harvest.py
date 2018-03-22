@@ -235,7 +235,7 @@ def get_weather_observed_spain():
 def post_station_data_batch(station_code, data):
     data_to_be_persisted = data
     if only_latest:
-        data_to_be_persisted = data[-1]
+        data_to_be_persisted = [data[-1]]
 
     data_obj = {
         'actionType': 'APPEND',
@@ -348,13 +348,14 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.service:
-        fiware_service = args['service']
+        fiware_service = args.service[0]
+        print fiware_service
 
     if args.service_path:
-        fiware_service_path = args['service_path']
+        fiware_service_path = args.service_path[0]
 
     if args.endpoint:
-        orion_service = args['endpoint']
+        orion_service = args.endpoint[0]
 
     for s in args.stations:
         stations_to_retrieve_data.append(s)
