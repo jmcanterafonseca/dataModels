@@ -1,6 +1,7 @@
 #!bin/python
 # -*- coding: utf-8 -*-
 
+import argparse
 import urllib2
 import StringIO
 import csv
@@ -27,8 +28,10 @@ persisted_stations = 0
 total_stations = 0
 
 MIME_JSON = 'application/json'
-FIWARE_SERVICE = 'Weather'
-FIWARE_SPATH = '/Portugal'
+fiware_service = None
+fiware_service_path = None
+
+only_latest = False
 
 
 def decode_wind_direction(direction):
@@ -141,6 +144,11 @@ def get_value(value, scale=1):
 def post_station_data_batch(station_code, data):
     if len(data) == 0:
         return
+    
+    data_to_be_stored = data
+    
+    if only_latest:
+        data_to_be_stored = data[-1]
 
     data_obj = {
         'actionType': 'APPEND',
@@ -150,10 +158,14 @@ def post_station_data_batch(station_code, data):
 
     headers = {
         'Content-Type': MIME_JSON,
-        'Content-Length': len(data_as_str),
-        'Fiware-Service': FIWARE_SERVICE,
-        'Fiware-Servicepath': FIWARE_SPATH
+        'Content-Length': len(data_as_str)
     }
+    
+    if fiware_service:
+        headers['Fiware-Service'] = fiware_service
+    
+    if fiware_service_path:
+        headers['Fiware-Servicepath'] = fiware_service_path
 
     logger.debug(
         'Going to persist %s (%d) to %s',
@@ -223,6 +235,32 @@ def setup_logger():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Portugal Weather Observed Harvester')
+    
+    parser.add_argument('--service', metavar='service',
+                        type=str, nargs=1, help='FIWARE Service')
+    parser.add_argument('--service-path', metavar='service_path',
+                        type=str, nargs=1, help='FIWARE Service Path')
+    parser.add_argument('--endpoint', metavar='endpoint',
+                        type=str, nargs=1, help='Context Broker end point. Example. http://orion:1030')
+    parser.add_argument('--latest', action='store_true',
+                        help='Flag to indicate to only harvest the latest observation')
+
+    args = parser.parse_args()
+
+    if args.service:
+        fiware_service = args['service']
+
+    if args.service_path:
+        fiware_service_path = args['service_path']
+
+    if args.endpoint:
+        orion_service = args['end_point']
+
+    if args.latest:
+        print 'Only retrieving latest observations'
+        only_latest = True
+    
     setup_logger()
 
     load_station_data()
