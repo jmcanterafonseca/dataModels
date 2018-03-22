@@ -347,9 +347,6 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    if args.endpoint:
-        endpoint = args['endpoint']
-
     if args.service:
         fiware_service = args['service']
 
@@ -357,7 +354,7 @@ if __name__ == '__main__':
         fiware_service_path = args['service_path']
 
     if args.endpoint:
-        orion_service = args.end_point
+        orion_service = args['endpoint']
 
     for s in args.stations:
         stations_to_retrieve_data.append(s)
