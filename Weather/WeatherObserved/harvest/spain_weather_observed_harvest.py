@@ -332,7 +332,7 @@ def setup_logger():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
-        description='Parameters of the harvesting process')
+        description='Spain Weather observed harvester')
     parser.add_argument('stations', metavar='stations', type=str, nargs='*',
                         help='Station Codes separated by spaces. ' +
                         'See https://jmcanterafonseca.carto.com/viz/e7ccc6c6-9e5b-11e5-a595-0ef7f98ade21/public_map')
