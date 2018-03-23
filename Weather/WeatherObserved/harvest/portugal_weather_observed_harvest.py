@@ -144,11 +144,11 @@ def get_value(value, scale=1):
 def post_station_data_batch(station_code, data):
     if len(data) == 0:
         return
-    
+
     data_to_be_stored = data
-    
+
     if only_latest:
-        data_to_be_stored = data[-1]
+        data_to_be_stored = [data[-1]]
 
     data_obj = {
         'actionType': 'APPEND',
@@ -160,10 +160,10 @@ def post_station_data_batch(station_code, data):
         'Content-Type': MIME_JSON,
         'Content-Length': len(data_as_str)
     }
-    
+
     if fiware_service:
         headers['Fiware-Service'] = fiware_service
-    
+
     if fiware_service_path:
         headers['Fiware-Servicepath'] = fiware_service_path
 
@@ -235,8 +235,9 @@ def setup_logger():
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Portugal Weather Observed Harvester')
-    
+    parser = argparse.ArgumentParser(
+        description='Portugal Weather Observed Harvester')
+
     parser.add_argument('--service', metavar='service',
                         type=str, nargs=1, help='FIWARE Service')
     parser.add_argument('--service-path', metavar='service_path',
@@ -249,18 +250,18 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.service:
-        fiware_service = args['service']
+        fiware_service = args.service[0]
 
     if args.service_path:
-        fiware_service_path = args['service_path']
+        fiware_service_path = args.service_path[0]
 
     if args.endpoint:
-        orion_service = args['end_point']
+        orion_service = args.endpoint[0]
 
     if args.latest:
         print 'Only retrieving latest observations'
         only_latest = True
-    
+
     setup_logger()
 
     load_station_data()
