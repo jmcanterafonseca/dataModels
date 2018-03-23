@@ -349,21 +349,21 @@ if __name__ == '__main__':
 
     if args.service:
         fiware_service = args.service[0]
-        print ('Fiware-Service: ' + fiware_service)
+        print('Fiware-Service: ' + fiware_service)
 
     if args.service_path:
         fiware_service_path = args.service_path[0]
-        print ('Fiware-Servicepath: ' + fiware_service_path)
+        print('Fiware-Servicepath: ' + fiware_service_path)
 
     if args.endpoint:
         orion_service = args.endpoint[0]
-        print ('Context Broker: ' + orion_service)
+        print('Context Broker: ' + orion_service)
 
     for s in args.stations:
         stations_to_retrieve_data.append(s)
 
     if args.latest:
-        print 'Only retrieving latest observations'
+        print('Only retrieving latest observations')
         only_latest = True
 
     setup_logger()
