@@ -157,7 +157,7 @@ def post_station_data_batch(station_code, data):
 
     data_obj = {
         'actionType': 'APPEND',
-        'entities': data
+        'entities': data_to_be_stored
     }
     data_as_str = json.dumps(data_obj)
 
