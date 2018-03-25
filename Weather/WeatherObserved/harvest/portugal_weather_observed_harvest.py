@@ -238,6 +238,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='Portugal Weather Observed Harvester')
 
+    parser.add_argument('stations', metavar='stations', type=str, nargs='*',
+                        help='Station Codes separated by spaces. ' +
+                        'See https://jmcanterafonseca.carto.com/viz/e7ccc6c6-9e5b-11e5-a595-0ef7f98ade21/public_map')
     parser.add_argument('--service', metavar='service',
                         type=str, nargs=1, help='FIWARE Service')
     parser.add_argument('--service-path', metavar='service_path',
