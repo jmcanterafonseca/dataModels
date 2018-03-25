@@ -33,6 +33,8 @@ fiware_service_path = None
 
 only_latest = False
 
+stations_to_retrieve_data = []
+
 
 def decode_wind_direction(direction):
     return {
@@ -65,6 +67,9 @@ def get_weather_observed_portugal():
 
         for date in source_data:
             for station_code in source_data[date]:
+                if len(stations_to_retrieve_data) > 0 and station_code not in stations_to_retrieve_data:
+                    continue
+
                 if station_code not in observation_data:
                     observation_data[station_code] = []
 
@@ -262,10 +267,19 @@ if __name__ == '__main__':
         orion_service = args.endpoint[0]
 
     if args.latest:
-        print 'Only retrieving latest observations'
+        print('Only retrieving latest observations')
         only_latest = True
 
+    for s in args.stations:
+        stations_to_retrieve_data.append(s)
+
     setup_logger()
+
+    if len(stations_to_retrieve_data) == 0:
+        logger.debug('Retrieving data for all stations ....')
+    else:
+        logger.debug('Only retrieving data for stations: ' +
+                     str(stations_to_retrieve_data))
 
     load_station_data()
 
