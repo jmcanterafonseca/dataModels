@@ -40,7 +40,7 @@ found [here](../schema.json).
           (for `traffic` category)
         + (`rainfall`, `highTemperature`, `lowTemperature`, `heatWave`, ,coldWave`, `ice`,
           `snow`, `wind`, `fog`, `flood`, `tsunami`, `tornado`, `tropicalCyclone`,
-          `hurricane`, ,`snow/ice`, `thunderstorms`, `coastalEvent`, `forestFire`,
+          `hurricane`, `snow/ice`, `thunderstorms`, `coastalEvent`, `forestFire`,
           `avalanches`, `rain/flood`) (for `weather` category)
         + (`airPollution`, `waterPollution`, `pollenConcentration`)
           (for `environment` category)
