@@ -10,6 +10,11 @@ import urllib2
 import xml.dom.minidom
 import datetime
 import json
+import argparse
+import logging
+import logging.handlers
+import unicodedata
+import contextlib
 
 awareness_type_dict = {
     '1': 'wind',
@@ -41,8 +46,17 @@ reg_exp = re.compile('<img(?P<group>.*?)>')
 countries_to_retrieve = []
 
 
+# Sanitize string to avoid forbidden characters by Orion
+def sanitize(str_in):
+    aux = re.sub(r"[<(>)\"\'=;-]", "", str_in)
+    return unicodedata.normalize('NFD', aux).encode('ascii', 'ignore')
+
+
 def get_weather_alarms(country):
-    source = weather_alarms.format(country)
+    source = weather_alarms.format(country.lower())
+
+    logger.debug("Going to GET %s", source)
+
     req = urllib2.Request(url=source)
     f = urllib2.urlopen(req)
 
@@ -89,18 +103,36 @@ def get_weather_alarms(country):
                         alarm_index += 1
                         obj = {
                             'type': 'Alert',
-                            'category': 'weather',
+                            'category': {
+                                'type': 'Property',
+                                'value': 'weather'
+                            },
                             'id': 'WeatherAlarm-{}-{}'.format(uid, alarm_index),
-                            'validity': {
-                                'from': '',
-                                'to': ''},
-                            'subCategory': alarm_data['awt'],
-                            'severity': alarm_data['levelColor'],
+                            'subCategory': {
+                                'type': 'Property',
+                                'value': alarm_data['awt']
+                            },
+                            'severity': {
+                                'type': 'Property',
+                                'value': alarm_data['levelColor']
+                            },
                             'address': {
-                                'addressCountry': country.upper(),
-                                'addressRegion': zone},
-                            'source': 'http://www.meteoalarm.eu',
-                            'dateCreated': pub_date}
+                                'type': 'Property',
+                                'value': {
+                                    'type': 'PostalAddress',
+                                    'addressCountry': country.upper(),
+                                    'addressRegion': sanitize(zone)
+                                }
+                            },
+                            'alertSource': {
+                                'type': 'Property',
+                                'value': 'http://www.meteoalarm.eu'
+                            },
+                            'dateObserved': {
+                                'value': pub_date,
+                                'type': 'DateTime'
+                            }
+                        }
                         out.append(obj)
                 else:
                     dates = column.getElementsByTagName('i')
@@ -113,8 +145,14 @@ def get_weather_alarms(country):
                         valid_to = datetime.datetime.strptime(
                             valid_to_str, '%d.%m.%Y %H:%M %Z').isoformat()
 
-                        out[alarm_index]['validity']['from'] = valid_from
-                        out[alarm_index]['validity']['to'] = valid_to
+                        out[alarm_index]['validFrom'] = {
+                            'type': 'DateTime',
+                            'value': valid_from
+                        }
+                        out[alarm_index]['validTo'] = {
+                            'type': 'DateTime',
+                            'value': valid_to
+                        }
 
     out = remove_duplicates(out)
     return out
@@ -126,9 +164,9 @@ def remove_duplicates(array_data):
     out = []
 
     for data in array_data:
-        key = ('{address[addressCountry]}{address[addressRegion]}'
-               '{severity}{subCategory}'
-               '{validity[from]}{validity[to]}').format(**data)
+        key = ('{address[value][addressCountry]}{address[value][addressRegion]}'
+               '{severity[value]}{subCategory[value]}'
+               '{validFrom[value]}{validTo[value]}').format(**data)
 
         if key not in alarms_duplicates:
             alarms_duplicates[key] = data
@@ -146,6 +184,7 @@ def parse_alarm(alarm_string):
         'levelColor': awareness_level_dict.get(level, ''),
         'awt': awareness_type_dict.get(awt, '')
     }
+
 
 def setup_logger():
     global logger
@@ -207,18 +246,20 @@ def persist_entities(data):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Weather alarm harvester')
     parser.add_argument('--service', metavar='service',
-                        type=str, nargs=1, help='FIWARE Service')
+                        type=str, help='FIWARE Service', required=True)
     parser.add_argument('--service-path', metavar='service_path',
-                        type=str, nargs=1, help='FIWARE Service Path')
+                        type=str, nargs='?', help='FIWARE Service Path')
     parser.add_argument('--endpoint', metavar='endpoint',
-                        type=str, nargs=1, help='Context Broker end point. Example. http://orion:1030')
-    parser.add_argument('countries', metavar='countries', type=str, nargs='*',
+                        type=str, required=True, help='Context Broker end point. Example. http://orion:1030')
+    parser.add_argument('countries', metavar='countries', type=str, nargs='+',
                         help='Country Codes separated by spaces. ')
-    
+
     args = parser.parse_args()
 
+    fiware_service_path = None
+
     if args.service:
-        fiware_service = args.service[0]
+        fiware_service = args.service
         print('Fiware-Service: ' + fiware_service)
 
     if args.service_path:
@@ -226,17 +267,16 @@ if __name__ == '__main__':
         print('Fiware-Servicepath: ' + fiware_service_path)
 
     if args.endpoint:
-        orion_service = args.endpoint[0]
+        orion_service = args.endpoint
         print('Context Broker: ' + orion_service)
 
     for s in args.countries:
         countries_to_retrieve.append(s)
-        
-    setup_logger()
-        
-    for c in countries_to_retrieve:
-        alarms = get_weather_alarms(c)
-        logger.debug("Going to persist data from country: %s",c)
-        persist_entities(alarms)
 
-    
+    setup_logger()
+
+    for c in countries_to_retrieve:
+        logger.debug("Going to retrieve data from country: %s", c)
+        alarms = get_weather_alarms(c)
+        logger.debug("Going to persist data from country: %s", c)
+        persist_entities(alarms)
