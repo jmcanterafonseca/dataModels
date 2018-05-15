@@ -1,4 +1,4 @@
-# Weather Alarms / Alerts
+# Weather Alarm (Alert)
 
 This folder contains all the software artefacts to offer weather alarm data in NGSIv2.
 The source of this data is the global [European Weather Alarm Service](http://meteoalarm.eu).
