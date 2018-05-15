@@ -1,4 +1,4 @@
-# WeatherAlarm
+# Weather Alarms / Alerts
 
 This folder contains all the software artefacts to offer weather alarm data in NGSIv2.
 The source of this data is the global [European Weather Alarm Service](http://meteoalarm.eu).
@@ -14,20 +14,20 @@ mode (`options=keyValues`).
 ## Examples of use
 
 ```
-curl http://130.206.83.68:1028/v2/entities?type=WeatherAlarm&q=country:ES
+curl http://130.206.83.68:1028/v2/entities?type=Alert&q=category==weather&address.addressCountry==ES
 ```
 
 ```json
 {
-    "awarenessLevel": "Orange",
-    "awarenessType": "Snow/Ice",
+    "severity": "medium",
+    "subcategory": "snow/ice",
     "source": "http://www.meteoalarm.eu",
     "address": {
       "addressCountry": "ES",
       "addressRegion": "Huesca"
     },
     "dateCreated": "2016-03-14T13:54:01",
-    "type": "WeatherAlarm",
+    "type": "Alert",
     "id": "WeatherAlarm-83b872975414bfca10832e564a1bb416-7",
     "validity": {
       "to": "2016-03-14T23:59:00",

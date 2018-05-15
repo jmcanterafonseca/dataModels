@@ -6,55 +6,42 @@ Get Europe WeatherAlarms as offered by Meteoalarm.eu
 
 import StringIO
 import re
-from flask import jsonify, request, Response
 import urllib2
 import xml.dom.minidom
 import datetime
 import json
 
 awareness_type_dict = {
-    '1': 'Wind',
-    '2': 'Snow/Ice',
-    '3': 'Thunderstorms',
-    '4': 'Fog',
-    '5': 'Extreme High Temperature',
-    '6': 'Extreme Low Temperature',
-    '7': 'Coastal Event',
-    '8': 'Forest Fire',
-    '9': 'Avalanches',
-    '10': 'Rain',
-    '11': 'Flood',
-    '12': 'Rain-Flood'
+    '1': 'wind',
+    '2': 'snow/ice',
+    '3': 'thunderstorms',
+    '4': 'fog',
+    '5': 'highTemperature',
+    '6': 'lowTemperature',
+    '7': 'coastalEvent',
+    '8': 'forestFire',
+    '9': 'avalanches',
+    '10': 'rain',
+    '11': 'flood',
+    '12': 'rain/flood'
 }
 
 awareness_level_dict = {
-    '': 'White',
-    '1': 'Green',
-    '2': 'Yellow',
-    '3': 'Orange',
-    '4': 'Red'
+    '': 'informational',
+    '1': 'low',
+    '2': 'medium',
+    '3': 'high',
+    '4': 'critical'
 }
 
 weather_alarms = "http://www.meteoalarm.eu/documents/rss/{}.rss"
 
 reg_exp = re.compile('<img(?P<group>.*?)>')
 
+countries_to_retrieve = []
 
-def get_weather_alarms(request):
-    query = request.args.get('q')
 
-    if not query:
-        return Response(json.dumps([]), mimetype='application/json')
-
-    tokens = query.split(';')
-
-    country = ''
-
-    for token in tokens:
-        items = token.split(':')
-        if items[0] == 'country':
-            country = items[1].lower()
-
+def get_weather_alarms(country):
     source = weather_alarms.format(country)
     req = urllib2.Request(url=source)
     f = urllib2.urlopen(req)
@@ -101,13 +88,14 @@ def get_weather_alarms(request):
                     if alarm_data['level'] > 1:
                         alarm_index += 1
                         obj = {
-                            'type': 'WeatherAlarm',
+                            'type': 'Alert',
+                            'category': 'weather',
                             'id': 'WeatherAlarm-{}-{}'.format(uid, alarm_index),
                             'validity': {
                                 'from': '',
                                 'to': ''},
-                            'awarenessType': alarm_data['awt'],
-                            'awarenessLevel': alarm_data['levelColor'],
+                            'subCategory': alarm_data['awt'],
+                            'severity': alarm_data['levelColor'],
                             'address': {
                                 'addressCountry': country.upper(),
                                 'addressRegion': zone},
@@ -129,7 +117,7 @@ def get_weather_alarms(request):
                         out[alarm_index]['validity']['to'] = valid_to
 
     out = remove_duplicates(out)
-    return Response(json.dumps(out), mimetype='application/json')
+    return out
 
 
 def remove_duplicates(array_data):
@@ -139,7 +127,7 @@ def remove_duplicates(array_data):
 
     for data in array_data:
         key = ('{address[addressCountry]}{address[addressRegion]}'
-               '{awarenessLevel}{awarenessType}'
+               '{severity}{subCategory}'
                '{validity[from]}{validity[to]}').format(**data)
 
         if key not in alarms_duplicates:
@@ -158,3 +146,97 @@ def parse_alarm(alarm_string):
         'levelColor': awareness_level_dict.get(level, ''),
         'awt': awareness_type_dict.get(awt, '')
     }
+
+def setup_logger():
+    global logger
+
+    LOG_FILENAME = 'harvest_weather_alarms.log'
+
+    # Set up a specific logger with our desired output level
+    logger = logging.getLogger('WeatherAlarms')
+    logger.setLevel(logging.DEBUG)
+
+    #  Add the log message handler to the logger
+    handler = logging.handlers.RotatingFileHandler(
+        LOG_FILENAME, maxBytes=2000000, backupCount=3)
+    formatter = logging.Formatter('%(levelname)s %(asctime)s %(message)s')
+    handler.setFormatter(formatter)
+
+    logger.addHandler(handler)
+
+
+def persist_entities(data):
+    data_to_be_persisted = data
+
+    data_obj = {
+        'actionType': 'APPEND',
+        'entities': data_to_be_persisted
+    }
+    data_as_str = json.dumps(data_obj)
+
+    headers = {
+        'Content-Type': 'application/json',
+        'Content-Length': len(data_as_str)
+    }
+
+    if fiware_service:
+        headers['Fiware-Service'] = fiware_service
+
+    if fiware_service_path:
+        headers['Fiware-Servicepath'] = fiware_service_path
+
+    req = urllib2.Request(
+        url=(
+            orion_service +
+            '/v2/op/update'),
+        data=data_as_str,
+        headers=headers)
+
+    try:
+        with contextlib.closing(urllib2.urlopen(req)) as f:
+            logger.debug('Entities successfully created')
+    except urllib2.URLError as e:
+        logger.error('Error!!!')
+        logger.error(
+            'Error while POSTing data to Orion: %d %s',
+            e.code,
+            e.read())
+        logger.debug('Data which failed: %s', data_as_str)
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Weather alarm harvester')
+    parser.add_argument('--service', metavar='service',
+                        type=str, nargs=1, help='FIWARE Service')
+    parser.add_argument('--service-path', metavar='service_path',
+                        type=str, nargs=1, help='FIWARE Service Path')
+    parser.add_argument('--endpoint', metavar='endpoint',
+                        type=str, nargs=1, help='Context Broker end point. Example. http://orion:1030')
+    parser.add_argument('countries', metavar='countries', type=str, nargs='*',
+                        help='Country Codes separated by spaces. ')
+    
+    args = parser.parse_args()
+
+    if args.service:
+        fiware_service = args.service[0]
+        print('Fiware-Service: ' + fiware_service)
+
+    if args.service_path:
+        fiware_service_path = args.service_path[0]
+        print('Fiware-Servicepath: ' + fiware_service_path)
+
+    if args.endpoint:
+        orion_service = args.endpoint[0]
+        print('Context Broker: ' + orion_service)
+
+    for s in args.countries:
+        countries_to_retrieve.append(s)
+        
+    setup_logger()
+        
+    for c in countries_to_retrieve:
+        alarms = get_weather_alarms(c)
+        logger.debug("Going to persist data from country: %s",c)
+        persist_entities(alarms)
+
+    
