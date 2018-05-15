@@ -38,7 +38,7 @@ found [here](../schema.json).
         + (`trafficJam`, `carAccident`, `carWrongDirection`, `carStopped`,
           `pothole`, `roadClosed`, `roadWorks`, `hazardOnRoad`, `injuredBiker`)
           (for `traffic` category)
-        + (`rainfall`, `highTemperature`, `lowTemperature`, `heatWave`, ,coldWave`, `ice`,
+        + (`rainfall`, `highTemperature`, `lowTemperature`, `heatWave`, `coldWave`, `ice`,
           `snow`, `wind`, `fog`, `flood`, `tsunami`, `tornado`, `tropicalCyclone`,
           `hurricane`, `snow/ice`, `thunderstorms`, `coastalEvent`, `forestFire`,
           `avalanches`, `rain/flood`) (for `weather` category)
