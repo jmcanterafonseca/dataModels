@@ -11,7 +11,7 @@
 
 ## Agency
 
-See https://developers.google.com/transit/gtfs/reference/#agencytxt](https://developers.google.com/transit/gtfs/reference/#agencytxt)
+See [https://developers.google.com/transit/gtfs/reference/#agencytxt](https://developers.google.com/transit/gtfs/reference/#agencytxt)
 
 ### Entity id
 
@@ -25,7 +25,7 @@ It shall be equal to `gtfs:Agency`
 
 Entity's properties are:
 
-agency_name,agency_url,agency_timezone,agency_phone,agency_lang
+`agency_name,agency_url,agency_timezone,agency_phone,agency_lang`
 
 ### Relationships
 
@@ -60,14 +60,14 @@ It shall be equal to `gtfs:Stop`
 
 Entity's properties are the following:
 
-stop_name,stop_desc,stop_url,location_type,parent_station
+`stop_name,stop_desc,stop_url,location_type`
 
 `stop_lat` and `stop_long` shall be mapped to a `location` property, encoded as a GeoJSON point.
 
 ### Relationships
 
 The field `parent_station` shall be mapped to a Relationship which shall point to another entity of type `gtfs_Stop`
-which `location_type` attribute is equal to `1`. 
+which `location_type` attribute shall be equal to `1`. 
 
 ### Example
 
