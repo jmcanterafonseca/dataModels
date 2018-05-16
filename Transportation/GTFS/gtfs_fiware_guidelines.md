@@ -11,9 +11,11 @@
 
 ## Agency
 
+See https://developers.google.com/transit/gtfs/reference/#agencytxt](https://developers.google.com/transit/gtfs/reference/#agencytxt)
+
 ### Entity id
 
-It shall be `urn:ngsi-ld:gtfs:Agency:<agency_id>` being `agency_id` a value that can be derived from `agency_id`. 
+It shall be `urn:ngsi-ld:gtfs:Agency:<agency_identifier>` being `agency_identifier` a value that can be derived from `agency_id`. 
 
 ### Entity Type
 
@@ -21,9 +23,9 @@ It shall be equal to `gtfs:Agency`
 
 ### Properties
 
-Entity's properties are those listed as fields at
+Entity's properties are:
 
-[https://developers.google.com/transit/gtfs/reference/#agencytxt](https://developers.google.com/transit/gtfs/reference/#agencytxt)
+agency_name,agency_url,agency_timezone,agency_phone,agency_lang
 
 ### Relationships
 
@@ -44,9 +46,11 @@ None
 
 ## Stop
 
+See [https://developers.google.com/transit/gtfs/reference/#stoptxt](https://developers.google.com/transit/gtfs/reference/#stoptxt)
+
 ### Entity id
 
-It shall be `urn:ngsi-ld:gtfs:Stop:<stop_id>` being `stop_id` a value that can derived from the `stop_id` field. 
+It shall be `urn:ngsi-ld:gtfs:Stop:<stop_identifier>` being `stop_identifier` a value that can derived from the `stop_id` field. 
 
 ### Entity Type
 
@@ -54,15 +58,16 @@ It shall be equal to `gtfs:Stop`
 
 ### Properties
 
-Entity's properties are those listed as fields at
+Entity's properties are the following:
 
-[https://developers.google.com/transit/gtfs/reference/#stoptxt](https://developers.google.com/transit/gtfs/reference/#stoptxt)
+stop_name,stop_desc,stop_url,location_type,parent_station
 
-with the exception of `stop_lat` and `stop_long` which shall be mapped to `location`, encoded as a GeoJSON point.
+`stop_lat` and `stop_long` shall be mapped to a `location` property, encoded as a GeoJSON point.
 
 ### Relationships
 
-The field `parent_station` shall be mapped to a Relationship which shall point to another entity of type `gtfs_Stop` which location_type is equal to `1`. 
+The field `parent_station` shall be mapped to a Relationship which shall point to another entity of type `gtfs_Stop`
+which `location_type` attribute is equal to `1`. 
 
 ### Example
 
@@ -78,3 +83,6 @@ The field `parent_station` shall be mapped to a Relationship which shall point t
   }
 }
 ```
+
+
+## Route 
