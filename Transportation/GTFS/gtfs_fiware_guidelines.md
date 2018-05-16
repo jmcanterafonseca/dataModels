@@ -1,4 +1,4 @@
-# How to map GTFS entities to NGSI(-LD) entities
+# How to map GTFS (General Transit Feed Specification) entities to NGSI(-LD) entities
 
 ## Agency
 
@@ -6,7 +6,7 @@
 
 ### Entity id
 
-It shall be equal to the value of the field `agency_id`
+It shall be `urn:ngsi-ld:gtfs:Agency:<agency_id>` being `agency_id` the value of the correspoding field in the Agency feed. 
 
 ### Entity Type
 
@@ -14,11 +14,23 @@ It shall be equal to `gtfs:Agency`
 
 ### Properties
 
-Entity's properties can be those listed as fields at
+Entity's properties are those listed as fields at
 
 [https://developers.google.com/transit/gtfs/reference/#agencytxt](https://developers.google.com/transit/gtfs/reference/#agencytxt)
 
-### Relationsships
+### Relationships
 
 None
 
+### Example
+
+```json
+{
+  "id": "urn:ngsi-ld:gtfs:Agency:EMT",
+  "type": "gtfs:Agency",
+  "agency_name": "Empresa Malagueña de Transportes",
+  "agency_url": "http://www.emtmalaga.es/",
+  "agency_timezone": "Europe/Madrid",
+  "agency_lang": "ES"
+}
+```
