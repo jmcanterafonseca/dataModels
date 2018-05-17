@@ -20,7 +20,7 @@ curl http://<orion_host:port>/v2/entities?type=Alert&q=category==weather&address
 ```json
 {
     "severity": "medium",
-    "subcategory": "snow/ice",
+    "subCategory": "snow/ice",
     "alertSource": "http://www.meteoalarm.eu",
     "address": {
       "addressCountry": "ES",
