@@ -7,4 +7,3 @@ The following entity types are supported:
 * `WeatherForecast` .- Weather forecasts provided by [AEMET](http://aemet.es) and [IPMA](http://ipma.pt)
 * `Alert` .- Alerts with `weather` `category` provided by [MeteoAlarm](http://meteoalarm.eu) and [IPMA](http://ipma.pt)
 
-The main script in this folder is `aemet.pyw which serves as the main entry point for NGSIv2 weather data. 
