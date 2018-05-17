@@ -49,32 +49,32 @@
           ]
         },
         "subCategory": {
-          "allOf": [
-            {
-              "type": "string",
-              "enum": [
-                "trafficJam",
-                "carAccident",
-                "carWrongDirection",
-                "carStopped",
-                "pothole",
-                "roadClosed",
-                "roadWorks",
-                "hazardOnRoad",
-                "injuredBiker",
-                "asthmaAttack",
-                "bumpedPatient",
-                "fallenPatient",
-                "heartAttack",
-                "suspiciousAction",
-                "robbery",
-                "assault"
+            "type": "string",
+            "anyOf": [
+                {
+                  "enum": [
+                    "trafficJam",
+                    "carAccident",
+                    "carWrongDirection",
+                    "carStopped",
+                    "pothole",
+                    "roadClosed",
+                    "roadWorks",
+                    "hazardOnRoad",
+                    "injuredBiker",
+                    "asthmaAttack",
+                    "bumpedPatient",
+                    "fallenPatient",
+                    "heartAttack",
+                    "suspiciousAction",
+                    "robbery",
+                    "assault"
+                  ]
+                },
+                {
+                  "$ref": "https://fiware.github.io/dataModels/Weather/weather-schema.json#/definitions/WeatherAlertCategories"
+                }
               ]
-            },
-            {
-              "$ref": "https://fiware.github.io/dataModels/Weather/weather-schema.json#/definitions/WeatherAlertCategories"
-            }
-          ]
         },
         "alertSource": {
           "oneOf": [

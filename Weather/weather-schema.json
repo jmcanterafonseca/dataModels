@@ -5,7 +5,6 @@
   "description": "Common definitions of weather data models",
   "definitions": {
     "WeatherAlertCategories": {
-      "type": "string",
       "enum": [
             "rainfall",
             "highTemperature",
@@ -27,7 +26,7 @@
             "forestFire",
             "avalanches",
             "rain/flood"
-          ]
+      ]
     },
     "Weather-AirConditions": {
       "type": "object",
