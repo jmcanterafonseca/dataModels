@@ -14,7 +14,9 @@
  
  ## General rules
  
- Entity Attributes (Properties or Relationships) are subject to the restrictions defined by the [GTFS specification](https://developers.google.com/transit/gtfs/reference/#term-definitions)
+ Entity Attributes (Properties or Relationships) are subject to the restrictions defined by the
+ [GTFS specification](https://developers.google.com/transit/gtfs/reference/#term-definitions)
+ If an Attribute is an enumeration its value shall be provided as per the GTFS specification (not LinkedGTFS). 
 
 ## Agency
 
@@ -39,7 +41,7 @@ It shall be equal to `gtfs:Agency`
 | agency_timezone       | timezone            | gtfs:timezone     |
 | agency_phone          | phone               | foaf:phone        |
 | agency_lang           | language            | dct:language      |
-|                       | address             |                   | [https://schema.org/address](https://schema.org/address)
+|                       | address             |                   | Agency's [address](https://schema.org/address)
    
 
 
@@ -64,11 +66,13 @@ None
 
 See [https://developers.google.com/transit/gtfs/reference/#stoptxt](https://developers.google.com/transit/gtfs/reference/#stoptxt)
 
-It represents a GTFS `stop` which `location_type` shall be 0. 
+It represents a GTFS `stop` which `location_type` shall be equal to `0`. 
 
 ### Entity id
 
-It shall be `urn:ngsi-ld:gtfs:Stop:<stop_identifier>` being `stop_identifier` a value that can derived from the `stop_id` field. 
+It shall be `urn:ngsi-ld:gtfs:Stop:<stop_identifier>`
+
+being `stop_identifier` a value that can derived from the `stop_id` field. 
 
 ### Entity Type
 
@@ -76,29 +80,53 @@ It shall be equal to `gtfs:Stop`
 
 ### Properties
 
-Entity's properties are enumerated below:
+| GTFS Field            | NGSI Attribute        | LinkedGTFS                  | Comment                                                |
+| --------------------- |:---------------------:| ---------------------------:| -------------------------------------------------------|
+| stop_name             | name                  | foaf:name                   |
+| stop_code             | code                  | gtfs:code                   |
+| stop_url              | page                  | foaf:page                   |
+| stop_desc             | description           | dct:description             |
+| stop_long,stop_lat    | location              | geo:long,geo:lat            | Encoded as a GeoJSON Point.
+| wheelchair_boarding   | wheelChairAccessible  | gtfs:wheelChairAccessible   | `0`, .1`, `2` as per GTFS spec.   
+|                       | address               |                             | Stop's [address](https://schema.org/address)
 
-`stop_name,stop_desc,stop_url`
-
-`stop_lat` and `stop_long` shall be mapped to a `location` property, encoded as a GeoJSON point.
 
 ### Relationships
 
-The field `parent_station` shall be mapped to a Relationship which shall point to another entity of type `gtfs:Station`
-(GTFS stop with `location_type` attribute equal to `1`). 
+| GTFS Field            | NGSI Attribute      | LinkedGTFS           | Comment                                                |
+| --------------------- |:-------------------:| --------------------:| -------------------------------------------------------|
+| parent_station        | parentStation       | gtfs:parentStation   | Shall point to another Entity of Type `gtfs:Station`
+|                       | agency              |                      | Shall point's to stop's agency. 
 
-### Example
+### Examples
 
 ```json
 {
   "id": "urn:ngsi-ld:gtfs:Stop:Malaga_101",
   "type": "gtfs:Stop",
-  "stop_code": "101",
-  "stop_name": "Alameda Principal (Sur)",
+  "code": "101",
+  "name": "Alameda Principal (Sur)",
   "location": {
     "type": "Point",
     "coordinates": [-4.424393,36.716872]
-  }
+  },
+  "agency": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT"
+}
+```
+
+```json
+{
+  "id": "urn:ngsi-ld:gtfs:Stop:Madrid_par_4_1",
+  "type": "gtfs:Stop",
+  "code": "1",
+  "name": "PLAZA DE CASTILLA",
+  "location": {
+    "type": "Point",
+    "coordinates": [-3.68917,40.4669]
+  },
+  "page": "http://www.crtm.es",
+  "agency": "urn:ngsi-ld:gtfs:Agency:Metro_de_Madrid",
+  "parentStation": "urn:ngsi-ld:Station:Madrid:est_90_21"
 }
 ```
 
@@ -106,11 +134,13 @@ The field `parent_station` shall be mapped to a Relationship which shall point t
 
 See [https://developers.google.com/transit/gtfs/reference/#stoptxt](https://developers.google.com/transit/gtfs/reference/#stoptxt)
 
-`location_type` shall be `1`. 
+It is a GTFS `stop` which `location_type` is equal to `1`. 
 
 ### Entity id
 
-It shall be `urn:ngsi-ld:gtfs:Station:<station_identifier>` being `station_identifier` a value that can derived from the `stop_id` field. 
+It shall be `urn:ngsi-ld:gtfs:Station:<station_identifier>`
+
+being `station_identifier` a value that can derived from the `stop_id` field. 
 
 ### Entity Type
 
@@ -118,29 +148,33 @@ It shall be equal to `gtfs:Station`
 
 ### Properties
 
-Entity's properties are enumerated below:
-
-`stop_name,stop_desc,stop_url`
-
-`stop_lat` and `stop_long` shall be mapped to a `location` property, encoded as a GeoJSON point.
+Same as `gtfs:Stop`. 
 
 ### Relationships
 
-`has_stops` is a Relationship which shall point to another entity of type `gtfs:Stop`
-(GTFS stop with `location_type` attribute equal to `0`). 
+| GTFS Field            | NGSI Attribute      | LinkedGTFS           | Comment                                                |
+| --------------------- |:-------------------:| --------------------:| -------------------------------------------------------|
+|                       | hasStop             |                      | shall point to another Entity(ies) of type `gtfs:Stop`
 
 ### Example
 
 ```json
 {
-  "id": "urn:ngsi-ld:gtfs:Station:Malaga_101",
+  "id": "urn:ngsi-ld:Station:Madrid:est_90_21",
   "type": "gtfs:Station",
-  "stop_code": "101",
-  "stop_name": "Alameda Principal (Sur)",
+  "code": "21",
+  "name": "Intercambiador de Plaza de Castilla",
   "location": {
     "type": "Point",
-    "coordinates": [-4.424393,36.716872]
+    "coordinates": [-3.6892,40.4669]
+  },
+  "address": {
+    "type": "PostalAddress",
+    "streetAddress": "Paseo de la Castellana 189",
+    "addressLocality": "Madrid",
+    "addressCountry": "ES"
   }
+  "hasStop": ["urn:ngsi-ld:gtfs:Stop:Madrid_par_4_1"]
 }
 ```
 
