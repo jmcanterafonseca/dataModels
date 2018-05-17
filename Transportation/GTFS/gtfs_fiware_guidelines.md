@@ -22,7 +22,9 @@ See [https://developers.google.com/transit/gtfs/reference/#agencytxt](https://de
 
 ### Entity id
 
-It shall be `urn:ngsi-ld:gtfs:Agency:<agency_identifier>` being `agency_identifier` a value that can be derived from `agency_id`. 
+It shall be `urn:ngsi-ld:gtfs:Agency:<agency_identifier>`
+
+being `agency_identifier` a value that can be derived from `agency_id`. 
 
 ### Entity Type
 
