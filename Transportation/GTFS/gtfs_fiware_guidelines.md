@@ -95,12 +95,13 @@ It shall be equal to `gtfs:Stop`
 
 | GTFS Field            | NGSI Attribute      | LinkedGTFS           | Comment                                                |
 |:--------------------- |:--------------------|:-------------------- |:-------------------------------------------------------|
-| parent_station        | parentStation       | gtfs:parentStation   | Shall point to another Entity of Type `gtfs:Station`
-|                       | agency              |                      | Shall point's to stop's agency. 
+| parent_station        | hasParentStation    | gtfs:parentStation   | Shall point to another Entity of Type `gtfs:Station`
+|                       | operatedBy          |                      | Shall point to another Entity of Type `gtfs:Agency`
+| zone_id               | locatedInZone       |                      | Shall point to another Entity of Type `gtfs:Zone`.  
 
 ### Examples
 
-```json
+``json
 {
   "id": "urn:ngsi-ld:gtfs:Stop:Malaga_101",
   "type": "gtfs:Stop",
@@ -110,7 +111,7 @@ It shall be equal to `gtfs:Stop`
     "type": "Point",
     "coordinates": [-4.424393,36.716872]
   },
-  "agency": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT"
+  "operatedBy": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT"
 }
 ```
 
@@ -125,8 +126,8 @@ It shall be equal to `gtfs:Stop`
     "coordinates": [-3.68917,40.4669]
   },
   "page": "http://www.crtm.es",
-  "agency": "urn:ngsi-ld:gtfs:Agency:Metro_de_Madrid",
-  "parentStation": "urn:ngsi-ld:Station:Madrid:est_90_21"
+  "operatedBy": "urn:ngsi-ld:gtfs:Agency:Metro_de_Madrid",
+  "hasParentStation": "urn:ngsi-ld:Station:Madrid:est_90_21"
 }
 ```
 
