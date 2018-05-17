@@ -1,6 +1,6 @@
-# Weather Alarm (Alert)
+# Weather Alert
 
-This folder contains all the software artefacts to offer weather alarm data in NGSIv2.
+This folder contains all the software artefacts to offer weather alert data in NGSIv2.
 The source of this data is the global [European Weather Alarm Service](http://meteoalarm.eu).
 
 * `meteoalarm_harvest.py`. A harvester for weather alarms throughout Europe.
@@ -21,14 +21,14 @@ curl http://<orion_host:port>/v2/entities?type=Alert&q=category==weather&address
 {
     "severity": "medium",
     "subcategory": "snow/ice",
-    "source": "http://www.meteoalarm.eu",
+    "alertSource": "http://www.meteoalarm.eu",
     "address": {
       "addressCountry": "ES",
       "addressRegion": "Huesca"
     },
-    "dateObserved": "2016-03-14T13:54:01",
+    "dateIssued": "2016-03-14T13:54:01",
     "type": "Alert",
-    "id": "WeatherAlarm-83b872975414bfca10832e564a1bb416-7",
+    "id": "WeatherAlert-83b872975414bfca10832e564a1bb416-7",
     "validTo": "2016-03-14T23:59:00",
     "validFrom": "2016-03-14T13:00:00"
 }

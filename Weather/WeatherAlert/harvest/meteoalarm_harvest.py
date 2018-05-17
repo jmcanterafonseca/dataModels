@@ -107,7 +107,7 @@ def get_weather_alarms(country):
                                 'type': 'Property',
                                 'value': 'weather'
                             },
-                            'id': 'WeatherAlarm-{}-{}'.format(uid, alarm_index),
+                            'id': 'WeatherAlert-{}-{}'.format(uid, alarm_index),
                             'subCategory': {
                                 'type': 'Property',
                                 'value': alarm_data['awt']
@@ -128,7 +128,7 @@ def get_weather_alarms(country):
                                 'type': 'Property',
                                 'value': 'http://www.meteoalarm.eu'
                             },
-                            'dateObserved': {
+                            'dateIssued': {
                                 'value': pub_date,
                                 'type': 'DateTime'
                             }
