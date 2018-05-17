@@ -73,7 +73,7 @@ pages:
       - 'Introduction'         : 'Weather/doc/introduction.md'
       - 'WeatherObserved'      : 'Weather/WeatherObserved/doc/spec.md'
       - 'WeatherForecast'      : 'Weather/WeatherForecast/doc/spec.md'
-      - 'WeatherAlarm'         : 'Weather/WeatherAlarm/doc/spec.md'
+      - 'WeatherAlert'         : 'Weather/WeatherAlert/doc/spec.md'
   -  'Waste Management':
       - 'Introduction'         : 'WasteManagement/doc/introduction.md'
       - 'WasteContainerIsle'   : 'WasteManagement/WasteContainerIsle/doc/spec.md'
