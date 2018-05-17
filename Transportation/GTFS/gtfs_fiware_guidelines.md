@@ -35,7 +35,7 @@ It shall be equal to `gtfs:Agency`
 ### Properties
 
 | GTFS Field            | NGSI Attribute      | LinkedGTFS        | Comment                                                |
-| --------------------- |:-------------------:| -----------------:| -------------------------------------------------------|
+| --------------------- |:--------------------|:----------------- |:-------------------------------------------------------|
 | agency_name           | name                | foaf:name         | 
 | agency_url            | page                | foaf:page         |
 | agency_timezone       | timezone            | gtfs:timezone     |
@@ -81,13 +81,13 @@ It shall be equal to `gtfs:Stop`
 ### Properties
 
 | GTFS Field            | NGSI Attribute        | LinkedGTFS                  | Comment                                                |
-| --------------------- |:---------------------:| ---------------------------:| -------------------------------------------------------|
+| --------------------- |:----------------------|:----------------------------|:-------------------------------------------------------|
 | stop_name             | name                  | foaf:name                   |
 | stop_code             | code                  | gtfs:code                   |
 | stop_url              | page                  | foaf:page                   |
 | stop_desc             | description           | dct:description             |
 | stop_long,stop_lat    | location              | geo:long,geo:lat            | Encoded as a GeoJSON Point.
-| wheelchair_boarding   | wheelChairAccessible  | gtfs:wheelChairAccessible   | `0`, .1`, `2` as per GTFS spec.   
+| wheelchair_boarding   | wheelChairAccessible  | gtfs:wheelChairAccessible   | `0`, `1`, `2` as per GTFS spec.   
 |                       | address               |                             | Stop's [address](https://schema.org/address)
 
 
@@ -173,7 +173,7 @@ Same as `gtfs:Stop`.
     "streetAddress": "Paseo de la Castellana 189",
     "addressLocality": "Madrid",
     "addressCountry": "ES"
-  }
+  },
   "hasStop": ["urn:ngsi-ld:gtfs:Stop:Madrid_par_4_1"]
 }
 ```
