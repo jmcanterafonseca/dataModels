@@ -101,7 +101,7 @@ It shall be equal to `gtfs:Stop`
 
 ### Examples
 
-``json
+```json
 {
   "id": "urn:ngsi-ld:gtfs:Stop:Malaga_101",
   "type": "gtfs:Stop",
