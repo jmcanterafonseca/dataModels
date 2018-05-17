@@ -1,4 +1,4 @@
-# How to map GTFS feeds to FIWARE NGSI
+# How to represent GTFS feeds using FIWARE NGSI
 
 ## Introduction
 
@@ -8,10 +8,13 @@
  that data in an interoperable way.
  
  This document provides guidelines on how to map GTFS feeds into FIWARE NGSI content.
+ This work leverages on [LinkedGTFS specification](https://github.com/OpenTransport/linked-gtfs/blob/master/spec.md).
+ Whenever possible the NGSI attributes map directly to GTFS fields. Nonethless for some Entity Types extra attributes are suggested in order
+ to better support the data model using the NGSI information model. 
  
  ## General rules
  
- Entity Attributes (Properties or Relationships) are subject to the rules defined by the [GTFS specification](https://developers.google.com/transit/gtfs/reference/#term-definitions)
+ Entity Attributes (Properties or Relationships) are subject to the restrictions defined by the [GTFS specification](https://developers.google.com/transit/gtfs/reference/#term-definitions)
 
 ## Agency
 
@@ -27,9 +30,16 @@ It shall be equal to `gtfs:Agency`
 
 ### Properties
 
-Entity's properties are enumerated below:
+| GTFS Field            | NGSI Attribute      | LinkedGTFS        | Comment                                                 |
+| --------------------- |:-------------------:| -----------------:| -------------------------------------------------------:|
+| agency_name           | name                | foaf:name         | 
+| agency_url            | page                | foaf:page         |
+| agency_timezone       | timezone            | gtfs:timezone     |
+| agency_phone          | phone               | foaf:phone        |
+| agency_lang           | language            | dct:language      |
+|                       | address             |                   | [https://schema.org/address](https://schema.org/address)
+   
 
-`agency_name,agency_url,agency_timezone,agency_phone,agency_lang`
 
 ### Relationships
 
@@ -41,10 +51,10 @@ None
 {
   "id": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT",
   "type": "gtfs:Agency",
-  "agency_name": "Empresa Malagueña de Transportes",
-  "agency_url": "http://www.emtmalaga.es/",
-  "agency_timezone": "Europe/Madrid",
-  "agency_lang": "ES"
+  "name": "Empresa Malagueña de Transportes",
+  "page": "http://www.emtmalaga.es/",
+  "timezone": "Europe/Madrid",
+  "language": "ES"
 }
 ```
 
@@ -52,7 +62,7 @@ None
 
 See [https://developers.google.com/transit/gtfs/reference/#stoptxt](https://developers.google.com/transit/gtfs/reference/#stoptxt)
 
-`location_type` shall be 0. 
+It represents a GTFS `stop` which `location_type` shall be 0. 
 
 ### Entity id
 
