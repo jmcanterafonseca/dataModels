@@ -32,8 +32,8 @@ It shall be equal to `gtfs:Agency`
 
 ### Properties
 
-| GTFS Field            | NGSI Attribute      | LinkedGTFS        | Comment                                                 |
-| --------------------- |:-------------------:| -----------------:| -------------------------------------------------------:|
+| GTFS Field            | NGSI Attribute      | LinkedGTFS        | Comment                                                |
+| --------------------- |:-------------------:| -----------------:| -------------------------------------------------------|
 | agency_name           | name                | foaf:name         | 
 | agency_url            | page                | foaf:page         |
 | agency_timezone       | timezone            | gtfs:timezone     |
