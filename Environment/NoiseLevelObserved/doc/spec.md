@@ -65,9 +65,7 @@ It allows to convey, roughly, information about the precision of the measurement
 
 The number of acoustic parameters measured can vary. *For each* acoustic measurand there *MUST* be an attribute which name *MUST* be
 exactly equal to the acoustic measurand name, as follows:
-
-    + Attribute name: Equal to the name of the measurand, for instance `LAeq`, `LAeq,d`. It must correspond to a term defined at
-        [http://www.acoustic-glossary.co.uk/definitions-l.htm](http://www.acoustic-glossary.co.uk/definitions-l.htm).
+    + Attribute name: Equal to the name of the measurand, for instance `LAeq`, `LAeq,d`. It must correspond to a term defined at [http://www.acoustic-glossary.co.uk/definitions-l.htm](http://www.acoustic-glossary.co.uk/definitions-l.htm).
     + Attribute type: [Number](https://schema.org/Number)
     + Attribute value: corresponds to the value for the measurand as a number expressed in decibels.
     + Attribute Metadata:
