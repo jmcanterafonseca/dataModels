@@ -60,6 +60,10 @@ It allows to convey, roughly, information about the precision of the measurement
     + Attribute type: [Text](https://schema.org/Text)
     + Allowed values: one of (`"0"`, `"1"`, `"2"`)
     + Optional
+    
++ `refPointOfInterest` : A reference to a point of interest associated to this observation.
+    + Attribute type: Reference to an entity of type `PointOfInterest`
+    + Optional    
 
 ### Representing acoustic parameters
 
@@ -87,7 +91,7 @@ mode (`options=keyValues`).
 
 ```json
 {
-        "id": "Vitoriaq-NoiseLevelObserved-2016-12-28T11:00:00_2016-12-28T12:00:00",
+        "id": "Vitoria-NoiseLevelObserved-2016-12-28T11:00:00_2016-12-28T12:00:00",
         "type": "NoiseLevelObserved",
         "LAS": 91.6,
         "LAeq": 67.8,
