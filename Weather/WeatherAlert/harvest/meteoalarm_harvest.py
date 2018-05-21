@@ -263,7 +263,7 @@ if __name__ == '__main__':
         print('Fiware-Service: ' + fiware_service)
 
     if args.service_path:
-        fiware_service_path = args.service_path[0]
+        fiware_service_path = args.service_path
         print('Fiware-Servicepath: ' + fiware_service_path)
 
     if args.endpoint:
