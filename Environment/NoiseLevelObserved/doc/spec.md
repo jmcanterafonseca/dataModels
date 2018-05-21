@@ -68,8 +68,8 @@ The number of acoustic parameters measured can vary. *For each* acoustic measura
 + Attribute type: [Number](https://schema.org/Number)
 + Attribute value: corresponds to the value for the measurand as a number expressed in decibels.
 + Attribute Metadata:
-        + `description`: short description of the measurand. (optional)
-        +  Normative References: [https://schema.org/description](https://schema.org/description)
+    + `description`: short description of the measurand. (optional)
+    +  Normative References: [https://schema.org/description](https://schema.org/description)
 
 ### Representing weather conditions
 
