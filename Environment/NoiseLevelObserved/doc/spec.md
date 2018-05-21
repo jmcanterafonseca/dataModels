@@ -40,15 +40,15 @@ This entity is primarily associated with the Smart City and environment vertical
 It can be represented by an specific time instant or by an ISO8601 interval. As a workaround for
 the lack of support of Orion Context Broker for datetime intervals, it can be used two separate attributes: `dateObservedFrom`, `dateObservedTo`. 
     + Attribute type: [DateTime](https://schema.org/DateTime) or an ISO8601 interval represented as [Text](https://schema.org/Text). 
-    + Mandatory
+    + Optional
         
 + `dateObservedFrom` : Observation period start date and time. See `dateObserved`. 
     + Attribute type: [DateTime](https://schema.org/DateTime). 
-    + Optional
+    + Mandatory
     
 + `dateObservedTo` : Observation period end date and time. See `dateObserved`. 
     + Attribute type: [DateTime](https://schema.org/DateTime). 
-    + Optional
+    + Mandatory
     
 + `refDevice` : A reference to the device which captured this observation.
     + Attribute type: Reference to an entity of type `Device`
