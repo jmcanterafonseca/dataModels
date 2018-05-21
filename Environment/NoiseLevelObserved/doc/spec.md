@@ -65,6 +65,7 @@ It allows to convey, roughly, information about the precision of the measurement
 
 The number of acoustic parameters measured can vary. *For each* acoustic measurand there *MUST* be an attribute which name *MUST* be
 exactly equal to the acoustic measurand name, as follows:
+
     + Attribute name: Equal to the name of the measurand, for instance `LAeq`, `LAeq,d`. It must correspond to a term defined at
         [http://www.acoustic-glossary.co.uk/definitions-l.htm](http://www.acoustic-glossary.co.uk/definitions-l.htm).
     + Attribute type: [Number](https://schema.org/Number)
@@ -87,9 +88,29 @@ mode (`options=keyValues`).
 
 ## Examples of use
 
+```json
+{
+        "id": "Vitoriaq-NoiseLevelObserved-2016-12-28T11:00:00_2016-12-28T12:00:00",
+        "type": "NoiseLevelObserved",
+        "LAS": 91.6,
+        "LAeq": 67.8,
+        "LAeq,d": 65.4,
+        "LAmax": 94.5,
+        "dateObservedFrom": "2016-12-28T11:00:00.00Z",
+        "dateObservedTo": "2016-12-28T12:00:00.00Z",
+        "location": {
+            "type": "Point",
+            "coordinates": [
+                -2.698,
+                42.8491
+            ]
+        }
+}
+```
+
 (In NGSIv2 normalized format)
 
-```
+```json
     {
       "id": "Vitoria-NoiseLevelObserved-2016-12-28T11:00:00_2016-12-28T12:00:00",
       "type": "NoiseLevelObserved",
