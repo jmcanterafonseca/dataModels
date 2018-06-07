@@ -7,6 +7,7 @@ See [https://developers.google.com/transit/gtfs/reference/#agencytxt](https://de
 ## Data Model
 
 + `id`: It shall be `urn:ngsi-ld:gtfs:Agency:<agency_identifier>`
+
 being `agency_identifier` a value that can be derived from `agency_id`. 
 
 + `type`: It shall be equal to `gtfs:Agency`
