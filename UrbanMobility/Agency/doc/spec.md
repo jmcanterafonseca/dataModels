@@ -9,7 +9,8 @@ See [https://developers.google.com/transit/gtfs/reference/#agencytxt](https://de
 + `id`: Entity id. 
     + It shall be `urn:ngsi-ld:gtfs:Agency:<agency_identifier>` being `agency_identifier` a value that can be derived from GTFS `agency_id`. 
 
-+ `type`: Entity type. It shall be equal to `gtfs:Agency`.
++ `type`: Entity type. 
+    + It shall be equal to `gtfs:Agency`.
 
 + `name`: Same as `agency_name`.
     + Attribute type: Property. [Text](https://schema.org/Text).
