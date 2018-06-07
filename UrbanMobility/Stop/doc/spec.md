@@ -22,10 +22,6 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
   + Attribute type: Property. [Text](https://schema.org/Text)
   + Optional
   
-+ `code`: Same as `stop_code`. 
-  + Attribute type: Property. [Text](https://schema.org/Text)
-  + Optional
-  
 + `page`: Same as `stop_url`. 
   + Attribute type: Property. [URL](https://schema.org/URL)
   + Optional
