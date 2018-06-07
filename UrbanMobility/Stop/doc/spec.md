@@ -38,6 +38,10 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
 + `wheelChairAccessible`: Same as `wheelchair_boarding`. 
   + Attribute type: Property. [Text](https://schema.org/Text)
   + Allowed values: (`0`, `1`, `2`) as per the [GTFS](https://developers.google.com/transit/gtfs/reference/#stoptxt)
+  
++ `zoneCode` : Transport zone to which this stop belongs to. Same as `zone_id`. 
+  + Attribute type: Property. [Text](https://schema.org/Text)
+  + Optional
 
 + `address`: Stop's civic address. 
   + Attribute type: Property. [PostalAddress](https://schema.org/PostalAddress)
@@ -51,9 +55,6 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
   + Attribute type: Relationship. It shall point to an Entity of Type [gtfs:Agency](../../Agency/doc/spec.md)
   + Mandatory
 
-+ `areaServed` : Same as `zone_id`. 
-  + Attribute type: Relationship. It shall point to an Entity of Type [gtfs:Agency](../../Agency/doc/spec.md)
-  + Optional
   
 ## Summary of GTFS mappings  
 
@@ -66,6 +67,7 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
 | stop_url              | page                  | foaf:page                   |
 | stop_desc             | description           | dct:description             |
 | stop_long,stop_lat    | location              | geo:long,geo:lat            | Encoded as a GeoJSON Point.
+| zone_id               | zoneCode              |                             |
 | wheelchair_boarding   | wheelChairAccessible  | gtfs:wheelChairAccessible   | `0`, `1`, `2` as per GTFS spec.   
 |                       | address               |                             | Stop's [address](https://schema.org/address). Schema.org
 
@@ -76,7 +78,6 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
 |:--------------------- |:--------------------|:-------------------- |:-------------------------------------------------------|
 | parent_station        | hasParentStation    | gtfs:parentStation   | Shall point to another Entity of Type `gtfs:Station`
 |                       | operatedBy          |                      | Shall point to another Entity of Type `gtfs:Agency`
-| zone_id               | locatedInZone       |                      | Shall point to another Entity of Type `gtfs:Zone`.  
 
 ### Examples
 
