@@ -6,15 +6,34 @@ See [https://developers.google.com/transit/gtfs/reference/#agencytxt](https://de
 
 ## Data Model
 
-### Entity id
-
-It shall be `urn:ngsi-ld:gtfs:Agency:<agency_identifier>`
-
++ `id`: It shall be `urn:ngsi-ld:gtfs:Agency:<agency_identifier>`
 being `agency_identifier` a value that can be derived from `agency_id`. 
 
-### Entity Type
++ `type`: It shall be equal to `gtfs:Agency`
 
-It shall be equal to `gtfs:Agency` 
++ `name`: Same as `agency_name`.
+    + Attribute type: Property. [Text](https://schema.org/Text).
+    + Mandatory
++ `page`: Same as `agency_url`.
+    + Attribute type: Property. [URL](https://schema.org/URL).
+    + Optional
++ `timezone`: Same as `agency_timezone`.
+    + Attribute type: Property. [Text](https://schema.org/Text).
+    + Allowed values: See [GTFS](https://developers.google.com/transit/gtfs/reference/#agencytxt)
+    + Optional
++ `phone`: Same as `agency_phone`.
+   + Attribute type: Property. [Text](https://schema.org/Text)
+   + Optional
++ `language`: Same as `agency_language`. 
+   + Attribute type: Property. [Text](https://schema.org/Text)
+   + Allowed values: See [GTFS](https://developers.google.com/transit/gtfs/reference/#agencytxt)
+   + Optional
++ `address`: Agency's civic address. 
+   + Attribute type: Property. [PostalAddress](https://schema.org/PostalAddress)
+   + Optional
+
+
+## Summary of mappings to GTFS
 
 ### Properties
 
