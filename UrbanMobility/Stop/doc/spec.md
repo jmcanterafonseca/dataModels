@@ -43,6 +43,18 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
   + Attribute type: Property. [PostalAddress](https://schema.org/PostalAddress)
   + Mandatory if `location` is not present
   
+`hasParentStation` : Same as `parent_station`.  
+  + Attribute type: Relationship. It shall point to an Entity of Type [gtfs:Station](../../Station/doc/spec.md)
+  + Optional
+
+`operatedBy` : Agency that operates this stop.
+  + Attribute type: Relationship. It shall point to an Entity of Type [gtfs:Agency](../../Agency/doc/spec.md)
+  + Mandatory
+
+`areaServed` : Same as `zone_id`. 
+  + Attribute type: Relationship. It shall point to an Entity of Type [gtfs:Agency](../../Agency/doc/spec.md)
+  + Optional
+  
 ## Summary of GTFS mappings  
 
 ### Properties
