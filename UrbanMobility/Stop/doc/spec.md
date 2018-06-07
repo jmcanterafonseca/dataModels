@@ -30,7 +30,7 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
   + Attribute type: Property. [URL](https://schema.org/URL)
   + Optional
   
- + `description`: Same as `stop_desc`. 
++ `description`: Same as `stop_desc`. 
   + Attribute type: Property. [Text](https://schema.org/Text)
   + Optional
  
@@ -43,7 +43,7 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
   + Attribute type: Property. [Text](https://schema.org/Text)
   + Allowed values: (`0`, `1`, `2`) as per the [GTFS](https://developers.google.com/transit/gtfs/reference/#stoptxt)
 
- + `address`: Stop's civic address. 
++ `address`: Stop's civic address. 
   + Attribute type: Property. [PostalAddress](https://schema.org/PostalAddress)
   + Mandatory if `location` is not present
   
