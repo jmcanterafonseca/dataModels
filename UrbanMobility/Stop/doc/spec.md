@@ -8,15 +8,46 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
 
 ## Data Model
 
-### Entity id
++ `id`: Entity Id
+  + It shall be `urn:ngsi-ld:gtfs:Stop:<stop_identifier>` being `stop_identifier` a value that can derived from the GTFS `stop_id` field. 
 
-It shall be `urn:ngsi-ld:gtfs:Stop:<stop_identifier>`
++ `type`: Entity Type 
+  + It shall be equal to `gtfs:Stop` 
+ 
++ `name`: Same as `stop_name`. 
+  + Attribute type: Property. [Text](https://schema.org/Text)
+  + Mandatory
+  
++ `code`: Same as `stop_code`. 
+  + Attribute type: Property. [Text](https://schema.org/Text)
+  + Optional
+  
++ `code`: Same as `stop_code`. 
+  + Attribute type: Property. [Text](https://schema.org/Text)
+  + Optional
+  
++ `page`: Same as `stop_url`. 
+  + Attribute type: Property. [URL](https://schema.org/URL)
+  + Optional
+  
+ + `description`: Same as `stop_desc`. 
+  + Attribute type: Property. [Text](https://schema.org/Text)
+  + Optional
+ 
++ `location`: Stop's location encoded as GeoJSON Point which coordinates shall be [`stop_long`,`stop_lat`].
+  + Attribute type: GeoProperty. `geo:json`.
+  + Normative References: [rfc7946](https://tools.ietf.org/html/rfc7946)
+  + Mandatory if `address` is not present
 
-being `stop_identifier` a value that can derived from the `stop_id` field. 
++ `wheelChairAccessible`: Same as `wheelchair_boarding`. 
+  + Attribute type: Property. [Text](https://schema.org/Text)
+  + Allowed values: (`0`, `1`, `2`) as per the [GTFS](https://developers.google.com/transit/gtfs/reference/#stoptxt)
 
-### Entity Type
-
-It shall be equal to `gtfs:Stop` 
+ + `address`: Stop's civic address. 
+  + Attribute type: Property. [PostalAddress](https://schema.org/PostalAddress)
+  + Mandatory if `location` is not present
+  
+## Summary of GTFS mappings  
 
 ### Properties
 
