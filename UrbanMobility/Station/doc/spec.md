@@ -8,26 +8,32 @@ It is a GTFS `stop` which `location_type` is equal to `1`.
 
 ## Data Model
 
-### Entity id
++ `id`: Entity Id
+  + It shall be `urn:ngsi-ld:gtfs:Station:<station_identifier>` being `station_identifier` a value that can derived from the `stop_id` field. 
 
-It shall be `urn:ngsi-ld:gtfs:Station:<station_identifier>`
++ `type`: Entity Type 
+  + It shall be equal to `gtfs:Station`
+  
++ `hasStop` : It shall point to another Entity(ies) of type `gtfs:Stop`  
+  + Type: Relationship. List of [gtfs:Stop](../../Stop/doc/spec.md). 
+  + Mandatory
+  
++ `hasAccessPoint` : It shall point to another Entity(ies) of type `gtfs:AccessPoint`  
+  + Type: Relationship. List of [gtfs:AccessPoint](../../AccessPoint/doc/spec.md). 
+  + Optional  
+ 
+The specification for the following attributes shall be as mandanted by [gtfs:Stop](../../Stop/doc/spec.md):
 
-being `station_identifier` a value that can derived from the `stop_id` field. 
-
-### Entity Type
-
-It shall be equal to `gtfs:Station` 
-
-### Properties
-
-Same as `gtfs:Stop`. 
-
-### Relationships
-
-| GTFS Field            | NGSI Attribute      | LinkedGTFS           | Comment                                                       |
-|:--------------------- |:--------------------|:---------------------|:--------------------------------------------------------------|
-|                       | hasStop             |                      | shall point to another Entity(ies) of type `gtfs:Stop`
-|                       | hasAccessPoint      |                      | shall point to another Entity(ies) of type `gtfs:AccessPoint`
++ `name`
++ `code`
++ `page`
++ `description`
++ `location`
++ `wheelChairAccessible`
++ `zoneCode` 
++ `address`
++ `hasParentStation` 
++ `operatedBy`
 
 ### Example
 
@@ -50,3 +56,18 @@ Same as `gtfs:Stop`.
   "hasStop": ["urn:ngsi-ld:gtfs:Stop:Madrid_par_4_1"]
 }
 ```
+
+## Summary of GTFS mappings
+
+### Properties
+
+Same as [gtfs:Stop](../../Stop/doc/spec.md)
+
+### Relationships
+
+| GTFS Field            | NGSI Attribute      | LinkedGTFS           | Comment                                                       |
+|:--------------------- |:--------------------|:---------------------|:--------------------------------------------------------------|
+|                       | hasStop             |                      | 
+|                       | hasAccessPoint      |                      | shall point to another Entity(ies) of type `gtfs:AccessPoint`
+
+
