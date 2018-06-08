@@ -18,7 +18,7 @@ Attributes shall be the same as [gtfs:Stop](../../Stop/doc/spec.md), i.e.
  
 + `name`  
 + `code`  
-+ `page
++ `page`
 + `description`
 + `location`
 + `wheelChairAccessible`
