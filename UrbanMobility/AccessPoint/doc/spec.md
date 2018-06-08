@@ -2,7 +2,7 @@
 
 ## Description
 
-See [https://developers.google.com/transit/gtfs/reference/#stoptxt](https://developers.google.com/transit/gtfs/reference/#stoptxt)
+See [https://developers.google.com/transit/gtfs/reference/#stopstxt](https://developers.google.com/transit/gtfs/reference/#stopstxt)
 
 It is a GTFS `stop` which `location_type` is equal to `2`.
 
