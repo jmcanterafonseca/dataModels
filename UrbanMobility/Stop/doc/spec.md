@@ -96,20 +96,4 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
 |                       | operatedBy          |                      | Shall point to another Entity of Type `gtfs:Agency`
 
 
-```json
-{
-  "id": "urn:ngsi-ld:gtfs:Stop:Madrid_par_4_1",
-  "type": "gtfs:Stop",
-  "code": "1",
-  "name": "PLAZA DE CASTILLA",
-  "location": {
-    "type": "Point",
-    "coordinates": [-3.68917,40.4669]
-  },
-  "page": "http://www.crtm.es",
-  "operatedBy": "urn:ngsi-ld:gtfs:Agency:Metro_de_Madrid",
-  "hasParentStation": "urn:ngsi-ld:Station:Madrid:est_90_21"
-}
-```
-
 ## Open issues
