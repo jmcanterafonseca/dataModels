@@ -8,27 +8,26 @@ It is a GTFS `stop` which `location_type` is equal to `2`.
 
 ## Data Model
 
-### Entity id
++ `id`: Entity Id
+  + It shall be `urn:ngsi-ld:gtfs:AccessPoint:<access_point_identifier>` being `access_point_identifier` a value that can derived from the `stop_id` field. 
 
-It shall be `urn:ngsi-ld:gtfs:AccessPoint:<access_point_identifier>`
++ `type`: Entity Type 
+  + It shall be equal to `gtfs:AccessPoint` 
 
-being `access_point_identifier` a value that can derived from the `stop_id` field. 
+Attributes shall be the same as [gtfs:Stop](../../Stop/doc/spec.md), i.e.
+ 
++ `name`  
++ `code`  
++ `page
++ `description`
++ `location`
++ `wheelChairAccessible`
++ `zoneCode`
++ `address`
++ `hasParentStation`
 
-### Entity Type
 
-It shall be equal to `gtfs:AccessPoint` 
-
-### Properties
-
-Same as `gtfs:Stop`. 
-
-### Relationships
-
-| GTFS Field            | NGSI Attribute      | LinkedGTFS           | Comment                                                |
-|:--------------------- |:--------------------|:---------------------|:-------------------------------------------------------|
-|                       | hasParentStation    |                      | shall point to another Entity(ies) of type `gtfs:Station`
-
-### Example
+### Examples
 
 ```json
 {
@@ -48,3 +47,17 @@ Same as `gtfs:Stop`.
   "hasParentStation": "urn:ngsi-ld:Station:Madrid:est_90_21"
 }
 ```
+
+## Summary of GTFS Mappings
+
+### Properties
+
+Same as `gtfs:Stop`. 
+
+### Relationships
+
+| GTFS Field            | NGSI Attribute      | LinkedGTFS           | Comment                                                |
+|:--------------------- |:--------------------|:---------------------|:-------------------------------------------------------|
+|                       | hasParentStation    |                      | shall point to another Entity(ies) of type `gtfs:Station`
+
+## Open issues
