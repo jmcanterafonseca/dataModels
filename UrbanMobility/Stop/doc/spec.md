@@ -55,6 +55,22 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
   + Attribute type: Relationship. It shall point to an Entity of Type [gtfs:Agency](../../Agency/doc/spec.md)
   + Mandatory
 
+### Examples
+
+```json
+{
+  "id": "urn:ngsi-ld:gtfs:Stop:Malaga_101",
+  "type": "gtfs:Stop",
+  "code": "101",
+  "name": "Alameda Principal (Sur)",
+  "location": {
+    "type": "Point",
+    "coordinates": [-4.424393,36.716872]
+  },
+  "operatedBy": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT"
+}
+```
+
   
 ## Summary of GTFS mappings  
 
@@ -79,21 +95,6 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
 | parent_station        | hasParentStation    | gtfs:parentStation   | Shall point to another Entity of Type `gtfs:Station`
 |                       | operatedBy          |                      | Shall point to another Entity of Type `gtfs:Agency`
 
-### Examples
-
-```json
-{
-  "id": "urn:ngsi-ld:gtfs:Stop:Malaga_101",
-  "type": "gtfs:Stop",
-  "code": "101",
-  "name": "Alameda Principal (Sur)",
-  "location": {
-    "type": "Point",
-    "coordinates": [-4.424393,36.716872]
-  },
-  "operatedBy": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT"
-}
-```
 
 ```json
 {
@@ -110,3 +111,5 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
   "hasParentStation": "urn:ngsi-ld:Station:Madrid:est_90_21"
 }
 ```
+
+## Open issues
