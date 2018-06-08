@@ -13,6 +13,14 @@ It is a GTFS `stop` which `location_type` is equal to `1`.
 
 + `type`: Entity Type 
   + It shall be equal to `gtfs:Station`
+ 
++ `dateCreated` : Entity's creation timestamp.
+  + Attribute type: [DateTime](https://schema.org/DateTime)
+  + Read-Only. Automatically generated.
+  
++ `dateModified` : Last update timestamp of this Entity.
+  + Attribute type: [DateTime](https://schema.org/DateTime)
+  + Read-Only. Automatically generated.
   
 + `hasStop` : It shall point to another Entity(ies) of type `gtfs:Stop`  
   + Type: Relationship. List of [gtfs:Stop](../../Stop/doc/spec.md). 

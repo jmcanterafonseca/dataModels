@@ -11,6 +11,14 @@ See [https://developers.google.com/transit/gtfs/reference/#agencytxt](https://de
 
 + `type`: Entity type. 
     + It shall be equal to `gtfs:Agency`.
+    
++ `dateCreated` : Entity's creation timestamp.
+  + Attribute type: [DateTime](https://schema.org/DateTime)
+  + Read-Only. Automatically generated. 
+ 
++ `dateModified` : Last update timestamp of this Entity.
+  + Attribute type: [DateTime](https://schema.org/DateTime)
+  + Read-Only. Automatically generated.     
 
 + `name`: Same as GTFS `agency_name`.
     + Attribute type: Property. [Text](https://schema.org/Text).

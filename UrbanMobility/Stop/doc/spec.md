@@ -12,8 +12,16 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
   + It shall be `urn:ngsi-ld:gtfs:Stop:<stop_identifier>` being `stop_identifier` a value that can derived from the GTFS `stop_id` field. 
 
 + `type`: Entity Type 
-  + It shall be equal to `gtfs:Stop` 
+  + It shall be equal to `gtfs:Stop`
  
++ `dateCreated` : Entity's creation timestamp.
+  + Attribute type: [DateTime](https://schema.org/DateTime)
+  + Read-Only. Automatically generated. 
+  
++ `dateModified` : Last update timestamp of this Entity.
+  + Attribute type: [DateTime](https://schema.org/DateTime)
+  + Read-Only. Automatically generated.
+
 + `name`: Same as GTFS `stop_name`. 
   + Attribute type: Property. [Text](https://schema.org/Text)
   + Mandatory
