@@ -36,8 +36,7 @@ This entity is primarily associated with the Smart City and environment vertical
     + Normative References: [https://schema.org/description]
     + Optional
     
-+ `dateObserved` : The date and time of this observation in ISO8601 UTC format.
-It can be represented by an specific time instant or by an ISO8601 interval. As a workaround for
++ `dateObserved` : The date and time of this observation represented by an ISO8601 interval. As a workaround for
 the lack of support of Orion Context Broker for datetime intervals, it can be used two separate attributes: `dateObservedFrom`, `dateObservedTo`. 
     + Attribute type: [DateTime](https://schema.org/DateTime) or an ISO8601 interval represented as [Text](https://schema.org/Text). 
     + Optional
@@ -68,11 +67,14 @@ It allows to convey, roughly, information about the precision of the measurement
 ### Representing acoustic parameters
 
 The number of acoustic parameters measured can vary. *For each* acoustic measurand there *MUST* be an attribute which name *MUST* be exactly equal to the acoustic measurand name, as follows:
-+ Attribute name: Equal to the name of the measurand, for instance `LAeq`, `LAeq,d`. It must correspond to a term defined at [http://www.acoustic-glossary.co.uk/definitions-l.htm](http://www.acoustic-glossary.co.uk/definitions-l.htm).
++ Attribute name: Equal to the name of the measurand, for instance `LAeq`, `LAmax`.
+It must correspond to a term defined at [http://www.acoustic-glossary.co.uk/definitions-l.htm](http://www.acoustic-glossary.co.uk/definitions-l.htm), with the only exception that
+those measurands which name contains a `,` char, such char shall be substituded by the `_` char. For instance, the measurand "LAeq,d" shall be represented by an Attribute which
+name shall be `LAeq_d`. 
 + Attribute type: [Number](https://schema.org/Number)
 + Attribute value: corresponds to the value for the measurand as a number expressed in decibels.
 + Attribute Metadata:
-    + `description`: short description of the measurand. (optional)
+    + `description_: short description of the measurand. (optional)
     +  Normative References: [https://schema.org/description](https://schema.org/description)
 
 ### Representing weather conditions
@@ -95,7 +97,7 @@ mode (`options=keyValues`).
         "type": "NoiseLevelObserved",
         "LAS": 91.6,
         "LAeq": 67.8,
-        "LAeq,d": 65.4,
+        "LAeq_d": 65.4,
         "LAmax": 94.5,
         "dateObservedFrom": "2016-12-28T11:00:00.00Z",
         "dateObservedTo": "2016-12-28T12:00:00.00Z",
@@ -154,7 +156,7 @@ mode (`options=keyValues`).
           }
         }
       },
-      "LAeq,d": {
+      "LAeq_d": {
         "value": 65.4,
         "metadata": {
           "description": {
