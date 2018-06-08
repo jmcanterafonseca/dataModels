@@ -38,7 +38,7 @@ This entity is primarily associated with the Smart City and environment vertical
     
 + `dateObserved` : The date and time of this observation represented by an ISO8601 interval. As a workaround for
 the lack of support of Orion Context Broker for datetime intervals, it can be used two separate attributes: `dateObservedFrom`, `dateObservedTo`. 
-    + Attribute type: [DateTime](https://schema.org/DateTime) or an ISO8601 interval represented as [Text](https://schema.org/Text). 
+    + Attribute type: ISO8601 interval represented as [Text](https://schema.org/Text). 
     + Optional
         
 + `dateObservedFrom` : Observation period start date and time. See `dateObserved`. 
