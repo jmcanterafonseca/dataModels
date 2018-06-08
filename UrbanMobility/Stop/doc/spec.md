@@ -41,11 +41,12 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
 + `location`: Stop's location encoded as GeoJSON Point which coordinates shall be in the form [`stop_long`,`stop_lat`].
   + Attribute type: GeoProperty. `geo:json`.
   + Normative References: [rfc7946](https://tools.ietf.org/html/rfc7946)
-  + Mandatory if `address` is not present
+  + Mandatory
 
 + `wheelChairAccessible`: Same as GTFS `wheelchair_boarding`. 
   + Attribute type: Property. [Text](https://schema.org/Text)
   + Allowed values: (`0`, `1`, `2`) as per the [GTFS](https://developers.google.com/transit/gtfs/reference/#stoptxt)
+  + Optional
   
 + `zoneCode` : Transport zone to which this stop belongs to. Same as GTFS `zone_id`. 
   + Attribute type: Property. [Text](https://schema.org/Text)
@@ -53,7 +54,7 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
 
 + `address`: Stop's civic address. 
   + Attribute type: Property. [PostalAddress](https://schema.org/PostalAddress)
-  + Mandatory if `location` is not present
+  + Optional
   
 + `hasParentStation` : Same as GTFS `parent_station`.  
   + Attribute type: Relationship. It shall point to an Entity of Type [gtfs:Station](../../Station/doc/spec.md)
