@@ -14,32 +14,32 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
 + `type`: Entity Type 
   + It shall be equal to `gtfs:Stop` 
  
-+ `name`: Same as `stop_name`. 
++ `name`: Same as GTFS `stop_name`. 
   + Attribute type: Property. [Text](https://schema.org/Text)
   + Mandatory
   
-+ `code`: Same as `stop_code`. 
++ `code`: Same as GTFS `stop_code`. 
   + Attribute type: Property. [Text](https://schema.org/Text)
   + Optional
   
-+ `page`: Same as `stop_url`. 
++ `page`: Same as GTFS `stop_url`. 
   + Attribute type: Property. [URL](https://schema.org/URL)
   + Optional
   
-+ `description`: Same as `stop_desc`. 
++ `description`: Same as GTFS `stop_desc`. 
   + Attribute type: Property. [Text](https://schema.org/Text)
   + Optional
  
-+ `location`: Stop's location encoded as GeoJSON Point which coordinates shall be [`stop_long`,`stop_lat`].
++ `location`: Stop's location encoded as GeoJSON Point which coordinates shall be in the form [`stop_long`,`stop_lat`].
   + Attribute type: GeoProperty. `geo:json`.
   + Normative References: [rfc7946](https://tools.ietf.org/html/rfc7946)
   + Mandatory if `address` is not present
 
-+ `wheelChairAccessible`: Same as `wheelchair_boarding`. 
++ `wheelChairAccessible`: Same as GTFS `wheelchair_boarding`. 
   + Attribute type: Property. [Text](https://schema.org/Text)
   + Allowed values: (`0`, `1`, `2`) as per the [GTFS](https://developers.google.com/transit/gtfs/reference/#stoptxt)
   
-+ `zoneCode` : Transport zone to which this stop belongs to. Same as `zone_id`. 
++ `zoneCode` : Transport zone to which this stop belongs to. Same as GTFS `zone_id`. 
   + Attribute type: Property. [Text](https://schema.org/Text)
   + Optional
 
@@ -47,7 +47,7 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
   + Attribute type: Property. [PostalAddress](https://schema.org/PostalAddress)
   + Mandatory if `location` is not present
   
-+ `hasParentStation` : Same as `parent_station`.  
++ `hasParentStation` : Same as GTFS `parent_station`.  
   + Attribute type: Relationship. It shall point to an Entity of Type [gtfs:Station](../../Station/doc/spec.md)
   + Optional
 
@@ -72,7 +72,7 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
 ```
 
   
-## Summary of GTFS mappings  
+## Summary of mappings to GTFS  
 
 ### Properties
 

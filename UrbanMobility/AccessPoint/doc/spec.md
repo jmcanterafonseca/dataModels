@@ -14,7 +14,7 @@ It is a GTFS `stop` which `location_type` is equal to `2`.
 + `type`: Entity Type 
   + It shall be equal to `gtfs:AccessPoint` 
 
-Attributes shall be the same as [gtfs:Stop](../../Stop/doc/spec.md), i.e.
+The following Attributes shall be as mandated by [gtfs:Stop](../../Stop/doc/spec.md):
  
 + `name`  
 + `code`  
@@ -22,7 +22,6 @@ Attributes shall be the same as [gtfs:Stop](../../Stop/doc/spec.md), i.e.
 + `description`
 + `location`
 + `wheelChairAccessible`
-+ `zoneCode`
 + `address`
 + `hasParentStation`
 
@@ -48,7 +47,7 @@ Attributes shall be the same as [gtfs:Stop](../../Stop/doc/spec.md), i.e.
 }
 ```
 
-## Summary of GTFS Mappings
+## Summary of mappings to GTFS
 
 ### Properties
 

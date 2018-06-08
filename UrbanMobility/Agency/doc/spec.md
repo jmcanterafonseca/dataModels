@@ -12,24 +12,24 @@ See [https://developers.google.com/transit/gtfs/reference/#agencytxt](https://de
 + `type`: Entity type. 
     + It shall be equal to `gtfs:Agency`.
 
-+ `name`: Same as `agency_name`.
++ `name`: Same as GTFS `agency_name`.
     + Attribute type: Property. [Text](https://schema.org/Text).
     + Mandatory
     
-+ `page`: Same as `agency_url`.
++ `page`: Same as GTFS `agency_url`.
     + Attribute type: Property. [URL](https://schema.org/URL).
     + Optional
     
-+ `timezone`: Same as `agency_timezone`.
++ `timezone`: Same as GTFS `agency_timezone`.
     + Attribute type: Property. [Text](https://schema.org/Text).
     + Allowed values: See [GTFS](https://developers.google.com/transit/gtfs/reference/#agencytxt)
     + Optional
     
-+ `phone`: Same as `agency_phone`.
++ `phone`: Same as GFTS `agency_phone`.
    + Attribute type: Property. [Text](https://schema.org/Text)
    + Optional
    
-+ `language`: Same as `agency_language`. 
++ `language`: Same as GTFS `agency_language`. 
    + Attribute type: Property. [Text](https://schema.org/Text)
    + Allowed values: See [GTFS](https://developers.google.com/transit/gtfs/reference/#agencytxt)
    + Optional

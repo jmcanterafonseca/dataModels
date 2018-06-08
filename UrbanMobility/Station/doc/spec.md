@@ -22,7 +22,7 @@ It is a GTFS `stop` which `location_type` is equal to `1`.
   + Type: Relationship. List of [gtfs:AccessPoint](../../AccessPoint/doc/spec.md). 
   + Optional  
  
-The specification for the following attributes shall be as mandanted by [gtfs:Stop](../../Stop/doc/spec.md):
+The specification for the following attributes is the one mandanted by [gtfs:Stop](../../Stop/doc/spec.md):
 
 + `name`
 + `code`
@@ -33,7 +33,6 @@ The specification for the following attributes shall be as mandanted by [gtfs:St
 + `zoneCode` 
 + `address`
 + `hasParentStation` 
-+ `operatedBy`
 
 ### Example
 
@@ -57,7 +56,7 @@ The specification for the following attributes shall be as mandanted by [gtfs:St
 }
 ```
 
-## Summary of GTFS mappings
+## Summary of mappings to GTFS
 
 ### Properties
 
@@ -67,7 +66,9 @@ Same as [gtfs:Stop](../../Stop/doc/spec.md)
 
 | GTFS Field            | NGSI Attribute      | LinkedGTFS           | Comment                                                       |
 |:--------------------- |:--------------------|:---------------------|:--------------------------------------------------------------|
-|                       | hasStop             |                      | 
-|                       | hasAccessPoint      |                      | shall point to another Entity(ies) of type `gtfs:AccessPoint`
+|                       | hasStop             |                      |                                                               |
+|                       | hasAccessPoint      |                      | shall point to another Entity(ies) of type `gtfs:AccessPoint` |
+|                       | hasParentStation    |                      | shall point to an Entity of type `gtfs:Station`         
 
 
+## Open issues
