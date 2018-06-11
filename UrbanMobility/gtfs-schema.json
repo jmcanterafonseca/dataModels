@@ -24,7 +24,10 @@
           "type": "string"
         },
         "wheelChairAccessible": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "0", "1", "2"
+          ]
         },
         "hasParentStation": {
           "type": "string",

@@ -25,7 +25,7 @@ It is a GTFS `stop` which `location_type` is equal to `2`.
 
 The following Attributes shall be as mandated by [gtfs:Stop](../../Stop/doc/spec.md):
  
-+ `names  
++ `name`   
 + `code`  
 + `page`
 + `description`
