@@ -45,7 +45,7 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
 
 + `wheelChairAccessible`: Same as GTFS `wheelchair_boarding`. 
   + Attribute type: Property. [Text](https://schema.org/Text)
-  + Allowed values: (`0`, `1`, `2`) as per the [GTFS](https://developers.google.com/transit/gtfs/reference/#stoptxt)
+  + Allowed values: (`0`, `1`, `2`) as per the [GTFS](https://developers.google.com/transit/gtfs/reference/#stopstxt)
   + Optional
   
 + `zoneCode` : Transport zone to which this stop belongs to. Same as GTFS `zone_id`. 
@@ -85,24 +85,24 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
 
 ### Properties
 
-| GTFS Field            | NGSI Attribute        | LinkedGTFS                  | Comment                                                |
-|:--------------------- |:----------------------|:----------------------------|:-------------------------------------------------------|
-| stop_name             | name                  | foaf:name                   |
-| stop_code             | code                  | gtfs:code                   |
-| stop_url              | page                  | foaf:page                   |
-| stop_desc             | description           | dct:description             |
-| stop_long,stop_lat    | location              | geo:long,geo:lat            | Encoded as a GeoJSON Point.
-| zone_id               | zoneCode              |                             |
-| wheelchair_boarding   | wheelChairAccessible  | gtfs:wheelChairAccessible   | `0`, `1`, `2` as per GTFS spec.   
-|                       | address               |                             | Stop's [address](https://schema.org/address). Schema.org
+| GTFS Field            | NGSI Attribute         | LinkedGTFS                  | Comment                                                   |
+|:--------------------- |:-----------------------|:----------------------------|:----------------------------------------------------------|
+| stop_name             | `name`                 | foaf:name                   |                                                           |     
+| stop_code             | `code`                 | gtfs:code                   |                                                           |
+| stop_url              | `page`                 | foaf:page                   |                                                           |
+| stop_desc             | `description`          | dct:description             |                                                           |
+| stop_long,stop_lat    | `location`             | geo:long,geo:lat            | Encoded as a GeoJSON Point.                               |
+| zone_id               | `zoneCode`             |                             |                                                           |
+| wheelchair_boarding   | `wheelChairAccessible` | gtfs:wheelChairAccessible   | `0`, `1`, `2` as per GTFS spec.                           |
+|                       | `address`              |                             | Stop's [address](https://schema.org/address). Schema.org  |
 
 
 ### Relationships
 
 | GTFS Field            | NGSI Attribute      | LinkedGTFS           | Comment                                                |
 |:--------------------- |:--------------------|:-------------------- |:-------------------------------------------------------|
-| parent_station        | hasParentStation    | gtfs:parentStation   | Shall point to another Entity of Type `gtfs:Station`
-|                       | operatedBy          |                      | Shall point to another Entity of Type `gtfs:Agency`
+| parent_station        | `hasParentStation`  | gtfs:parentStation   | Shall point to another Entity of Type `gtfs:Station`   |
+|                       | `operatedBy`        |                      | Shall point to another Entity of Type `gtfs:Agency`    |
 
 
 ## Open issues

@@ -64,8 +64,8 @@ Same as `gtfs:Stop`.
 
 ### Relationships
 
-| GTFS Field            | NGSI Attribute      | LinkedGTFS           | Comment                                                |
-|:--------------------- |:--------------------|:---------------------|:-------------------------------------------------------|
-|                       | hasParentStation    |                      | shall point to another Entity(ies) of type `gtfs:Station`
+| GTFS Field            | NGSI Attribute      | LinkedGTFS           | Comment                                                   |
+|:--------------------- |:--------------------|:---------------------|:----------------------------------------------------------|
+|                       | `hasParentStation`  |                      | shall point to another Entity(ies) of type `gtfs:Station` |
 
 ## Open issues

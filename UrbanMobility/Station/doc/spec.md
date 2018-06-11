@@ -74,9 +74,9 @@ Same as [gtfs:Stop](../../Stop/doc/spec.md)
 
 | GTFS Field            | NGSI Attribute      | LinkedGTFS           | Comment                                                       |
 |:--------------------- |:--------------------|:---------------------|:--------------------------------------------------------------|
-|                       | hasStop             |                      | shall point to Entities of type `gtfs:Stop`                   |
-|                       | hasAccessPoint      |                      | shall point to Entities of type `gtfs:AccessPoint`            |
-|                       | hasParentStation    |                      | shall point to an Entity of type `gtfs:Station`               |
+|                       | `hasStop`           |                      | shall point to Entities of type `gtfs:Stop`                   |
+|                       | `hasAccessPoint`    |                      | shall point to Entities of type `gtfs:AccessPoint`            |
+|                       | `hasParentStation`  |                      | shall point to an Entity of type `gtfs:Station`               |
 
 
 ## Open issues
