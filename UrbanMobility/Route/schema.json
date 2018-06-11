@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "id": "https://fiware.github.io/dataModels/UrbanMobility/Agency/schema.json",
-  "title": "NGSI GTFS Schema - Agency",
-  "description": "GTFS Agency",
+  "id": "https://fiware.github.io/dataModels/UrbanMobility/Route/schema.json",
+  "title": "NGSI GTFS Schema - Route",
+  "description": "GTFS Route",
   "type": "object",
   "allOf": [
     { "$ref": "https://fiware.github.io/dataModels/common-schema.json#/definitions/GSMA-Commons" },
@@ -11,13 +11,9 @@
         "type": {
           "type": "string",
           "enum": [
-            "gtfs:Agency"
+            "gtfs:Route"
           ],
           "description": "NGSI Entity type"
-        },
-        "source": {
-          "type": "string",
-          "format": "uri"
         },
         "name": {
           "type": "string"
@@ -25,17 +21,26 @@
         "page": {
           "type": "string"
         },
-        "phone": {
+        "routeColor": {
           "type": "string"
         },
-        "timezone": {
+        "routeTextColor": {
           "type": "string"
         },
-        "language": {
-          "type": "string"
+        "routeType": {
+          "type": "string",
+          "enum": [
+            "0", "1", "2", "3",
+            "4", "5", "6", "7"
+          ]
         },
-        "address": {
-          "type": "object"
+        "routeSortOrder": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "operatedBy": {
+          "type": "string",
+          "format": "uri"
         }
       }
     }
@@ -43,7 +48,9 @@
   "required": [
     "id",
     "type",
+    "shortName",
     "name",
-    "source"
+    "routeType",
+    "operatedBy"
   ]
 }

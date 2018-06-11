@@ -1,16 +1,16 @@
-# gtfs:Agency
+# gtfs:Route
 
 ## Description
 
-See [https://developers.google.com/transit/gtfs/reference/#agencytxt](https://developers.google.com/transit/gtfs/reference/#agencytxt)
+See [https://developers.google.com/transit/gtfs/reference/#routestxt](https://developers.google.com/transit/gtfs/reference/#routestxt)
 
 ## Data Model
 
 + `id`: Entity id. 
-    + It shall be `urn:ngsi-ld:gtfs:Agency:<agency_identifier>` being `agency_identifier` a value that can be derived from GTFS `agency_id`. 
+    + It shall be `urn:ngsi-ld:gtfs:Route:<route_identifier>` being `route_identifier` a value that can be derived from GTFS `route_id`. 
 
 + `type`: Entity type. 
-    + It shall be equal to `gtfs:Agency`.
+    + It shall be equal to `gtfs:Route`.
     
 + `dateCreated` : Entity's creation timestamp.
   + Attribute type: [DateTime](https://schema.org/DateTime)
@@ -20,50 +20,59 @@ See [https://developers.google.com/transit/gtfs/reference/#agencytxt](https://de
   + Attribute type: [DateTime](https://schema.org/DateTime)
   + Read-Only. Automatically generated.
   
-+ `source` : A sequence of characters giving the original source of the Entity data as a URL.
-It shall point to the URL of the original GTFS feed used to generate this Entity. 
-  + Attribute type: [URL](https://schema.org/URL)
-  + Mandatory
-
-+ `name`: Same as GTFS `agency_name`.
++ `shortName`: Same as GTFS `route_short_name`.
     + Attribute type: Property. [Text](https://schema.org/Text).
     + Mandatory
     
-+ `page`: Same as GTFS `agency_url`.
++ `name`: Same as GTFS `route_long_name`.
+    + Attribute type: Property. [Text](https://schema.org/Text).
+    + Mandatory
+    
++ `description`: Same as GTFS `route_desc`.
+    + Attribute type: Property. [Text](https://schema.org/Text).
+    + Optional
+    
++ `routeType`: Same as GTFS `route_type`.
+    + Attribute type: Property. [Text](https://schema.org/Text).
+    + Allowed values: Those allowed for `route_type` as prescribed by [GTFS](https://developers.google.com/transit/gtfs/reference/#routestxt)
+    + Mandatory
+    
++ `page`: Same as GTFS `route_url`.
     + Attribute type: Property. [URL](https://schema.org/URL).
     + Optional
     
-+ `timezone`: Same as GTFS `agency_timezone`.
++ `routeColor`: Same as GTFS `route_color`.
     + Attribute type: Property. [Text](https://schema.org/Text).
-    + Allowed values: See [GTFS](https://developers.google.com/transit/gtfs/reference/#agencytxt)
+    + Allowed values: See [GTFS](https://developers.google.com/transit/gtfs/reference/#routestxt)
     + Optional
     
-+ `phone`: Same as GFTS `agency_phone`.
++ `routeTextColor`: Same as GFTS `route_text_color`.
    + Attribute type: Property. [Text](https://schema.org/Text)
    + Optional
    
-+ `language`: Same as GTFS `agency_language`. 
-   + Attribute type: Property. [Text](https://schema.org/Text)
-   + Allowed values: See [GTFS](https://developers.google.com/transit/gtfs/reference/#agencytxt)
++ `routeSortOrder`: Same as GTFS `route_sort_order`. 
+   + Attribute type: Property. [Number](https://schema.org/Number)
    + Optional
+
++ `operatedBy` : Agency that operates this route.
+  + Attribute type: Relationship. It shall point to an Entity of Type [gtfs:Agency](../../Agency/doc/spec.md)
+  + Mandatory
    
-+ `address`: Agency's civic address. 
-   + Attribute type: Property. [PostalAddress](https://schema.org/PostalAddress)
-   + Optional
 
 ### Example
 
 ```json
 {
-  "id": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT",
-  "type": "gtfs:Agency",
-  "name": "Empresa Malagueña de Transportes",
-  "page": "http://www.emtmalaga.es/",
-  "timezone": "Europe/Madrid",
-  "language": "ES",
-  "source": "http://datosabiertos.malaga.eu/dataset/lineas-y-horarios-bus-google-transit/resource/24e86888-b91e-45bf-a48c-09855832fd52"
+  "id": "urn:ngsi-ld:gtfs:Route:Spain:Malaga:1",
+  "type": "gtfs:Route",
+  "shortName": "1",
+  "name": "Parque del Sur - Alameda Principal - San Andrés",
+  "page": "http://www.emtmalaga.es/emt-mobile/informacionLinea.html?codLinea=1",
+  "routeType": "3",
+  "operatedBy": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT"
 }
 ```
+
 
 ## Summary of mappings to GTFS
 
@@ -71,17 +80,22 @@ It shall point to the URL of the original GTFS feed used to generate this Entity
 
 | GTFS Field            | NGSI Attribute      | LinkedGTFS        | Comment                                                    |
 |:--------------------- |:--------------------|:----------------- |:-----------------------------------------------------------|
-| agency_name           | name                | foaf:name         |                                                            |
-| agency_url            | page                | foaf:page         |                                                            |
-| agency_timezone       | timezone            | gtfs:timezone     |                                                            |
-| agency_phone          | phone               | foaf:phone        |                                                            |
-| agency_lang           | language            | dct:language      |                                                            |
-|                       | address             |                   | Agency's [address](https://schema.org/address). Schema.org |
-   
+| route_short_name      | shortName           | gtfs:shortName    |                                                            |
+| route_long_name       | name                | gtfs:longName     |                                                            |
+| route_type            | routeType           | gtfs:routeType    |                                                            |
+| route_desc            | description         | dct:description   |                                                            |
+| route_url             | page                | foaf:page         |                                                            |
+| route_color           | routeColor          | gtfs:color        | Agency's [address](https://schema.org/address). Schema.org |
+| route_text_color      | routeTextColor      | gtfs:textColor    |                                                            |
+| route_sort_order      | routeSortOrder      |                   |                                                            |
+
 
 ### Relationships
 
-None
+| GTFS Field            | NGSI Attribute      | LinkedGTFS           | Comment                                                |
+|:--------------------- |:--------------------|:-------------------- |:-------------------------------------------------------|
+|                       | operatedBy          | gtfs:agency          | Shall point to another Entity of Type `gtfs:Agency`    |
+
 
 ### Open issues
 
