@@ -1,0 +1,8 @@
+{
+  "id": "urn:ngsi-ld:gtfs:Route:",
+  "type": "gtfs:Route",
+  "name": "Empresa Malagueña de Transportes",
+  "page": "http://www.emtmalaga.es/",
+  "timezone": "Europe/Madrid",
+  "language": "ES"
+}
