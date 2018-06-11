@@ -21,12 +21,7 @@ It is a GTFS `stop` which `location_type` is equal to `1`.
 + `dateModified` : Last update timestamp of this Entity.
   + Attribute type: [DateTime](https://schema.org/DateTime)
   + Read-Only. Automatically generated.
-  
-+ `source` : A sequence of characters giving the original source of the Entity data as a URL.
-It should point to the URL of the original GTFS feed used to generate this Entity. 
-  + Attribute type: [URL](https://schema.org/URL)
-  + Optional  
-  
+    
 + `hasStop` : It shall point to another Entity(ies) of type `gtfs:Stop`  
   + Type: Relationship. List of [gtfs:Stop](../../Stop/doc/spec.md). 
   + Mandatory
@@ -79,9 +74,9 @@ Same as [gtfs:Stop](../../Stop/doc/spec.md)
 
 | GTFS Field            | NGSI Attribute      | LinkedGTFS           | Comment                                                       |
 |:--------------------- |:--------------------|:---------------------|:--------------------------------------------------------------|
-|                       | hasStop             |                      |                                                               |
-|                       | hasAccessPoint      |                      | shall point to another Entity(ies) of type `gtfs:AccessPoint` |
-|                       | hasParentStation    |                      | shall point to an Entity of type `gtfs:Station`         
+|                       | hasStop             |                      | shall point to Entities of type `gtfs:Stop`                   |
+|                       | hasAccessPoint      |                      | shall point to Entities of type `gtfs:AccessPoint`            |
+|                       | hasParentStation    |                      | shall point to an Entity of type `gtfs:Station`               |
 
 
 ## Open issues

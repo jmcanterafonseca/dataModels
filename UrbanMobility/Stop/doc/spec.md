@@ -22,11 +22,6 @@ It represents a GTFS `stop` which `location_type` shall be equal to `0`.
   + Attribute type: [DateTime](https://schema.org/DateTime)
   + Read-Only. Automatically generated.
   
- + `source` : A sequence of characters giving the original source of the Entity data as a URL.
-It should point to the URL of the original GTFS feed used to generate this Entity. 
-  + Attribute type: [URL](https://schema.org/URL)
-  + Optional 
-
 + `name`: Same as GTFS `stop_name`. 
   + Attribute type: Property. [Text](https://schema.org/Text)
   + Mandatory

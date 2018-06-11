@@ -21,9 +21,9 @@ See [https://developers.google.com/transit/gtfs/reference/#agencytxt](https://de
   + Read-Only. Automatically generated.
   
 + `source` : A sequence of characters giving the original source of the Entity data as a URL.
-It should point to the URL of the original GTFS feed used to generate this Entity. 
+It shall point to the URL of the original GTFS feed used to generate this Entity. 
   + Attribute type: [URL](https://schema.org/URL)
-  + Optional
+  + Mandatory
 
 + `name`: Same as GTFS `agency_name`.
     + Attribute type: Property. [Text](https://schema.org/Text).
@@ -60,7 +60,8 @@ It should point to the URL of the original GTFS feed used to generate this Entit
   "name": "Empresa Malagueña de Transportes",
   "page": "http://www.emtmalaga.es/",
   "timezone": "Europe/Madrid",
-  "language": "ES"
+  "language": "ES",
+  "source": "http://datosabiertos.malaga.eu/dataset/lineas-y-horarios-bus-google-transit/resource/24e86888-b91e-45bf-a48c-09855832fd52"
 }
 ```
 
@@ -68,14 +69,14 @@ It should point to the URL of the original GTFS feed used to generate this Entit
 
 ### Properties
 
-| GTFS Field            | NGSI Attribute      | LinkedGTFS        | Comment                                                |
-|:--------------------- |:--------------------|:----------------- |:-------------------------------------------------------|
-| agency_name           | name                | foaf:name         | 
-| agency_url            | page                | foaf:page         |
-| agency_timezone       | timezone            | gtfs:timezone     |
-| agency_phone          | phone               | foaf:phone        |
-| agency_lang           | language            | dct:language      |
-|                       | address             |                   | Agency's [address](https://schema.org/address). Schema.org
+| GTFS Field            | NGSI Attribute      | LinkedGTFS        | Comment                                                    |
+|:--------------------- |:--------------------|:----------------- |:-----------------------------------------------------------|
+| agency_name           | name                | foaf:name         |                                                            |
+| agency_url            | page                | foaf:page         |                                                            |
+| agency_timezone       | timezone            | gtfs:timezone     |                                                            |
+| agency_phone          | phone               | foaf:phone        |                                                            |
+| agency_lang           | language            | dct:language      |                                                            |
+|                       | address             |                   | Agency's [address](https://schema.org/address). Schema.org |
    
 
 ### Relationships

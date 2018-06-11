@@ -15,6 +15,10 @@
           ],
           "description": "NGSI Entity type"
         },
+        "source": {
+          "type": "string",
+          "format": "uri"
+        },
         "name": {
           "type": "string"
         },
@@ -39,6 +43,7 @@
   "required": [
     "id",
     "type",
-    "name"
+    "name",
+    "source"
   ]
 }
