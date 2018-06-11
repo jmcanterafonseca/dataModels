@@ -18,7 +18,12 @@ See [https://developers.google.com/transit/gtfs/reference/#agencytxt](https://de
  
 + `dateModified` : Last update timestamp of this Entity.
   + Attribute type: [DateTime](https://schema.org/DateTime)
-  + Read-Only. Automatically generated.     
+  + Read-Only. Automatically generated.
+  
++ `source` : A sequence of characters giving the original source of the Entity data as a URL.
+It should point to the URL of the original GTFS feed used to generate this Entity. 
+  + Attribute type: [URL](https://schema.org/URL)
+  + Optional
 
 + `name`: Same as GTFS `agency_name`.
     + Attribute type: Property. [Text](https://schema.org/Text).
