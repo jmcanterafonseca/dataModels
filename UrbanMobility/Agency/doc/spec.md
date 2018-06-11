@@ -69,14 +69,14 @@ It shall point to the URL of the original GTFS feed used to generate this Entity
 
 ### Properties
 
-| GTFS Field            | NGSI Attribute      | LinkedGTFS        | Comment                                                    |
-|:--------------------- |:--------------------|:----------------- |:-----------------------------------------------------------|
-| agency_name           | `name`              | foaf:name         |                                                            |
-| agency_url            | `page`              | foaf:page         |                                                            |
-| agency_timezone       | `timezone`          | gtfs:timezone     |                                                            |
-| agency_phone          | `phone`             | foaf:phone        |                                                            |
-| agency_lang           | `language`          | dct:language      |                                                            |
-|                       | `address`           |                   | Agency's [address](https://schema.org/address). Schema.org |
+| GTFS Field              | NGSI Attribute      | LinkedGTFS          | Comment                                                      |
+|:----------------------- |:--------------------|:------------------- |:-------------------------------------------------------------|
+| `agency_name`           | `name`              | `foaf:name`         |                                                            |
+| `agency_url`            | `page`              | `foaf:page`         |                                                            |
+| `agency_timezone`       | `timezone`          | `gtfs:timezone`     |                                                            |
+| `agency_phone`          | `phone`             | `foaf:phone`        |                                                            |
+| `agency_lang`           | `language`          | `dct:language`      |                                                            |
+|                         | `address`           |                     | Agency's [address](https://schema.org/address). Schema.org |
    
 
 ### Relationships
