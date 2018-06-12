@@ -27,16 +27,17 @@
         },
         "location": {
            "type": "object",
-           "properties": {
-              "oneOf": [
-                {
-                  "type": {
-                    "type": "string",
-                    "enum": ["LineString"]
-                  },
-                  "coordinates": { "$ref": "http://json-schema.org/geojson/geometry.json#/definitions/lineString" }
+           "oneOf": [{
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["LineString"]
                 },
-                {
+                "coordinates": { "$ref": "http://json-schema.org/geojson/geometry.json#/definitions/lineString" }
+              }
+            },
+            {
+                "properties": {
                   "type": {
                     "type": "string",
                     "enum": ["MultiLineString"]
@@ -46,8 +47,7 @@
                     "items": { "$ref": "http://json-schema.org/geojson/geometry.json#/definitions/lineString" }
                   }
                 }
-              ]
-           }
+            }]
         },
         "block": {
           "type": "string"
