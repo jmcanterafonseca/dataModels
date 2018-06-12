@@ -78,23 +78,23 @@ See [https://developers.google.com/transit/gtfs/reference/#routestxt](https://de
 
 ### Properties
 
-| GTFS Field            | NGSI Attribute      | LinkedGTFS        | Comment                                                    |
-|:--------------------- |:--------------------|:----------------- |:-----------------------------------------------------------|
-| route_short_name      | shortName           | gtfs:shortName    |                                                            |
-| route_long_name       | name                | gtfs:longName     |                                                            |
-| route_type            | routeType           | gtfs:routeType    |                                                            |
-| route_desc            | description         | dct:description   |                                                            |
-| route_url             | page                | foaf:page         |                                                            |
-| route_color           | routeColor          | gtfs:color        | Agency's [address](https://schema.org/address). Schema.org |
-| route_text_color      | routeTextColor      | gtfs:textColor    |                                                            |
-| route_sort_order      | routeSortOrder      |                   |                                                            |
+| GTFS Field            | NGSI Attribute          | LinkedGTFS          | Comment                                                    |
+|:--------------------- |:------------------------|:------------------- |:-----------------------------------------------------------|
+| `route_short_name`      | `shortName`           | `gtfs:shortName`    |                                                            |
+| `route_long_name`       | `name`                | `gtfs:longName`     |                                                            |
+| `route_type`            | `routeType`           | `gtfs:routeType`    |                                                            |
+| `route_desc`            | `description`         | `dct:description`   |                                                            |
+| `route_url`             | `page`                | `foaf:page`         |                                                            |
+| `route_color`           | `routeColor`          | `gtfs:color`        | Agency's [address](https://schema.org/address). Schema.org |
+| `route_text_color`      | `routeTextColor`      | `gtfs:textColor`    |                                                            |
+| `route_sort_order`      | `routeSortOrder`      |                     |                                                            |
 
 
 ### Relationships
 
-| GTFS Field            | NGSI Attribute      | LinkedGTFS           | Comment                                                |
-|:--------------------- |:--------------------|:-------------------- |:-------------------------------------------------------|
-|                       | operatedBy          | gtfs:agency          | Shall point to another Entity of Type `gtfs:Agency`    |
+| GTFS Field            | NGSI Attribute        | LinkedGTFS             | Comment                                                |
+|:--------------------- |:----------------------|:---------------------- |:-------------------------------------------------------|
+|                       | `operatedBy`          | `gtfs:agency`          | Shall point to another Entity of Type `gtfs:Agency`    |
 
 
 ### Open issues
