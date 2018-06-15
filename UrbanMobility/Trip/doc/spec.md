@@ -29,8 +29,8 @@ See [https://developers.google.com/transit/gtfs/reference/#tripstxt](https://dev
   + Optional
     
 + `direction`: Same as GTFS `direction_id`.
-  + Attribute type: Property. [Text](https://schema.org/Text).
-  + Allowed Values: `"0"` and `"1"` as per GTFS `direction_id`. 
+  + Attribute type: Property. [Number](https://schema.org/Number).
+  + Allowed Values: `0` and `1` as per GTFS `direction_id`. 
   + Optional
     
 + `block`: Same as GTFS `block_id`.
@@ -38,7 +38,7 @@ See [https://developers.google.com/transit/gtfs/reference/#tripstxt](https://dev
   + Optional
   
 + `service`: Same as GTFS `service_id`.
-  + Attribute type: Property. [Text](https://schema.org/Text)
+  + Attribute type: Relationship. It shall point to an Entity of Type `gtfs:Service` 
   + Optional
   
 + `location`: The geographical shape associated to the trip encoded as GeoJSON `LineString` or `MultiLineString`.
@@ -67,7 +67,7 @@ The coordinates shall be obtained from the `shapes.txt` feed file as per the val
 {
   "id": "urn:ngsi-ld:gtfs:Trip:Spain:Malaga:1",
   "type": "gtfs:Trip",
-  "serviceId": "LAB",
+  "service": "urn:ngsi-ld:gtfs:Service:Malaga_LAB",
   "headSign": "San Andrés",
   "direction": "0",
   "hasRoute": "urn:ngsi-ld:gtfs:Route:Spain:Malaga:1",

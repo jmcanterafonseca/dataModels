@@ -1,9 +1,9 @@
 {
   "id": "urn:ngsi-ld:gtfs:Trip:Spain:Malaga:1",
   "type": "gtfs:Trip",
-  "serviceId": "LAB",
+  "service": "LAB",
   "headSign": "San Andrés",
-  "direction": "0",
+  "direction": 0,
   "hasRoute": "urn:ngsi-ld:gtfs:Route:Spain:Malaga:1",
   "location": {
     "type": "LineString",

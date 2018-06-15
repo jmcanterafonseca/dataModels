@@ -56,8 +56,8 @@
           "type": "string"
         },
         "direction": {
-          "type": "string",
-          "enum": ["0", "1"]
+          "type": "number",
+          "enum": [0, 1]
         }
       }
     }
