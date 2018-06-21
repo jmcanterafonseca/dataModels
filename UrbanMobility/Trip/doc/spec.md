@@ -37,7 +37,7 @@ See [https://developers.google.com/transit/gtfs/reference/#tripstxt](https://dev
   + Attribute type: Property. [Text](https://schema.org/Text)
   + Optional
   
-+ `service`: Same as GTFS `service_id`.
++ `hasService`: Same as GTFS `service_id`.
   + Attribute type: Relationship. It shall point to an Entity of Type `gtfs:Service` 
   + Optional
   
@@ -67,7 +67,7 @@ The coordinates shall be obtained from the `shapes.txt` feed file as per the val
 {
   "id": "urn:ngsi-ld:gtfs:Trip:Spain:Malaga:1",
   "type": "gtfs:Trip",
-  "service": "urn:ngsi-ld:gtfs:Service:Malaga_LAB",
+  "hasService": "urn:ngsi-ld:gtfs:Service:Malaga_LAB",
   "headSign": "San Andrés",
   "direction": "0",
   "hasRoute": "urn:ngsi-ld:gtfs:Route:Spain:Malaga:1",
@@ -95,7 +95,6 @@ The coordinates shall be obtained from the `shapes.txt` feed file as per the val
 | `direction_id`            | `direction`             | `gtfs:direction`            |                                                            |
 | `shape_id`                | `location`              | `gtfs:shape`                | Coordinates shall be taken from `shapes.txt` feed file.    |
 | `block_id`                | `block`                 | `gtfs:block`                |                                                            |
-| `service_id`              | `service`               | `gtfs:service`              |                                                            |
 | `wheelchair_accessible`   | `wheelchairAccessible`  | `gtfs:wheelchairAccessible` | Agency's [address](https://schema.org/address). Schema.org |
 | `bikes_allowed`           | `bikesAllowed`          | `gtfs:bikesAllowed`         |                                                            |
 
@@ -105,7 +104,7 @@ The coordinates shall be obtained from the `shapes.txt` feed file as per the val
 | GTFS Field              | NGSI Attribute        | LinkedGTFS           | Comment                                                |
 |:----------------------- |:----------------------|:-------------------- |:-------------------------------------------------------|
 | `route_id`              | `hasRoute`            |                      |                                                        |
-
+| `service_id`            | `hasService`          | `gtfs:service`       |                                                        |
 
 ### Open issues
 
