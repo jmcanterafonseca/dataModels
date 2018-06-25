@@ -47,13 +47,13 @@ It can be obtained from the field `end_date` of [calendar.txt](https://developer
 
 ```json
 {
-  "id": "urn:ngsi-ld:Service:Madrid:LAB",
+  "id": "urn:ngsi-ld:Service:Malaga:LAB",
   "type": "gtfs:Service",
   "name": "LAB",
   "description": "Laborables",
   "operatedBy": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT",
-  "startDate": "2017-01-01",
-  "endDate": "2019-01-01"
+  "startDate": "2018-01-01T00:00:00",
+  "endDate": "2019-01-01T00:00:00"
 }
 ```
 
