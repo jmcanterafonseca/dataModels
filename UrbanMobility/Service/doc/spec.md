@@ -7,7 +7,8 @@ It represents a transportation service which is available for one or more routes
 ## Data Model
 
 + `id`: Entity Id
-  + It shall be `urn:ngsi-ld:gtfs:Service:<service_identifier>`. 
+  + It shall be `urn:ngsi-ld:gtfs:Service:<service_identifier>`. It can be derived from the `service_id` field of [trips.txt](https://developers.google.com/transit/gtfs/reference/#tripstxt) and/or
+[calendar.txt](https://developers.google.com/transit/gtfs/reference/#calendartxt)
 
 + `type`: Entity Type 
   + It shall be equal to `gtfs:Service`
@@ -29,7 +30,17 @@ It represents a transportation service which is available for one or more routes
   + Optional
   
 + `operatedBy`: Agency that operates this service.
-  + Attribute tye: Relationship. It shall point to an Entity of Type [gtfs:Agency](../../Agency/doc/spec.md)
+  + Attribute type: Relationship. It shall point to an Entity of Type [gtfs:Agency](../../Agency/doc/spec.md)
+  + Mandatory
+  
++ `startDate`: Start date of the service in `YYYY-MM-DD` format.
+It can be obtained from the field `start_date` of [calendar.txt](https://developers.google.com/transit/gtfs/reference/#calendartxt).
+  + Attribute type: Property. [https://schema.org/Date](https://schema.org/Date). Note: Use `DateTime` when storing data in Orion Context Broker. 
+  + Mandatory
+  
++ `endDate`: End date of the service in `YYYY-MM-DD` format.
+It can be obtained from the field `end_date` of [calendar.txt](https://developers.google.com/transit/gtfs/reference/#calendartxt).
+  + Attribute type: Property. [https://schema.org/Date](https://schema.org/Date). Note: Use `DateTime` when storing data in Orion Context Broker. 
   + Mandatory
 
 ### Examples
@@ -40,14 +51,30 @@ It represents a transportation service which is available for one or more routes
   "type": "gtfs:Service",
   "name": "LAB",
   "description": "Laborables",
-  "operatedBy": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT"
+  "operatedBy": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT",
+  "startDate": "2017-01-01",
+  "endDate": "2019-01-01"
 }
 ```
 
 ## Summary of mappings to GTFS
 
-It can be mapped to the `service_id` field of [trips.txt](https://developers.google.com/transit/gtfs/reference/#tripstxt) and
-[calendar.txt](https://developers.google.com/transit/gtfs/reference/#calendartxt)
+### Properties
+
+| GTFS Field                | NGSI Attribute          | LinkedGTFS                  | Comment                                                    |
+|:--------------------------|:------------------------|:--------------------------- |:-----------------------------------------------------------|
+|                           | `name`                  | `schema:name`               |                                                            |
+|                           | `description`           | `schema:description`        |                                                            |
+| `start_date`              | `startDate`             | `schema:startDate`          |                                                            |
+| `end_date`                | `endDate`               | `schema:endDate`            |                                                            |
+                              
+
+
+### Relationships
+
+| GTFS Field              | NGSI Attribute        | LinkedGTFS           | Comment                                                |
+|:----------------------- |:----------------------|:-------------------- |:-------------------------------------------------------|
+|                         | `operatedBy`          | `gtfs:agency`        | Shall point to another Entity of Type `gtfs:Agency`    |
 
 
 ## Open issues

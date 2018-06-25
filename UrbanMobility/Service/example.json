@@ -3,5 +3,7 @@
   "type": "gtfs:Service",
   "name": "LAB",
   "description": "Laborables",
-  "operatedBy": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT"
+  "operatedBy": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT",
+  "startDate": "2018-01-01",
+  "endDate": "2019-01-01"
 }

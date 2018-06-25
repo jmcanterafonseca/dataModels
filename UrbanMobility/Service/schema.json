@@ -18,6 +18,14 @@
         "operatedBy": {
           "type": "string",
           "format": "uri"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date-time"
         }
       }
     }
@@ -26,6 +34,8 @@
     "id",
     "type",
     "name",
-    "operatedBy"
+    "operatedBy",
+    "startDate",
+    "endDate"
   ]
 }
