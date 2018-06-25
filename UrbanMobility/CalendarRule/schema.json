@@ -39,6 +39,14 @@
         },
         "sunday": {
           "type": "boolean"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date"
         }
       }
     }
@@ -53,6 +61,8 @@
     "thursday",
     "friday",
     "saturday",
-    "sunday"
+    "sunday",
+    "startDate",
+    "endDate"
   ]
 }

@@ -33,15 +33,6 @@ It represents a transportation service which is available for one or more routes
   + Attribute type: Relationship. It shall point to an Entity of Type [gtfs:Agency](../../Agency/doc/spec.md)
   + Mandatory
   
-+ `startDate`: Start date of the service in `YYYY-MM-DD` format.
-It can be obtained from the field `start_date` of [calendar.txt](https://developers.google.com/transit/gtfs/reference/#calendartxt).
-  + Attribute type: Property. [https://schema.org/Date](https://schema.org/Date). Note: Use `DateTime` when storing data in Orion Context Broker. 
-  + Mandatory
-  
-+ `endDate`: End date of the service in `YYYY-MM-DD` format.
-It can be obtained from the field `end_date` of [calendar.txt](https://developers.google.com/transit/gtfs/reference/#calendartxt).
-  + Attribute type: Property. [https://schema.org/Date](https://schema.org/Date). Note: Use `DateTime` when storing data in Orion Context Broker. 
-  + Mandatory
 
 ### Examples
 
@@ -51,9 +42,7 @@ It can be obtained from the field `end_date` of [calendar.txt](https://developer
   "type": "gtfs:Service",
   "name": "LAB",
   "description": "Laborables",
-  "operatedBy": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT",
-  "startDate": "2018-01-01T00:00:00",
-  "endDate": "2019-01-01T00:00:00"
+  "operatedBy": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT"
 }
 ```
 
@@ -65,8 +54,6 @@ It can be obtained from the field `end_date` of [calendar.txt](https://developer
 |:--------------------------|:------------------------|:--------------------------- |:-----------------------------------------------------------|
 |                           | `name`                  | `schema:name`               |                                                            |
 |                           | `description`           | `schema:description`        |                                                            |
-| `start_date`              | `startDate`             | `schema:startDate`          |                                                            |
-| `end_date`                | `endDate`               | `schema:endDate`            |                                                            |
                               
 
 

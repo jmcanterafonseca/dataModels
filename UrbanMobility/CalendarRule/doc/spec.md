@@ -59,22 +59,35 @@ See [https://developers.google.com/transit/gtfs/reference/#calendartxt](https://
 + `sunday`: Same as GTFS `sunday`
   + Attribute type: Property. [https://schema.org/Boolean](https://schema.org/Boolean)
   + Mandatory
+  
++ `startDate`: Start date of this rule in `YYYY-MM-DD` format.
+It can be obtained from the field `start_date` of [calendar.txt](https://developers.google.com/transit/gtfs/reference/#calendartxt).
+  + Attribute type: Property. [https://schema.org/Date](https://schema.org/Date). Note: Use `DateTime` when storing data in Orion Context Broker. 
+  + Mandatory
+  
++ `endDate`: End date of this rule in `YYYY-MM-DD` format.
+It can be obtained from the field `end_date` of [calendar.txt](https://developers.google.com/transit/gtfs/reference/#calendartxt).
+  + Attribute type: Property. [https://schema.org/Date](https://schema.org/Date). Note: Use `DateTime` when storing data in Orion Context Broker. 
+  + Mandatory
+  
 
 ### Examples
 
-  `json
+```json
 {
   "id": "urn:ngsi-ld:CalendarRule:Madrid:Rule1267",
   "type": "gtfs:CalendarRule",
   "name": "Rule Hospital Service 1",
-  "hasService": "urn:ngsi-ld:Service:Malaga:Hospital_1",
+  "hasService": "urn:ngsi-ld:Service:Madrid:Hospital_1",
   "monday": true,
   "tuesday": true,
   "wednesday": true,
   "thursday": true,
   "friday": true,
   "saturday": false,
-  "sunday": false
+  "sunday": false,
+  "startDate": "2018-01-01",
+  "endDate": "2019-01-01"
 }
 ```
 
@@ -91,6 +104,8 @@ See [https://developers.google.com/transit/gtfs/reference/#calendartxt](https://
 | `friday`                  | `friday`                | `gtfs:friday`               |                                                            |
 | `saturday`                | `saturday`              | `gtfs:saturday`             |                                                            |
 | `sunday`                  | `sunday`                | `gtfs:sunday`               |                                                            |
+| `start_date`              | `startDate`             | `schema:startDate`          |                                                            |
+| `end_date`                | `endDate`               | `schema:endDate`            |                                                            |
                               
 
 
