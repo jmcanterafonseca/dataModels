@@ -38,7 +38,7 @@ See [https://developers.google.com/transit/gtfs/reference/#tripstxt](https://dev
   + Optional
   
 + `hasService`: Same as GTFS `service_id`.
-  + Attribute type: Relationship. It shall point to an Entity of Type `gtfs:Service` 
+  + Attribute type: Relationship. It shall point to an Entity of Type [gtfs:Service](../../doc/Service/spec.md) 
   + Optional
   
 + `location`: The geographical shape associated to the trip encoded as GeoJSON `LineString` or `MultiLineString`.
