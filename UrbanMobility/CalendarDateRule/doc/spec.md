@@ -42,9 +42,9 @@ See [https://developers.google.com/transit/gtfs/reference/#calendar_datestxt](ht
 
 ### Examples
 
-  `json
+```json
 {
-  "id": "urn:ngsi-ld:CalendarDateRule:Madrid:Rule67",
+  "id": "urn:ngsi-ld:CalendarDateRule:Malaga:Rule67",
   "type": "gtfs:CalendarDateRule",
   "name": "Rule Fair Area",
   "hasService": "urn:ngsi-ld:Service:Malaga:FairArea_1",

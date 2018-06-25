@@ -1,13 +1,8 @@
 {
-  "id": "urn:ngsi-ld:CalendarRule:Madrid:Rule1267",
-  "type": "gtfs:CalendarRule",
-  "name": "Rule Hospital Service 1",
-  "hasService": "urn:ngsi-ld:Service:MalagaHospital_1",
-  "monday": true,
-  "tuesday": true,
-  "wednesday": true,
-  "thursday": true,
-  "friday": true,
-  "saturday": false,
-  "sunday": false
+  "id": "urn:ngsi-ld:CalendarDateRule:Malaga:Rule67",
+  "type": "gtfs:CalendarDateRule",
+  "name": "Rule Fair Area",
+  "hasService": "urn:ngsi-ld:Service:Malaga:FairArea_1",
+  "appliesOn": "2018-03-19",
+  "exceptionType": "1"
 }
