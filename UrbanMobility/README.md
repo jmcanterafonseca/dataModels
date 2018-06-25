@@ -18,5 +18,5 @@
  + [gtfs:StopTime](./StopTime/doc/spec.md)
  + [gtfs:Service](./Service/doc/spec.md)
  + [gtfs:CalendarRule](./CalendarRule/doc/spec.md)
- + [gtfs:CalendarRuleDate](./CalendarRuleDate/doc/spec.md)
+ + [gtfs:CalendarDateRule](./CalendarDateRule/doc/spec.md)
  
