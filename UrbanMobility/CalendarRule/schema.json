@@ -32,7 +32,7 @@
           "type": "boolean"
         },
         "friday": {
-          "type": "booleam"
+          "type": "boolean"
         },
         "saturday": {
           "type": "boolean"

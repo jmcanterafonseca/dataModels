@@ -1,16 +1,13 @@
 {
-  "id": "urn:ngsi-ld:AccessPoint:Madrid:acc_4_1_3",
-  "type": "gtfs:AccessPoint",
-  "name": "Bravo Murillo",
-  "location": {
-    "type": "Point",
-    "coordinates": [-3.69036,40.46629]
-  },
-  "address": {
-    "type": "PostalAddress",
-    "streetAddress": "Calle de Bravo Murillo 377",
-    "addressLocality": "Madrid",
-    "addressCountry": "ES"
-  },
-  "hasParentStation": "urn:ngsi-ld:Station:Madrid:est_90_21"
+  "id": "urn:ngsi-ld:CalendarRule:Madrid:Rule1267",
+  "type": "gtfs:CalendarRule",
+  "name": "Rule Hospital Service 1",
+  "hasService": "urn:ngsi-ld:Service:MalagaHospital_1",
+  "monday": true,
+  "tuesday": true,
+  "wednesday": true,
+  "thursday": true,
+  "friday": true,
+  "saturday": false,
+  "sunday": false
 }

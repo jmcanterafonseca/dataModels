@@ -67,7 +67,7 @@ See [https://developers.google.com/transit/gtfs/reference/#calendartxt](https://
   "id": "urn:ngsi-ld:CalendarRule:Madrid:Rule1267",
   "type": "gtfs:CalendarRule",
   "name": "Rule Hospital Service 1",
-  "hasService": "urn:ngsi-ld:Service:Hospital_1",
+  "hasService": "urn:ngsi-ld:Service:Malaga:Hospital_1",
   "monday": true,
   "tuesday": true,
   "wednesday": true,
