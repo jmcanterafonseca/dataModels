@@ -33,10 +33,10 @@ See [https://developers.google.com/transit/gtfs/reference/#calendar_datestxt](ht
   + Optional
   
 + `appliesOn`: Date (in YYYY-MM-DD format) this rule applies to. It shall be obtained from the GTFS `date` field. 
-  + Attribute type: Property. [Date](https://schema.org/Date). Note: Use `DateTime` when storing data in Orion Context Broker. 
+  + Attribute type: Property. [Date](https://schema.org/Date). 
   + Mandatory
 
-+ `exceptionType`: Same as GTFS `exception_type` field. (Only `"1"` and `"2"` are allowed as values)
++ `exceptionType`: Same as GTFS `exception_type` field. Allowed values: (`"1"`, `"2"`)
   + Attribute type: Property. [Text](https://schema.org/Text)
   + Mandatory
 
@@ -60,7 +60,7 @@ See [https://developers.google.com/transit/gtfs/reference/#calendar_datestxt](ht
 |                           | `name`                  | `schema:name`               |                                                            |
 |                           | `description`           | `schema:description`        |                                                            |
 | `date`                    | `appliesOn`             | `dct:date`                  |                                                            |
-| `exception_type`          | `exceptionType`         | `gtfs:dateAddition`         |                                                            |
+| `exception_type`          | `exceptionType`         |                             |                                                            |
 
                               
 

@@ -62,12 +62,12 @@ See [https://developers.google.com/transit/gtfs/reference/#calendartxt](https://
   
 + `startDate`: Start date of this rule in `YYYY-MM-DD` format.
 It can be obtained from the field `start_date` of [calendar.txt](https://developers.google.com/transit/gtfs/reference/#calendartxt).
-  + Attribute type: Property. [https://schema.org/Date](https://schema.org/Date). Note: Use `DateTime` when storing data in Orion Context Broker. 
+  + Attribute type: Property. [https://schema.org/Date](https://schema.org/Date). 
   + Mandatory
   
 + `endDate`: End date of this rule in `YYYY-MM-DD` format.
 It can be obtained from the field `end_date` of [calendar.txt](https://developers.google.com/transit/gtfs/reference/#calendartxt).
-  + Attribute type: Property. [https://schema.org/Date](https://schema.org/Date). Note: Use `DateTime` when storing data in Orion Context Broker. 
+  + Attribute type: Property. [https://schema.org/Date](https://schema.org/Date). 
   + Mandatory
   
 
