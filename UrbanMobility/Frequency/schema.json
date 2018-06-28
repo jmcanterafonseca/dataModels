@@ -31,7 +31,7 @@
         },
         "headwaySeconds": {
           "type": "integer",
-          "exclusiveMinimum": 0
+          "minValue": 1
         },
         "exactTimes": {
           "type": "boolean"
