@@ -4,7 +4,7 @@
   "name": "Laborables",
   "description": "Cada 10 minutos",
   "hasTrip": "urn:ngsi-ld:gtfs:Trip:Spain:Malaga:1",
-  "startTime": "07:00",
-  "endTime": "10:00",
+  "startTime": "07:00:00",
+  "endTime": "10:25:00",
   "headwaySeconds": 600
 }
