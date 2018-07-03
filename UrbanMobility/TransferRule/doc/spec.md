@@ -41,8 +41,9 @@ See [https://developers.google.com/transit/gtfs/reference/#transferstxt](https:/
   + Allowed values: (`"0"`,`"1"`,`"2"`,`"3"`)
   + Mandatory
     
-+ `minimumTransferTime`: Same as GTFS `min_transfer_time`.
++ `minimumTransferTime`: Same as GTFS `min_transfer_time`. 
   + Attribute type: Property. [Integer](https://schema.org/Integer).
+  + Default unit: seconds
   + Optional   
         
 ### Example

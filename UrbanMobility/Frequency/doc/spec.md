@@ -32,11 +32,11 @@ See [https://developers.google.com/transit/gtfs/reference/#frequenciestxt](https
   + Attribute type: Relationship. It shall point to an Entity of Type [gtfs:Trip](../../Trip/spec.md)
   + Mandatory
 
-+ `startTme`: Same as GTFS `start_time`.
++ `startTime`: Same as GTFS `start_time`. See [format](https://developers.google.com/transit/gtfs/reference/#frequenciestxt).
     + Attribute type: Property. [Text](https://schema.org/Text).
     + Mandatory
     
-+ `endTime`: Same as GTFS `end_time`.
++ `endTime`: Same as GTFS `end_time`. See [format](https://developers.google.com/transit/gtfs/reference/#frequenciestxt).
     + Attribute type: Property. [Text](https://schema.org/Text).
     + Mandatory   
     
