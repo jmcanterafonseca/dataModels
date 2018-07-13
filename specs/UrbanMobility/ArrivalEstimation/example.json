@@ -1,0 +1,9 @@
+{
+  "id": "urn:ngsi-ld:ArrivalEstimation:busStop:74busLine:5C1",
+  "type": "ArrivalEstimation",
+  "hasStop": "urn:ngsi-ld:santander:transport:tus:busStop:74",
+  "hasTrip": "urn:ngsi-ld:santander:transport:tus:busLine:5C1",
+  "remainingTime": "PT8M5S",
+  "remainingDistance": 1200,
+  "headSign": "A destination"
+}
