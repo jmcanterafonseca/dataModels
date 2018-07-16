@@ -91,10 +91,14 @@ specially on IoT networks which deliver data only at specific timeslots.
 There can be certain entity attributes which content is subject to be internationalized. For instance, the description of a Point of Interest.
 The internationalization (i18N) guidelines for the FIWARE Data Models are defined as follows:
 
-+ By default, the value of an attribute subject to be internationalized shall be expressed in **American English** (`en-US`).
-+ There shall always be a term for the original attribute (the one which value is expressed in American English), i.e.
++ By default, the value of an attribute subject to be internationalized *should* be expressed in **American English** (`en-US`).
+However there can be situations where an English term is not the most common one, for instance, the English
+exonym for the city of Livorno (Italy) is a very obscure term, `Leghorn`.
+In such situations, the common international name (`Livorno` in our example) in latin script should be used. 
+
++ There shall always be a term for the original attribute, i.e.
 it is not allowed to have entity representations which only contain terms associated to language variants. 
-+ For each language variant available for an attribute subject to be internationalized, there shall be an additional
++ For each language variant of an internationalized attribute, there shall be an additional
 entity attribute which name shall be in the form:
 
 `<AttributeName>_<LanguageTag>`  where `AttributeName` is the original attribute name and `LanguageTag` shall be a language tag
