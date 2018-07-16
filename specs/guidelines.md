@@ -84,7 +84,21 @@ the latter would be the creation date of the (digital) entity representing the w
 that this is the actual date at which the measured value was obtained (from a sensor, by visual observation, etc.), and that
 date might be different than the date (metadata attribute named `dateModified` as per NGSIv2) at which the attribute
 of the digital entity was updated, as typically there might be delay,
-specially on IoT networks which deliver data only at specific timeslots. 
+specially on IoT networks which deliver data only at specific timeslots.
+
+## Internationalization (i18N)
+
+There can be certain entity attributes which content is subject to be internationalized. For instance, the description of a Point of Interest.
+The i18N guidelines for the FIWARE Data Models are as follows:
+
++ By default the value of an attribute subject to be internationalized shall be expressed in *British English* (`en-GB`).
++ For each language variant available for an attribute subject to be internationalized there shall be an additional
+entity attribute which name shall be in the form:
+
+`<Attribute_Name>_<Language_Tag>`  where `Language_Tag` shall be a language tag as mandated by [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646.txt).
+W3C provides guidelines on [how to use language tags](https://www.w3.org/International/articles/language-tags/).  
+
+For instance an attribute named `description_es` can be used to convey the value of a `description` attribute in Spanish. 
 
 ## Some of the most used attributes
 
