@@ -89,18 +89,29 @@ specially on IoT networks which deliver data only at specific timeslots.
 ## Internationalization (i18N)
 
 There can be certain entity attributes which content is subject to be internationalized. For instance, the description of a Point of Interest.
-The i18N guidelines for the FIWARE Data Models are as follows:
+The internationalization (i18N) guidelines for the FIWARE Data Models are defined as follows:
 
-+ By default the value of an attribute subject to be internationalized shall be expressed in *British English* (`en-GB`).
-+ For each language variant available for an attribute subject to be internationalized there shall be an additional
++ By default, the value of an attribute subject to be internationalized shall be expressed in **American English** (`en-US`).
++ There shall always be a term for the original attribute (the one which value is expressed in American English), i.e.
+it is not allowed to have entity representations which only contain terms associated to language variants. 
++ For each language variant available for an attribute subject to be internationalized, there shall be an additional
 entity attribute which name shall be in the form:
 
-`<Attribute_Name>_<Language_Tag>`  where `Language_Tag` shall be a language tag as mandated by [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646.txt).
-W3C provides guidelines on [how to use language tags](https://www.w3.org/International/articles/language-tags/).  
+`<AttributeName>_<LanguageTag>`  where `AttributeName` is the original attribute name and `LanguageTag` shall be a language tag
+as mandated by [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646.txt).
+W3C provides guidelines on [how to use language tags](https://www.w3.org/International/articles/language-tags/).
+
+[JSON-LD](https://www.w3.org/TR/json-ld/#string-internationalization) can facilitate developers to parse internationalized entity representations, thus
+Context Producers are encouraged to use JSON-LD (provided that the backing implementations support it).
+
+When parsing plain JSON content, developers should validate that the corresponding JSON terms are actually conveying a language variant of an attribute. For instance,
+by validating that the term's suffix actually corresponds to a valid language tag and by checking that the corresponding original attribute is contained in the entity.  
 
 Example:
 
-an attribute named `description_es` can be used to convey the value of a `description` attribute in Spanish. 
+An entity may contain an attribute named `description`. The value of such attribute shall be expressed in American English.
+Additionally it might exist an attribute named `description_es` used to convey the value of such a `description` attribute in Spanish.
+
 
 ## Some of the most used attributes
 
