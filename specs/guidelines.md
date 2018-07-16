@@ -98,7 +98,9 @@ entity attribute which name shall be in the form:
 `<Attribute_Name>_<Language_Tag>`  where `Language_Tag` shall be a language tag as mandated by [RFC 5646](https://www.rfc-editor.org/rfc/rfc5646.txt).
 W3C provides guidelines on [how to use language tags](https://www.w3.org/International/articles/language-tags/).  
 
-For instance an attribute named `description_es` can be used to convey the value of a `description` attribute in Spanish. 
+Example:
+
+an attribute named `description_es` can be used to convey the value of a `description` attribute in Spanish. 
 
 ## Some of the most used attributes
 
