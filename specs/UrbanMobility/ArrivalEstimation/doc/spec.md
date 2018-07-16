@@ -2,7 +2,8 @@
 
 ## Description
 
-This Entity Type captures the estimation of arrival of a public transport vehicle, performing service on a route, to a certain stop. 
+This Entity Type captures the estimated arrival time of a public transport vehicle reaching a particular stop,
+whilst the vehicle is servicing a particular route.
 
 ## Data Model
 
@@ -54,13 +55,13 @@ This Entity Type captures the estimation of arrival of a public transport vehicl
 
 ```json
 {
-  "id": "urn:ngsi-ld:ArrivalEstimation:L67_Stop2",
+  "id": "urn:ngsi-ld:ArrivalEstimation:L5C1_Stop74_1",
   "type": "ArrivalEstimation",
-  "hasStop": "urn:ngsi-ld:santander:transport:tus:busStop:74",
-  "hasTrip": "urn:ngsi-ld:santander:transport:tus:busLine:5C1",
+  "hasStop": "urn:ngsi-ld:gtfs:Stop:tus:74",
+  "hasTrip": "urn:ngsi-ld:gtfs:Trip:tus:5C1",
   "remainingTime": "PT8M5S",
   "remainingDistance": 1200,
-  "headSign": "A destination"
+  "headSign": "Plaza Italia"
 }
 ```
 
