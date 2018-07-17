@@ -78,29 +78,45 @@
 					]
 				},
 				"owner": {
-					"type": ["string", "uri"]
+					"anyOf":[{
+						"type": "string",
+						"format": "uri"
+					},
+					{
+						"type": "string"
+					}]
 				},
 				"areaServed": {
 					"type": "string"
 				},
 				"network": {
-					"type": ["string", "uri"]
+					"anyOf":[{
+						"type": "string",
+						"format": "uri"
+					},
+					{
+						"type": "string"
+					}]
 				},
 				"operator": {
-					"type": ["string", "uri"]
+					"anyOf":[{
+						"type": "string",
+						"format": "uri"
+					},
+					{
+						"type": "string"
+					}]
 				},
 				"contactPoint": {
 					"type": "object"
 				},
 				"amperage": {
 					"type": "number",
-					"minimum": 0,
-					"exclusiveMinimum": true
+					"exclusiveMinimum": 0
 				},
 				"voltage": {
 					"type": "number",
-					"minimum": 0,
-					"exclusiveMinimum": true
+					"exclusiveMinimum": 0
 				},
 				"chargeType": {
 				  "type": "array",
