@@ -16,7 +16,6 @@
    "contactPoint": {
      "email": "vehiculoelectrico@ava.es"
    },
-   "owner": "Ayuntamiento de Valladolid",
    "operator": "Iberdrola",
    "allowedVehicleType": ["car"],
    "chargeType": ["free"],
