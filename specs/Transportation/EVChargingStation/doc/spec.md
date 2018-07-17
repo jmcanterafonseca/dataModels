@@ -16,15 +16,13 @@ A JSON Schema corresponding to this data model can be found [here](https://fiwar
 +   `dateCreated` : Entity's creation timestamp.
     +   Attribute type: [DateTime](https://schema.org/DateTime)
     +   Normative References:
-        [http://schema.org/DateTime](http://schema.org/DateTime)[
-        ](http://schema.org/DateTime)
+        [http://schema.org/DateTime](http://schema.org/DateTime)
     +   Read-Only. Automatically generated.
 
 +   `dateModified` : Last update timestamp of this entity.
     +   Attribute type: [DateTime](https://schema.org/DateTime)
     +   Normative References:
-        [http://schema.org/DateTime](http://schema.org/DateTime)[
-        ](http://schema.org/DateTime)
+        [http://schema.org/DateTime](http://schema.org/DateTime)
     +   Read-Only. Automatically generated.
     
 +   `source` : A sequence of characters giving the source of the entity data.
@@ -41,12 +39,12 @@ A JSON Schema corresponding to this data model can be found [here](https://fiwar
     +   Mandatory if `location` is not defined.
 
 +   `name` : Name given to the charging station.
-    +   Attribute type: Property. [Text](http://schema.org/Number)
+    +   Attribute type: Property. [Text](http://schema.org/Text)
     +   Normative References: [https://schema.org/name](https://schema.org/name)
     +   Mandatory
 
 +   `description` : Description of this charging station.
-    +   Attribute type: Property. [Text](http://schema.org/Number)
+    +   Attribute type: Property. [Text](http://schema.org/Text)
     +   Normative References: [https://schema.org/description](https://schema.org/description)
     +   Optional
 
