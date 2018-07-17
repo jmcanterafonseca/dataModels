@@ -2,8 +2,8 @@
 
 ## Description
 
-A public station that supplies energy to electrical vehicles. Charging vehicles takes time depending on the maximum power output of the station,
-the number of vehicles currently charging and the charging level of the battery. 
+A public charging station supplying energy to electrical vehicles.
+The charge time depends on the maximum power output of the station, the number of vehicles currently charging and the current battery level.
 
 ## Data Model
 
