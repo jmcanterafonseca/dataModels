@@ -1,8 +1,8 @@
 {
 	"$schema": "http://json-schema.org/schema#",
-	"id": "https://fiware.github.io/dataModels/specs/Transportation/BikeHire/schema.json",
-	"title": "FIWARE - Transportation / Bike Hire Docking Station",
-	"description": "Bike Hire Docking Station",
+	"id": "https://fiware.github.io/dataModels/specs/Transportation/EVChargingStation/schema.json",
+	"title": "FIWARE - Transportation / EV Charging Station",
+	"description": "EV Charging Station",
 	"type": "object",
 	"allOf": [
 		{
@@ -16,25 +16,51 @@
 				"type": {
 					"type": "string",
 					"enum": [
-						"BikeHireDockingStation"
+						"EVChargingStation"
 					],
 					"description": "NGSI Entity type"
 				},
-				"totalSlotNumber": {
+				"image": {
+          "type": "string",
+          "format": "uri"
+        },
+				"capacity": {
 					"type": "integer",
 					"minimum": 1
 				},
-				"freeSlotNumber": {
+				"socketNumber": {
+					"type": "integer",
+					"minimum": 1
+				},
+				"availableCapacity": {
 					"type": "integer",
 					"minimum": 0
 				},
-				"availableBikeNumber": {
-					"type": "integer",
-					"minimum": 0
+				"allowedVehicleType": {
+					"type": "array",
+					"minItems": 1,
+				  "uniqueItems": true,
+					"items": {
+						"type": "string",
+						"enum": [
+										 "bicycle", "bus", "car", "caravan",
+										 "motorcycle", "motorscooter", "truck"
+						]
+					}
 				},
-				"outOfServiceSlotNumber": {
-					"type": "integer",
-					"minimum": 0
+				"socketType": {
+					"type": "array",
+					"minItems": 1,
+				  "uniqueItems": true,
+					"items": {
+						"type": "string",
+						"enum": [
+										 "Type2", "CHAdeMO", "CCS/SAE", "Type3",
+										 "Tesla", "J-1772", "Wall_Euro",
+										 "Caravan_Mains_Socket", "Dual_J-1772", "Dual_CHAdeMO",
+										 "Mennekes", "Dual_Mennekes", "Other"
+						]
+					}
 				},
 				"openingHours": {
 					"type": "string"
@@ -52,18 +78,76 @@
 					]
 				},
 				"owner": {
+					"type": ["string", "uri"]
+				},
+				"areaServed": {
 					"type": "string"
 				},
-				"provider": {
-					"type": "object"
+				"network": {
+					"type": ["string", "uri"]
+				},
+				"operator": {
+					"type": ["string", "uri"]
 				},
 				"contactPoint": {
 					"type": "object"
-				}
+				},
+				"amperage": {
+					"type": "number",
+					"minimum": 0,
+					"exclusiveMinimum": true
+				},
+				"voltage": {
+					"type": "number",
+					"minimum": 0,
+					"exclusiveMinimum": true
+				},
+				"chargeType": {
+				  "type": "array",
+				  "items": {
+					  "type": "string",
+					  "enum": [
+						  "flat",
+						  "annualPayment",
+						  "monthlyPayment",
+						  "free",
+						  "other"
+					  ]
+				  },
+				  "minItems": 1,
+				  "uniqueItems": true
+			  },
+			  "acceptedPaymentMethod": {
+				  "type": "array",
+				  "items": {
+					  "type": "string",
+					  "enum": [
+						  "ByBankTransferInAdvance",
+						  "ByInvoice",
+						  "Cash",
+						  "CheckInAdvance",
+						  "COD",
+						  "DirectDebit",
+						  "GoogleCheckout",
+						  "PayPal",
+						  "PaySwarm"
+					  ]
+				  },
+				  "minItems": 1,
+				  "uniqueItems": true
+			  }
 			}
 	}],
 	"required": [
 		"id",
-		"type"
+		"type",
+		"name",
+		"socketType",
+		"capacity",
+		"allowedVehicleType"
+	],
+	"anyOf": [
+    {"required" : ["address"]},
+    {"required" : ["location"]}
 	]
 }

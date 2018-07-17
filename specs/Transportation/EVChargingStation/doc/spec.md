@@ -51,31 +51,31 @@ A JSON Schema corresponding to this data model can be found [here](https://fiwar
     +   Optional
 
 +   `image` : A URL containing a photo of this charging station.
-    +   Attribute type: Property. [image (URL)](http://schema.org/Number)
+    +   Attribute type: Property. [image (URL)](http://schema.org/URL)
     +   Normative References: [https://schema.org/image](https://schema.org/image)
     +   Optional
 
-+   `capacity` : The total number of vehicles which can be charged at the same time.
++   `capacity` : The total number of vehicles which can be charged at the same time. The total number of sockets can be higher. 
     +   Attribute type: Property. [Number](http://schema.org/Number)
-    +   Allowed values: Any positive integer number or 0.
+    +   Allowed values: Any positive integer number.
     +   Mandatory
     
 +   `allowedVehicleType` : Vehicle type(s) which can be charged. 
     +   Attribute type: List of [Text](http://schema.org/Text)
     +   Allowed Values: ( `bicycle`, `bus`, `car`, `caravan`, `motorcycle`, `motorscooter`, `truck`)
     +   Mandatory
-        
-+   `socketNumber` : The total number of sockets offered by this station.
-    +   Attribute type: Property. [Number](http://schema.org/Number)
-    +   Allowed values: Any positive integer number or 0.
-    +   Optional
-    
+           
 +   `socketType` : The type of sockets offered by this station.
     +   Attribute type: Property. List of [Text](http://schema.org/Text)
     +   Allowed values: (`Type2`, `CHAdeMO`, `CCS/SAE`, `Type3`, `Tesla`, `J-1772`,
     `Wall_Euro`, `Caravan_Mains_Socket`, `Dual_J-1772`, `Dual_CHAdeMO`, `Mennekes`,
     `Dual_Mennekes`, `Other`) 
-    +   Mandatory    
+    +   Mandatory
+    
++   `socketNumber` : The total number of sockets offered by this charging station.
+    +   Attribute type: Property. [Number](http://schema.org/Number)
+    +   Allowed values: Any positive integer number.
+    +   Optional    
 
 +   `availableCapacity` : The number of vehicles which currently can be charged.
     +   Attribute type: [Number](http://schema.org/Number)
@@ -87,13 +87,13 @@ A JSON Schema corresponding to this data model can be found [here](https://fiwar
     
 +   `amperage` : The total amperage offered by the charging station. 
     +   Attribute type: Property. [Number](http://schema.org/Number)
-    +   Allowed values: Any positive integer number or 0.
+    +   Allowed values: Any positive number.
     +   Default Unit: Ampers (A)
     +   Optional
     
 +   `voltage` : The total voltage offered by the charging station.
     +   Attribute type: Property. [Number](http://schema.org/Number)
-    +   Allowed values: Any positive integer number or 0.
+    +   Allowed values: Any positive number.
     +   Default Unit: Volts (V)
     +   Optional    
     
@@ -126,7 +126,7 @@ A JSON Schema corresponding to this data model can be found [here](https://fiwar
     +   Optional
 
 +   `network` : The name of the Network, with that the operator cooperates.
-    +   Attribute Type: Property. [Text](https://schema.org/Text)
+    +   Attribute Type: Property. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
     +   Optional
 
 +   `contactPoint` : Charging station contact point.
@@ -152,7 +152,7 @@ mode (`options=keyValues`).
 
 ```json
 	{
-	   "id": "urn:ngsi-ld:EVChargingStation:ValladolI+D_Covaresa"
+	   "id": "urn:ngsi-ld:EVChargingStation:ValladolI+D_Covaresa",
 	   "type": "EVChargingStation",
 	   "name": "Agencia de Innovación",
 	   "location": {
