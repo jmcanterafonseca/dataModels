@@ -113,12 +113,12 @@
 				"amperage": {
 					"type": "number",
 					"minimum": 0,
-					"exclusiveMinimum": 0
+					"exclusiveMinimum": true
 				},
 				"voltage": {
 					"type": "number",
 					"minimum": 0,
-					"exclusiveMinimum": 0
+					"exclusiveMinimum": true
 				},
 				"chargeType": {
 				  "type": "array",
