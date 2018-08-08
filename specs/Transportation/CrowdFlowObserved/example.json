@@ -1,6 +1,7 @@
 {
   "id": "urn:ngsi-ld:CrowdFlowObserved:Manchester_1",
   "type": "CrowdFlowObserved",
+  "dateObserved": "2018-08-07T11:10:00/2018-08-07T11:15:00",
   "dateObservedFrom": "2018-08-07T11:10:00",
   "dateObservedTo": "2018-08-07T11:15:00",
   "peopleCount": 100,
