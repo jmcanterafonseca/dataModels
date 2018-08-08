@@ -1,0 +1,10 @@
+{
+  "id": "urn:ngsi-ld:CrowdFlowObserved:Manchester_1",
+  "type": "CrowdFlowObserved",
+  "dateObservedFrom": "2018-08-07T11:10:00",
+  "dateObservedTo": "2018-08-07T11:15:00",
+  "peopleCount": 100,
+  "averageHeadwayTime": 5,
+  "congested": false,
+  "direction": "inbound"
+}
