@@ -91,14 +91,28 @@ the lack of support of Orion Context Broker for datetime intervals, it can be us
 
 ```json
 {
-  "id": "urn:ngsi-ld:CrowdFlowObserved:Manchester_1",
+  "id": "urn:ngsi-ld:CrowdFlowObserved:Valladolid_1",
   "type": "CrowdFlowObserved",
   "dateObservedFrom": "2018-08-07T11:10:00",
   "dateObservedTo": "2018-08-07T11:15:00",
   "peopleCount": 100,
   "averageHeadwayTime": 5,
   "congested": false,
-  "direction": "inbound"
+  "direction": "inbound",
+  "location": {
+    "type": "LineString",
+    "coordinates": [
+      [
+        -4.73735395519672, 41.6538181849672
+      ],
+      [
+        -4.73414858659993, 41.6600594193478
+      ],
+      [
+        -4.73447575302641, 41.659585195093
+      ]
+    ]
+  }
 }
 ```
 
