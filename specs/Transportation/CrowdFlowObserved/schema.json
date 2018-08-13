@@ -72,6 +72,7 @@
   ],
   "anyOf": [
     {"required" : ["refRoadSegment"]},
-    {"required" : ["location"]}
+    {"required" : ["location"]},
+    {"required" : ["address"]}
   ]
 }

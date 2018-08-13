@@ -27,15 +27,15 @@ An observation related to the movement of people at a certain place and time.
 + `location` : Location of this crowd flow observation represented by a GeoJSON geometry. 
     + Attribute type: `geo:json`. (`GeoProperty`)
     + Normative References: [https://tools.ietf.org/html/rfc7946](https://tools.ietf.org/html/rfc7946)
-    + Mandatory if `refRoadSegment` is not present.
+    + Mandatory if `refRoadSegment` or `address` are not present.
 
 + `address` : Civic address of this crowd flow observation.
     + Normative References: [https://schema.org/address](https://schema.org/address)
-    + Optional
+    + Mandatory if `location` or `refRoadSegment` are not present.
     
 + `refRoadSegment` : Concerned road segment on which the observation has been mede.
     + Attribute type: Relationship. Reference to an entity of type [RoadSegment](../../RoadSegment/doc/spec.md).
-    + Mandatory if `location` is not present. 
+    + Mandatory if `location` or `address` are not present. 
 
 + `dateObserved` : The date and time of this observation in ISO8601 UTC format.
 It can be represented by an specific time instant or by an ISO8601 interval. As a workaround for
@@ -63,7 +63,7 @@ the lack of support of Orion Context Broker for datetime intervals, it can be us
     + Attribute type: [Number](https://schema.org/Number). Positive integer. 
     + Optional
 
-+ `occupancy` : Fraction of the observation time where a person has been occupying the observed lane.
++ `occupancy` : Fraction of the observation time where a person has been occupying the observed walkway.
     + Attribute type: Property. [Number](https://schema.org/Number) between 0 and 1.
     + Optional
 
@@ -72,7 +72,7 @@ the lack of support of Orion Context Broker for datetime intervals, it can be us
     + Default unit: Kilometer per hour (Km/h).
     + Optional
     
-+ `congested` : Flags whether there was a crowd congestion during the observation period in the referred lane. The absence of this attribute means no crowd congestion.  
++ `congested` : Flags whether there was a crowd congestion during the observation period in the referred walkway. The absence of this attribute means no crowd congestion.  
     + Attribute type: Property. [Boolean](https://schema.org/Boolean)
     + Optional
     
@@ -81,7 +81,7 @@ the lack of support of Orion Context Broker for datetime intervals, it can be us
     + Default unit: second (s)
     + Optional
     
-+ `direction` : Usual direction of travel in the lane referred by this observation with respect to the city center.
++ `direction` : Usual direction of travel in the walkway referred by this observation with respect to the city center.
     + Attribute type: Property. [Text](https://schema.org/Text)
     + Allowed values: (`inbound`, `outbound`). 
     + Optional
