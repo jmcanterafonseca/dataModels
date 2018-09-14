@@ -100,17 +100,11 @@ the lack of support of Orion Context Broker for datetime intervals, it can be us
   "congested": false,
   "direction": "inbound",
   "location": {
-    "type": "LineString",
+    "type": "Polygon",
     "coordinates": [
-      [
-        -4.73735395519672, 41.6538181849672
-      ],
-      [
-        -4.73414858659993, 41.6600594193478
-      ],
-      [
-        -4.73447575302641, 41.659585195093
-      ]
+        [   
+            [0, 0], [10, 10], [10, 0], [0, 0]
+        ]
     ]
   }
 }
