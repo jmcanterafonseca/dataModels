@@ -36,7 +36,7 @@ A JSON Schema corresponding to this data model can be found [here](http://fiware
     + Optional
 
 + `description` : Description of this point of interest.
-    + Normative References: [https://schema.org/description](https://schema.org/description]
+    + Normative References: [https://schema.org/description](https://schema.org/description)
     + Optional
 
 + `location` : Location of the point of interest represented by a GeoJSON geometry, usually a `Point`. 
