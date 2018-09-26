@@ -1,0 +1,74 @@
+{
+    "dateObserved": {
+        "value": "2016-03-15T11:00:00/2016-03-15T12:00:00"
+    }, 
+    "airQualityLevel": {
+        "value": "moderate"
+    }, 
+    "CO": {
+        "value": 500
+    }, 
+    "temperature": {
+        "value": 12.2
+    }, 
+    "type": "AirQualityObserved", 
+    "NO": {
+        "value": 45
+    }, 
+    "refPointOfInterest": {
+        "type": "Relationship", 
+        "value": "28079004-Pza.deEspanya"
+    }, 
+    "windDirection": {
+        "value": 186
+    }, 
+    "source": {
+        "value": "http://datos.madrid.es"
+    }, 
+    "windSpeed": {
+        "value": 0.64
+    }, 
+    "SO2": {
+        "value": 11
+    }, 
+    "NOx": {
+        "value": 139
+    }, 
+    "location": {
+        "type": "geo:json", 
+        "value": {
+            "type": "Point", 
+            "coordinates": [
+                -3.712247222222222, 
+                40.423852777777775
+            ]
+        }
+    }, 
+    "airQualityIndex": {
+        "value": 65
+    }, 
+    "address": {
+        "type": "PostalAddress", 
+        "value": {
+            "addressCountry": "ES", 
+            "addressLocality": "Madrid", 
+            "streetAddress": "Plaza de Espa\u00f1a"
+        }
+    }, 
+    "reliability": {
+        "value": 0.7
+    }, 
+    "relativeHumidity": {
+        "value": 0.54
+    }, 
+    "precipitation": {
+        "value": 0
+    }, 
+    "id": "Madrid-AmbientObserved-28079004-2016-03-15T11:00:00", 
+    "NO2": {
+        "value": 69
+    }, 
+    "CO_Level": {
+        "value": "moderate"
+    }
+}

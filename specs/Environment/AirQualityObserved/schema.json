@@ -33,7 +33,10 @@
           "maximum": 1.0
         },
         "refDevice": {
-          "$ref": "https://fiware.github.io/dataModels/common-schema.json#/definitions/EntityIdentifierType"
+          "type": "array",
+          "items": { "$ref": "https://fiware.github.io/dataModels/common-schema.json#/definitions/EntityIdentifierType" },
+          "minItems": 1,
+          "uniqueItems": true
         },
         "refPointOfInterest": {
           "$ref": "https://fiware.github.io/dataModels/common-schema.json#/definitions/EntityIdentifierType"
