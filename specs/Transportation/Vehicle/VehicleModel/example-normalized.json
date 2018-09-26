@@ -1,0 +1,19 @@
+{
+    "id": "vehiclemodel:econic",
+    "type": "VehicleModel",
+    "cargoVolume": {
+        "value": 1000
+    }, 
+    "modelName": {
+        "value": "Econic"
+    }, 
+    "brandName": {
+        "value": "Mercedes Benz"
+    }, 
+    "fuelType": {
+        "value": "diesel"
+    }, 
+    "vehicleType": {
+        "value": "lorry"
+    }
+}

@@ -197,7 +197,74 @@ responsible, district, neighbourhood, etc.
 a [FIWARE NGSI version 2](http://fiware.github.io/specifications/ngsiv2/stable) API implementation, you need to use the `keyValues`
 mode (`options=keyValues`).
 
-## Example
+## Examples of use 1 (Normalized Format)
+
+```json
+{
+    "id": "vehicle:WasteManagement:1",
+    "type": "Vehicle", 
+    "category": {
+        "value": [
+            "municipalServices"
+        ]
+    }, 
+    "vehicleType": {
+        "value": "lorry"
+    }, 
+    "name": {
+        "value": "C Recogida 1"
+    }, 
+    "vehiclePlateIdentifier": {
+        "value": "3456ABC"
+    }, 
+    "refVehicleModel": {
+        "type": "Relationship", 
+        "value": "vehiclemodel:econic"
+    }, 
+    "location": {
+        "type": "geo:json", 
+        "value": {
+            "type": "Point", 
+            "coordinates": [
+                -3.164485591715449, 
+                40.62785133667262
+            ]
+        },
+        "metadata": {
+            "timestamp": {
+                "type": "DateTime",
+                "value": "2018-09-27T12:00:00"
+            }
+        }
+    }, 
+    "areaServed": {
+        "value": "Centro"
+    }, 
+    "serviceStatus": {
+        "value": "onRoute, garbageCollection"
+    }, 
+    "cargoWeight": {
+        "value": 314
+    }, 
+    "speed": {
+        "value": 50,
+        "metadata": {
+            "timestamp": {
+                "type": "DateTime",
+                "value": "2018-09-27T12:00:00"
+            }
+        }
+    },  
+    "serviceProvided": {
+        "value": [
+            "gargabeCollection", 
+            "wasteContainerCleaning"
+        ]
+    }
+}
+```
+
+## Examples of use 2 (?options=keyValues simplified representation for data consumers)
 
     {
       "id": "vehicle:WasteManagement:1",
