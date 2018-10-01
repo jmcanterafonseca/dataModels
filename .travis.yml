@@ -25,9 +25,7 @@ matrix:
         - npm install eslint-plugin-json --save-dev -g
         - npm install -g jshint
       ## Data model validator
-        - cd validator
-        - npm install
-        - cd ..
+        - npm install -C ./validator
         - sudo apt-get remove -y docker docker-engine docker.io
         - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
         - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
