@@ -1,3 +1,15 @@
+#!/usr/bin/python
+"""
+
+Converts a NGSIv2 Simplified Representation (a.k.a. keyValues)
+into a Normalized Representation
+
+Copyright (c) 2018 FIWARE Foundation e.V.
+
+Author: José Manuel Cantera
+
+"""
+
 import sys
 import json
 import ntpath
