@@ -106,6 +106,9 @@ mode (`options=keyValues`).
 {
     "id": "vehiclemodel:econic",
     "type": "VehicleModel",
+    "name": {
+        "value": "MBenz-Econic2014"
+    },
     "cargoVolume": {
         "value": 1000
     }, 
@@ -114,6 +117,9 @@ mode (`options=keyValues`).
     }, 
     "brandName": {
         "value": "Mercedes Benz"
+    },
+    "manufacturerName": {
+        "value": "Daimler"
     }, 
     "fuelType": {
         "value": "diesel"
@@ -129,13 +135,14 @@ mode (`options=keyValues`).
     {
       "id": "vehiclemodel:econic",
       "type": "VehicleModel",
+      "name": "MBenz-Econic2014",
       "brandName": "Mercedes Benz",
       "modelName": "Econic",
+      "manufacturerName": "Daimler",
       "vehicleType": "lorry",
       "cargoVolume": 1000,
       "fuelType": "diesel"
     }
-
 
 ## Test it with a real service
 

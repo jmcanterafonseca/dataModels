@@ -241,7 +241,7 @@ mode (`options=keyValues`).
         "value": "Centro"
     }, 
     "serviceStatus": {
-        "value": "onRoute, garbageCollection"
+        "value": "onRoute"
     }, 
     "cargoWeight": {
         "value": 314
@@ -257,7 +257,7 @@ mode (`options=keyValues`).
     },  
     "serviceProvided": {
         "value": [
-            "gargabeCollection", 
+            "garbageCollection", 
             "wasteContainerCleaning"
         ]
     }
@@ -278,12 +278,12 @@ mode (`options=keyValues`).
       "name": "C Recogida 1",
       "speed": 50,
       "cargoWeight": 314,
-      "serviceStatus": "onRoute, garbageCollection",
-      "serviceProvided": ["gargabeCollection", "wasteContainerCleaning"],
+      "serviceStatus": "onRoute",
+      "serviceProvided": ["garbageCollection", "wasteContainerCleaning"],
       "areaServed": "Centro",
       "refVehicleModel": "vehiclemodel:econic",
       "vehiclePlateIdentifier": "3456ABC"
-    }
+}
     
 ## Test it with a real service
 
