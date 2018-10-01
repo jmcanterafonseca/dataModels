@@ -66,7 +66,7 @@ def main(args):
 
 if __name__ == '__main__':
     if(len(sys.argv) != 2):
-        print "Usage: keyvalues2Normalized [file]"
+        print("Usage: keyvalues2Normalized [file]")
         exit(-1)
 
     main(sys.argv)
