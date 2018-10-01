@@ -103,7 +103,7 @@ module.exports = {
 
     try {
       files.forEach(function(fileName) {
-        if (fileName.endsWith('normalized')) {
+        if (fileName.endsWith('normalized.json')) {
           return;
         }
         
