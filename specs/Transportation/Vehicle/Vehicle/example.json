@@ -10,8 +10,8 @@
       "name": "C Recogida 1",
       "speed": 50,
       "cargoWeight": 314,
-      "serviceStatus": "onRoute, garbageCollection",
-      "serviceProvided": ["gargabeCollection", "wasteContainerCleaning"],
+      "serviceStatus": "onRoute",
+      "serviceProvided": ["garbageCollection", "wasteContainerCleaning"],
       "areaServed": "Centro",
       "refVehicleModel": "vehiclemodel:econic",
       "vehiclePlateIdentifier": "3456ABC"

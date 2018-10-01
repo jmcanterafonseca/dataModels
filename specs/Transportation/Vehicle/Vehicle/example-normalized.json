@@ -39,7 +39,7 @@
         "value": "Centro"
     }, 
     "serviceStatus": {
-        "value": "onRoute, garbageCollection"
+        "value": "onRoute"
     }, 
     "cargoWeight": {
         "value": 314

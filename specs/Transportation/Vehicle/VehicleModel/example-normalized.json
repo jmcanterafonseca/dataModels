@@ -1,6 +1,9 @@
 {
     "id": "vehiclemodel:econic",
     "type": "VehicleModel",
+    "name": {
+        "value": "MBenz-Econic2014"
+    },
     "cargoVolume": {
         "value": 1000
     }, 
@@ -9,6 +12,9 @@
     }, 
     "brandName": {
         "value": "Mercedes Benz"
+    },
+    "manufacturerName": {
+        "value": "Daimler"
     }, 
     "fuelType": {
         "value": "diesel"
