@@ -103,6 +103,10 @@ module.exports = {
 
     try {
       files.forEach(function(fileName) {
+        if (fileName.endsWith('normalized')) {
+          return;
+        }
+        
         var data = openFile(fileName, 'example ' + fileName);
         if (typeof validate != 'function') {
          debug("*validateExamples* - " + fileName +
