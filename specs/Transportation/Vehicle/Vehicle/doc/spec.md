@@ -292,4 +292,4 @@ T.B.D.
 ## Issues
 
 * Taxonomy of service types
-* What vehicle special usage categories are defined by the different countries? 
+* Vehicle special usage categories as defined by different countries have not been clarified

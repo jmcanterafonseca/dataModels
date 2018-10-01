@@ -283,7 +283,7 @@ mode (`options=keyValues`).
 An on street parking which contains a group of parking spots reserved for disabled people.
 At root entity level is announced that special parking spots for disabled are present and two of them free. 
 
-Main `OnstreetParking entity. 
+Main `OnstreetParking` entity. 
 
 ```
     {
