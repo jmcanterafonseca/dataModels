@@ -27,6 +27,7 @@ matrix:
       ## Data model validator
         - cd validator
         - npm install
+        - cd ..
         - sudo apt-get remove -y docker docker-engine docker.io
         - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
         - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
