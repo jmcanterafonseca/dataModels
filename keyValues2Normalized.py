@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 """
 
 Converts a NGSIv2 Simplified Representation (a.k.a. keyValues)
@@ -55,6 +56,7 @@ def read_json(infile):
 def write_json(data, outfile):
     with open(outfile, 'w') as data_file:
         json.dump(data, data_file, indent=4)
+        data_file.write("\n")
 
 
 def main(args):
