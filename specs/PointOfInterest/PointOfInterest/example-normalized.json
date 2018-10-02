@@ -1,4 +1,6 @@
 {
+    "id": "PointOfInterest-A-Concha-123456",
+    "type": "PointOfInterest", 
     "category": {
         "value": [
             "113"
@@ -33,8 +35,6 @@
             "addressLocality": "Vilagarc\u00eda de Arousa"
         }
     }, 
-    "type": "PointOfInterest", 
-    "id": "PointOfInterest-A-Concha-123456", 
     "name": {
         "value": "Playa de a Concha"
     }

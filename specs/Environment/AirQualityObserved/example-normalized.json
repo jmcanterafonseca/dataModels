@@ -1,4 +1,6 @@
 {
+    "id": "Madrid-AmbientObserved-28079004-2016-03-15T11:00:00",
+    "type": "AirQualityObserved",
     "dateObserved": {
         "value": "2016-03-15T11:00:00/2016-03-15T12:00:00"
     }, 
@@ -6,17 +8,26 @@
         "value": "moderate"
     }, 
     "CO": {
-        "value": 500
+        "value": 500,
+        "metadata": {
+            "unitCode": {
+                "value": "GP"
+            }
+        }
     }, 
     "temperature": {
         "value": 12.2
     }, 
-    "type": "AirQualityObserved", 
     "NO": {
-        "value": 45
+        "value": 45,
+        "metadata": {
+            "unitCode": {
+                "value": "GQ"
+            }
+        }
     }, 
     "refPointOfInterest": {
-        "type": "Relationship", 
+        "type": "Relationship",
         "value": "28079004-Pza.deEspanya"
     }, 
     "windDirection": {
@@ -29,10 +40,20 @@
         "value": 0.64
     }, 
     "SO2": {
-        "value": 11
+        "value": 11,
+        "metadata": {
+            "unitCode": {
+                "value": "GQ"
+            }
+        }
     }, 
     "NOx": {
-        "value": 139
+        "value": 139,
+        "metadata": {
+            "unitCode": {
+                "value": "GQ"
+            }
+        }
     }, 
     "location": {
         "type": "geo:json", 
@@ -64,9 +85,13 @@
     "precipitation": {
         "value": 0
     }, 
-    "id": "Madrid-AmbientObserved-28079004-2016-03-15T11:00:00", 
     "NO2": {
-        "value": 69
+        "value": 69,
+        "metadata": {
+            "unitCode": {
+                "value": "GQ"
+            }
+        }
     }, 
     "CO_Level": {
         "value": "moderate"
