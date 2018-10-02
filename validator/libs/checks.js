@@ -175,7 +175,7 @@ module.exports = {
   //check if an example is supported by contextBroker
   exampleSupported: function(fullPath) {
     var check = true;
-    var apiInstance=getApiEntityClient();
+    var apiInstance = getApiEntityClient();
 
     var opts = {
       options: "keyValues"
