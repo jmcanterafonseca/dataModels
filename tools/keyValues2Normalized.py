@@ -15,6 +15,8 @@ import sys
 import json
 import ntpath
 
+from entity_print import print_json_string
+
 
 def keyValues_2_normalized(entity):
     out = {}
@@ -55,7 +57,7 @@ def read_json(infile):
 
 def write_json(data, outfile):
     with open(outfile, 'w') as data_file:
-        json.dump(data, data_file, indent=4)
+        data_file.write(print_json_string(data))
         data_file.write("\n")
 
 

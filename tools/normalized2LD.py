@@ -16,7 +16,7 @@ import json
 import ntpath
 
 from rfc3987 import parse
-from copy import deepcopy
+from entity_print import print_json_string
 
 ld_context = 'https://fiware.github.io/dataModels/ldContext/fiware-ld-context.jsonld'
 
@@ -53,42 +53,6 @@ def ld_object(attribute_name, entity_id):
             entity_type = attribute_name[3:]
 
         out = ngsild_uri(entity_type, entity_id)
-
-    return out
-
-
-# Prints the JSON string but with the proper key order
-def print_json_string(entity):
-    print entity['id']
-
-    entity_only_id = {
-        'id': entity['id'],
-    }
-
-    out = json.dumps(entity_only_id, indent=4)[:-2]
-
-    entity_only_type = {
-        'type': entity['type'],
-    }
-
-    # with -2 it is removed the new line char as well
-    out += "," + json.dumps(entity_only_type, indent=4)[1:-2]
-
-    entity_cloned = deepcopy(entity)
-
-    del entity_cloned['id']
-    del entity_cloned['type']
-    del entity_cloned['@context']
-
-    # Now the rest of the entity without the '@context
-    out += "," + json.dumps(entity_cloned, indent=4)[1:-2]
-
-    # Last go the '@context'
-    only_ld_context = {
-        '@context': entity['@context']
-    }
-
-    out += "," + json.dumps(only_ld_context, indent=4)[1:]
 
     return out
 
@@ -158,7 +122,6 @@ def read_json(infile):
 
 def write_json(data, outfile):
     with open(outfile, 'w') as data_file:
-        # json.dump(data, data_file, indent=4)
         data_file.write(print_json_string(data))
         data_file.write("\n")
 
