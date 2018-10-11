@@ -130,7 +130,7 @@ def main(args):
     data = read_json(args[1])
     result = normalized_2_LD(data)
     file_name = ntpath.basename(args[1])
-    write_json(result, 'example-LD.json')
+    write_json(result, 'example-LD.jsonld')
 
 
 if __name__ == '__main__':
