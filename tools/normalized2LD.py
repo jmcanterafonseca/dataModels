@@ -32,11 +32,9 @@ def ld_id(entity_id, entity_type):
     out = entity_id
     try:
         d = parse(entity_id, rule='URI')
-        print(d)
         if d['authority'] is None:
             out = ngsild_uri(entity_type, entity_id)
     except ValueError:
-        print 'val error'
         out = ngsild_uri(entity_type, entity_id)
 
     return out
