@@ -12,9 +12,7 @@ Author: José Manuel Cantera
 import json
 from copy import deepcopy
 
-# Prints the JSON string but with the proper key order
-
-
+# Prints the JSON string but with the proper member order
 def print_json_string(entity):
     print entity['id']
 
