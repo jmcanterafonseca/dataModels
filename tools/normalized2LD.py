@@ -136,7 +136,7 @@ def normalized_2_LD(entity):
 
             for mkey in metadata:
                 if mkey == 'timestamp':
-                    ld_attr['observedAt'] = metadata[mey]['value']
+                    ld_attr['observedAt'] = metadata[mkey]['value']
                 elif mkey == 'unitCode':
                     ld_attr['unitCode'] = metadata[mkey]['value']
                 else:
