@@ -16,8 +16,6 @@ from copy import deepcopy
 
 
 def print_json_string(entity):
-    print entity['id']
-
     entity_only_id = {
         'id': entity['id'],
     }
