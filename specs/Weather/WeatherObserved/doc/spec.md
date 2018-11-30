@@ -2,7 +2,7 @@
 
 ## Description
 
-An observation of weather conditions at a certain place and time.
+An observation of weather conditions at a certain place and time. 
 This data model has been developed in cooperation with mobile operators and the [GSMA](http://www.gsma.com/connectedliving/iot-big-data/). 
 
 ## Data Model
