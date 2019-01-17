@@ -110,11 +110,11 @@
           "properties": {
             "from": {
               "type": "string",
-              "format": "date-time"
+              "format": "date"
             },
             "to": {
               "type": "string",
-              "format": "date-time"
+              "format": "date"
             }
           },
           "required": [
@@ -147,7 +147,7 @@
         },
         "dateNextCalculation": {
           "type": "string",
-          "format": "date-time"
+          "format": "date"
         },
         "dateExpires": {
           "type": "string",
@@ -161,31 +161,33 @@
           "type": "string"
         }
       }
-    }
-  ],
-  "allOf": [
-    {
-      "required": [
-        "id",
-        "type",
-        "name",
-        "organization",
-        "kpiValue",
-        "calculationFrequency",
-        "category",
-        "calculationPeriod"
-      ]
     },
     {
-      "anyOf": [
+      "allOf": [
         {
           "required": [
-            "process"
+            "id",
+            "type",
+            "name",
+            "organization",
+            "kpiValue",
+            "calculationFrequency",
+            "category",
+            "calculationPeriod"
           ]
         },
         {
-          "required": [
-            "product"
+          "anyOf": [
+            {
+              "required": [
+                "process"
+              ]
+            },
+            {
+              "required": [
+                "product"
+              ]
+            }
           ]
         }
       ]
