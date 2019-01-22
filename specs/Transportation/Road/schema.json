@@ -49,28 +49,28 @@
         "responsible": {
           "type": "string"
         }
-      }
-    }
-  ],
-  "allOf": [
-    {
-      "required": [
-        "id",
-        "name",
-        "type",
-        "roadClass"
-      ]
-    },
-    {
-      "oneOf": [
+      },
+      "allOf": [
         {
           "required": [
-            "refRoadSegment"
+            "id",
+            "name",
+            "type",
+            "roadClass"
           ]
         },
         {
-          "required": [
-            "location"
+          "oneOf": [
+            {
+              "required": [
+                "refRoadSegment"
+              ]
+            },
+            {
+              "required": [
+                "location"
+              ]
+            }
           ]
         }
       ]
