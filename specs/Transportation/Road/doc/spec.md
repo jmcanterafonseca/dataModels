@@ -76,6 +76,7 @@ The data model is defined as shown below:
     -   Mandatory if `location` is not defined
 
 -   `location` : A GeoJSON (multi)line string which defines this road.
+
     -   Normative References:  [https://tools.ietf.org/html/rfc7946](https://tools.ietf.org/html/rfc7946)
     -   Attribute type: `geo:json`
     -   Mandatory if `refRoadSegment` is not defined  
