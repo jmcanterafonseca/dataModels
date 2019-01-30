@@ -78,14 +78,32 @@ def extract_entity_type(schema):
     if properties is not None and 'type' in properties:
         type_node = properties['type']
 
-        out = type_node['enum'][0]
+        if 'enum' in type_node and len(type_node['enum']) > 0:
+            out = type_node['enum'][0]
 
     return out
 
 
 # extracts the enumerations
 def extract_enumerations(schema):
-    return []
+    out = []
+
+    properties = find_node(schema, 'properties')
+
+    if properties is None:
+        return out
+
+    for p in properties:
+        if p != 'type':
+            prop = properties[p]
+            enum = find_node(prop, 'enum')
+            if enum is not None:
+                if isinstance(enum, list):
+                    for item in enum:
+                        if isinstance(item, basestring):
+                            out.append(item)
+
+    return out
 
 
 # Generates the LD @context for a list of properties with the URI prefix
@@ -121,7 +139,9 @@ def schema_2_ld_context(schema, uri_prefix):
     if (entity_type is not None):
         properties.append(entity_type)
 
-    ld_context = generate_ld_context(properties, uri_prefix)
+    all_properties = properties + enumerations
+
+    ld_context = generate_ld_context(all_properties, uri_prefix)
 
     return ld_context
 
@@ -146,7 +166,7 @@ def aggregate_ld_context(f, uri_prefix):
 
 
 def write_context_file():
-    print('writing LD @context...')
+    print('writing LD @context...' + 'size: ' + str(len(aggregated_context)))
 
     ld_context = {
         '@context': aggregated_context
