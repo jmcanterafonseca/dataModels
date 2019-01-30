@@ -1,12 +1,16 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 """
-Extracts the properties of a JSON Schema converting them into terms of a JSON-LD @Context
+Extracts the properties, types and  enumerations of a JSON Schema
+converting them into terms of a JSON-LD @Context
+
+Copyright (c) 2019 FIWARE Foundation e.V.
+
+Author: José M. Cantera
 """
 
 import sys
 import json
-import ntpath
 import os
 
 # Here the aggregated @context will be stored
@@ -166,7 +170,7 @@ def aggregate_ld_context(f, uri_prefix):
 
 
 def write_context_file():
-    print('writing LD @context...' + 'size: ' + str(len(aggregated_context)))
+    print('writing LD @context...' + ' size: ' + str(len(aggregated_context)))
 
     ld_context = {
         '@context': aggregated_context
