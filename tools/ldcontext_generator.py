@@ -104,7 +104,7 @@ def extract_enumerations(schema):
             if enum is not None:
                 if isinstance(enum, list):
                     for item in enum:
-                        if isinstance(item, basestring):
+                        if isinstance(item, str):
                             out.append(item)
 
     return out
