@@ -1,0 +1,179 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "id": "https://fiware.github.io/dataModels/Entity-ngsiv2-schema.json",
+  "title": "NGSIv2 Entity",
+  "description": "NGSIv2 Entity",
+  "definitions": {
+    "EntityIdentifier": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+    },
+    "Name": {
+      "type": "string",
+      "pattern": "^(\\d|[a-zA-Z]|_)+$",
+      "minLength": 1,
+      "description": "NGSIv2 Name"
+    },
+    "DateTimeValue": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "Value": {
+      "anyOf": [
+        {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "array",
+            "object",
+            "null"
+          ]
+        }
+      ]
+    },
+    "TypeValue": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/Name"
+        },
+        "value": {
+          "$ref": "#/definitions/Value"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "DateTimeTypeValue": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "DateTime"
+        },
+        "value": {
+          "$ref": "#/definitions/DateTimeValue"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "GeoTypeValue": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "geo:json"
+        },
+        "value": {
+          "$ref": "http://json-schema.org/geojson/geometry.json#"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "Metadata": {
+      "type": "object",
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/TypeValue"
+          },
+          {
+            "$ref": "#/definitions/DateTimeTypeValue"
+          }
+        ]
+      }
+    },
+    "dateCreated": {
+      "$ref": "#/definitions/DateTimeTypeValue"
+    },
+    "dateModified": {
+      "$ref": "#/definitions/DateTimeTypeValue"
+    },
+    "Attribute": {
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TypeValue"
+            },
+            {
+              "$ref": "#/definitions/DateTimeTypeValue"
+            },
+            {
+              "$ref": "#/definitions/GeoTypeValue"
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "metadata": {
+              "$ref": "#/definitions/Metadata"
+            }
+          }
+        }
+      ]
+    },
+    "EntityFragment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/EntityIdentifier"
+        },
+        "type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "default": "Thing"
+            }
+          ]
+        },
+        "dateCreated": {
+          "$ref": "#/definitions/dateCreated"
+        },
+        "dateModified": {
+          "$ref": "#/definitions/dateModified"
+        }
+      },
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^((\\d|[a-zA-Z]|_)+(#\\d+)?)$"
+      },
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/Attribute"
+          }
+        ]
+      }
+    },
+    "Entity": {
+      "allOf": [
+        {
+          "required": [
+            "id",
+            "type"
+          ]
+        },
+        {
+          "$ref": "#/definitions/EntityFragment"
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "#/definitions/Entity"
+    }
+  ]
+}
