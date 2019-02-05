@@ -44,7 +44,7 @@ This FAQ compilation is intended to clarify NGSI-LD specification by providing a
   },
   "@context": [
     "http://schema.lab.fiware.org/ld/jsonldcontext.json",
-    "http://uri.etsi.org/ngsi-ld/ngsi-ld-core-context.jsonld"
+    "http://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
   ]
 }
 ```
@@ -84,14 +84,41 @@ Additional examples can be found [here](https://github.com/Fiware/NGSI-LD_Tests/
     },
     "@context": [
       "http://schema.lab.fiware.org/ld/jsonldcontext.json",
-      "http://uri.etsi.org/ngsi-ld/ngsi-ld-core-context.jsonld"
+      "http://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
     ]
 }
 ```
     
 * Q: How geo-location is represented? 
-  * R: See the example above. In essence an Attribute of type `GeoProperty plus GeoJSON.  
+  * R: See the example above. In essence an Attribute of type `GeoProperty` plus GeoJSON.  
 
 * Q: How DateTime (timestamps, dates, time) is represented?
-  * R: See the first example on this page
+  * R: See the first example on this page.
+  
+* Q: Is `application/json` supported as MIME type?
+  * R: Yes, indeed. However, the `@context` has to be externally provided, or no `@context` at all. In the latter case Entities will be
+  under the Default `@context`. You can see an example [here](https://github.com/Fiware/NGSI-LD_Tests/blob/master/contextProvision/create_entity_with_ldcontext_test.js#L18)
+
+* Q: What happens if I only use `application/json` content without worrying about the `@context` thingy? Nothing, i.e.
+if you are working in your own application and your data model is somewhat "private" that is perfectly ok. It is somewhat similar as using XML without namespaces. 
+
+* Q: What is the JSON-LD Link header?
+  * R: It is a standard HTTP Link Header intended to provide a @context in two scenarios: 
+     1. when `application/json` is used as MIME type. 
+     2. in GET and DELETE operations to specify what is the @context to be used for mapping types or attribute names to Fully Qualified Names (URIs). 
+
+* Q: Could you put an example of a JSON-LD HTTP Link Header?
+  * R: You can see it [here](https://github.com/Fiware/NGSI-LD_Tests/blob/master/contextConsumption/query_entities_with_ld_context_test.js#L13)
+
+* Q: Is the `@context` mandatory?
+  * R: For JSON-LD content, yes. (`application/ld+json`). For JSON content it can **only** be specified through the JSON-LD HTTP Link header. 
+
+* Q: What happens if an Entity Id is a URL and I use it in a resource `/entities/{entityId}`?
+  * R: Nothing. Entity Ids have to be percent encoded as mandated by IETF specifications. 
+
+* Q: Where I can find the Default @context?
+  * R: [Here](https://forge.etsi.org/gitlab/NGSI-LD/NGSI-LD/raw/master/defaultContext/defaultContext.jsonld)
+
+* Q: What is the Core @context?
+  * R: It is the JSON-LD @context where all the NGSI-LD Core terms are defined. It can be found at http://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld
   
