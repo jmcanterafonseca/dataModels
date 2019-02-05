@@ -66,7 +66,7 @@ Additional examples can be found [here](https://github.com/Fiware/NGSI-LD_Tests/
   * R: It is a "timestamp" associated to a Property or Relationship. See the example below. 
   In NGSI v2 it is usually specified using the `timestamp` metadata member.
   
-  ```json
+```json
   {
     "id": "urn:ngsi-ld:WasteContainer:RZ:Obsv4567",
     "type": "WasteContainer",
@@ -86,11 +86,10 @@ Additional examples can be found [here](https://github.com/Fiware/NGSI-LD_Tests/
       "http://schema.lab.fiware.org/ld/jsonldcontext.json",
       "http://uri.etsi.org/ngsi-ld/ngsi-ld-core-context.jsonld"
     ]
-} 
+}
 ```
-  
-  
-  * Q: How geo-location is represented? 
+    
+* Q: How geo-location is represented? 
   * R: See the example above. In essence an Attribute of type `GeoProperty plus GeoJSON.  
 
 * Q: How DateTime (timestamps, dates, time) is represented?
