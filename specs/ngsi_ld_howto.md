@@ -163,7 +163,7 @@ as they pertain to the Core JSON-LD @context which is always implicit (and canno
     "dateObserved": "http://schema.fiware.org/dateObserved",
     "NO2": "http://schema.fiware.org/NO2",
     "refPointOfInterest": {
-      "@type": "@id"
+      "@type": "@id",
       "@id": "http://schema.fiware.org/refPointOfInterest"
     },
     "category": "http://schema.fiware.org/category",
