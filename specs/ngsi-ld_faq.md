@@ -57,7 +57,7 @@ answers to common questions.
         "object": "urn:ngsi-ld:PointOfInterest:RZ:MainSquare"
     },
     "@context": [
-        "http://schema.lab.fiware.org/ld/jsonldcontext.json",
+        "https://schema.lab.fiware.org/ld/jsonldcontext.json",
         "http://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
     ]
 }
@@ -106,7 +106,7 @@ Additional examples can be found
         }
     },
     "@context": [
-        "http://schema.lab.fiware.org/ld/jsonldcontext.json",
+        "https://schema.lab.fiware.org/ld/jsonldcontext.json",
         "http://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
     ]
 }
