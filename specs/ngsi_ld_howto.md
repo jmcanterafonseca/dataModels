@@ -32,3 +32,142 @@ the same way as schema.org does. The following steps have to be followed in orde
 * The NGSI `geo:json` type has to be renamed to `GeoProperty`.
 
 The FIWARE Community has already provided a simple script to migrate FIWARE NGSI entity representations to NGSI-LD, see https://github.com/Fiware/dataModels/blob/master/tools/normalized2LD.py
+
+## Example of migration to NGSI-LD
+
+The figure below shows how air quality information at a certain point of interest can be conveyed using the FIWARE Data Models
+(involving the entity types `AirQualityObserved`, `PointOfInterest`) in NGSI (JSON) format.
+
+```json
+{
+  "id": "AirQualityObserved:RZ:Obsv4567",
+  "type": "AirQualityObserved",
+  "dateObserved": {
+    "type": "DateTime",
+    "value": "2018-08-07T12:00:00"
+  },
+  "NO2": {
+    "type": "Number",
+    "value": 22,
+    "metadata": {
+      "unitCode": {
+        "type": "Text",
+        "value": "GP"
+      }
+    }
+  },
+  "refPointOfInterest": {
+    "type": "Reference",
+    "value": "PointOfInterest:RZ:MainSquare"
+  }
+}
+```
+
+```json
+{
+  "id": "PointOfInterest:RZ:MainSquare ",
+  "type": "PointOfInterest",
+  "category": {
+    "type": "List",
+    "value": [
+      "113"
+    ]
+  },
+  "description": {
+    "type": "Text",
+    "value": "Beach of RZ"
+  },
+  "location": {
+    "type": "geo:json",
+    "value": {
+      "type": "Point",
+      "coordinates": [
+        -8,
+        44
+      ]
+    }
+  }
+}
+```
+
+The figure below shows how air quality information, at a certain point of interest, can be conveyed using the FIWARE Data Models
+(involving the entity types `AirQualityObserved`, `PointOfInterest`) in NGSI-LD format. The new representation has been obtained by applying the conversion rules described before. 
+Please note that the referred JSON-LD @context could be eventually published by FIWARE at the suggested URL.
+
+```json
+{
+  "id": "urn:ngsi-ld:AirQualityObserved:RZ:Obsv4567",
+  "type": "AirQualityObserved",
+  "dateObserved": {
+    "type": "Property",
+    "value": {
+      "@type": "DateTime",
+      "@value": "2018-08-07T12:00:00Z"
+    }
+  },
+  "NO2": {
+    "type": "Property",
+    "value": 22,
+    "unitCode": "GP"
+  },
+  "refPointOfInterest": {
+    "type": "Relationship",
+    "object": "urn:ngsi-ld:PointOfInterest:RZ:MainSquare"
+  },
+  "@context": [
+    "http://schema.lab.fiware.org/ld/jsonldcontext.json",
+    "http://uri.etsi.org/ngsi-ld/ngsi-ld-core-context.jsonld"
+  ]
+}
+```
+
+```json
+{
+  "id": "urn:ngsi-ld:PointOfInterest:RZ:MainSquare ",
+  "type": "PointOfInterest",
+  "category": {
+    "type": "Property",
+    "value": [
+      "113"
+    ]
+  },
+  "description": {
+    "type": "Property",
+    "value": "Beach of RZ"
+  },
+  "location": {
+    "type": "GeoProperty",
+    "value": {
+      "type": "Point",
+      "coordinates": [
+        -8,
+        44
+      ]
+    }
+  },
+  "@context": [
+    "http://schema.lab.fiware.org/ld/jsonldcontext.json",
+    "http://uri.etsi.org/ngsi-ld/ngsi-ld-core-context.jsonld"
+  ]
+}
+```
+
+The content of the JSON-LD @context could contain the mappings enumerated below.
+Observe that `refPointOfInterest` is labelled as an `@id`, as it is actually pointing to another Entity (linked data).
+On the other hand, there are certain terms such as `location` or `unitCode` which are not included in the @context,
+as they pertain to the Core JSON-LD @context which is always implicit (and cannot be overwritten). 
+
+```json
+{
+  "@context": {
+    "dateObserved": "http://schema.fiware.org/dateObserved",
+    "NO2": "http://schema.fiware.org/NO2",
+    "refPointOfInterest": {
+      "@type": "@id"
+      "@id": "http://schema.fiware.org/refPointOfInterest"
+    },
+    "category": "http://schema.fiware.org/category",
+    "description": "http://schema.org/description"
+  }
+}
+```
