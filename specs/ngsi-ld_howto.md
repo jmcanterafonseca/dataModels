@@ -86,7 +86,7 @@ types `AirQualityObserved`, `PointOfInterest`) in NGSI (JSON) format.
 
 ```json
 {
-    "id": "PointOfInterest:RZ:MainSquare ",
+    "id": "PointOfInterest:RZ:MainSquare",
     "type": "PointOfInterest",
     "category": {
         "type": "List",
@@ -134,7 +134,7 @@ published by FIWARE at the suggested URL.
         "object": "urn:ngsi-ld:PointOfInterest:RZ:MainSquare"
     },
     "@context": [
-        "http://schema.lab.fiware.org/ld/jsonldcontext.json",
+        "https://schema.lab.fiware.org/ld/jsonldcontext.json",
         "http://uri.etsi.org/ngsi-ld/ngsi-ld-core-context.jsonld"
     ]
 }
@@ -160,7 +160,7 @@ published by FIWARE at the suggested URL.
         }
     },
     "@context": [
-        "http://schema.lab.fiware.org/ld/jsonldcontext.json",
+        "https://schema.lab.fiware.org/ld/jsonldcontext.json",
         "http://uri.etsi.org/ngsi-ld/ngsi-ld-core-context.jsonld"
     ]
 }
