@@ -4,8 +4,9 @@
 
 The FIWARE NGSI v2 information model has been evolved to better support linked
 data (entity relationships), property graphs and semantics (exploiting the
-capabilities offered by JSON-LD). This work has been conducted under the ETSI
-ISG CIM initiative and has been branded as
+capabilities offered by [JSON-LD](https://json-ld.org/primer/latest/)). This
+work has been conducted under the ETSI ISG CIM initiative and has been branded
+as
 [NGSI-LD](https://www.etsi.org/deliver/etsi_gs/CIM/001_099/009/01.01.01_60/gs_CIM009v010101p.pdf).
 The main constructs of NGSI-LD are: **Entity**, **Property** and
 **Relationship**. NGSI-LD Entities (instances) can be the subject of Properties
