@@ -34,7 +34,7 @@ First of all, each Data Model shall have a JSON-LD `@context`, providing an
 unambiguous definition by mapping terms to URIs. For practicality reasons, it is
 recommended to have a unique `@context` resource, containing all terms, subject
 to be used in every FIWARE Data Model, the same way as schema.org does. The
-following steps have to be followed in order to migrate existing NGSI
+following steps have to be followed in order to migrate existing NGSI v2
 instantiations of the FIWARE Data Models to NGSI-LD:
 
 -   NGSI v2 entity `id` attributes have to be converted to URIs, preferably
@@ -59,7 +59,7 @@ entity representations to NGSI-LD, see
 
 The figure below shows how air quality information at a certain point of
 interest can be conveyed using the FIWARE Data Models (involving the entity
-types `AirQualityObserved`, `PointOfInterest`) in NGSI v2 (JSON) format.
+types `AirQualityObserved`, `PointOfInterest`) in NGSI v2 format.
 
 ### Airquality in NGSI v2 format
 
@@ -180,7 +180,7 @@ The content of the JSON-LD `@context` could contain the mappings enumerated
 below. Observe that `refPointOfInterest` is labelled as an `@id`, as it is
 actually pointing to another Entity (linked data). On the other hand, there are
 certain terms such as `location` or `unitCode` which are not included in the
-@context, as they pertain to the Core JSON-LD `@context` which is always
+`@context`, as they pertain to the Core JSON-LD `@context` which is always
 implicit (and cannot be overwritten).
 
 ```json
