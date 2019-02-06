@@ -54,7 +54,7 @@ R: The following:
         "object": "urn:ngsi-ld:PointOfInterest:RZ:MainSquare"
     },
     "@context": [
-        "https://schema.lab.fiware.org/ld/jsonldcontext.json",
+        "https://schema.lab.fiware.org/ld/jsonldcontext.jsonld",
         "http://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
     ]
 }
@@ -101,7 +101,7 @@ below. In NGSI v2 it is usually specified using the `timestamp` metadata member.
         }
     },
     "@context": [
-        "https://schema.lab.fiware.org/ld/jsonldcontext.json",
+        "https://schema.lab.fiware.org/ld/jsonldcontext.jsonld",
         "http://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
     ]
 }
