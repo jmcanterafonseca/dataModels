@@ -10,7 +10,7 @@ R: The following:
 -   The underlying Data Model is the Property Graph Data Model.
     [Here](https://github.com/Fiware/NGSI-LD_Wrapper/blob/master/doc/instantiation.png)
     you can see an example.
--   Entity Ids shall be URIs (URLs or URNs)
+-   Entity IDs shall be URIs (URLs or URNs)
 -   The `metadata` dictionary disappears. Metadata are represented by nested
     Properties of Properties.
 -   There is some "metadata" standardised (`unitCode`, `observedAt`, ...)
@@ -126,7 +126,7 @@ R: Yes, indeed. However, the `@context` has to be externally provided, or no
 ### Q: What happens if I only use `application/json` content without worrying about the `@context` thingy?
 
 R: Nothing, i.e. if you are working in your own application and your data model
-is somewhat "private" that is perfectly ok. It is somewhat similar as using XML
+is somewhat "private" that is perfectly OK. It is somewhat similar as using XML
 without namespaces.
 
 ### Q: What is the JSON-LD Link header?
@@ -146,9 +146,9 @@ R: You can see it
 R: For JSON-LD content, yes. (`application/ld+json`). For JSON content it can
 **only** be specified through the JSON-LD HTTP Link header.
 
-### Q: What happens if an Entity Id is a URL and I use it in a resource `/entities/{entityId}`?
+### Q: What happens if an Entity ID is a URL and I use it in a resource `/entities/{entityId}`?
 
-R: Nothing. Entity Ids have to be percent encoded as mandated by IETF
+R: Nothing. Entity IDs have to be percent encoded as mandated by IETF
 specifications.
 
 ### Q: Where I can find the Default @context?
