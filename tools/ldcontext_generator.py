@@ -179,7 +179,7 @@ def write_context_file():
 
     ld_context = {
         '@context': aggregated_context,
-        'generatedAt': datetime.now().isoformat()
+        'generatedAt': datetime.now().replace(microsecond=0).isoformat()
     }
 
     write_json(ld_context, 'context.jsonld')
