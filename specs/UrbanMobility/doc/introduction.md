@@ -21,19 +21,19 @@
 ## Summary of Entity mappings with GTFS
 
 
-| GTFS Feed Member Name                                                                           | NGSI Entity Type                                                                                                           |
-|:----------------------------------------------------------------------------------------------- |:---------------------------------------------------------------------------------------------------------------------------|
-| [agency.txt](https://developers.google.com/transit/gtfs/reference/#agencytxt)                   |   [GtfsAgency](../Agency/doc/spec.md)                                                                                     |
-| [stops.txt](https://developers.google.com/transit/gtfs/reference/#stopstxt)                     |   [GtfsStop](../Stop/doc/spec.md). [GtfsStation](../Station/doc/spec.md). [GtfsAccessPoint](../AccessPoint/doc/spec.md) |
-| [routes.txt](https://developers.google.com/transit/gtfs/reference/#routestxt)                   |   [GtfsRoute](../Route/doc/spec.md)                                                                                       |
-| [trips.txt](https://developers.google.com/transit/gtfs/reference/#tripstxt)                     |   [GtfsTrip](../Trip/doc/spec.md). See also [GtfsService](../Service/doc/spec.md)                                         |
-| [stop_times.txt](https://developers.google.com/transit/gtfs/reference/#stop_timestxt)           |   [GtfsStopTime](../StopTime/doc/spec.md)                                                                                 |
-| [calendar.txt](https://developers.google.com/transit/gtfs/reference/#calendartxt)               |   [GtfsCalendarRule](../CalendarRule/doc/spec.md)                                                                                 |
-| [calendar_dates.txt](https://developers.google.com/transit/gtfs/reference/#calendar_datestxt)   |   [GtfsCalendarDateRule](../CalendarDateRule/doc/spec.md)                                                                       |  
-| [fare_attributes.txt](https://developers.google.com/transit/gtfs/reference/#fare_attributestxt) |   N/A                                                                                                                      |
-| [fare_rules.txt](https://developers.google.com/transit/gtfs/reference/#fare_rulestxt)           |   N/A                                                                                                                      |
-| [shapes.txt](https://developers.google.com/transit/gtfs/reference/#shapestxt)                   |   See   [GtfsRoute](../Route/doc/spec.md),   [GtfsTrip](../Trip/doc/spec.md)                                             |
-| [frequencies.txt](https://developers.google.com/transit/gtfs/reference/#frequenciestxt)         |   [GtfsFrequency](../Frequency/doc/spec.md)                                                                               |
-| [transfers.txt](https://developers.google.com/transit/gtfs/reference/#transferstxt)             |   [GtfsTransferRule](../TransferRule/doc/spec.md)                                                                         |
-| [feedinfo.txt](https://developers.google.com/transit/gtfs/reference/#feed_infotxt)              |   N/A                                                                                                                      |
+| GTFS Feed Member Name                                                                           | NGSI Entity Type                                                                                                                    |
+|:----------------------------------------------------------------------------------------------- |:------------------------------------------------------------------------------------------------------------------------------------|
+| [agency.txt](https://developers.google.com/transit/gtfs/reference/#agencytxt)                   |   [GtfsAgency](../GtfsAgency/doc/spec.md)                                                                                           |
+| [stops.txt](https://developers.google.com/transit/gtfs/reference/#stopstxt)                     |   [GtfsStop](../GtfsStop/doc/spec.md). [GtfsStation](../GtfsStation/doc/spec.md). [GtfsAccessPoint](../GtfsAccessPoint/doc/spec.md) |
+| [routes.txt](https://developers.google.com/transit/gtfs/reference/#routestxt)                   |   [GtfsRoute](../GtfsRoute/doc/spec.md)                                                                                             |
+| [trips.txt](https://developers.google.com/transit/gtfs/reference/#tripstxt)                     |   [GtfsTrip](../GtfsTrip/doc/spec.md). See also [GtfsService](../GtfsService/doc/spec.md)                                           |
+| [stop_times.txt](https://developers.google.com/transit/gtfs/reference/#stop_timestxt)           |   [GtfsStopTime](../GtfsStopTime/doc/spec.md)                                                                                       |
+| [calendar.txt](https://developers.google.com/transit/gtfs/reference/#calendartxt)               |   [GtfsCalendarRule](../GtfsCalendarRule/doc/spec.md)                                                                               |
+| [calendar_dates.txt](https://developers.google.com/transit/gtfs/reference/#calendar_datestxt)   |   [GtfsCalendarDateRule](../GtfsCalendarDateRule/doc/spec.md)                                                                       |  
+| [fare_attributes.txt](https://developers.google.com/transit/gtfs/reference/#fare_attributestxt) |   N/A                                                                                                                               |
+| [fare_rules.txt](https://developers.google.com/transit/gtfs/reference/#fare_rulestxt)           |   N/A                                                                                                                               |
+| [shapes.txt](https://developers.google.com/transit/gtfs/reference/#shapestxt)                   |   See   [GtfsRoute](../GtfsRoute/doc/spec.md),   [GtfsTrip](../GtfsTrip/doc/spec.md)                                                |
+| [frequencies.txt](https://developers.google.com/transit/gtfs/reference/#frequenciestxt)         |   [GtfsFrequency](../GtfsFrequency/doc/spec.md)                                                                                     |
+| [transfers.txt](https://developers.google.com/transit/gtfs/reference/#transferstxt)             |   [GtfsTransferRule](../GtfsTransferRule/doc/spec.md)                                                                               |
+| [feedinfo.txt](https://developers.google.com/transit/gtfs/reference/#feed_infotxt)              |   N/A                                                                                                                               |
 
