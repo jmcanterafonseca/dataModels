@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "id": "https://fiware.github.io/dataModels/UrbanMobility/ArrivalEstimation/schema.json",
-  "title": "NGSI GTFS Schema",
-  "description": "Arrival Estimation",
+  "id": "UrbanMobility/ArrivalEstimation/schema.json",
+  "title": "SC Standalone Arrival Estimation Schema",
+  "description": "Standalone arrival estimation. These entities can be used to create GTFS-RT feeds or to be used in a standalone way",
   "type": "object",
   "allOf": [
     { "$ref": "https://fiware.github.io/dataModels/common-schema.json#/definitions/GSMA-Commons" },
@@ -15,24 +15,50 @@
           ],
           "description": "NGSI Entity type"
         },
-        "hasStop": {
+        "refGtfsTransitFeedFile": {
           "type": "string",
           "format": "uri"
         },
-        "hasTrip": {
-          "type": "string",
-          "format": "uri"
-        },
-        "remainingTime": {
-          "type": "string",
-          "pattern": "^P(?=\\w*\\d)(?:\\d+Y|Y)?(?:\\d+M|M)?(?:\\d+W|W)?(?:\\d+D|D)?(?:T(?:\\d+H|H)?(?:\\d+M|M)?(?:\\d+(?:\\?.\\d{1,2})?S|S)?)?$"
-        },
-        "remainingDistance": {
-          "type": "number",
-          "minValue": 0
-        },
-        "headsign": {
+        "routeId": {
           "type": "string"
+        },
+        "stopId": {
+          "type": "string"
+        },
+        "lastupdatedAt": {
+          "type": "string", 
+          "format": "date-time"
+        },
+        "arrivalEstimationUpdate": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "tripId": {
+                "type": "string"
+              },
+              "arrivalDelay": {
+                "type": "integer"
+              },
+              "arrivalTime": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "vehicleId": {
+                "type": "string"
+              },
+              "vehicleLabel": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "tripId"
+            ],
+            "anyOf": [
+              { "required": ["arrivalDelay"]}, 
+              { "required": ["arrivalTime"]}
+            ]
+          }
         }
       }  
     }
@@ -40,9 +66,8 @@
   "required": [
     "id",
     "type",
-    "hasStop",
-    "hasTrip",
-    "remainingTime",
-    "headSign"
+    "routeId",
+    "stopId",
+    "stopTimeUpdate"
   ]
 }

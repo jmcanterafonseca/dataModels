@@ -2,117 +2,127 @@
 
 ## Description
 
-This entity Type is intended to provide arrival estimation information that can be used either in a standalone manner or to generate GTFS-RT feeds that complement a GTFS static file.
+This Entity Type captures the estimated arrival time of a public transport
+vehicle reaching a particular stop, whilst the vehicle is servicing a particular
+route.
 
 ## Data Model
-+ `id`: Entity Id
-    + It shall be `urn:ngsi-ld:ArrivalEstimation:<identifier>`
 
-+ `type`: Entity Type
-    + It shall be equal to `ArrivalEstimation`
+The data model is defined as shown below:
 
-+ `refGtfsTransitFeedFile` : Reference to the entity pointing to the external GTFS file.
-    + Attribute type: [URL](https://schema.org/URL)
-    + Optional. Necessary to create GTFS-RT feeds
+-   `id`: Entity ID
 
-+ `routeId` : Identifier of the bus route (or bus line)
-    + Attribute type: [Text](https://schema.org/Text)
-    + Mandatory
+    -   It shall be `urn:ngsi-ld:gtfs:ArrivalEstimation:<identifier>`.
 
-+ `stopId` : Identifier of the stop
-    + Attribute type: [Text](https://schema.org/Text)
-    + Mandatory if `stopSequence` is not defined
+-   `type`: Entity Type
 
-+ `dateCreated` : Entity's creation timestamp.
-    + Attribute type: [DateTime](https://schema.org/DateTime)
-    + Read-Only. Automatically generated.
+    -   It shall be equal to `ArrivalEstimation`
 
-+ `dateModified` : Last update timestamp of this Entity.
-    + Attribute type: [DateTime](https://schema.org/DateTime)
-    + Read-Only. Automatically generated.
+-   `source` : A sequence of characters giving the source of the entity data.
 
-+ `lastUpdatedAt` : Last update of the entity set by the data provider. It is not automatically generated.
-    + Attribute type: [DateTime](https://schema.org/DateTime)
-    + Optional.
+    -   Attribute type: Text or URL
+    -   Optional
 
-+ `arrivalEstimationUpdate` : Current updates of the trips referred to the route/stop pair
-    + Attribute type: Array of [StructuredValue](https://schema.org/StructuredValue)
-    + Subproperties (items):
-    	+ `arrivalDelay`: Delay in seconds (positive or negative). 0 means that the vehicle is on time
-    		+ Type: [Integer](https://schema.org/Integer)
-    		+ Optional. Necessary to create GTFS-RT feeds
-    	+ `arrivalTime`: Estimated arrival time in absolute time value (timestamp ISO 8601)
-    		+ Type: [DateTime](https://schema.org/DateTime)
-    		+ Optional. Mandatory if arrivalDelay is not defined
-    	+ `tripId`: Identifier of the trip as defined in the associated GTFS
-    		+ Type: [Text](https://schema.org/Text)
-    		+ Optional. Mandatory if neither `vehicleId` or `vehicleLabel` are defined. Necessary to create GTFS-RT feeds
-    	+ `vehicleId`: Vehicle identifier corresponding to the estimate
-    		+ Type: [Text](https://schema.org/Text)
-    		+ Optional. Mandatory if neither `tripId` or `vehicleLabel` are defined
-    	+ `vehicleLabel`: Human readable label to identify the vehicle
-    		+ Type: [Text](https://schema.org/Text)
-    		+ Optional. Mandatory if neither `tripId` or `vehicleId` are defined
-	+ Mandatory
+-   `dataProvider` : Specifies the URL to information about the provider of this
+    information
 
-### Examples of use 1 (Normalized Format)
+    -   Attribute type: URL
+    -   Optional
+
+-   `dateCreated` : Entity's creation timestamp.
+
+    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Read-Only. Automatically generated.
+
+-   `dateModified` : Last update timestamp of this Entity.
+
+    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Read-Only. Automatically generated.
+
+-   `hasStop` : Stop to which this estimation applies to.
+
+    -   Attribute type: Relationship. It shall point to an Entity of Type
+        [gtfs:Stop](../../Stop/doc/spec.md)
+    -   Mandatory
+
+-   `hasTrip` : The trip to which this estimation applies to.
+
+    -   Attribute type: Relationship. It shall point to an Entity of Type
+        [gtfs:Trip](../../Trip/doc/spec.md)
+    -   Mandatory
+
+-   `remainingTime`: It shall contain the remaining time of arrival for the trip
+    heading to the concerned stop.
+
+    -   Attribute type: Property. [Text](https://schema.org/Text). Remaining
+        time shall be encoded as a ISO8601 duration. Ex. `"PT8M5S"`.
+    -   Attribute Metadata:
+        -   `timestamp` (mapped to `observedAt` in NGSI-LD). Timestamp of the
+            last attribute update
+            -   Type: [DateTime](https://schema.org/DateTime) - Mandatory
+    -   Mandatory
+
+-   `remainingDistance`: It shall contain the remaining distance (in meters) of
+    arrival for the trip heading to the concerned stop.
+
+    -   Attribute type: Property. Positive Number.
+        [https://schema.org/Number](https://schema.org/Number)
+    -   Attribute metadata:
+        -   `timestamp` (mapped to `observedAt` in NGSI-LD). Timestamp of the
+            last attribute update
+            -   Type: [DateTime](https://schema.org/DateTime)
+            -   Mandatory
+    -   Default Unit: Meters
+    -   Optional
+
+-   `headSign`: It shall contain the text that appears on a sign that identifies
+    the trip's destination to passengers.
+    -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Mandatory
+
+## Examples
+
+### Normalized Example
+
+Normalized NGSI response
 
 ```json
 {
-  "id": "urn:ngsi-ld:ArrivalEstimation:Santander:1",
-  "type": "ArrivalEstimation",
-  "refGtfsTransitFeedFile": {
-    "value": "urn:ngsi-ld:GtfsTransitFeedFile:Santander:bus"
-  },
-  "routeId": {
-    "value": "route1"
-  },
-  "stopId": {
-    "value": "stop1"
-  },
-  "lastUpdatedAt": {
-    "value": "2018-12-19T10:14:00.238Z",
-    "type": "DateTime"
-  },
-  "arrivalEstimationUpdate": {
-    "value": [
-      {
-        "tripId": "1",
-        "arrivalDelay": -2
-      }, {
-        "tripId": "2",
-        "arrivalDelay": -2
-      }, {
-        "tripId": "3",
-        "arrivalDelay": -2
-      }
-    ]
-  }
+    "id": "urn:ngsi-ld:ArrivalEstimation:L5C1_Stop74_1",
+    "type": "ArrivalEstimation",
+    "hasTrip": {
+        "type": "Relationship",
+        "value": "urn:ngsi-ld:gtfs:Trip:tus:5C1"
+    },
+    "headSign": {
+        "value": "Plaza Italia"
+    },
+    "remainingTime": {
+        "value": "PT8M5S"
+    },
+    "hasStop": {
+        "type": "Relationship",
+        "value": "urn:ngsi-ld:gtfs:Stop:tus:74"
+    },
+    "remainingDistance": {
+        "value": 1200
+    }
 }
 ```
 
-### Examples of use 2  (?options=keyValues simplified representation for data consumers)
+### key-value pairs Example
+
+Sample uses simplified representation for data consumers `?options=keyValues`
 
 ```json
 {
-  "id": "urn:ngsi-ld:ArrivalEstimation:Santander:1",
-  "type": "ArrivalEstimation",
-  "refGtfsTransitFeedFile": "urn:ngsi-ld:GtfsTransitFeedFile:Santander:bus",
-  "routeId": "route1",
-  "stopId": "stop1",
-  "lastUpdatedAt": "2018-12-19T10:14:00.238Z",
-  "arrivalEstimationUpdate": [
-    {
-      "tripId": "1",
-      "arrivalDelay": -2
-    }, {
-      "tripId": "2",
-      "arrivalDelay": -2
-    }, {
-      "tripId": "3",
-      "arrivalDelay": -2
-    }
-  ]
+    "id": "urn:ngsi-ld:ArrivalEstimation:L5C1_Stop74_1",
+    "type": "ArrivalEstimation",
+    "hasStop": "urn:ngsi-ld:gtfs:Stop:tus:74",
+    "hasTrip": "urn:ngsi-ld:gtfs:Trip:tus:5C1",
+    "remainingTime": "PT8M5S",
+    "remainingDistance": 1200,
+    "headSign": "Plaza Italia"
 }
 ```
 

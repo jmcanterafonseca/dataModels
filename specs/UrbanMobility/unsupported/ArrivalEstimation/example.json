@@ -1,9 +1,20 @@
 {
-  "id": "urn:ngsi-ld:ArrivalEstimation:L5C1_Stop74_1",
+  "id": "urn:ngsi-ld:ArrivalEstimation:Santander:1",
   "type": "ArrivalEstimation",
-  "hasStop": "urn:ngsi-ld:gtfs:Stop:tus:74",
-  "hasTrip": "urn:ngsi-ld:gtfs:Trip:tus:5C1",
-  "remainingTime": "PT8M5S",
-  "remainingDistance": 1200,
-  "headSign": "Plaza Italia"
+  "refGtfsTransitFeedFile": "urn:ngsi-ld:GtfsTransitFeedFile:Santander:bus",
+  "routeId": "route1",
+  "stopId": "stop1",
+  "lastUpdatedAt": "2018-12-19T10:14:00.238Z",
+  "arrivalEstimationUpdate": [
+    {
+      "tripId": "1",
+      "arrivalDelay": -2
+    }, {
+      "tripId": "2",
+      "arrivalDelay": -2
+    }, {
+      "tripId": "3",
+      "arrivalDelay": -2
+    }
+  ]
 }
