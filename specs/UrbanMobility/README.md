@@ -9,16 +9,16 @@
  
  These data models are intended to map GTFS feeds into FIWARE NGSI content. Main entities are:
  
-+ [GtfsAgency](./Agency/doc/spec.md)
-+ [GtfsStop](./Stop/doc/spec.md)
-+ [GtfsStation](./Station/doc/spec.md)
-+ [GtfsAccessPoint](./AccessPoint/doc/spec.md)
-+ [GtfsRoute](./Route/doc/spec.md)
-+ [GtfsTrip](./Trip/doc/spec.md)
-+ [GtfsStopTime](./StopTime/doc/spec.md)
-+ [GtfsService](./Service/doc/spec.md)
-+ [GtfsCalendarRule](./CalendarRule/doc/spec.md)
-+ [GtfsCalendarDateRule](./CalendarDateRule/doc/spec.md)
-+ [GtfsFrequency](./Frequency/doc/spec.md)
-+ [GtfsTransferRule](./TransferRule/doc/spec.md)
++ [GtfsAgency](./GtfsAgency/doc/spec.md)
++ [GtfsStop](./GtfsStop/doc/spec.md)
++ [GtfsStation](./GtfsStation/doc/spec.md)
++ [GtfsAccessPoint](./GtfsAccessPoint/doc/spec.md)
++ [GtfsRoute](./GtfsRoute/doc/spec.md)
++ [GtfsTrip](./GtfsTrip/doc/spec.md)
++ [GtfsStopTime](./GtfsStopTime/doc/spec.md)
++ [GtfsService](./GtfsService/doc/spec.md)
++ [GtfsCalendarRule](./GtfsCalendarRule/doc/spec.md)
++ [GtfsCalendarDateRule](./GtfsCalendarDateRule/doc/spec.md)
++ [GtfsFrequency](./GtfsFrequency/doc/spec.md)
++ [GtfsTransferRule](./GtfsTransferRule/doc/spec.md)
  
