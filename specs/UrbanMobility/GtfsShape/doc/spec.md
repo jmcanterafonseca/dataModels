@@ -48,6 +48,12 @@ The data model is defined as shown below:
     -   Attribute type: GeoProperty. `geo:json`
     -   Optional
 
+-   `distanceTravelled`: An array of the distance travelled when reaching each of the points that make the `LineString` or `MultiLineString` that represents this shape. It shall match the
+same number of elements as the corresponding `LineString` or `MultiLineString`. 
+
+    - Attribute type: List of Number if the Shape is defined by a `LineString`. List of List of Number if the Shape is defined by a `MultiLineString`.
+    - Optional
+
 ### Example 1 (Normalized Format)
 
 ```json
@@ -65,6 +71,15 @@ The data model is defined as shown below:
                 [-4.421525, 36.738033]
             ]
         }
+    },
+    "distanceTravelled": {
+        "type": "List",
+        "value": [
+            0,
+            6.10,
+            9.78
+            13.45
+        ]
     }
 }
 ```
@@ -83,7 +98,13 @@ The data model is defined as shown below:
             [-4.421505, 36.738186],
             [-4.421525, 36.738033]
         ]
-    }
+    },
+    "distanceTravelled": [
+        0,
+        6.10,
+        9.78
+        13.45
+    ]
 }
 ```
 
@@ -96,6 +117,7 @@ The data model is defined as shown below:
 | `shape_pt_lat`        | `location`             | `geo:lat`                   | Latitude of points.                                      |
 | `shape_pt_lon`        | `location`             | `geo:long`                  | Longitude of points.                                     |
 | `shape_pt_sequence`   | `location`             | `gtfs:pointSequence`        | Sequence of points.                                      |
+| `shape_dist_traveled` | `distanceTravelled`    | `gtfs:distanceTravelled`    | Distance travelled                                       |
 
 ### Relationships
 
