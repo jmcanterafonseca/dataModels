@@ -1,4 +1,4 @@
-# gtfs:Service
+# GtfsService
 
 ## Description
 
@@ -54,7 +54,7 @@ The data model is defined as shown below:
 
 -   `operatedBy`: Agency that operates this service.
     -   Attribute type: Relationship. It shall point to an Entity of Type
-        [gtfs:Agency](../../Agency/doc/spec.md)
+        [GtfsAgency](../../GtfsAgency/doc/spec.md)
     -   Mandatory
 
 ## Examples
@@ -65,11 +65,11 @@ Normalized NGSI response
 
 ```json
 {
-    "id": "urn:ngsi-ld:Service:Malaga:LAB",
+    "id": "urn:ngsi-ld:GtfsService:Malaga:LAB",
     "type": "gtfs:Service",
     "operatedBy": {
         "type": "Relationship",
-        "value": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT"
+        "value": "urn:ngsi-ld:GtfsAgency:Malaga_EMT"
     },
     "name": {
         "value": "LAB"
@@ -86,11 +86,11 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 ```json
 {
-    "id": "urn:ngsi-ld:Service:Malaga:LAB",
-    "type": "gtfs:Service",
+    "id": "urn:ngsi-ld:GtfsService:Malaga:LAB",
+    "type": "GtfsService",
     "name": "LAB",
     "description": "Laborables",
-    "operatedBy": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT"
+    "operatedBy": "urn:ngsi-ld:GtfsAgency:Malaga_EMT"
 }
 ```
 
@@ -107,6 +107,6 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 | GTFS Field | NGSI Attribute | LinkedGTFS    | Comment                                             |
 | :--------- | :------------- | :------------ | :-------------------------------------------------- |
-|            | `operatedBy`   | `gtfs:agency` | Shall point to another Entity of Type `gtfs:Agency` |
+|            | `operatedBy`   | `gtfs:agency` | Shall point to another Entity of Type `GtfsAgency` |
 
 ## Open issues

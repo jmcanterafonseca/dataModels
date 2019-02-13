@@ -1,4 +1,4 @@
-# gtfs:Station
+# GtfsStation
 
 ## Description
 
@@ -18,7 +18,7 @@ The data model is defined as shown below:
 
 -   `type`: Entity Type
 
-    -   It shall be equal to `gtfs:Station`
+    -   It shall be equal to `GtfsStation`
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
@@ -41,19 +41,19 @@ The data model is defined as shown below:
     -   Attribute type: [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
--   `hasStop` : It shall point to another Entity(ies) of type `gtfs:Stop`
+-   `hasStop` : It shall point to another Entity(ies) of type `GtfsStop`
 
     -   Type: Relationship. List of [gtfs:Stop](../../Stop/doc/spec.md).
     -   Mandatory
 
 -   `hasAccessPoint` : It shall point to another Entity(ies) of type
-    `gtfs:AccessPoint`
+    `GtfsAccessPoint`
     -   Type: Relationship. List of
-        [gtfs:AccessPoint](../../AccessPoint/doc/spec.md).
+        [GtfsAccessPoint](../../GtfsAccessPoint/doc/spec.md).
     -   Optional
 
 The specification for the following attributes is the one mandanted by
-[gtfs:Stop](../../Stop/doc/spec.md):
+[GtfsStop](../../GtfsStop/doc/spec.md):
 
 -   `name`
 -   `code`
@@ -73,8 +73,8 @@ Normalized NGSI response
 
 ```json
 {
-    "id": "urn:ngsi-ld:Station:Madrid:est_90_21",
-    "type": "gtfs:Station",
+    "id": "urn:ngsi-ld:GtfsStation:Madrid:est_90_21",
+    "type": "GtfsStation",
     "code": {
         "value": "21"
     },
@@ -83,7 +83,7 @@ Normalized NGSI response
     },
     "hasStop": {
         "type": "Relationship",
-        "value": ["urn:ngsi-ld:gtfs:Stop:Madrid_par_4_1"]
+        "value": ["urn:ngsi-ld:GtfsStop:Madrid_par_4_1"]
     },
     "location": {
         "type": "geo:json",
@@ -109,8 +109,8 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 ```json
 {
-    "id": "urn:ngsi-ld:Station:Madrid:est_90_21",
-    "type": "gtfs:Station",
+    "id": "urn:ngsi-ld:GtfsStation:Madrid:est_90_21",
+    "type": "GtfsStation",
     "code": "21",
     "name": "Intercambiador de Plaza de Castilla",
     "location": {
@@ -122,7 +122,7 @@ Sample uses simplified representation for data consumers `?options=keyValues`
         "addressLocality": "Madrid",
         "addressCountry": "ES"
     },
-    "hasStop": ["urn:ngsi-ld:gtfs:Stop:Madrid_par_4_1"]
+    "hasStop": ["urn:ngsi-ld:GtfsStop:Madrid_par_4_1"]
 }
 ```
 
@@ -130,14 +130,14 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 ### Properties
 
-Same as [gtfs:Stop](../../Stop/doc/spec.md)
+Same as [GtfsStop](../../GtfsStop/doc/spec.md)
 
 ### Relationships
 
 | GTFS Field | NGSI Attribute     | LinkedGTFS | Comment                                            |
 | :--------- | :----------------- | :--------- | :------------------------------------------------- |
-|            | `hasStop`          |            | shall point to Entities of type `gtfs:Stop`        |
-|            | `hasAccessPoint`   |            | shall point to Entities of type `gtfs:AccessPoint` |
-|            | `hasParentStation` |            | shall point to an Entity of type `gtfs:Station`    |
+|            | `hasStop`          |            | shall point to Entities of type `GtfsStop`        |
+|            | `hasAccessPoint`   |            | shall point to Entities of type `GtfsAccessPoint` |
+|            | `hasParentStation` |            | shall point to an Entity of type `GtfsStation`    |
 
 ## Open issues

@@ -1,5 +1,5 @@
 {
-  "id": "urn:ngsi-ld:Station:Madrid:est_90_21",
+  "id": "urn:ngsi-ld:GtfsStation:Madrid:est_90_21",
   "type": "GtfsStation",
   "code": "21",
   "name": "Intercambiador de Plaza de Castilla",

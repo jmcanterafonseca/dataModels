@@ -1,4 +1,4 @@
-# gtfs:Stop
+# GtfsStop
 
 ## Description
 
@@ -13,13 +13,13 @@ The data model is defined as shown below:
 
 -   `id`: Entity ID
 
-    -   It shall be `urn:ngsi-ld:gtfs:Stop:<stop_identifier>` being
+    -   It shall be `urn:ngsi-ld:GtfsStop:<stop_identifier>` being
         `stop_identifier` a value that can derived from the GTFS `stop_id`
         field.
 
 -   `type`: Entity Type
 
-    -   It shall be equal to `gtfs:Stop`
+    -   It shall be equal to `GtfsStop`
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
@@ -91,12 +91,12 @@ The data model is defined as shown below:
 -   `hasParentStation` : Same as GTFS `parent_station`.
 
     -   Attribute type: Relationship. It shall point to an Entity of Type
-        [gtfs:Station](../../Station/doc/spec.md)
+        [GtfsStation](../../GtfsStation/doc/spec.md)
     -   Optional
 
 -   `operatedBy` : Agency that operates this stop.
     -   Attribute type: Relationship. It shall point to an Entity of Type
-        [gtfs:Agency](../../Agency/doc/spec.md)
+        [GtfsAgency](../../GtfsAgency/doc/spec.md)
     -   Mandatory
 
 ## Examples
@@ -107,14 +107,14 @@ Normalized NGSI response
 
 ```json
 {
-    "id": "urn:ngsi-ld:gtfs:Stop:Malaga_101",
-    "type": "gtfs:Stop",
+    "id": "urn:ngsi-ld:GtfsStop:Malaga_101",
+    "type": "GtfsStop",
     "code": {
         "value": "101"
     },
     "operatedBy": {
         "type": "Relationship",
-        "value": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT"
+        "value": "urn:ngsi-ld:GtfsAgency:Malaga_EMT"
     },
     "location": {
         "type": "geo:json",
@@ -135,15 +135,15 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 ```json
 {
-    "id": "urn:ngsi-ld:gtfs:Stop:Malaga_101",
-    "type": "gtfs:Stop",
+    "id": "urn:ngsi-ld:GtfsStop:Malaga_101",
+    "type": "GtfsStop",
     "code": "101",
     "name": "Alameda Principal (Sur)",
     "location": {
         "type": "Point",
         "coordinates": [-4.424393, 36.716872]
     },
-    "operatedBy": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT"
+    "operatedBy": "urn:ngsi-ld:GtfsAgency:Malaga_EMT"
 }
 ```
 
@@ -166,7 +166,7 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 | GTFS Field       | NGSI Attribute     | LinkedGTFS           | Comment                                              |
 | :--------------- | :----------------- | :------------------- | :--------------------------------------------------- |
-| `parent_station` | `hasParentStation` | `gtfs:parentStation` | Shall point to another Entity of Type `gtfs:Station` |
-|                  | `operatedBy`       |                      | Shall point to another Entity of Type `gtfs:Agency`  |
+| `parent_station` | `hasParentStation` | `gtfs:parentStation` | Shall point to another Entity of Type `GtfsStation` |
+|                  | `operatedBy`       |                      | Shall point to another Entity of Type `GtfsAgency`  |
 
 ## Open issues
