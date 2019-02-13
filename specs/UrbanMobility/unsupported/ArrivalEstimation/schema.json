@@ -68,6 +68,6 @@
     "type",
     "routeId",
     "stopId",
-    "stopTimeUpdate"
+    "arrivalEstimationUpdate"
   ]
 }
