@@ -5,7 +5,7 @@
 This entity Type is intended to provide arrival estimation information that can be used either in a standalone manner or to generate GTFS-RT feeds that complement a GTFS static file.
 
 ## Data Model
-+ `id`: Entity Id
++ `id`: Entity ID
     + It shall be `urn:ngsi-ld:ArrivalEstimation:<identifier>`
 
 + `type`: Entity Type

@@ -51,7 +51,7 @@ The data model is defined as shown below:
 -   `hasTrip`: Trip associated to this Entity.
 
     -   Attribute type: Relationship. It shall point to an Entity of Type
-        [GtfsTrip](../../Trip/doc/spec.md)
+        [GtfsTrip](../../GtfsTrip/doc/spec.md)
     -   Mandatory
 
 -   `startTime`: Same as GTFS `start_time`. See

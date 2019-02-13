@@ -43,7 +43,7 @@ The data model is defined as shown below:
 
 -   `hasStop` : It shall point to another Entity(ies) of type `GtfsStop`
 
-    -   Type: Relationship. List of [gtfs:Stop](../../Stop/doc/spec.md).
+    -   Type: Relationship. List of [GtfsStop](../../GtfsStop/doc/spec.md).
     -   Mandatory
 
 -   `hasAccessPoint` : It shall point to another Entity(ies) of type
