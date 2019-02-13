@@ -69,7 +69,7 @@ The data model is defined as shown below:
 -   `hasShape`: Same as GTFS `shape_id`.
 
     -   Attribute type: Relationship. It shall point to an Entity of Type
-        [gtfs:Shape](../../Shape/doc/spec.md)
+        [GtfsShape](../../GtfsShape/doc/spec.md)
     -   Optional    
 
 -   `hasRoute`: Same as `route_id`.
@@ -117,7 +117,7 @@ Normalized NGSI response
     },
     "hasShape": {
         "type": "Relationship",
-        "value": "urn:ngsi-ld:gtfs:Shape:Shape01"
+        "value": "urn:ngsi-ld:GtfsShape:Shape01"
     }
 }
 ```
@@ -134,7 +134,7 @@ Sample uses simplified representation for data consumers `?options=keyValues`
     "headSign": "San Andrés",
     "direction": "0",
     "hasRoute": "urn:ngsi-ld:gtfs:Route:Spain:Malaga:1",
-    "hasShape": "urn:ngsi-ld:gtfs:Shape:Shape01"
+    "hasShape": "urn:ngsi-ld:GtfsShape:Shape01"
 }
 ```
 
