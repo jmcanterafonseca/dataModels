@@ -1,4 +1,4 @@
-# gtfs:TransferRule
+# GtfsTransferRule
 
 ## Description
 
@@ -11,11 +11,11 @@ The data model is defined as shown below:
 
 -   `id`: Entity ID.
 
-    -   It shall be `urn:ngsi-ld:gtfs:TransferRule:<transfer_rule_identifier>`.
+    -   It shall be `urn:ngsi-ld:GtfsTransferRule:<transfer_rule_identifier>`.
 
 -   `type`: Entity type.
 
-    -   It shall be equal to `gtfs:Transfer`.
+    -   It shall be equal to `GtfsTransfer`.
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
@@ -51,15 +51,15 @@ The data model is defined as shown below:
 -   `hasOrigin`: Trip associated to this Entity.
 
     -   Attribute type: Relationship. It shall point to an Entity of Type
-        [gtfs:Stop](../../Stop/doc/spec.md) or
-        [gtfs:Station](../../Station/doc/spec.md)
+        [GtfsStop](../../GtfsStop/doc/spec.md) or
+        [GtfsStation](../../GtfsStation/doc/spec.md)
     -   Mandatory
 
 -   `hasDestination`: Trip associated to this Entity.
 
     -   Attribute type: Relationship. It shall point to an Entity of Type
-        [gtfs:Stop](../../Stop/doc/spec.md) or
-        [gtfs:Station](../../Station/doc/spec.md)
+        [GtfsStop](../../GtfsStop/doc/spec.md) or
+        [GtfsStation](../../GtfsStation/doc/spec.md)
     -   Mandatory
 
 -   `transferType`: Same as GTFS `transfer_type`.
@@ -81,8 +81,8 @@ Normalized NGSI response
 
 ```json
 {
-    "id": "urn:ngsi-ld:gtfs:TransferRule:Malaga:Linea1_Linea5",
-    "type": "gtfs:TransferRule",
+    "id": "urn:ngsi-ld:GtfsTransferRule:Malaga:Linea1_Linea5",
+    "type": "GtfsTransferRule",
     "transferType": {
         "value": "0"
     },
@@ -91,11 +91,11 @@ Normalized NGSI response
     },
     "hasDestination": {
         "type": "Relationship",
-        "value": "urn:ngsi-ld:gtfs:Stop:Malaga_508"
+        "value": "urn:ngsi-ld:GtfsStop:Malaga_508"
     },
     "hasOrigin": {
         "type": "Relationship",
-        "value": "urn:ngsi-ld:gtfs:Stop:Malaga_101"
+        "value": "urn:ngsi-ld:GtfsStop:Malaga_101"
     },
     "name": {
         "value": "L1_L5"
@@ -109,11 +109,11 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 ```json
 {
-    "id": "urn:ngsi-ld:gtfs:TransferRule:Malaga:Linea1_Linea5",
-    "type": "gtfs:TransferRule",
+    "id": "urn:ngsi-ld:GtfsTransferRule:Malaga:Linea1_Linea5",
+    "type": "GtfsTransferRule",
     "name": "L1_L5",
-    "hasOrigin": "urn:ngsi-ld:gtfs:Stop:Malaga_101",
-    "hasDestination": "urn:ngsi-ld:gtfs:Stop:Malaga_508",
+    "hasOrigin": "urn:ngsi-ld:GtfsStop:Malaga_101",
+    "hasDestination": "urn:ngsi-ld:GtfsStop:Malaga_508",
     "transferType": "0",
     "minimumTransferTime": 10
 }
@@ -134,7 +134,7 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 | GTFS Field     | NGSI Attribute   | LinkedGTFS             | Comment                                                           |
 | :------------- | :--------------- | :--------------------- | :---------------------------------------------------------------- |
-| `from_stop_id` | `hasOrigin`      | `gtfs:originStop`      | It shall point to an Entity of Type `gtfs:Stop` or `gtfs:Station` |
-| `to_stop_id`   | `hasDestination` | `gtfs:destinationStop` | It shall point to an Entity of Type `gtfs:Stop` or `gtfs:Station` |
+| `from_stop_id` | `hasOrigin`      | `gtfs:originStop`      | It shall point to an Entity of Type `GtfsStop` or `GtfsStation` |
+| `to_stop_id`   | `hasDestination` | `gtfs:destinationStop` | It shall point to an Entity of Type `GtfsStop` or `GtfsStation` |
 
 ### Open issues

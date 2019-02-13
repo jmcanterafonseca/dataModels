@@ -1,4 +1,4 @@
-# gtfs:Trip
+# GtfsTrip
 
 ## Description
 
@@ -11,12 +11,12 @@ The data model is defined as shown below:
 
 -   `id`: Entity ID.
 
-    -   It shall be `urn:ngsi-ld:gtfs:Trip:<trip_identifier>` being
+    -   It shall be `urn:ngsi-ld:GtfsTrip:<trip_identifier>` being
         `trip_identifier` a value that can be derived from GTFS `trip_id`.
 
 -   `type`: Entity type.
 
-    -   It shall be equal to `gtfs:Trip`.
+    -   It shall be equal to `GtfsTrip`.
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
@@ -63,7 +63,7 @@ The data model is defined as shown below:
 -   `hasService`: Same as GTFS `service_id`.
 
     -   Attribute type: Relationship. It shall point to an Entity of Type
-        [gtfs:Service](../../Service/doc/spec.md)
+        [GtfsService](../../GtfsService/doc/spec.md)
     -   Optional
 
 -   `location`: The geographical shape associated to the trip encoded as GeoJSON
@@ -76,7 +76,7 @@ The data model is defined as shown below:
 -   `hasRoute`: Same as `route_id`.
 
     -   Attribute type: Relationship. It shall point to an Entity of Type
-        [gtfs:Route](../../Route/doc/spec.md)
+        [GtfsRoute](../../GtfsRoute/doc/spec.md)
     -   Mandatory
 
 -   `wheelChairAccessible`: Same as GTFS `wheelchair_accessible`.
@@ -100,8 +100,8 @@ Normalized NGSI response
 
 ```json
 {
-    "id": "urn:ngsi-ld:gtfs:Trip:Spain:Malaga:1",
-    "type": "gtfs:Trip",
+    "id": "urn:ngsi-ld:GtfsTrip:Spain:Malaga:1",
+    "type": "GtfsTrip",
     "direction": {
         "value": 0
     },
@@ -110,11 +110,11 @@ Normalized NGSI response
     },
     "hasRoute": {
         "type": "Relationship",
-        "value": "urn:ngsi-ld:gtfs:Route:Spain:Malaga:1"
+        "value": "urn:ngsi-ld:GtfsRoute:Spain:Malaga:1"
     },
     "hasService": {
         "type": "Relationship",
-        "value": "urn:ngsi-ld:gtfs:Service:Malaga_LAB"
+        "value": "urn:ngsi-ld:GtfsService:Malaga_LAB"
     },
     "location": {
         "type": "geo:json",
@@ -137,12 +137,12 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 ```json
 {
-    "id": "urn:ngsi-ld:gtfs:Trip:Spain:Malaga:1",
-    "type": "gtfs:Trip",
-    "hasService": "urn:ngsi-ld:gtfs:Service:Malaga_LAB",
+    "id": "urn:ngsi-ld:GtfsTrip:Spain:Malaga:1",
+    "type": "GtfsTrip",
+    "hasService": "urn:ngsi-ld:GtfsService:Malaga_LAB",
     "headSign": "San Andrés",
     "direction": "0",
-    "hasRoute": "urn:ngsi-ld:gtfs:Route:Spain:Malaga:1",
+    "hasRoute": "urn:ngsi-ld:GtfsRoute:Spain:Malaga:1",
     "location": {
         "type": "LineString",
         "coordinates": [
@@ -174,6 +174,6 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 | GTFS Field   | NGSI Attribute | LinkedGTFS     | Comment                                            |
 | :----------- | :------------- | :------------- | :------------------------------------------------- |
 | `route_id`   | `hasRoute`     |                |                                                    |
-| `service_id` | `hasService`   | `gtfs:service` | It shall point to an Entity of Type `gtfs:Service` |
+| `service_id` | `hasService`   | `gtfs:service` | It shall point to an Entity of Type `GtfsService` |
 
 ### Open issues

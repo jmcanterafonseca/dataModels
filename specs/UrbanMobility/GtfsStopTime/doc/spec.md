@@ -1,4 +1,4 @@
-# gtfs:StopTime
+# GtfsStopTime
 
 ## Description
 
@@ -11,13 +11,13 @@ The data model is defined as shown below:
 
 -   `id`: Entity ID.
 
-    -   It shall be `urn:ngsi-ld:gtfs:StopTime:<stop_time_identifier>` being
+    -   It shall be `urn:ngsi-ld:GtfsStopTime:<stop_time_identifier>` being
         `stop_time_identifier` a value that can be derived from GTFS `trip_id`
         and `stop_id`.
 
 -   `type`: Entity type.
 
-    -   It shall be equal to `gtfs:StopTime`.
+    -   It shall be equal to `GtfsStopTime`.
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
@@ -43,13 +43,13 @@ The data model is defined as shown below:
 -   `hasTrip`: Same as GTFS `trip_id`.
 
     -   Attribute type: Relationship. It shall point to an Entity of type
-        [gtfs:Trip](../../Trip/doc/spec.md)
+        [GtfsTrip](../../GtfsTrip/doc/spec.md)
     -   Mandatory
 
 -   `hasStop`: Same as GTFS `stop_id`
 
     -   Attribute type: Relationship. It shall point to an Entity of type
-        [gtfs:Stop](../../Stop/doc/spec.md)
+        [GtfsStop](../../GtfsStop/doc/spec.md)
     -   Mandatory
 
 -   `arrivalTime`: Same as GTFS `arrival_time`
@@ -100,14 +100,14 @@ Normalized NGSI response
 
 ```json
 {
-    "id": "urn:ngsi-ld:gtfs:StopTime:Spain:Madrid:EMT:FE0010011_737",
-    "type": "gtfs:StopTime",
+    "id": "urn:ngsi-ld:GtfsStopTime:Spain:Madrid:EMT:FE0010011_737",
+    "type": "GtfsStopTime",
     "departureTime": {
         "value": "07:04:24"
     },
     "hasTrip": {
         "type": "Relationship",
-        "value": "urn:ngsi-ld:gtfs:Trip:Madrid:EMT:FE0010011"
+        "value": "urn:ngsi-ld:GtfsTrip:Madrid:EMT:FE0010011"
     },
     "stopSequence": {
         "value": 4
@@ -120,7 +120,7 @@ Normalized NGSI response
     },
     "hasStop": {
         "type": "Relationship",
-        "value": "urn:ngsi-ld:gtfs:Stop:Madrid:EMT:737"
+        "value": "urn:ngsi-ld:GtfsStop:Madrid:EMT:737"
     }
 }
 ```
@@ -131,10 +131,10 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 ```json
 {
-    "id": "urn:ngsi-ld:gtfs:StopTime:Spain:Madrid:EMT:FE0010011_737",
-    "type": "gtfs:StopTime",
-    "hasStop": "urn:ngsi-ld:gtfs:Stop:Madrid:EMT:737",
-    "hasTrip": "urn:ngsi-ld:gtfs:Trip:Madrid:EMT:FE0010011",
+    "id": "urn:ngsi-ld:GtfsStopTime:Spain:Madrid:EMT:FE0010011_737",
+    "type": "GtfsStopTime",
+    "hasStop": "urn:ngsi-ld:GtfsStop:Madrid:EMT:737",
+    "hasTrip": "urn:ngsi-ld:GtfsTrip:Madrid:EMT:FE0010011",
     "distanceTravelled": 759,
     "stopSequence": 4,
     "arrivalTime": "07:04:24",
