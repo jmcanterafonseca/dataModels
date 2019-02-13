@@ -1,4 +1,4 @@
-# gtfs:CalendarDateRule
+# GtfsCalendarDateRule
 
 ## Description
 
@@ -12,11 +12,11 @@ The data model is defined as shown below:
 -   `id`: Entity ID
 
     -   It shall be
-        `urn:ngsi-ld:gtfs:CalendarDateRule:<calendar_date_rule_identifier>`.
+        `urn:ngsi-ld:GtfsCalendarDateRule:<calendar_date_rule_identifier>`.
 
 -   `type`: Entity Type
 
-    -   It shall be equal to `gtfs:CalendarDateRule`
+    -   It shall be equal to `GtfsCalendarDateRule`
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
@@ -43,7 +43,7 @@ The data model is defined as shown below:
     `service_id`.
 
     -   Attribute type: Relationship. It shall point to an entity of Type
-        [gtfs:Service](../../Service/doc/spec.md)
+        [GtfsService](../../GtfsService/doc/spec.md)
     -   Mandatory
 
 -   `name` : Name given to this rule.
@@ -75,8 +75,8 @@ Normalized NGSI response
 
 ```json
 {
-    "id": "urn:ngsi-ld:CalendarDateRule:Malaga:Rule67",
-    "type": "gtfs:CalendarDateRule",
+    "id": "urn:ngsi-ld:GtfsCalendarDateRule:Malaga:Rule67",
+    "type": "GtfsCalendarDateRule",
     "name": {
         "value": "Rule Fair Area"
     },
@@ -85,7 +85,7 @@ Normalized NGSI response
     },
     "hasService": {
         "type": "Relationship",
-        "value": "urn:ngsi-ld:Service:Malaga:FairArea_1"
+        "value": "urn:ngsi-ld:GtfsService:Malaga:FairArea_1"
     },
     "appliesOn": {
         "value": "2018-03-19"
@@ -99,10 +99,10 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 ```json
 {
-    "id": "urn:ngsi-ld:CalendarDateRule:Malaga:Rule67",
-    "type": "gtfs:CalendarDateRule",
+    "id": "urn:ngsi-ld:GtfsCalendarDateRule:Malaga:Rule67",
+    "type": "GtfsCalendarDateRule",
     "name": "Rule Fair Area",
-    "hasService": "urn:ngsi-ld:Service:Malaga:FairArea_1",
+    "hasService": "urn:ngsi-ld:GtfsService:Malaga:FairArea_1",
     "appliesOn": "2018-03-19",
     "exceptionType": "1"
 }
@@ -121,6 +121,6 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 | GTFS Field | NGSI Attribute | LinkedGTFS     | Comment                                              |
 | :--------- | :------------- | :------------- | :--------------------------------------------------- |
-|            | `hasService`   | `gtfs:service` | Shall point to another Entity of Type `gtfs:Service` |
+|            | `hasService`   | `gtfs:service` | Shall point to another Entity of Type `GtfsService` |
 
 ## Open issues

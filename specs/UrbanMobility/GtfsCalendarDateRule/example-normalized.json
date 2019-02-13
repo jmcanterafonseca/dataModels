@@ -9,7 +9,7 @@
     }, 
     "hasService": {
         "type": "Relationship", 
-        "value": "urn:ngsi-ld:Service:Malaga:FairArea_1"
+        "value": "urn:ngsi-ld:GtfsService:Malaga:FairArea_1"
     }, 
     "appliesOn": {
         "value": "2018-03-19"

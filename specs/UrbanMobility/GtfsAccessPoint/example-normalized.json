@@ -6,7 +6,7 @@
     }, 
     "hasParentStation": {
         "type": "Relationship", 
-        "value": "urn:ngsi-ld:Station:Madrid:est_90_21"
+        "value": "urn:ngsi-ld:GtfsStation:Madrid:est_90_21"
     }, 
     "location": {
         "type": "geo:json", 

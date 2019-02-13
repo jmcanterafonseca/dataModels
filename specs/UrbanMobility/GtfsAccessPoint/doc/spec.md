@@ -1,4 +1,4 @@
-# gtfs:AccessPoint
+# GtfsAccessPoint
 
 ## Description
 
@@ -13,7 +13,7 @@ The data model is defined as shown below:
 
 -   `id`: Entity ID
 
-    -   It shall be `urn:ngsi-ld:gtfs:AccessPoint:<access_point_identifier>`
+    -   It shall be `urn:ngsi-ld:GtfsAccessPoint:<access_point_identifier>`
         being `access_point_identifier` a value that can derived from the
         `stop_id` field.
 
@@ -42,7 +42,7 @@ The data model is defined as shown below:
     -   Read-Only. Automatically generated.
 
 The following Attributes shall be as mandated by
-[gtfs:Stop](../../Stop/doc/spec.md):
+[GtfsStop](../../GtfsStop/doc/spec.md):
 
 -   `name`
 -   `code`
@@ -61,14 +61,14 @@ Normalized NGSI response
 
 ```json
 {
-    "id": "urn:ngsi-ld:AccessPoint:Madrid:acc_4_1_3",
-    "type": "gtfs:AccessPoint",
+    "id": "urn:ngsi-ld:GtfsAccessPoint:Madrid:acc_4_1_3",
+    "type": "GtfsAccessPoint",
     "name": {
         "value": "Bravo Murillo"
     },
     "hasParentStation": {
         "type": "Relationship",
-        "value": "urn:ngsi-ld:Station:Madrid:est_90_21"
+        "value": "urn:ngsi-ld:GtfsStation:Madrid:est_90_21"
     },
     "location": {
         "type": "geo:json",
@@ -95,8 +95,8 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 ```json
 {
-    "id": "urn:ngsi-ld:AccessPoint:Madrid:acc_4_1_3",
-    "type": "gtfs:AccessPoint",
+    "id": "urn:ngsi-ld:GtfsAccessPoint:Madrid:acc_4_1_3",
+    "type": "GtfsAccessPoint",
     "name": "Bravo Murillo",
     "location": {
         "type": "Point",
@@ -108,7 +108,7 @@ Sample uses simplified representation for data consumers `?options=keyValues`
         "addressLocality": "Madrid",
         "addressCountry": "ES"
     },
-    "hasParentStation": "urn:ngsi-ld:Station:Madrid:est_90_21"
+    "hasParentStation": "urn:ngsi-ld:GtfsStation:Madrid:est_90_21"
 }
 ```
 
@@ -116,12 +116,12 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 ### Properties
 
-Same as `gtfs:Stop`.
+Same as `GtfsStop`.
 
 ### Relationships
 
 | GTFS Field | NGSI Attribute     | LinkedGTFS | Comment                                                   |
 | :--------- | :----------------- | :--------- | :-------------------------------------------------------- |
-|            | `hasParentStation` |            | shall point to another Entity(ies) of type `gtfs:Station` |
+|            | `hasParentStation` |            | shall point to another Entity(ies) of type `GtfsStation` |
 
 ## Open issues

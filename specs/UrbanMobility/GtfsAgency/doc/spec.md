@@ -1,4 +1,4 @@
-# gtfs:Agency
+# GtfsAgency
 
 ## Description
 
@@ -11,12 +11,12 @@ The data model is defined as shown below:
 
 -   `id`: Entity ID.
 
-    -   It shall be `urn:ngsi-ld:gtfs:Agency:<agency_identifier>` being
+    -   It shall be `urn:ngsi-ld:GtfsAgency:<agency_identifier>` being
         `agency_identifier` a value that can be derived from GTFS `agency_id`.
 
 -   `type`: Entity type.
 
-    -   It shall be equal to `gtfs:Agency`.
+    -   It shall be equal to `GtfsAgency`.
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
@@ -81,8 +81,8 @@ Normalized NGSI response
 
 ```json
 {
-    "id": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT",
-    "type": "gtfs:Agency",
+    "id": "urn:ngsi-ld:GtfsAgency:Malaga_EMT",
+    "type": "GtfsAgency",
     "name": {
         "value": "Empresa Malague\u00f1a de Transportes"
     },
@@ -107,8 +107,8 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 ```json
 {
-    "id": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT",
-    "type": "gtfs:Agency",
+    "id": "urn:ngsi-ld:GtfsAgency:Malaga_EMT",
+    "type": "GtfsAgency",
     "name": "Empresa Malagueña de Transportes",
     "page": "http://www.emtmalaga.es/",
     "timezone": "Europe/Madrid",

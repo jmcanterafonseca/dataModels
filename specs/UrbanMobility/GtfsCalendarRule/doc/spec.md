@@ -1,4 +1,4 @@
-# gtfs:CalendarRule
+# GtfsCalendarRule
 
 ## Description
 
@@ -11,11 +11,11 @@ The data model is defined as shown below:
 
 -   `id`: Entity ID
 
-    -   It shall be `urn:ngsi-ld:gtfs:CalendarRule:<calendar_rule_identifier>`.
+    -   It shall be `urn:ngsi-ld:GtfsCalendarRule:<calendar_rule_identifier>`.
 
 -   `type`: Entity Type
 
-    -   It shall be equal to `gtfs:CalendarRule`
+    -   It shall be equal to `GtfsCalendarRule`
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
@@ -42,7 +42,7 @@ The data model is defined as shown below:
     `service_id`.
 
     -   Attribute type: Relationship. It shall point to an entity of Type
-        [gtfs:Service](../../Service/doc/spec.md)
+        [GtfsService](../../GtfsService/doc/spec.md)
     -   Mandatory
 
 -   `name` : Name of this rule
@@ -121,7 +121,7 @@ Normalized NGSI response
 ```json
 {
     "id": "urn:ngsi-ld:CalendarRule:Madrid:Rule1267",
-    "type": "gtfs:CalendarRule",
+    "type": "GtfsCalendarRule",
     "startDate": {
         "value": "2018-01-01"
     },
@@ -166,9 +166,9 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 ```json
 {
     "id": "urn:ngsi-ld:CalendarRule:Madrid:Rule1267",
-    "type": "gtfs:CalendarRule",
+    "type": "GtfsCalendarRule",
     "name": "Rule Hospital Service 1",
-    "hasService": "urn:ngsi-ld:Service:Madrid:Hospital_1",
+    "hasService": "urn:ngsi-ld:GtfsService:Madrid:Hospital_1",
     "monday": true,
     "tuesday": true,
     "wednesday": true,
@@ -201,6 +201,6 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 | GTFS Field | NGSI Attribute | LinkedGTFS     | Comment                                              |
 | :--------- | :------------- | :------------- | :--------------------------------------------------- |
-|            | `hasService`   | `gtfs:service` | Shall point to another Entity of Type `gtfs:Service` |
+|            | `hasService`   | `gtfs:service` | Shall point to another Entity of Type `GtfsService` |
 
 ## Open issues
