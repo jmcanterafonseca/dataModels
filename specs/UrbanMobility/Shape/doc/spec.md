@@ -1,4 +1,4 @@
-# gtfs:Shape
+# GtfsShape
 
 ## Description
 
