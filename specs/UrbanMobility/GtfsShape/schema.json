@@ -15,6 +15,14 @@
           ],
           "description": "NGSI Entity type"
         },
+        "distanceTravelled": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "minimum": 0
+          },
+          "minItems": 1
+        },
         "location": {
            "type": "object",
            "oneOf": [{
