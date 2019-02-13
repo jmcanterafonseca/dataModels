@@ -1,44 +1,59 @@
 {
   "$schema": "http://json-schema.org/schema#",
   "id": "https://fiware.github.io/dataModels/Entity-ngsiv2-schema.json",
-  "title": "NGSIv2 Entity",
+  "title": "NGSIv2 Entity. Normalized Format",
   "description": "NGSIv2 Entity",
   "definitions": {
-    "EntityIdentifier": {
+    "Identifier": {
       "type": "string",
       "minLength": 1,
       "maxLength": 256,
       "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
     },
     "Name": {
-      "type": "string",
-      "pattern": "^(\\d|[a-zA-Z]|_)+$",
-      "minLength": 1,
+      "allOf": [
+        {
+          "$ref": "#/definitions/Identifier"
+        },
+        {
+          "not": {
+            "type": "string",
+            "const": "geo:distance"
+          }
+        },
+        {
+          "not": {
+            "type": "string",
+            "const": "*"
+          }
+        }
+      ],
       "description": "NGSIv2 Name"
     },
-    "DateTimeValue": {
-      "type": "string",
-      "format": "date-time"
-    },
     "Value": {
-      "anyOf": [
-        {
-          "type": [
-            "string",
-            "number",
-            "boolean",
-            "array",
-            "object",
-            "null"
-          ]
-        }
+      "type": [
+        "number",
+        "boolean",
+        "array",
+        "object",
+        "null",
+        "string"
       ]
     },
     "TypeValue": {
       "type": "object",
       "properties": {
         "type": {
-          "$ref": "#/definitions/Name"
+          "allOf": [
+            {
+              "$ref": "#/definitions/Name"
+            },
+            {
+              "not": {
+                "const": "DateTime"
+              }
+            }
+          ]
         },
         "value": {
           "$ref": "#/definitions/Value"
@@ -48,10 +63,15 @@
         "value"
       ]
     },
+    "DateTimeValue": {
+      "type": "string",
+      "format": "date-time"
+    },
     "DateTimeTypeValue": {
       "type": "object",
       "properties": {
         "type": {
+          "type": "string",
           "const": "DateTime"
         },
         "value": {
@@ -67,6 +87,7 @@
       "type": "object",
       "properties": {
         "type": {
+          "type": "string",
           "const": "geo:json"
         },
         "value": {
@@ -80,6 +101,38 @@
     },
     "Metadata": {
       "type": "object",
+      "properties": {
+        "dateCreated": {
+          "$ref": "#/definitions/DateTimeTypeValue"
+        },
+        "dateModified": {
+          "$ref": "#/definitions/DateTimeTypeValue"
+        },
+        "previousValue": {
+          "$ref": "#/definitions/TypeValue"
+        },
+        "actionType": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "Text"
+            },
+            "value": {
+              "type": "string",
+              "enum": [
+                "update",
+                "delete",
+                "append"
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "value"
+          ]
+        }
+      },
       "additionalProperties": {
         "anyOf": [
           {
@@ -87,6 +140,13 @@
           },
           {
             "$ref": "#/definitions/DateTimeTypeValue"
+          }
+        ]
+      },
+      "propertyNames": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/Name"
           }
         ]
       }
@@ -100,15 +160,15 @@
     "Attribute": {
       "allOf": [
         {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/TypeValue"
-            },
+          "oneOf": [
             {
               "$ref": "#/definitions/DateTimeTypeValue"
             },
             {
               "$ref": "#/definitions/GeoTypeValue"
+            },
+            {
+              "$ref": "#/definitions/TypeValue"
             }
           ]
         },
@@ -126,7 +186,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/definitions/EntityIdentifier"
+          "$ref": "#/definitions/Identifier"
         },
         "type": {
           "allOf": [
@@ -146,8 +206,7 @@
         }
       },
       "propertyNames": {
-        "type": "string",
-        "pattern": "^((\\d|[a-zA-Z]|_)+(#\\d+)?)$"
+        "$ref": "#/definitions/Name"
       },
       "additionalProperties": {
         "anyOf": [
