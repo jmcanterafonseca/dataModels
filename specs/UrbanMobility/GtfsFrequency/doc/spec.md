@@ -1,4 +1,4 @@
-# gtfs:Frequency
+# GtfsFrequency
 
 ## Description
 
@@ -11,11 +11,11 @@ The data model is defined as shown below:
 
 -   `id`: Entity ID.
 
-    -   It shall be `urn:ngsi-ld:gtfs:Frequency:<frequency_identifier>`.
+    -   It shall be `urn:ngsi-ld:GtfsFrequency:<frequency_identifier>`.
 
 -   `type`: Entity type.
 
-    -   It shall be equal to `gtfs:Frequency`.
+    -   It shall be equal to `GtfsFrequency`.
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
@@ -51,7 +51,7 @@ The data model is defined as shown below:
 -   `hasTrip`: Trip associated to this Entity.
 
     -   Attribute type: Relationship. It shall point to an Entity of Type
-        [gtfs:Trip](../../Trip/doc/spec.md)
+        [GtfsTrip](../../Trip/doc/spec.md)
     -   Mandatory
 
 -   `startTime`: Same as GTFS `start_time`. See
@@ -85,14 +85,14 @@ Normalized NGSI response
 
 ```json
 {
-    "id": "urn:ngsi-ld:gtfs:Frequency:Malaga:Linea1",
-    "type": "gtfs:Frequency",
+    "id": "urn:ngsi-ld:GtfsFrequency:Malaga:Linea1",
+    "type": "GtfsFrequency",
     "description": {
         "value": "Cada 10 minutos"
     },
     "hasTrip": {
         "type": "Relationship",
-        "value": "urn:ngsi-ld:gtfs:Trip:Spain:Malaga:1"
+        "value": "urn:ngsi-ld:GtfsTrip:Spain:Malaga:1"
     },
     "headwaySeconds": {
         "value": 600
@@ -115,11 +115,11 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 ```json
 {
-    "id": "urn:ngsi-ld:gtfs:Frequency:Malaga:Linea1",
-    "type": "gtfs:Frequency",
+    "id": "urn:ngsi-ld:GtfsFrequency:Malaga:Linea1",
+    "type": "GtfsFrequency",
     "name": "Laborables",
     "description": "Cada 10 minutos",
-    "hasTrip": "urn:ngsi-ld:gtfs:Trip:Spain:Malaga:1",
+    "hasTrip": "urn:ngsi-ld:GtfsTrip:Spain:Malaga:1",
     "startTime": "07:00",
     "endTime": "10:00",
     "headwaySeconds": 600
@@ -143,6 +143,6 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 | GTFS Field | NGSI Attribute | LinkedGTFS | Comment                                         |
 | :--------- | :------------- | :--------- | :---------------------------------------------- |
-| `trip_id`  | `hasTrip`      |            | It shall point to an Entity of Type `gtfs:Trip` |
+| `trip_id`  | `hasTrip`      |            | It shall point to an Entity of Type `GtfsTrip` |
 
 ### Open issues

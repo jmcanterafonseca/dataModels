@@ -1,4 +1,4 @@
-# gtfs:Route
+# GtfsRoute
 
 ## Description
 
@@ -11,12 +11,12 @@ The data model is defined as shown below:
 
 -   `id`: Entity ID.
 
-    -   It shall be `urn:ngsi-ld:gtfs:Route:<route_identifier>` being
+    -   It shall be `urn:ngsi-ld:GtfsRoute:<route_identifier>` being
         `route_identifier` a value that can be derived from GTFS `route_id`.
 
 -   `type`: Entity type.
 
-    -   It shall be equal to `gtfs:Route`.
+    -   It shall be equal to `GtfsRoute`.
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
@@ -85,7 +85,7 @@ The data model is defined as shown below:
 
 -   `operatedBy` : Agency that operates this route.
     -   Attribute type: Relationship. It shall point to an Entity of Type
-        [gtfs:Agency](../../Agency/doc/spec.md)
+        [GtfsAgency](../../GtfsAgency/doc/spec.md)
     -   Mandatory
 
 ## Examples
@@ -96,8 +96,8 @@ Normalized NGSI response
 
 ```json
 {
-    "id": "urn:ngsi-ld:gtfs:Route:Spain:Malaga:1",
-    "type": "gtfs:Route",
+    "id": "urn:ngsi-ld:GtfsRoute:Spain:Malaga:1",
+    "type": "GtfsRoute",
     "name": {
         "value": "Parque del Sur _ Alameda Principal _ San Andr\u00e9s"
     },
@@ -112,7 +112,7 @@ Normalized NGSI response
     },
     "operatedBy": {
         "type": "Relationship",
-        "value": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT"
+        "value": "urn:ngsi-ld:GtfsAgency:Malaga_EMT"
     }
 }
 ```
@@ -123,13 +123,13 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 ```json
 {
-    "id": "urn:ngsi-ld:gtfs:Route:Spain:Malaga:1",
-    "type": "gtfs:Route",
+    "id": "urn:ngsi-ld:GtfsRoute:Spain:Malaga:1",
+    "type": "GtfsRoute",
     "shortName": "1",
     "name": "Parque del Sur - Alameda Principal - San Andrés",
     "page": "http://www.emtmalaga.es/emt-mobile/informacionLinea.html",
     "routeType": "3",
-    "operatedBy": "urn:ngsi-ld:gtfs:Agency:Malaga_EMT"
+    "operatedBy": "urn:ngsi-ld:GtfsAgency:Malaga_EMT"
 }
 ```
 
@@ -152,6 +152,6 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 | GTFS Field | NGSI Attribute | LinkedGTFS    | Comment                                             |
 | :--------- | :------------- | :------------ | :-------------------------------------------------- |
-|            | `operatedBy`   | `gtfs:agency` | Shall point to another Entity of Type `gtfs:Agency` |
+|            | `operatedBy`   | `gtfs:agency` | Shall point to another Entity of Type `GtfsAgency` |
 
 ### Open issues

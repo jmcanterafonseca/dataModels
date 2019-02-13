@@ -120,7 +120,7 @@ Normalized NGSI response
 
 ```json
 {
-    "id": "urn:ngsi-ld:CalendarRule:Madrid:Rule1267",
+    "id": "urn:ngsi-ld:GtfsCalendarRule:Madrid:Rule1267",
     "type": "GtfsCalendarRule",
     "startDate": {
         "value": "2018-01-01"
@@ -151,7 +151,7 @@ Normalized NGSI response
     },
     "hasService": {
         "type": "Relationship",
-        "value": "urn:ngsi-ld:Service:Madrid:Hospital_1"
+        "value": "urn:ngsi-ld:GtfsService:Madrid:Hospital_1"
     },
     "saturday": {
         "value": false
@@ -165,7 +165,7 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 ```json
 {
-    "id": "urn:ngsi-ld:CalendarRule:Madrid:Rule1267",
+    "id": "urn:ngsi-ld:GtfsCalendarRule:Madrid:Rule1267",
     "type": "GtfsCalendarRule",
     "name": "Rule Hospital Service 1",
     "hasService": "urn:ngsi-ld:GtfsService:Madrid:Hospital_1",

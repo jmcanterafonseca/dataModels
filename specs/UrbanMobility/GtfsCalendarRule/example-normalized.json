@@ -30,7 +30,7 @@
     }, 
     "hasService": {
         "type": "Relationship", 
-        "value": "urn:ngsi-ld:Service:Madrid:Hospital_1"
+        "value": "urn:ngsi-ld:GtfsService:Madrid:Hospital_1"
     }, 
     "saturday": {
         "value": false
