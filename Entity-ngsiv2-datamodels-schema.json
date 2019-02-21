@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "id": "https://fiware.github.io/dataModels/Entity-ngsiv2-schema.json",
-  "title": "NGSIv2 Entity. Normalized Format",
-  "description": "NGSIv2 Entity",
+  "id": "https://fiware.github.io/dataModels/Entity-ngsiv2-datamodels-schema.json",
+  "title": "NGSIv2 Entity. Normalized Format for FIWARE Data Models",
+  "description": "NGSIv2 Entity. Normalized Format for FIWARE Data Models",
   "definitions": {
     "Identifier": {
       "type": "string",
