@@ -76,35 +76,50 @@
         }
       }
     },
+    "TMF-Base-Address": {
+      "type": "object",
+      "properties": {
+        "streetNr": {
+          "type": "string"
+        }
+      }
+    },
     "Location-Commons": {
       "type": "object",
       "properties": {
         "location": { "$ref": "http://json-schema.org/geojson/geometry.json#" },
         "address": {
-          "type": "object",
-          "properties": {
-            "streetAddress": {
-              "type": "string"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TMF-Base-Address"
             },
-            "addressLocality": {
-              "type": "string"
-            },
-            "addressRegion": {
-              "type": "string"
-            },
-            "addressCountry": {
-              "type": "string"
-            },
-            "postalCode": {
-              "type": "string"
-            },
-            "postOfficeBoxNumber": {
-              "type": "string"
-            },
-            "areaServed": {
-              "type": "string"
+            {
+              "type": "object",
+              "properties": {
+                "streetAddress": {
+                  "type": "string"
+                },
+                "addressLocality": {
+                  "type": "string"
+                },
+                "addressRegion": {
+                  "type": "string"
+                },
+                "addressCountry": {
+                  "type": "string"
+                },
+                "postalCode": {
+                  "type": "string"
+                },
+                "postOfficeBoxNumber": {
+                  "type": "string"
+                },
+                "areaServed": {
+                  "type": "string"
+                }
+              }
             }
-          }
+          ]
         },
         "areaServed": {
           "type": "string"
