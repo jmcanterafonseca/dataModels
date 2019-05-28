@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "id": "https://fiware.github.io/dataModels/Entity-ngsiv2-datamodels-schema.json",
+  "$id": "https://fiware.github.io/dataModels/Entity-ngsiv2-datamodels-schema.json",
   "title": "NGSIv2 Entity. Normalized Format for FIWARE Data Models",
   "description": "NGSIv2 Entity. Normalized Format aligned with the usage given by FIWARE Data Models. Restrictions: geo:point, geo:line, geo:polygon, geo:box not covered. keyValues representation not covered",
   "definitions": {
@@ -9,26 +9,6 @@
       "minLength": 1,
       "maxLength": 256,
       "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
-    },
-    "Name": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/Identifier"
-        },
-        {
-          "not": {
-            "type": "string",
-            "const": "geo:distance"
-          }
-        },
-        {
-          "not": {
-            "type": "string",
-            "const": "*"
-          }
-        }
-      ],
-      "description": "NGSIv2 Name"
     },
     "Value": {
       "type": [
@@ -40,13 +20,13 @@
         "string"
       ]
     },
-    "TypeValue": {
+    "AttributeTypeValue": {
       "type": "object",
       "properties": {
         "type": {
           "allOf": [
             {
-              "$ref": "#/definitions/Name"
+              "$ref": "#/definitions/Identifier"
             },
             {
               "not": {
@@ -68,6 +48,30 @@
         "value"
       ]
     },
+    "MetadataTypeValue": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Identifier"
+            },
+            {
+              "not": {
+                "const": "DateTime"
+              }
+            }
+          ]
+        },
+        "value": {
+          "$ref": "#/definitions/Value"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+
     "DateTimeValue": {
       "type": "string",
       "format": "date-time"
@@ -114,7 +118,7 @@
           "$ref": "#/definitions/DateTimeTypeValue"
         },
         "previousValue": {
-          "$ref": "#/definitions/TypeValue"
+          "$ref": "#/definitions/AttributeTypeValue"
         },
         "actionType": {
           "type": "object",
@@ -141,7 +145,7 @@
       "additionalProperties": {
         "anyOf": [
           {
-            "$ref": "#/definitions/TypeValue"
+            "$ref": "#/definitions/MetadataTypeValue"
           },
           {
             "$ref": "#/definitions/DateTimeTypeValue"
@@ -151,7 +155,10 @@
       "propertyNames": {
         "allOf": [
           {
-            "$ref": "#/definitions/Name"
+            "not": {
+              "type": "string",
+              "const": "*"
+            }
           }
         ]
       }
@@ -160,6 +167,9 @@
       "$ref": "#/definitions/DateTimeTypeValue"
     },
     "dateModified": {
+      "$ref": "#/definitions/DateTimeTypeValue"
+    },
+    "dateExpires": {
       "$ref": "#/definitions/DateTimeTypeValue"
     },
     "Attribute": {
@@ -173,7 +183,7 @@
               "$ref": "#/definitions/GeoTypeValue"
             },
             {
-              "$ref": "#/definitions/TypeValue"
+              "$ref": "#/definitions/AttributeTypeValue"
             }
           ]
         },
@@ -196,7 +206,7 @@
         "type": {
           "allOf": [
             {
-              "$ref": "#/definitions/Name"
+              "$ref": "#/definitions/Identifier"
             },
             {
               "default": "Thing"
@@ -208,10 +218,26 @@
         },
         "dateModified": {
           "$ref": "#/definitions/dateModified"
+        },
+        "dateExpires": {
+          "$ref": "#/definitions/dateExpires"
         }
       },
       "propertyNames": {
-        "$ref": "#/definitions/Name"
+        "allOf": [
+          {
+            "not": {
+              "type": "string",
+              "const": "geo:distance"
+            }
+          },
+          {
+            "not": {
+              "type": "string",
+              "const": "*"
+            }
+          }
+        ]
       },
       "additionalProperties": {
         "anyOf": [
