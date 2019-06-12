@@ -14,7 +14,7 @@ This repository contains:
 -   code that allows to expose different harmonized datasets useful for
     different applications. Such datasets are currently exposed through the
     [FIWARE NGSI version 2](http://fiware.github.io/specifications/ngsiv2/stable)
-    API (query) and/or [NGSI-LD](https://www.etsi.org/deliver/etsi_gs/CIM/001_099/009/01.01.01_60/gs_CIM009v010101p.pdf).
+     and/or [NGSI-LD](https://www.etsi.org/deliver/etsi_gs/CIM/001_099/009/01.01.01_60/gs_CIM009v010101p.pdf) APIs (query).
 
 This work is aligned with the results of the
 [GSMA IoT Big Data](http://www.gsma.com/connectedliving/iot-big-data/) Project.
@@ -31,7 +31,7 @@ the
 
 To support the adoption, we created a short [guideline](specs/howto.md) for the
 usage of data models. If you are using **NGSI-LD**, you should also check the [NGSI-LD HowTo](./specs/ngsi-ld_howto.md)
-and the [NGSI-LD FAQ](./specs/ngsi-ld_faq.md)
+and the [NGSI-LD FAQ](./specs/ngsi-ld_faq.md).
 
 ## JSON Schemas
 
@@ -57,7 +57,7 @@ A `validate.sh` script is provided for convenience.
 **Note**: JSON Schemas capture the name and data type of each Entity Attribute. For instance, this
 means that to test JSON schema examples with a
 [FIWARE NGSI version 2](http://fiware.github.io/specifications/ngsiv2/stable)
-or [NGSI-lD](https://www.etsi.org/deliver/etsi_gs/CIM/001_099/009/01.01.01_60/gs_CIM009v010101p.pdf)
+or [NGSI-LD](https://www.etsi.org/deliver/etsi_gs/CIM/001_099/009/01.01.01_60/gs_CIM009v010101p.pdf)
 API implementation, you need to use the `keyValues` mode (`options=keyValues`).
 
 ## How to contribute
@@ -103,7 +103,7 @@ among the entities. e.g.:
             -   `example.json`
             -   `example-normalized.json`
             -   `example-normalized-ld.jsonld` 
-        -   `NewModelEntityTwo/
+        -   `NewModelEntityTwo/`
             -   `doc/`
                 -   `spec.md`
             -   `README.md`
