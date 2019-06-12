@@ -10,7 +10,7 @@
 This repository contains:
 
 -   [JSON Schemas and documentation](./specs/README.md) on harmonized datamodels
-    for smart different Smart Domains, particularly **Smart Cities** and **Smart Agrifood**.
+    for different Smart Domains, particularly **Smart Cities** and **Smart Agrifood**.
 -   code that allows to expose different harmonized datasets useful for
     different applications. Such datasets are currently exposed through the
     [FIWARE NGSI version 2](http://fiware.github.io/specifications/ngsiv2/stable)
@@ -78,7 +78,7 @@ New data models should be added under a folder structured as follows:
             [schema.json of WeatherObserved](specs/Weather/WeatherObserved/schema.json)
         -   `example.json`: One or more JSON example file, e.g.
             [example.json of WeatherObserved](specs/Weather/WeatherObserved/example.json)
-        -   `example-normalized.json`: One or more JSON example file in NGSIv2 normalized format, e.g.
+        -   `example-normalized.json`: One or more JSON example file in NGSI v2 normalized format, e.g.
             [example-normalized.json of WeatherObserved](specs/Weather/WeatherObserved/example-normalized.json)
         -   `example-normalized-ld.jsonld`: One or more JSON example file in **NGSI-LD** normalized format, e.g.
             [example-normalized-ld.jsonld of WeatherObserved](specs/Weather/WeatherObserved/example-normalized-ld.jsonld)
