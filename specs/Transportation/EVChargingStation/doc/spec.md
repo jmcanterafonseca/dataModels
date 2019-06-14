@@ -158,7 +158,7 @@ A JSON Schema corresponding to this data model can be found
 -   `owner` : Charging station's owner.
 
     -   Attribute type: Property. List of [Text](http://schema.org/Text) or
-        [URL](http://schema.org/URL)
+        List of URIs
     -   Optional
 
 -   `operator` : Charging station's operator.

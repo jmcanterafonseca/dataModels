@@ -195,7 +195,7 @@ A JSON Schema corresponding to this data model can be found
 
 -   `owner` : Container's owner.
 
-    -   Attribute type: List of [Text](http://schema.org/Text) or List of [URL](http://schema.org/URL)
+    -   Attribute type: List of [Text](http://schema.org/Text) or List of URIs
     -   Optional
 
 -   `dateServiceStarted` : Date at which the container started giving service.
