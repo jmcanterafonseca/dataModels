@@ -212,7 +212,7 @@ The data model is defined as shown below:
 
 -   `owner` : Vehicle's owner.
 
-    -   Attribute Type: [https://schema.org/Person](https://schema.org/Person)
+    -   Attribute Type: list of [https://schema.org/Person](https://schema.org/Person)
         or [https://schema.org/Organization](https://schema.org/Organization)
     -   Optional
 
