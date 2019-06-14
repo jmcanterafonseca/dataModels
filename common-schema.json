@@ -4,7 +4,7 @@
   "title": "Common definitions for FIWARE Harmonized Data Models",
   "definitions": {
     "EntityIdentifierType": {
-      "oneOf": [{
+      "anyOf": [{
         "type": "string",
         "minLength": 1,
         "maxLength": 256,
