@@ -276,6 +276,12 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 }
 ```
 
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+
 ## Test it with a real service
 
 ## Open Issues
