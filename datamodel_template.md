@@ -15,12 +15,13 @@ A JSON Schema corresponding to this data model can be found at
 
 -   `type` : Entity type. It must be equal to {{EntityType}}.
 
--   `dateModified` or `modifiedAt`: Last update timestamp of this entity.
+-   `modifiedAt` or `dateModified` (NGSIv2): Last update timestamp of this
+    entity.
 
     -   Attribute type: [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
--   `dateCreated` or `createdAt`: Entity's creation timestamp.
+-   `createdAt` or `dateCreated` (NGSIv2): Entity's creation timestamp.
 
     -   Attribute type: [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
