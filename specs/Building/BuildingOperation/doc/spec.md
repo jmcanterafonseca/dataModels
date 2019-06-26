@@ -116,62 +116,67 @@ Normalized NGSI response
     "type": "BuildingOperation",
     "status": {
         "value": "finished"
-    },
+    }, 
     "startDate": {
+        "type": "DateTime",
         "value": "2016-08-08T10:18:16Z"
-    },
+    }, 
     "operationSequence": {
-        "value": ["fan_power%3D0", "set_temperature%3D24"]
-    },
+        "value": [
+            "fan_power%3D0", 
+            "set_temperature%3D24"
+        ]
+    }, 
     "endDate": {
+        "type": "DateTime",
         "value": "2016-08-20T10:18:16Z"
-    },
+    }, 
     "description": {
         "value": "Air conditioning levels reduced due to out of hours"
-    },
+    }, 
     "refRelatedDeviceOperation": {
-        "type": "Relationship",
+        "type": "Relationship", 
         "value": [
-            "36744245-6716-4a28-84c7-0e3d7520f143",
+            "36744245-6716-4a28-84c7-0e3d7520f143", 
             "33b2b713-9223-40a5-87a0-3f80a1264a6c"
         ]
-    },
+    }, 
     "dateCreated": {
-        "type": "DateTime",
+        "type": "DateTime", 
         "value": "2016-08-08T10:18:16Z"
-    },
+    }, 
     "dateModified": {
-        "type": "DateTime",
+        "type": "DateTime", 
         "value": "2016-08-08T10:18:16Z"
-    },
+    }, 
     "refRelatedBuildingOperation": {
-        "type": "Relationship",
+        "type": "Relationship", 
         "value": [
-            "b4fb8bff-1a8f-455f-8cc0-ca43c069f865",
+            "b4fb8bff-1a8f-455f-8cc0-ca43c069f865", 
             "55c24793-3437-4157-9bda-667c9e1531fc"
         ]
-    },
+    }, 
     "source": {
         "value": "http://www.example.com"
-    },
+    }, 
     "refBuilding": {
-        "type": "Relationship",
+        "type": "Relationship", 
         "value": "building-a85e3da145c1"
-    },
+    }, 
     "result": {
         "value": "ok"
-    },
+    }, 
     "operationType": {
         "value": "airConditioning"
-    },
+    }, 
     "dateStarted": {
-        "type": "DateTime",
+        "type": "DateTime", 
         "value": "2016-08-08T10:18:16Z"
-    },
+    }, 
     "dateFinished": {
-        "type": "DateTime",
+        "type": "DateTime", 
         "value": "2016-08-20T10:18:16Z"
-    },
+    }, 
     "dataProvider": {
         "value": "OperatorA"
     }
@@ -227,7 +232,10 @@ Sample uses the NGSI-LD representation
     },
     "startDate": {
         "type": "Property",
-        "value": "2016-08-08T10:18:16Z"
+        "value": {
+            "@type": "DateTime",
+            "@value": "2016-08-08T10:18:16Z"
+        }
     },
     "operationSequence": {
         "type": "Property",
@@ -238,7 +246,10 @@ Sample uses the NGSI-LD representation
     },
     "endDate": {
         "type": "Property",
-        "value": "2016-08-20T10:18:16Z"
+        "value": {
+            "@type": "DateTime",
+            "@value": "2016-08-20T10:18:16Z"
+        }
     },
     "description": {
         "type": "Property",
@@ -247,15 +258,15 @@ Sample uses the NGSI-LD representation
     "refRelatedDeviceOperation": {
         "type": "Relationship",
         "object": [
-            "urn:ngsi-ld:RelatedDeviceOperation:36744245-6716-4a28-84c7-0e3d7520f143",
-            "urn:ngsi-ld:RelatedDeviceOperation:33b2b713-9223-40a5-87a0-3f80a1264a6c"
+            "urn:ngsi-ld:DeviceOperation:36744245-6716-4a28-84c7-0e3d7520f143",
+            "urn:ngsi-ld:DeviceOperation:33b2b713-9223-40a5-87a0-3f80a1264a6c"
         ]
     },
     "refRelatedBuildingOperation": {
         "type": "Relationship",
         "object": [
-            "urn:ngsi-ld:RelatedBuildingOperation:b4fb8bff-1a8f-455f-8cc0-ca43c069f865",
-            "urn:ngsi-ld:RelatedBuildingOperation:55c24793-3437-4157-9bda-667c9e1531fc"
+            "urn:ngsi-ld:BuildingOperation:b4fb8bff-1a8f-455f-8cc0-ca43c069f865",
+            "urn:ngsi-ld:BuildingOperation:55c24793-3437-4157-9bda-667c9e1531fc"
         ]
     },
     "source": {

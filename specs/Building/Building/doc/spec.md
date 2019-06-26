@@ -321,7 +321,7 @@ Sample uses the NGSI-LD representation
     "occupier": {
         "type": "Relationship",
         "object": [
-            "urn:ngsi-ld::9830f692-7677-11e6-838b-4f9fb3dc5a4f"
+            "urn:ngsi-ld:Person:9830f692-7677-11e6-838b-4f9fb3dc5a4f"
         ]
     },
     "mapUrl": {

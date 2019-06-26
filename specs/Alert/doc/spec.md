@@ -207,6 +207,8 @@ Sample uses the NGSI-LD representation
 {
     "id": "urn:ngsi-ld:Alert:Alert:1",
     "type": "Alert",
+    "createdAt": "2019-06-06T12:06:06",
+    "modifiedAt": "2019-06-07T12:07:06",
     "category": {
         "type": "Property",
         "value": "traffic"
