@@ -124,7 +124,7 @@ Normalized NGSI response
 
 ```json
 {
-    "id": "BeachAConcha123456",
+    "id": "Beach-A-Concha-123456",
     "type": "Beach",
     "description": {
         "value": "La Playa de A Concha se presenta ....."
@@ -176,8 +176,8 @@ Sample uses simplified representation for data consumers `?options=keyValues`
 
 ```json
     {
-         "id": " BeachAConcha123456 ",
-         "type": ”Beach",
+         "id": "Beach-A-Concha-123456",
+         "type": "Beach",
          "name": "Playa de a Concha",
          "description": "La Playa de A Concha se presenta .....",
          "address": {
@@ -204,7 +204,7 @@ Sample uses the NGSI-LD representation
 
 ```json
 {
-    "id": "urn:ngsi-ld:Beach:BeachAConcha123456",
+    "id": "urn:ngsi-ld:Beach:Beach-A-Concha-123456",
     "type": "Beach",
     "description": {
         "type": "Property",

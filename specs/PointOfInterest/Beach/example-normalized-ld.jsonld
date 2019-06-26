@@ -1,5 +1,5 @@
 {
-    "id": "urn:ngsi-ld:Beach:BeachAConcha123456",
+    "id": "urn:ngsi-ld:Beach:Beach-A-Concha-123456",
     "type": "Beach",
     "description": {
         "type": "Property",
