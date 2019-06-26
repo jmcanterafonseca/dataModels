@@ -187,13 +187,13 @@ Sample uses simplified representation for data consumers `?options=keyValues`
          "beachType": ["whiteSand", "urban", "calmWaters"],
          "occupationRate": "high",
          "facilities": ["promenade", "showers", "cleaningServices", "lifeGuard"],
-         “accessType”: ["privateVehicle", "onFoot", "publicTransport"],
+         "accessType": ["privateVehicle", "onFoot", "publicTransport"],
          "location": {
             "type": "Point",
             "coordinates": [-8.768460000000001, 42.60214472222222]
          },
-         “width”: 51,
-         “length”: 450,
+         "width": 51,
+         "length": 450,
          "source": "http://www.tourspain.es"
     }
 ```
