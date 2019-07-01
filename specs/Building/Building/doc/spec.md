@@ -374,8 +374,8 @@ Sample uses the NGSI-LD representation
     "owner": {
         "type": "Relationship",
         "object": [
-            "urn:ngsi-ld::cdfd9cb8-ae2b-47cb-a43a-b9767ffd5c84",
-            "urn:ngsi-ld::1be9cd61-ef59-421f-a326-4b6c84411ad4"
+            "urn:ngsi-ld:Person:cdfd9cb8-ae2b-47cb-a43a-b9767ffd5c84",
+            "urn:ngsi-ld:Person:1be9cd61-ef59-421f-a326-4b6c84411ad4"
         ]
     },
     "openingHours": {
