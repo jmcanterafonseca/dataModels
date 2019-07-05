@@ -96,7 +96,8 @@ The data model is defined as shown below:
 
 -   `speed` : Denotes the magnitude of the horizontal component of the vehicle's
     current velocity and is specified in Kilometers per Hour. If provided, the
-    value of the speed attribute must be a non-negative real number. 
+    value of the speed attribute must be a non-negative real number.
+    `-1` MAY be used if speed is transiently unknown for some reason.
 
     -   Attribute type: [Number](https:/schema.org/Number)
     -   Default unit: Kilometers per hour
