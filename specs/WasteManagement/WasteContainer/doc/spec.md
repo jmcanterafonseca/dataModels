@@ -39,8 +39,7 @@ A JSON Schema corresponding to this data model can be found
 
 -   `fillingLevel` : Filling level of the container (percentage, expressed in
     parts per one). When the container is full it must be equal to `1.0`. When
-    the container is empty it must be equal to `0.0`. If it is not possible to
-    determine the current filling level it must be equal to `null`.
+    the container is empty it must be equal to `0.0`.
 
     -   Attribute type: [Number](http://schema.org/Number)
     -   Attribute metadata:
