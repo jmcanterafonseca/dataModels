@@ -112,7 +112,7 @@ The data model is defined as shown below:
     in decimal degrees, where 0° ≤ `heading` < 360°, counting clockwise relative
     to the true north. If the vehicle is stationary (i.e. the value of the
     `speed` attribute is `0`), then the value of the heading attribute must be
-    equal to `null`. 
+    equal to `-1`. 
 
     -   Attribute type: [Number](https://schema.org)
     -   Attribute metadata:
