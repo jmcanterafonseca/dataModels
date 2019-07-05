@@ -272,6 +272,7 @@ A JSON Schema corresponding to this data model can be found
             vandalism.
         -   `burning`. Container is burning and an immediate action has to be
             taken.
+        -   `unknown`. The status of the container is not known to the system. 
     -   Attribute metadata:
 
         -   `timestamp`: Timestamp when the last update of the attribute
