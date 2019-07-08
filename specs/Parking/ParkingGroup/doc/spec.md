@@ -93,7 +93,7 @@ The data model is defined as shown below:
     -   Optional
 
 -   `maximumParkingDuration` : Maximum allowed stay encoded as a ISO8601
-    duration. When non present or equals to the mpty string it means indefinite. Applications _SHOULD_ inspect the value of
+    duration. When non present or equals to the empty string it means indefinite. Applications _SHOULD_ inspect the value of
     this property at parent's level if it is not defined.
 
     -   Attribute type: [Text](http://schema.org/Text)
