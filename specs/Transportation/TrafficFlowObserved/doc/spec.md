@@ -75,9 +75,10 @@ The data model is defined as shown below:
     format. It can be represented by an specific time instant or by an ISO8601
     interval. As a workaround for the lack of support of Orion Context Broker
     for datetime intervals, it can be used two separate attributes:
-    `dateObservedFrom`, `dateObservedTo`. + Attribute type:
-    [DateTime](https://schema.org/DateTime) or an ISO8601 interval represented
-    as [Text](https://schema.org/Text). + Mandatory
+    `dateObservedFrom`, `dateObservedTo`. 
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime) or an ISO8601 interval represented
+    as [Text](https://schema.org/Text). 
+    -   Mandatory
 
 -   `dateObservedFrom` : Observation period start date and time. See
     `dateObserved`.
@@ -136,8 +137,8 @@ The data model is defined as shown below:
     observation period in the referred lane. The absence of this attribute means
     no traffic congestion. 
     
-    - Attribute type: Property. [Boolean](https://schema.org/Boolean) 
-    - Optional
+    -   Attribute type: Property. [Boolean](https://schema.org/Boolean) 
+    -   Optional
 
 -   `averageHeadwayTime` : Average headway time. Headaway time is the time
     ellapsed between two consecutive vehicles.
