@@ -19,18 +19,18 @@ The data model is defined as shown below:
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. Text or URL
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. URL
     -   Optional
 
 -   `category` : Parking Group's category.
 
-    -   Attribute type: List of [Text](http://schema.org/Text)
+    -   Attribute type: Property. List of [Text](http://schema.org/Text)
     -   Allowed values:
         -   `onstreet` if the parking group belongs to an `OnStreetParking`.
         -   `offstreet` if the parking group belongs to an `OffStreetParking`.
@@ -48,7 +48,7 @@ The data model is defined as shown below:
 -   `refParkingSite` : Parking site to which this zone belongs to. A group
     cannot be orphan. A group cannot have subgroups.
 
-    -   Attribute type: Reference to an
+    -   Attribute type: Relationship. Reference to an
         [OffStreetParking](../../OffStreetParking/doc/spec.md) or to an
         [OnStreetParking](../../OnStreetParking/doc/spec.md) entity.
     -   Mandatory
@@ -56,7 +56,7 @@ The data model is defined as shown below:
 -   `allowedVehicleType` : Vehicle type allowed (a parking group only allows one
     vehicle type).
 
-    -   Attribute type: [Text](http://schema.org/Text)
+    -   Attribute type: Property. [Text](http://schema.org/Text)
     -   Allowed Values: The following values defined by _VehicleTypeEnum_
         [DATEX 2 version 2.3](http://d2docs.ndwcloud.nu/downloads/modelv23.html)
         :
@@ -70,7 +70,7 @@ The data model is defined as shown below:
 -   `location` : Geolocation of the parking group represented by a GeoJSON
     (Multi)Polygon or Point.
 
-    -   Attribute type: `geo:json`.
+    -   Attribute type: GeoProperty. `geo:json`.
     -   Normative References:
         [https://tools.ietf.org/html/rfc7946](https://tools.ietf.org/html/rfc7946)
     -   Optional
@@ -97,13 +97,13 @@ The data model is defined as shown below:
     indefinite. Applications _SHOULD_ inspect the value of this property at
     parent's level if it is not defined.
 
-    -   Attribute type: [Text](http://schema.org/Text)
+    -   Attribute type: Property. [Text](http://schema.org/Text)
     -   Optional
 
 -   `chargeType` : Type of charge performed when parking on any of the spots
     pertaining to this group.
 
-    -   Attribute type: List of [Text](http://schema.org/Text)
+    -   Attribute type: Property. List of [Text](http://schema.org/Text)
     -   Allowed values: Some of those defined by the DATEX II version 2.3
         _ChargeTypeEnum_ enumeration:
         -   (`flat`, `minimum`, `maximum`, `additionalIntervalPrice`
@@ -119,7 +119,7 @@ The data model is defined as shown below:
     "residentPermit,disabledPermit" stays that both a resident and a disabled
     permit are needed to park. If empty string, no permit is needed.
 
-    -   Attribute type: [Text](http://schema.org/Text)
+    -   Attribute type: Property. [Text](http://schema.org/Text)
     -   Allowed values: The following, defined by the _PermitTypeEnum_
         enumeration of DATEX II version 2.3.
         -   oneOf (`employeePermit`, `studentPermit`, `fairPermit`,
@@ -143,13 +143,13 @@ The data model is defined as shown below:
     "blueZonePermit": "Mo,Tu,We,Th,Fr,Sa 09:00-20:00". Applications _SHOULD_
     inspect the value of this property at parent's level if it is not defined.
 
-    -   Attribute type: [StructuredValue](http://schema.org/StructuredValue)
+    -   Attribute type: Property. [StructuredValue](http://schema.org/StructuredValue)
     -   Mandatory.
 
 -   `reservationType` : Conditions for reservation. Applications _SHOULD_
     inspect the value of this property at parent's level if it is not defined.
 
-    -   Attribute type: [Text](http://schema.org/Text)
+    -   Attribute type: Property. [Text](http://schema.org/Text)
     -   Allowed values: The following specified by _ReservationTypeEnum_ of
         DATEX II version 2.3:
         -   one Of (`optional`, `mandatory`, `notAvailable`, `partly`).
@@ -159,12 +159,12 @@ The data model is defined as shown below:
     lines or similar) or not. Applications _SHOULD_ inspect the value of this
     property at parent's level if it is not defined.
 
-    -   Attribute type: [Boolean](https://schema.org/Boolean)
+    -   Attribute type: Property. [Boolean](https://schema.org/Boolean)
     -   Optional
 
 -   `totalSpotNumber` : The total number of spots pertaining to this group.
 
-    -   Attribute type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Allowed values: Any positive integer number or 0.
     -   Normative references: DATEX 2 version 2.3 attribute
         _parkingNumberOfSpaces_ of the _ParkingRecord_ class.
@@ -172,7 +172,7 @@ The data model is defined as shown below:
 
 -   `availableSpotNumber` : The number of spots available in this group.
 
-    -   Attribute type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Allowed values: A positive integer number, including 0. It must lower or
         equal than `totalSpotNumber`.
     -   Metadata:
@@ -182,7 +182,7 @@ The data model is defined as shown below:
 
 -   `occupancyDetectionType` : Occupancy detection method.
 
-    -   Attribute type: [Text](http://schema.org/Text)
+    -   Attribute type: Property. [Text](http://schema.org/Text)
     -   Allowed values: The following from DATEX II version 2.3
         _OccupancyDetectionTypeEnum_:
         -   (`none`, `balancing`, `singleSpaceDetection`, `modelBased`,
@@ -193,7 +193,7 @@ The data model is defined as shown below:
 -   `parkingMode` : Parking mode(s). Applications _SHOULD_ inspect the value of
     this property at parent's level if it is not defined.
 
-    -   Attribute type: List of [Text](http://schema.org/Text)
+    -   Attribute type: Property. List of [Text](http://schema.org/Text)
     -   Allowed values: Those defined by the DATEX II version 2.3
         _ParkingModeEnum_ enumeration:
         -   (`perpendicularParking`, `parallelParking`, `echelonParking`)
@@ -203,7 +203,7 @@ The data model is defined as shown below:
     _SHOULD_ inspect the value of this property at parent's level if it is not
     defined.
 
-    -   Attribute type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Default unit: Meters
     -   Optional
 
@@ -211,7 +211,7 @@ The data model is defined as shown below:
     _SHOULD_ inspect the value of this property at parent's level if it is not
     defined.
 
-    -   Attribute type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Default unit: Meters
     -   Optional
 
@@ -219,7 +219,7 @@ The data model is defined as shown below:
     _SHOULD_ inspect the value of this property at parent's level if it is not
     defined.
 
-    -   Attribute type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Default unit: Meters
     -   Optional
 
@@ -227,7 +227,7 @@ The data model is defined as shown below:
     _SHOULD_ inspect the value of this property at parent's level if it is not
     defined.
 
-    -   Attribute type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Default unit: Meters
     -   Optional
 
@@ -238,7 +238,7 @@ The data model is defined as shown below:
     -   Optional
 
 -   `refParkingSpot` : Parking spots belonging to this group.
-    -   Attribute type: List of references to
+    -   Attribute type: Property. List of references to
         [ParkingSpot](../../ParkingSpot/doc/spec.md)
     -   Optional
 

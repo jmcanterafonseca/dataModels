@@ -21,12 +21,12 @@ The data model is defined as shown below:
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. Text or URL
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
-    -   Attribute type: URL
+    -   Attribute type: Property. URL
     -   Optional
 
 The following fields defined by Open 311 are allowed to be attributes of this
@@ -92,7 +92,7 @@ following property must be added:
 
 -   `location` : Location of the area on which this service request is
     concerned.
-    -   Attribute type: GeoJSON geometry.
+    -   Attribute type: Property. GeoJSON geometry.
     -   Mandatory if the service request is geolocated.
 
 Additionally, applications might use the following standard schema.org
@@ -124,7 +124,7 @@ consistency with `ServiceType`):
     corresponding `ServiceType`. The key-value is always an array of strings. If
     an attribute is singled valued then such array will only contain one
     element.
-    -   Attribute type: [StructuredValue](https://schema.org/StructuredValue).
+    -   Attribute type: Property. [StructuredValue](https://schema.org/StructuredValue).
     -   Optional
 
 **Note**: JSON Schemas are intended to capture the data type and associated

@@ -28,19 +28,19 @@ used by applications.
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. URL
     -   Optional
 
 -   `dateModified` : Last update timestamp of this entity.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `dateCreated` : Entity's creation timestamp.
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 -   `source` : A sequence of characters giving the source of the entity data.
-    -   Attribute type: [Text](https://schema.org/Text) or
+    -   Attribute type: Property. [Text](https://schema.org/Text) or
         [URL](https://schema.org/URL)
     -   Optional
 -   `name` : Name of this beach.
@@ -60,7 +60,7 @@ used by applications.
 
 -   `location` : Location of this beach represented by a GeoJSON geometry,
     usually a `Point` or a Polygon.
-    -   Attribute type: `geo:json`.
+    -   Attribute type: Property. `geo:json`.
     -   Normative References:
         [https://tools.ietf.org/html/rfc7946](https://tools.ietf.org/html/rfc7946)
     -   Mandatory if `address` is not defined.
@@ -84,7 +84,7 @@ used by applications.
     -   Optional
 -   `beachType` : Type of beach according to different criteria.
 
-    -   Attribute type: List of [Text](https://schema.org/Text)
+    -   Attribute type: Property. List of [Text](https://schema.org/Text)
     -   Allowed Values: (`whiteSand`, `urban`, `isolated`, `calmWaters`,
         `blueFlag`, `Q-Quality`, `strongWaves`, `windy`, `blackSand`) or any
         other value needed by an application.
@@ -92,13 +92,13 @@ used by applications.
 
 -   `occupationRate` : Typical occupation rate of this beach.
 
-    -   Attribute type: [Text](https://schema.org/Text)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
     -   Allowed Values: (`low`, `medium`, `high`)
     -   Optional
 
 -   `facilities` : Describes different facilities offered by this beach.
 
-    -   Attribute type: List of [Text](https://schema.org/Text)
+    -   Attribute type: Property. List of [Text](https://schema.org/Text)
     -   Allowed values: (`promenade`, `showers`, `cleaningServices`,
         `lifeGuard`, `sunshadeRental`, `sunLoungerRental`, `waterCraftRental`,
         `toilets`, `touristOffice`, `litterBins`, `telephone`,
@@ -108,12 +108,12 @@ used by applications.
 
 -   `accessType` : Describes how to get to this beach.
 
-    -   Attribute type: List of [Text](https://schema.org/Text)
+    -   Attribute type: Property. List of [Text](https://schema.org/Text)
     -   Allowed values: (`privateVehicle`, `boat`, `onFoot`, `publicTransport`)
     -   Optional
 
 -   `refSeeAlso` : Reference to one or more related entities.
-    -   Attribute type: List of References
+    -   Attribute type: Relationship. List of References
     -   Optional
 
 ## Examples

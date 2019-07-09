@@ -21,22 +21,22 @@ A JSON Schema corresponding to this data model can be found
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. URL
     -   Optional
 
 -   `dateModified` : Last update timestamp of this entity.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `dateCreated` : Entity's creation timestamp.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: [Text](https://schema.org/Text) or
+    -   Attribute type: Property. [Text](https://schema.org/Text) or
         [URL](https://schema.org/URL)
     -   Optional
 
@@ -60,7 +60,7 @@ A JSON Schema corresponding to this data model can be found
 -   `location` : Location of the point of interest represented by a GeoJSON
     geometry, usually a `Point`.
 
-    -   Attribute type: `geo:json`.
+    -   Attribute type: Property. `geo:json`.
     -   Normative References:
         [https://tools.ietf.org/html/rfc7946](https://tools.ietf.org/html/rfc7946)
     -   Mandatory if `address` is not defined.
@@ -73,7 +73,7 @@ A JSON Schema corresponding to this data model can be found
 
 -   `category` : Category of this point of interest.
 
-    -   Attribute type: List of [Text](https://schema.org/Text)
+    -   Attribute type: Property. List of [Text](https://schema.org/Text)
     -   Allowed values: Those defined by the
         [Factual taxonomy](https://github.com/Factual/places/blob/master/categories/factual_taxonomy.json)
         together with the extended categories described by the present
@@ -90,7 +90,7 @@ A JSON Schema corresponding to this data model can be found
 -   `refSeeAlso` : Reference to one or more related entities that may provide
     extra, specific information about this point of interest.
 
-    -   Attribute type: List of References
+    -   Attribute type: Property. List of References
     -   Optional
 
 ## Extended POI Categories

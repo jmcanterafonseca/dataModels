@@ -16,7 +16,7 @@ The data model is defined as shown below:
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. Text or URL
     -   Optional
 
 -   `vehicleType` : Type of vehicle from the point of view of its structural
@@ -33,7 +33,7 @@ The data model is defined as shown below:
 *   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. URL
     -   Optional
 
 *   `location` : Location of this traffic flow observation represented by a
