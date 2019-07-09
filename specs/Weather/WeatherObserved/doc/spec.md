@@ -75,7 +75,7 @@ A JSON Schema corresponding to this data model can be found
 
 -   `weatherType` : The observed weather type. It is represented by a comma
     separated list of weather statuses, for instance `overcast, lightRain`.
-    
+
     -   Attribute type: [Text](https://schema.org/Text)
     -   Allowed values: A combination of (`clearNight`,`sunnyDay`,
         `slightlyCloudy`, `partlyCloudy`, `mist`, `fog`, `highClouds`, `cloudy`,
@@ -390,10 +390,7 @@ Sample uses the NGSI-LD representation
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -4.754444444,
-                41.640833333
-            ]
+            "coordinates": [-4.754444444, 41.640833333]
         }
     },
     "stationName": {

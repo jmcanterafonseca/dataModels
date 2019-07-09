@@ -271,7 +271,7 @@ A JSON Schema corresponding to this data model can be found
             vandalism.
         -   `burning`. Container is burning and an immediate action has to be
             taken.
-        -   `unknown`. The status of the container is not known to the system. 
+        -   `unknown`. The status of the container is not known to the system.
     -   Attribute metadata:
 
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -440,9 +440,7 @@ Sample uses the NGSI-LD representation
     },
     "category": {
         "type": "Property",
-        "value": [
-            "underground"
-        ]
+        "value": ["underground"]
     },
     "dateLastEmptying": {
         "type": "Property",
@@ -465,18 +463,13 @@ Sample uses the NGSI-LD representation
     },
     "refDevice": {
         "type": "Relationship",
-        "object": [
-            "urn:ngsi-ld:Device:device-Fleming:12a:1"
-        ]
+        "object": ["urn:ngsi-ld:Device:device-Fleming:12a:1"]
     },
     "location": {
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -3.164485591715449,
-                40.62785133667262
-            ]
+            "coordinates": [-3.164485591715449, 40.62785133667262]
         }
     },
     "fillingLevel": {

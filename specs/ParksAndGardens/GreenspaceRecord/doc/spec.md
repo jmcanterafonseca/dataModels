@@ -189,10 +189,7 @@ Sample uses the NGSI-LD representation
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -3.7836974,
-                43.4741091
-            ]
+            "coordinates": [-3.7836974, 43.4741091]
         }
     },
     "relativeHumidity": {

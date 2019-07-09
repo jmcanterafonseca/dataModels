@@ -84,8 +84,9 @@ used by applications.
     -   Optional
 -   `owner` : Museum's owner.
 
-    -   Attribute type: List of [Text](https://schema.org/Text) or List of URIs or a List of references to an
-        entity of type [Person](https://schema.org/Person) or
+    -   Attribute type: List of [Text](https://schema.org/Text) or List of URIs
+        or a List of references to an entity of type
+        [Person](https://schema.org/Person) or
         [Organization](https://schema.org/Organization)
     -   Optional
 
@@ -324,32 +325,21 @@ Sample uses the NGSI-LD representation
     },
     "artPeriod": {
         "type": "Property",
-        "value": [
-            "contemporary"
-        ]
+        "value": ["contemporary"]
     },
     "museumType": {
         "type": "Property",
-        "value": [
-            "fineArts"
-        ]
+        "value": ["fineArts"]
     },
     "facilities": {
         "type": "Property",
-        "value": [
-            "shop",
-            "cloakRoom",
-            "guidedTour"
-        ]
+        "value": ["shop", "cloakRoom", "guidedTour"]
     },
     "location": {
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                2.1668771521199393,
-                41.38302235796602
-            ]
+            "coordinates": [2.1668771521199393, 41.38302235796602]
         }
     },
     "address": {

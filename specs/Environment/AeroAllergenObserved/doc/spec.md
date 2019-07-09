@@ -6,10 +6,10 @@ This entity models aero allergens observed at a given location and related
 overall allergen risk.
 
 This data model has been developed based on
-[GSMA](https://www.gsma.com/iot/iot-big-data/). Aero allergens
-strictly depends on the geographical location. Common Aero allergens in Europe
-may be quite different from the ones in US due to the different biological
-species. A list of commonly used aero allergens in Europe can be found on
+[GSMA](https://www.gsma.com/iot/iot-big-data/). Aero allergens strictly depends
+on the geographical location. Common Aero allergens in Europe may be quite
+different from the ones in US due to the different biological species. A list of
+commonly used aero allergens in Europe can be found on
 [polleninfo.org](https://www.polleninfo.org/en/allergy/profiles/) a web site
 maintained by the European Aeroallergen Network. A World Health Organization
 (WHO) Allergen Nomenclature (covering not only aero transported allergens) is
@@ -321,10 +321,7 @@ Sample uses the NGSI-LD representation
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -99.276977,
-                19.381877
-            ]
+            "coordinates": [-99.276977, 19.381877]
         }
     },
     "address": {

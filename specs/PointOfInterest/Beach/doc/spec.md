@@ -175,27 +175,27 @@ Normalized NGSI response
 Sample uses simplified representation for data consumers `?options=keyValues`
 
 ```json
-    {
-         "id": "Beach-A-Concha-123456",
-         "type": "Beach",
-         "name": "Playa de a Concha",
-         "description": "La Playa de A Concha se presenta .....",
-         "address": {
-            "addressCountry": "ES",
-            "addressLocality": "Vilagarcía de Arousa"
-         },
-         "beachType": ["whiteSand", "urban", "calmWaters"],
-         "occupationRate": "high",
-         "facilities": ["promenade", "showers", "cleaningServices", "lifeGuard"],
-         "accessType": ["privateVehicle", "onFoot", "publicTransport"],
-         "location": {
-            "type": "Point",
-            "coordinates": [-8.768460000000001, 42.60214472222222]
-         },
-         "width": 51,
-         "length": 450,
-         "source": "http://www.tourspain.es"
-    }
+{
+    "id": "Beach-A-Concha-123456",
+    "type": "Beach",
+    "name": "Playa de a Concha",
+    "description": "La Playa de A Concha se presenta .....",
+    "address": {
+        "addressCountry": "ES",
+        "addressLocality": "Vilagarcía de Arousa"
+    },
+    "beachType": ["whiteSand", "urban", "calmWaters"],
+    "occupationRate": "high",
+    "facilities": ["promenade", "showers", "cleaningServices", "lifeGuard"],
+    "accessType": ["privateVehicle", "onFoot", "publicTransport"],
+    "location": {
+        "type": "Point",
+        "coordinates": [-8.768460000000001, 42.60214472222222]
+    },
+    "width": 51,
+    "length": 450,
+    "source": "http://www.tourspain.es"
+}
 ```
 
 ### LD Example
@@ -216,30 +216,18 @@ Sample uses the NGSI-LD representation
     },
     "accessType": {
         "type": "Property",
-        "value": [
-            "privateVehicle",
-            "onFoot",
-            "publicTransport"
-        ]
+        "value": ["privateVehicle", "onFoot", "publicTransport"]
     },
     "location": {
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -8.768460000000001,
-                42.60214472222222
-            ]
+            "coordinates": [-8.768460000000001, 42.60214472222222]
         }
     },
     "facilities": {
         "type": "Property",
-        "value": [
-            "promenade",
-            "showers",
-            "cleaningServices",
-            "lifeGuard"
-        ]
+        "value": ["promenade", "showers", "cleaningServices", "lifeGuard"]
     },
     "length": {
         "type": "Property",
@@ -259,11 +247,7 @@ Sample uses the NGSI-LD representation
     },
     "beachType": {
         "type": "Property",
-        "value": [
-            "whiteSand",
-            "urban",
-            "calmWaters"
-        ]
+        "value": ["whiteSand", "urban", "calmWaters"]
     },
     "occupationRate": {
         "type": "Property",

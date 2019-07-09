@@ -284,9 +284,7 @@ Sample uses the NGSI-LD representation
     "type": "StreetlightModel",
     "category": {
         "type": "Property",
-        "value": [
-            "postTop"
-        ]
+        "value": ["postTop"]
     },
     "colorRenderingIndex": {
         "type": "Property",

@@ -247,9 +247,7 @@ Sample uses the NGSI-LD representation
     "type": "WasteContainerModel",
     "category": {
         "type": "Property",
-        "value": [
-            "dumpster"
-        ]
+        "value": ["dumpster"]
     },
     "cargoVolume": {
         "type": "Property",
@@ -265,9 +263,7 @@ Sample uses the NGSI-LD representation
     },
     "compliantWith": {
         "type": "Property",
-        "value": [
-            "UNE-EN 840-2:2013"
-        ]
+        "value": ["UNE-EN 840-2:2013"]
     },
     "madeOf": {
         "type": "Property",
@@ -291,10 +287,7 @@ Sample uses the NGSI-LD representation
     },
     "features": {
         "type": "Property",
-        "value": [
-            "wheels",
-            "lid"
-        ]
+        "value": ["wheels", "lid"]
     },
     "@context": [
         "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",

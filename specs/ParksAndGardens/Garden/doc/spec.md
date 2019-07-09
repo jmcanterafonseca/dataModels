@@ -192,9 +192,7 @@ Sample uses the NGSI-LD representation
     "type": "Garden",
     "category": {
         "type": "Property",
-        "value": [
-            "public"
-        ]
+        "value": ["public"]
     },
     "style": {
         "type": "Property",
@@ -215,17 +213,12 @@ Sample uses the NGSI-LD representation
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -3.7836974,
-                43.4741091
-            ]
+            "coordinates": [-3.7836974, 43.4741091]
         }
     },
     "refRecord": {
         "type": "Relationship",
-        "object": [
-            "urn:ngsi-ld:Record:Santander-Garden-Piquio-Record-1"
-        ]
+        "object": ["urn:ngsi-ld:Record:Santander-Garden-Piquio-Record-1"]
     },
     "areaServed": {
         "type": "Property",

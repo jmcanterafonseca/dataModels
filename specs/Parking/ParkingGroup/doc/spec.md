@@ -93,8 +93,9 @@ The data model is defined as shown below:
     -   Optional
 
 -   `maximumParkingDuration` : Maximum allowed stay encoded as a ISO8601
-    duration. When non present or equals to the empty string it means indefinite. Applications _SHOULD_ inspect the value of
-    this property at parent's level if it is not defined.
+    duration. When non present or equals to the empty string it means
+    indefinite. Applications _SHOULD_ inspect the value of this property at
+    parent's level if it is not defined.
 
     -   Attribute type: [Text](http://schema.org/Text)
     -   Optional
@@ -134,16 +135,16 @@ The data model is defined as shown below:
 -   `permitActiveHours` : This attribute allows to capture situations when a
     permit is only needed at specific hours or days of week. It is an structured
     value which must contain a subproperty per each required permit, indicating
-    when the permit is active. If nothing specified for a permit it
-    will mean that a permit is always required. Empty object means
-    always active. The syntax must be conformant with schema.org
+    when the permit is active. If nothing specified for a permit it will mean
+    that a permit is always required. Empty object means always active. The
+    syntax must be conformant with schema.org
     [opening hours specification](https://schema.org/openingHours). For
     instance, a blue zone which is only active on dayweeks will be encoded as
     "blueZonePermit": "Mo,Tu,We,Th,Fr,Sa 09:00-20:00". Applications _SHOULD_
     inspect the value of this property at parent's level if it is not defined.
 
     -   Attribute type: [StructuredValue](http://schema.org/StructuredValue)
-    -   Mandatory. 
+    -   Mandatory.
 
 -   `reservationType` : Conditions for reservation. Applications _SHOULD_
     inspect the value of this property at parent's level if it is not defined.
@@ -351,11 +352,7 @@ Sample uses the NGSI-LD representation
     "type": "ParkingGroup",
     "category": {
         "type": "Property",
-        "value": [
-            "onstreet",
-            "adjacentSpaces",
-            "onlyDisabled"
-        ]
+        "value": ["onstreet", "adjacentSpaces", "onlyDisabled"]
     },
     "refParkingSite": {
         "type": "Relationship",
@@ -388,35 +385,18 @@ Sample uses the NGSI-LD representation
             "type": "Polygon",
             "coordinates": [
                 [
-                    [
-                        -3.80356167695194,
-                        43.46296641666926
-                    ],
-                    [
-                        -3.803161973253841,
-                        43.46301091092682
-                    ],
-                    [
-                        -3.803147082548618,
-                        43.462879859445884
-                    ],
-                    [
-                        -3.803536474744068,
-                        43.462838666196674
-                    ],
-                    [
-                        -3.80356167695194,
-                        43.46296641666926
-                    ]
+                    [-3.80356167695194, 43.46296641666926],
+                    [-3.803161973253841, 43.46301091092682],
+                    [-3.803147082548618, 43.462879859445884],
+                    [-3.803536474744068, 43.462838666196674],
+                    [-3.80356167695194, 43.46296641666926]
                 ]
             ]
         }
     },
     "chargeType": {
         "type": "Property",
-        "value": [
-            "free"
-        ]
+        "value": ["free"]
     },
     "description": {
         "type": "Property",

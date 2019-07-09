@@ -151,8 +151,8 @@ The data model is defined as shown below:
     -   Optional
 
 -   `maximumParkingDuration` : Maximum allowed stay at site, on a general basis,
-    encoded as a ISO8601 duration. An empty value or when non present indicates an
-    indefinite duration.
+    encoded as a ISO8601 duration. An empty value or when non present indicates
+    an indefinite duration.
 
     -   Attribute type: [Text](http://schema.org/Text)
     -   Optional
@@ -567,9 +567,7 @@ Sample uses the NGSI-LD representation
     },
     "layout": {
         "type": "Property",
-        "value": [
-            "multiLevel"
-        ]
+        "value": ["multiLevel"]
     },
     "name": {
         "type": "Property",
@@ -581,9 +579,7 @@ Sample uses the NGSI-LD representation
     },
     "allowedVehicleType": {
         "type": "Property",
-        "value": [
-            "car"
-        ]
+        "value": ["car"]
     },
     "availableSpotNumber": {
         "type": "Property",
@@ -598,17 +594,12 @@ Sample uses the NGSI-LD representation
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -8.60961198807,
-                41.150691773
-            ]
+            "coordinates": [-8.60961198807, 41.150691773]
         }
     },
     "chargeType": {
         "type": "Property",
-        "value": [
-            "temporaryPrice"
-        ]
+        "value": ["temporaryPrice"]
     },
     "address": {
         "type": "Property",

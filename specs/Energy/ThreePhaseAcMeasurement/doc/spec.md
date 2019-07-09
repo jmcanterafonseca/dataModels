@@ -967,9 +967,7 @@ Sample uses the NGSI-LD representation
     },
     "refDevice": {
         "type": "Relationship",
-        "object": [
-            "urn:ngsi-ld:Device:Device:eQL-EDF3GL-2006201705"
-        ]
+        "object": ["urn:ngsi-ld:Device:Device:eQL-EDF3GL-2006201705"]
     },
     "name": {
         "type": "Property",

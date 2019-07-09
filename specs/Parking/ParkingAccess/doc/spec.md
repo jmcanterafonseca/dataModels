@@ -171,9 +171,7 @@ Sample uses the NGSI-LD representation
     "type": "ParkingAccess",
     "category": {
         "type": "Property",
-        "value": [
-            "vehicleEntrance"
-        ]
+        "value": ["vehicleEntrance"]
     },
     "name": {
         "type": "Property",
@@ -183,10 +181,7 @@ Sample uses the NGSI-LD representation
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -8.60961198807,
-                41.150691773
-            ]
+            "coordinates": [-8.60961198807, 41.150691773]
         }
     },
     "refOffStreetParking": {
@@ -195,9 +190,7 @@ Sample uses the NGSI-LD representation
     },
     "features": {
         "type": "Property",
-        "value": [
-            "barrier"
-        ]
+        "value": ["barrier"]
     },
     "@context": [
         "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",

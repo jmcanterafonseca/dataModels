@@ -481,9 +481,7 @@ Sample uses the NGSI-LD representation
     },
     "compliantWith": {
         "type": "Property",
-        "value": [
-            "IP54"
-        ]
+        "value": ["IP54"]
     },
     "intensity": {
         "type": "Property",
@@ -517,10 +515,7 @@ Sample uses the NGSI-LD representation
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -3.164485591715449,
-                40.62785133667262
-            ]
+            "coordinates": [-3.164485591715449, 40.62785133667262]
         }
     },
     "reactivePower": {

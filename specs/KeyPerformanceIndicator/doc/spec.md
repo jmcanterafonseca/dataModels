@@ -320,9 +320,7 @@ Sample uses the NGSI-LD representation
     "modifiedAt": "2016-06-29T15:59:09.224Z",
     "category": {
         "type": "Property",
-        "value": [
-            "quantitative"
-        ]
+        "value": ["quantitative"]
     },
     "calculationFrequency": {
         "type": "Property",

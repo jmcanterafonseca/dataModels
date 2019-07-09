@@ -140,10 +140,7 @@ Sample uses the NGSI-LD representation
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -4.754444444,
-                41.640833333
-            ]
+            "coordinates": [-4.754444444, 41.640833333]
         }
     },
     "refUser": {

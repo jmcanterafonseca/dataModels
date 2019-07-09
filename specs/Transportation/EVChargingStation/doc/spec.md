@@ -157,8 +157,8 @@ A JSON Schema corresponding to this data model can be found
 
 -   `owner` : Charging station's owner.
 
-    -   Attribute type: Property. List of [Text](http://schema.org/Text) or
-        List of URIs
+    -   Attribute type: Property. List of [Text](http://schema.org/Text) or List
+        of URIs
     -   Optional
 
 -   `operator` : Charging station's operator.
@@ -290,9 +290,7 @@ Sample uses the NGSI-LD representation
     "type": "EVChargingStation",
     "socketType": {
         "type": "Property",
-        "value": [
-            "Wall_Euro"
-        ]
+        "value": ["Wall_Euro"]
     },
     "capacity": {
         "type": "Property",
@@ -304,9 +302,7 @@ Sample uses the NGSI-LD representation
     },
     "allowedVehicleType": {
         "type": "Property",
-        "value": [
-            "car"
-        ]
+        "value": ["car"]
     },
     "source": {
         "type": "Property",
@@ -316,17 +312,12 @@ Sample uses the NGSI-LD representation
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -4.747901,
-                41.618265
-            ]
+            "coordinates": [-4.747901, 41.618265]
         }
     },
     "chargeType": {
         "type": "Property",
-        "value": [
-            "free"
-        ]
+        "value": ["free"]
     },
     "address": {
         "type": "Property",

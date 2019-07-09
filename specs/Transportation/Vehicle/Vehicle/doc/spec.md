@@ -96,8 +96,8 @@ The data model is defined as shown below:
 
 -   `speed` : Denotes the magnitude of the horizontal component of the vehicle's
     current velocity and is specified in Kilometers per Hour. If provided, the
-    value of the speed attribute must be a non-negative real number.
-    `-1` MAY be used if speed is transiently unknown for some reason.
+    value of the speed attribute must be a non-negative real number. `-1` MAY be
+    used if speed is transiently unknown for some reason.
 
     -   Attribute type: [Number](https:/schema.org/Number)
     -   Default unit: Kilometers per hour
@@ -113,7 +113,7 @@ The data model is defined as shown below:
     in decimal degrees, where 0° ≤ `heading` < 360°, counting clockwise relative
     to the true north. If the vehicle is stationary (i.e. the value of the
     `speed` attribute is `0`), then the value of the heading attribute must be
-    equal to `-1`. 
+    equal to `-1`.
 
     -   Attribute type: [Number](https://schema.org)
     -   Attribute metadata:
@@ -211,8 +211,10 @@ The data model is defined as shown below:
 
 -   `owner` : Vehicle's owner.
 
-    -   Attribute Type: list of references to entities of type [https://schema.org/Person](https://schema.org/Person)
-        or [https://schema.org/Organization](https://schema.org/Organization) or List of URIs
+    -   Attribute Type: list of references to entities of type
+        [https://schema.org/Person](https://schema.org/Person) or
+        [https://schema.org/Organization](https://schema.org/Organization) or
+        List of URIs
     -   Optional
 
 -   `feature` : Feature(s) incorporated by the vehicle.
@@ -393,9 +395,7 @@ Sample uses the NGSI-LD representation
     "type": "Vehicle",
     "category": {
         "type": "Property",
-        "value": [
-            "municipalServices"
-        ]
+        "value": ["municipalServices"]
     },
     "vehicleType": {
         "type": "Property",
@@ -417,10 +417,7 @@ Sample uses the NGSI-LD representation
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -3.164485591715449,
-                40.62785133667262
-            ]
+            "coordinates": [-3.164485591715449, 40.62785133667262]
         },
         "observedAt": "2018-09-27T12:00:00Z"
     },
@@ -443,10 +440,7 @@ Sample uses the NGSI-LD representation
     },
     "serviceProvided": {
         "type": "Property",
-        "value": [
-            "gargabeCollection",
-            "wasteContainerCleaning"
-        ]
+        "value": ["gargabeCollection", "wasteContainerCleaning"]
     },
     "@context": [
         "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",

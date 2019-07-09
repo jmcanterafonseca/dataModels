@@ -339,10 +339,7 @@ Sample uses the NGSI-LD representation
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -5.993307,
-                37.362882
-            ]
+            "coordinates": [-5.993307, 37.362882]
         }
     },
     "pH": {
@@ -351,9 +348,7 @@ Sample uses the NGSI-LD representation
     },
     "measurand": {
         "type": "Property",
-        "value": [
-            "NO3, 0.01, M1, Concentration of Nitrates"
-        ]
+        "value": ["NO3, 0.01, M1, Concentration of Nitrates"]
     },
     "conductivity": {
         "type": "Property",

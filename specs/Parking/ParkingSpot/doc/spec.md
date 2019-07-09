@@ -221,9 +221,7 @@ Sample uses the NGSI-LD representation
     },
     "category": {
         "type": "Property",
-        "value": [
-            "onstreet"
-        ]
+        "value": ["onstreet"]
     },
     "refParkingSite": {
         "type": "Relationship",
@@ -237,10 +235,7 @@ Sample uses the NGSI-LD representation
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -3.80356167695194,
-                43.46296641666926
-            ]
+            "coordinates": [-3.80356167695194, 43.46296641666926]
         }
     },
     "@context": [

@@ -332,10 +332,7 @@ Sample uses the NGSI-LD representation
         "type": "Property",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -4.55167335377909,
-                41.8570461783071
-            ]
+            "coordinates": [-4.55167335377909, 41.8570461783071]
         }
     },
     "name": {
@@ -346,23 +343,12 @@ Sample uses the NGSI-LD representation
         "type": "Property",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -4.7299180606009,
-                41.6844918725019
-            ]
+            "coordinates": [-4.7299180606009, 41.6844918725019]
         }
     },
     "allowedVehicleType": {
         "type": "Property",
-        "value": [
-            "car",
-            "bus",
-            "lorry",
-            "trailer",
-            "tanker",
-            "van",
-            "caravan"
-        ]
+        "value": ["car", "bus", "lorry", "trailer", "tanker", "van", "caravan"]
     },
     "source": {
         "type": "Property",
@@ -377,22 +363,10 @@ Sample uses the NGSI-LD representation
         "value": {
             "type": "LineString",
             "coordinates": [
-                [
-                    -4.7299180606009,
-                    41.6844918725019
-                ],
-                [
-                    -4.72855890957602,
-                    41.6860596957855
-                ],
-                [
-                    -4.5520357341647,
-                    41.8569278186523
-                ],
-                [
-                    -4.55167335377909,
-                    41.8570461783071
-                ]
+                [-4.7299180606009, 41.6844918725019],
+                [-4.72855890957602, 41.6860596957855],
+                [-4.5520357341647, 41.8569278186523],
+                [-4.55167335377909, 41.8570461783071]
             ]
         }
     },
@@ -410,10 +384,7 @@ Sample uses the NGSI-LD representation
     },
     "laneUsage": {
         "type": "Property",
-        "value": [
-            "forward",
-            "forward"
-        ]
+        "value": ["forward", "forward"]
     },
     "@context": [
         "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",

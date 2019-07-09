@@ -210,22 +210,22 @@ Bike hire docking station real time data in Malaga
 
 ```json
 {
-   "id": "malaga-bici-7",
-   "type": "BikeHireDockingStation",
-   "name": "07-Diputacion",
-   "location": {
-	 "coordinates": [-4.43573, 36.699694],
-	  "type": "Point"
-   },
-   "availableBikeNumber": 18,
-   "freeSlotNumber": 10,
-   "address": {
-	  "streetAddress": "Paseo Antonio Banderas (Diputación)",
-	  "addressLocality": "Malaga",
-	  "addressCountry": "España"
-   },
-   "description": "Punto de alquiler de bicicletas próximo a Diputación",
-   "dateModified": "2017-05-09T09:25:55.00Z"
+    "id": "malaga-bici-7",
+    "type": "BikeHireDockingStation",
+    "name": "07-Diputacion",
+    "location": {
+        "coordinates": [-4.43573, 36.699694],
+        "type": "Point"
+    },
+    "availableBikeNumber": 18,
+    "freeSlotNumber": 10,
+    "address": {
+        "streetAddress": "Paseo Antonio Banderas (Diputación)",
+        "addressLocality": "Malaga",
+        "addressCountry": "España"
+    },
+    "description": "Punto de alquiler de bicicletas próximo a Diputación",
+    "dateModified": "2017-05-09T09:25:55.00Z"
 }
 ```
 
@@ -254,10 +254,7 @@ Sample uses the NGSI-LD representation
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                2.180042,
-                41.397952
-            ]
+            "coordinates": [2.180042, 41.397952]
         }
     },
     "address": {

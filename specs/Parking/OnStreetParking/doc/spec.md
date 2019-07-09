@@ -107,20 +107,20 @@ The data model is defined as shown below:
             `maintenanceVehiclePermit`, `roadWorksPermit`, `taxiPermit`,
             `transportationPermit`, `noPermitNeeded`)
         -   Any other application-specific
-    -   Mandatory. 
+    -   Mandatory.
 
 -   `permitActiveHours` : This attribute allows to capture situations when a
     permit is only needed at specific hours or days of week. It is an structured
     value which must contain a subproperty per each required permit, indicating
-    when the permit is active. If nothing specified for a permit it
-    will mean that a permit is always required. An empty JSON Object means
-    always active. The syntax must be conformant with schema.org
+    when the permit is active. If nothing specified for a permit it will mean
+    that a permit is always required. An empty JSON Object means always active.
+    The syntax must be conformant with schema.org
     [opening hours specification](https://schema.org/openingHours). For
     instance, a blue zone which is only active on dayweeks will be encoded as
     "blueZonePermit": "Mo,Tu,We,Th,Fr,Sa 09:00-20:00".
 
     -   Attribute type: [StructuredValue](http://schema.org/StructuredValue)
-    -   Mandatory. 
+    -   Mandatory.
 
 -   `maximumParkingDuration` : Maximum allowed stay at site encoded as a ISO8601
     duration. An empty value indicates an indefinite duration.
@@ -381,11 +381,7 @@ Sample uses the NGSI-LD representation
     "modifiedAt": "2016-06-02T09:25:55.00Z",
     "category": {
         "type": "Property",
-        "value": [
-            "blueZone",
-            "shortTerm",
-            "forDisabled"
-        ]
+        "value": ["blueZone", "shortTerm", "forDisabled"]
     },
     "permitActiveHours": {
         "type": "Property",
@@ -395,10 +391,7 @@ Sample uses the NGSI-LD representation
     },
     "requiredPermit": {
         "type": "Property",
-        "value": [
-            "blueZonePermit",
-            "disabledPermit"
-        ]
+        "value": ["blueZonePermit", "disabledPermit"]
     },
     "allowedVehicleType": {
         "type": "Property",
@@ -406,9 +399,7 @@ Sample uses the NGSI-LD representation
     },
     "chargeType": {
         "type": "Property",
-        "value": [
-            "temporaryFee"
-        ]
+        "value": ["temporaryFee"]
     },
     "refParkingGroup": {
         "type": "Relationship",
@@ -427,26 +418,11 @@ Sample uses the NGSI-LD representation
             "type": "Polygon",
             "coordinates": [
                 [
-                    [
-                        -3.80356167695194,
-                        43.46296641666926
-                    ],
-                    [
-                        -3.803161973253841,
-                        43.46301091092682
-                    ],
-                    [
-                        -3.803147082548618,
-                        43.462879859445884
-                    ],
-                    [
-                        -3.803536474744068,
-                        43.462838666196674
-                    ],
-                    [
-                        -3.80356167695194,
-                        43.46296641666926
-                    ]
+                    [-3.80356167695194, 43.46296641666926],
+                    [-3.803161973253841, 43.46301091092682],
+                    [-3.803147082548618, 43.462879859445884],
+                    [-3.803536474744068, 43.462838666196674],
+                    [-3.80356167695194, 43.46296641666926]
                 ]
             ]
         }

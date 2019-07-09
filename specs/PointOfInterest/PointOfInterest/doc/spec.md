@@ -178,9 +178,7 @@ Sample uses the NGSI-LD representation
     "type": "PointOfInterest",
     "category": {
         "type": "Property",
-        "value": [
-            "113"
-        ]
+        "value": ["113"]
     },
     "description": {
         "type": "Property",
@@ -188,9 +186,7 @@ Sample uses the NGSI-LD representation
     },
     "refSeeAlso": {
         "type": "Relationship",
-        "object": [
-            "urn:ngsi-ld:SeeAlso:Beach-A-Concha-123456"
-        ]
+        "object": ["urn:ngsi-ld:SeeAlso:Beach-A-Concha-123456"]
     },
     "source": {
         "type": "Property",
@@ -200,10 +196,7 @@ Sample uses the NGSI-LD representation
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -8.768460000000001,
-                42.60214472222222
-            ]
+            "coordinates": [-8.768460000000001, 42.60214472222222]
         }
     },
     "address": {

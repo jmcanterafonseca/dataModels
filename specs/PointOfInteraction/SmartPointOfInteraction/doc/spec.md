@@ -68,7 +68,7 @@ The data model is defined as shown below:
     "availability": "Mo,Tu,We,Th,Fr,Sa 09:00-20:00".
 
     -   Attribute type: [Text](https://schema.org/Text)
-    -   Mandatory. 
+    -   Mandatory.
 
 -   `refRelatedEntity` : List of entities improved with this Smart Point of
     Interaction. The entity type could be any such as a “Parking”, “Point of
@@ -176,9 +176,7 @@ Sample uses the NGSI-LD representation
     "type": "SmartPointOfInteraction",
     "category": {
         "type": "Property",
-        "value": [
-            "co-creation"
-        ]
+        "value": ["co-creation"]
     },
     "applicationUrl": {
         "type": "Property",
@@ -190,22 +188,10 @@ Sample uses the NGSI-LD representation
             "type": "Polygon",
             "coordinates": [
                 [
-                    [
-                        25.774,
-                        -80.19
-                    ],
-                    [
-                        18.466,
-                        -66.118
-                    ],
-                    [
-                        32.321,
-                        -64.757
-                    ],
-                    [
-                        25.774,
-                        -80.19
-                    ]
+                    [25.774, -80.19],
+                    [18.466, -66.118],
+                    [32.321, -64.757],
+                    [25.774, -80.19]
                 ]
             ]
         }
@@ -224,9 +210,7 @@ Sample uses the NGSI-LD representation
     },
     "refRelatedEntity": {
         "type": "Relationship",
-        "object": [
-            "urn:ngsi-ld:RelatedEntity:POI-PlazaCazorla-3123"
-        ]
+        "object": ["urn:ngsi-ld:RelatedEntity:POI-PlazaCazorla-3123"]
     },
     "@context": [
         "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",

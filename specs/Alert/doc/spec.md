@@ -64,8 +64,8 @@ A JSON Schema corresponding to this data model can be found
             (for `health` category)
         -   (`suspiciousAction`, `robbery`, `assault`, `civilDisorder`,
             `buildingFire`, `forestFire`) (for `security` category)
-        -   (`noxiousWeed`, `snail`, `insect`, `rodent`, `bacteria`,
-            `microbe`, `fungus`,`mite`, `virus`, `nematodes`, `irrigation`,
+        -   (`noxiousWeed`, `snail`, `insect`, `rodent`, `bacteria`, `microbe`,
+            `fungus`,`mite`, `virus`, `nematodes`, `irrigation`,
             `fertilisation`) (for `agriculture` category)
     -   Optional
 
@@ -232,10 +232,7 @@ Sample uses the NGSI-LD representation
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -3.712247222222222,
-                40.423852777777775
-            ]
+            "coordinates": [-3.712247222222222, 40.423852777777775]
         }
     },
     "dateIssued": {

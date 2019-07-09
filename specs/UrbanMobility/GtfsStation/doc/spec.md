@@ -144,18 +144,13 @@ Sample uses the NGSI-LD representation
     },
     "hasStop": {
         "type": "Relationship",
-        "object": [
-            "urn:ngsi-ld:GtfsStop:Madrid_par_4_1"
-        ]
+        "object": ["urn:ngsi-ld:GtfsStop:Madrid_par_4_1"]
     },
     "location": {
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -3.6892,
-                40.4669
-            ]
+            "coordinates": [-3.6892, 40.4669]
         }
     },
     "address": {

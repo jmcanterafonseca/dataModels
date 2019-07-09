@@ -383,10 +383,7 @@ Sample uses the NGSI-LD representation
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -3.712247222222222,
-                40.423852777777775
-            ]
+            "coordinates": [-3.712247222222222, 40.423852777777775]
         }
     },
     "airQualityIndex": {
@@ -430,5 +427,5 @@ Sample uses the NGSI-LD representation
 }
 ```
 
-You can read about public instance offering information about observed air quality
-[here](../../../gsma.md).
+You can read about public instance offering information about observed air
+quality [here](../../../gsma.md).

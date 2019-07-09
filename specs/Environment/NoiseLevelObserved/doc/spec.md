@@ -253,10 +253,7 @@ Sample uses the NGSI-LD representation
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -2.698,
-                42.8491
-            ]
+            "coordinates": [-2.698, 42.8491]
         }
     },
     "LAS": {

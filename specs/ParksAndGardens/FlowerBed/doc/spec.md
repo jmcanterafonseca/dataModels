@@ -172,9 +172,7 @@ Sample uses the NGSI-LD representation
     "type": "FlowerBed",
     "category": {
         "type": "Property",
-        "value": [
-            "urbanTreeSpot"
-        ]
+        "value": ["urbanTreeSpot"]
     },
     "soilMoistureVwc": {
         "type": "Property",
@@ -204,10 +202,7 @@ Sample uses the NGSI-LD representation
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -4.743187,
-                41.627999
-            ]
+            "coordinates": [-4.743187, 41.627999]
         }
     },
     "@context": [

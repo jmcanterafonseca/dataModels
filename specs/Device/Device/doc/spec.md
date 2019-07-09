@@ -173,8 +173,8 @@ The data model is defined as shown below:
     -   Optional
 
 -   `batteryLevel` : Device's battery level. It must be equal to `1.0` when
-    battery is full. `0.0` when battery ìs empty. `-1` when transiently cannot be
-    determined.
+    battery is full. `0.0` when battery ìs empty. `-1` when transiently cannot
+    be determined.
 
     -   Type: [Number](https://schema.org/Number)
     -   Allowed values: Interval \[0,1\] or -1
@@ -342,9 +342,7 @@ Sample uses the NGSI-LD representation
     "type": "Device",
     "category": {
         "type": "Property",
-        "value": [
-            "sensor"
-        ]
+        "value": ["sensor"]
     },
     "batteryLevel": {
         "type": "Property",
@@ -359,9 +357,7 @@ Sample uses the NGSI-LD representation
     },
     "controlledAsset": {
         "type": "Relationship",
-        "object": [
-            "urn:ngsi-ld::wastecontainer-Osuna-100"
-        ]
+        "object": ["urn:ngsi-ld::wastecontainer-Osuna-100"]
     },
     "serialNumber": {
         "type": "Property",
@@ -385,16 +381,11 @@ Sample uses the NGSI-LD representation
     },
     "controlledProperty": {
         "type": "Property",
-        "value": [
-            "fillingLevel",
-            "temperature"
-        ]
+        "value": ["fillingLevel", "temperature"]
     },
     "owner": {
         "type": "Property",
-        "value": [
-            "http://person.org/leon"
-        ]
+        "value": ["http://person.org/leon"]
     },
     "mnc": {
         "type": "Property",
@@ -402,9 +393,7 @@ Sample uses the NGSI-LD representation
     },
     "ipAddress": {
         "type": "Property",
-        "value": [
-            "192.14.56.78"
-        ]
+        "value": ["192.14.56.78"]
     },
     "deviceState": {
         "type": "Property",

@@ -132,10 +132,7 @@ Sample uses the NGSI-LD representation
         "type": "GeoProperty",
         "value": {
             "type": "Point",
-            "coordinates": [
-                -3.69036,
-                40.46629
-            ]
+            "coordinates": [-3.69036, 40.46629]
         }
     },
     "address": {
