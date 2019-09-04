@@ -62,7 +62,7 @@ def ld_object(attribute_name, entity_id):
 # Do all the transformation work
 def normalized_2_LD(entity):
     out = {
-        '@context': [etsi_core_context, ld_context]
+        '@context': [ld_context, etsi_core_context]
     }
 
     for key in entity:
@@ -154,12 +154,12 @@ def write_json(data, outfile):
 def main(args):
     data = read_json(args[1])
     result = normalized_2_LD(data)
-    write_json(result, 'example-LD.jsonld')
+    write_json(result, args[2])
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print("Usage: normalized2LD [file]")
+    if len(sys.argv) != 3:
+        print("Usage: normalized2LD [input file] [output file]")
         exit(-1)
 
     main(sys.argv)
