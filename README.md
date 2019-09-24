@@ -28,7 +28,7 @@ and Big Data Ecosystems. In fact the FIWARE data models are a superset of the
 **Some of the Data Models in this Repository have been adopted by 
 a joint initiative between TM Forum and FIWARE Foundation. For more
 info please check 
-[https://github.com/smart-data-models/data-models](https://github.com/smart-data-models/data-models)**
+[https://github.com/smart-data-models/dataModels](https://github.com/smart-data-models/dataModels)**
 
 | :books: [Documentation](https://fiware-datamodels.rtfd.io) |
 | ---------------------------------------------------------- |
