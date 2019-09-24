@@ -28,7 +28,7 @@ and Big Data Ecosystems. In fact the FIWARE data models are a superset of the
 **Some of the Data Models in this Repository have been adopted by 
 a joint initiative between TM Forum and FIWARE Foundation. For more
 info please check 
-[https://github.com/smart-data-models/dataModels](https://github.com/smart-data-models/dataModels)**
+[https://github.com/smart-data-models/data-models](https://github.com/smart-data-models/data-models)**
 
 | :books: [Documentation](https://fiware-datamodels.rtfd.io) |
 | ---------------------------------------------------------- |
@@ -187,7 +187,7 @@ See:
 
 [MIT](LICENSE) © 2019 FIWARE Foundation e.V.
 
-[![License: MIT](https://img.shields.io/github/license/FIWARE/dataModels.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/github/license/FIWARE/data-models.svg)](https://opensource.org/licenses/MIT)
 
 All the code in this repository is licensed under the MIT License. However each
 original data source may have a different license. So before using harmonized
