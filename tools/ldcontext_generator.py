@@ -101,7 +101,7 @@ def extract_properties(schema):
         return out
 
     for p in properties:
-        if p != "type":
+        if p != "type" and p != "id":
             prop = dict()
             prop['type'] = 'Property'
             prop['name'] = p
