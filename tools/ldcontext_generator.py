@@ -106,9 +106,9 @@ def extract_properties(schema):
             prop['type'] = 'Property'
             prop['name'] = p
 
-            if '$ref' in properties[p]:
-                if properties[p]['$ref'] == ENTITY_ID:
-                    prop['type'] = 'Relationship'
+            ref = find_node(properties[p], '$ref')
+            if ref is not None and ref == ENTITY_ID:
+                prop['type'] = 'Relationship'
 
             enum = find_node(properties[p], 'enum')
             if enum is not None:
