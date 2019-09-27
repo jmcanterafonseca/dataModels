@@ -109,11 +109,11 @@ def extract_properties(schema):
             if '$ref' in properties[p]:
                 if properties[p]['$ref'] == ENTITY_ID:
                     prop['type'] = 'Relationship'
-            
+
             enum = find_node(properties[p], 'enum')
             if enum is not None:
                 prop['isEnumerated'] = True
-            
+
             pformat = find_node(properties[p], 'format')
             if pformat is not None and pformat == 'date-time':
                 prop['isDate'] = True
@@ -170,7 +170,7 @@ def generate_ld_context_attrs(properties, uri_prefix, predefined_mappings):
 
     for p in properties:
         p_name = p['name']
-        
+
         if p_name in predefined_mappings:
             context[p_name] = predefined_mappings[p_name]
             continue
@@ -187,7 +187,7 @@ def generate_ld_context_attrs(properties, uri_prefix, predefined_mappings):
             context[p_name] = {
                 '@type': '@vocab'
             }
-        
+
         if p_name in context:
             context[p_name]['@id'] = uri_prefix + '#' + p_name
         else:
