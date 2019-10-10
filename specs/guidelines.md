@@ -188,6 +188,13 @@ In case of doubt check the existing data models!
 -   `relativeHumidity`
 -   `temperature`
 
+## Versioning
+
+Even though the FIWARE Data Models Project is aiming at keeping backwards compatibility, Data Providers
+may tag Entities to indicate the Schema version used when defining the content of an Entity,
+so that Data Consumers can behave accordingly. For that purpose
+the [https://schema.org/schemaVersion](https://schema.org/schemaVersion) Property can be used. 
+
 ## How to contribute
 
 Contributions should come in the form of pull requests.
