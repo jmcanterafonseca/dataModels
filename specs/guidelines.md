@@ -190,10 +190,12 @@ In case of doubt check the existing data models!
 
 ## Versioning
 
-Even though the FIWARE Data Models Project is aiming at keeping backwards compatibility, Data Providers
-may tag Entities to indicate the Schema version used when defining the content of an Entity,
-so that Data Consumers can behave accordingly. For that purpose
-the [https://schema.org/schemaVersion](https://schema.org/schemaVersion) Property can be used. 
+FIWARE Data Models Project aim to maintain backwards compatibility,
+however some incompatibilities will inevitably occur over time.
+Data providers may choose to tag Entities with an additional `schemaVersion`
+Attribute so that Data Consumers can behave accordingly.
+This aligns with the [https://schema.org/schemaVersion](https://schema.org/schemaVersion)
+Property definition.
 
 ## How to contribute
 
