@@ -1,6 +1,5 @@
 {
     "@context": {
-        "id": "https://uri.fiware.org/ns/data-models#id",
         "dateCreated": {
             "@type": "http://uri.etsi.org/ngsi-ld/DateTime",
             "@id": "https://uri.fiware.org/ns/data-models#dateCreated"
