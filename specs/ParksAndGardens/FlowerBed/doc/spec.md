@@ -17,54 +17,54 @@ A JSON Schema corresponding to this data model can be found
 
 -   `dateModified` : Last update timestamp of this entity.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `dateCreated` : Entity's creation timestamp.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `taxon` : Used to indicate the biological
     [taxon](http://en.wikipedia.org/wiki/en:taxon) to which the trees, or plants
     in the flower bed belong.
-    -   Attribute type: List of [Text](https://schema.org/Text)
+    -   Attribute type: Property. List of [Text](https://schema.org/Text)
     -   Optional
 -   `category` : Category of this flower bed.
-    -   Attribute type: List of [Text](https://schema.org/Text)
+    -   Attribute type: Property. List of [Text](https://schema.org/Text)
     -   Allowed values: (`hedge`, `lawnArea`, `portable`, `urbanTreeSpot`) or
         any extended value needed by the application.
     -   Optional
 -   `width`. Width of this flower bed.
 
-    -   Attribute type: [Number](https://schema.org/Number).
+    -   Attribute type: Property. [Number](https://schema.org/Number).
     -   Default Unit: Meters
     -   See also: [https://schema.org/width](https://schema.org/width)
     -   Optional
 
 -   `height`. Height of this flower bed.
 
-    -   Attribute type: [Number](https://schema.org/Number).
+    -   Attribute type: Property. [Number](https://schema.org/Number).
     -   Default Unit: Meters
     -   See also: [https://schema.org/height](https://schema.org/height)
     -   Optional
 
 -   `depth`. Depth of this flower bed.
 
-    -   Attribute type: [Number](https://schema.org/Number).
+    -   Attribute type: Property. [Number](https://schema.org/Number).
     -   Default Unit: Meters
     -   See also: [https://schema.org/depth](https://schema.org/depth)
     -   Optional
 
 -   `shape`. Shape of this flower bed.
 
-    -   Attribute type: [Text](https://schema.org/Text)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
     -   Allowed values: One Of (`rectangular`, `square`, `elliptic`,
         `polygonal`, `circular`) or any other required by an application.
     -   Optional
 
 -   `location` : Location of the flower bed represented by a GeoJSON geometry.
-    -   Attribute type: `geo:json`.
+    -   Attribute type: GeoProperty. `geo:json`.
     -   Normative References:
         [https://tools.ietf.org/html/rfc7946](https://tools.ietf.org/html/rfc7946)
     -   Mandatory if `address` is not defined
@@ -77,14 +77,14 @@ A JSON Schema corresponding to this data model can be found
 -   `dateLastWatering` : Timestamp which corresponds to the last watering of the
     flower bed.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Optional
 
 -   `nextWateringDeadline` : Deadline for next watering operation.
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Optional
 -   `refGarden` : Flower bed's garden (if it belongs to any).
-    -   Attribute type: Reference to an entity of type `Garden`
+    -   Attribute type: Relationship. Reference to an entity of type `Garden`
     -   Optional
 
 ### Representing measurements related to a flower bed
@@ -100,14 +100,13 @@ Below is the description of the attribute to be used for option A/.
 
 -   `refRecord` : List of records which contain measurements related to this
     flower bed.
-    -   Attribute type: List of references to entities of type
+    -   Attribute type: Relationship. List of references to entities of type
         `GreenspaceRecord`
     -   Optional
 
-**Note**: JSON Schemas only capture the NGSI simplified representation, this
-means that to test the JSON schema examples with a
-[FIWARE NGSI version 2](http://fiware.github.io/specifications/ngsiv2/stable)
-API implementation, you need to use the `keyValues` mode (`options=keyValues`).
+**Note**: JSON Schemas are intended to capture the data type and associated
+constraints of the different Attributes, regardless their final representation
+format in NGSI(v2, LD).
 
 ## Examples
 
@@ -160,6 +159,56 @@ Sample uses simplified representation for data consumers `?options=keyValues`
     },
     "soilTemperature": 17,
     "soilMoistureVwc": 0.85
+}
+```
+
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:FlowerBed:FlowerBed-345",
+    "type": "FlowerBed",
+    "category": {
+        "type": "Property",
+        "value": ["urbanTreeSpot"]
+    },
+    "soilMoistureVwc": {
+        "type": "Property",
+        "value": 0.85
+    },
+    "dateLastWatering": {
+        "type": "Property",
+        "value": {
+            "@type": "DateTime",
+            "@value": "2017-03-31T08:00:00Z"
+        }
+    },
+    "soilTemperature": {
+        "type": "Property",
+        "value": 17
+    },
+    "address": {
+        "type": "Property",
+        "value": {
+            "addressCountry": "Spain",
+            "streetAddress": "Paseo Zorrilla, 122",
+            "adressLocality": "Valladolid",
+            "type": "PostalAddress"
+        }
+    },
+    "location": {
+        "type": "GeoProperty",
+        "value": {
+            "type": "Point",
+            "coordinates": [-4.743187, 41.627999]
+        }
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
 }
 ```
 

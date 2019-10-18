@@ -19,23 +19,23 @@ The data model is defined as shown below:
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `dateCreated` : Entity's creation timestamp.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `dateModified` : Last update timestamp of this Entity.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `name` : Name given to this frequency.
@@ -46,6 +46,7 @@ The data model is defined as shown below:
 -   `description`: Description given to this frequency.
 
     -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/description` equivalent to [description](https://schema.org/description)
     -   Optional
 
 -   `hasTrip`: Trip associated to this Entity.
@@ -123,6 +124,45 @@ Sample uses simplified representation for data consumers `?options=keyValues`
     "startTime": "07:00",
     "endTime": "10:00",
     "headwaySeconds": 600
+}
+```
+
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:GtfsFrequency:Malaga:Linea1",
+    "type": "GtfsFrequency",
+    "description": {
+        "type": "Property",
+        "value": "Cada 10 minutos"
+    },
+    "hasTrip": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:GtfsTrip:Spain:Malaga:1"
+    },
+    "headwaySeconds": {
+        "type": "Property",
+        "value": 600
+    },
+    "startTime": {
+        "type": "Property",
+        "value": "07:00:00"
+    },
+    "endTime": {
+        "type": "Property",
+        "value": "10:25:00"
+    },
+    "name": {
+        "type": "Property",
+        "value": "Laborables"
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
 }
 ```
 

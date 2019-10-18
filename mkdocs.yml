@@ -1,6 +1,6 @@
 site_name: Fiware-DataModels
 site_url: https://fiware-datamodels.readthedocs.org
-repo_url: https://github.com/fiware/dataModels
+repo_url: https://github.com/fiware/data-models
 site_description: FIWARE Data Models Documentation
 docs_dir: specs/
 site_dir: html/
@@ -8,13 +8,14 @@ edit_uri: edit/master/specs/
 markdown_extensions: [toc,fenced_code]
 use_directory_urls: false
 theme: readthedocs
-extra_css: ["https://fiware.org/style/fiware_readthedocs.css", "https://fiware.org/style/fiware_readthedocs_core.css"]
+extra_css: ["https://www.fiware.org/style/fiware_readthedocs.css", "https://www.fiware.org/style/fiware_readthedocs_core.css"]
 pages:
   - Home: index.md
   - How to: howto.md
   - NGSI-LD How to: ngsi-ld_howto.md
   - NGSI-LD FAQ:  ngsi-ld_faq.md
   - Guidelines  : guidelines.md
+  - AgriFood: AgriFood/README.md
   - Alerts:
       - Alert                        : Alert/doc/spec.md
   - Building:
@@ -23,8 +24,8 @@ pages:
       - BuildingOperation            : Building/BuildingOperation/doc/spec.md
   - Civic Issue Tracking:
       - Introduction                 : IssueTracking/doc/introduction.md
-      - Open311:ServiceType          : IssueTracking/Open311_ServiceType/doc/spec.md 
-      - Open311:ServiceRequest       : IssueTracking/Open311_ServiceRequest/doc/spec.md
+      - Open311ServiceType           : IssueTracking/Open311_ServiceType/doc/spec.md 
+      - Open311ServiceRequest        : IssueTracking/Open311_ServiceRequest/doc/spec.md
   - Device:                           
       - Introduction           : Device/doc/introduction.md
       - Device                 : Device/Device/doc/spec.md

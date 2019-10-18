@@ -20,23 +20,23 @@ The data model is defined as shown below:
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `dateCreated` : Entity's creation timestamp.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `dateModified` : Last update timestamp of this Entity.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `hasService` : Service to which this rule applies to. Derived from
@@ -54,6 +54,7 @@ The data model is defined as shown below:
 -   `description`: Description given to this rule.
 
     -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/description` equivalent to [description](https://schema.org/description)
     -   Optional
 
 -   `appliesOn`: Date (in YYYY-MM-DD format) this rule applies to. It shall be
@@ -105,6 +106,37 @@ Sample uses simplified representation for data consumers `?options=keyValues`
     "hasService": "urn:ngsi-ld:GtfsService:Malaga:FairArea_1",
     "appliesOn": "2018-03-19",
     "exceptionType": "1"
+}
+```
+
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:CalendarDateRule:Malaga:Rule67",
+    "type": "GtfsCalendarDateRule",
+    "name": {
+        "type": "Property",
+        "value": "Rule Fair Area"
+    },
+    "exceptionType": {
+        "type": "Property",
+        "value": "1"
+    },
+    "hasService": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:GtfsService:Malaga:FairArea_1"
+    },
+    "appliesOn": {
+        "type": "Property",
+        "value": "2018-03-19"
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
 }
 ```
 

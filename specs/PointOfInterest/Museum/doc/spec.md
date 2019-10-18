@@ -1,5 +1,8 @@
 # Museum
 
+**Note: The latest version of this Data Model can be
+found at [https://github.com/smart-data-models/dataModel.PointOfInterest](https://github.com/smart-data-models/dataModel.PointOfInterest)**
+
 ## Description
 
 <!-- textlint-disable no-dead-link -->
@@ -15,7 +18,7 @@ inspired the development of this data model.
 ## Data Model
 
 A JSON Schema corresponding to this data model can be found
-[here](http://fiware.github.io/dataModels/specs/PointOfInterest/Museum/schema.json).
+[here](http://fiware.github.io/data-models/specs/PointOfInterest/Museum/schema.json).
 This entity type has been designed as an extension of
 [https://schema.org/Museum](https://schema.org/Museum) so that any property
 specified by schema.org and which domain is `https://schema.org/Museum` can be
@@ -28,48 +31,50 @@ used by applications.
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `dateModified` : Last update timestamp of this entity.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `dateCreated` : Entity's creation timestamp.
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 -   `source` : A sequence of characters giving the source of the entity data.
-    -   Attribute type: [Text](https://schema.org/Text) or
+    -   Attribute type: Property. [Text](https://schema.org/Text) or
         [URL](https://schema.org/URL)
     -   Optional
 -   `name` : Name given to this museum.
-    -   Normative References: [https://schema.org/name](https://schema.org/name)
+    -   Attribute type: Property. [Text](https://schema.org/Text).
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/name` equivalent to [name](https://schema.org/name)
     -   Mandatory
 -   `alternateName` : Alternative name given to this museum.
-
+    -   Attribute type: Property. [Text](https://schema.org/Text)
     -   Normative References:
         [https://schema.org/alternateName](https://schema.org/alternateName)
     -   Optional
 
 -   `description` : Description of this museum.
 
-    -   Normative References:
-        [https://schema.org/description](https://schema.org/description)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/description` equivalent to [description](https://schema.org/description)
     -   Optional
 
 -   `location` : Location of this museum represented by a GeoJSON geometry,
     usually a `Point` or a `Polygon`.
-    -   Attribute type: `geo:json`.
+    -   Attribute type: Property. `geo:json`.
     -   Normative References:
         [https://tools.ietf.org/html/rfc7946](https://tools.ietf.org/html/rfc7946)
     -   Mandatory if `address` is not defined.
 -   `address` : Address of this museum.
+    -   Attribute type: Property. [Address](https://schema.org/address)
     -   Normative References:
         [https://schema.org/address](https://schema.org/address)
     -   Mandatory if `location` is not present.
 -   `museumType` : Type of museum according to the exhibited content.
-    -   Attribute type: List of [Text](https://schema.org/Text)
+    -   Attribute type: Property. List of [Text](https://schema.org/Text)
     -   Allowed values: (`appliedArts`, `scienceAndTechnology`, `fineArts`,
         `music`, `history`, `sacredArt`, `archaeology`, `specials`,
         `decorativeArts`, `literature`, `medicineAndPharmacy`, `maritime`,
@@ -84,20 +89,21 @@ used by applications.
     -   Optional
 -   `owner` : Museum's owner.
 
-    -   Attribute type: [Text](https://schema.org/Text) or a reference to an
-        entity of type [Person](https://schema.org/Person) or
+    -   Attribute type: Property. List of [Text](https://schema.org/Text) or List of URIs
+        or a List of references to an entity of type
+        [Person](https://schema.org/Person) or
         [Organization](https://schema.org/Organization)
     -   Optional
 
 -   `featuredArtist` : Main featured artist(s) at this museum.
 
-    -   Attribute type: List of references to entities of type
+    -   Attribute type: Property. List of references to entities of type
         [Person](https://schema.org/Person).
     -   Optional
 
 -   `historicalPeriod` : Corresponds to the historical period(s) of the
     exhibitions made by this museum.
-    -   Attribute type: List of [Text](https://schema.org/Text)
+    -   Attribute type: Property. List of [Text](https://schema.org/Text)
     -   Allowed values:
         -   An ISO8601 time interval. For example `1920/1940`. The second
             element of the interval can be left empty to denote "till now".
@@ -109,7 +115,7 @@ used by applications.
 -   `artPeriod` : Corresponds to the art period(s) of the exhibitions made by
     this museum.
 
-    -   Attribute type: List of [Text](https://schema.org/Text)
+    -   Attribute type: Property. List of [Text](https://schema.org/Text)
     -   Allowed values:
         -   Those defined by
             [Wikipedia](https://en.wikipedia.org/wiki/Art_periods).
@@ -119,7 +125,7 @@ used by applications.
 
 -   `buildingType` : Type of building that hosts the museum.
 
-    -   Attribute type: [Text](https://schema.org/Text)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
     -   Allowed values: (`prehistoricPlace`, `acropolis`, `alcazaba`,
         `aqueduct`, `alcazar`, `amphitheatre`, `arch`, `polularArchitecture`,
         `basilica`, `road`, `chapel`, `cartuja`, `nobleHouse`, `residence`,
@@ -138,7 +144,7 @@ used by applications.
     -   Optional
 
 -   `facilities` : Describes different facilities offered by this museum.
-    -   Attribute type: List of [Text](https://schema.org/Text)
+    -   Attribute type: Property. List of [Text](https://schema.org/Text)
     -   Allowed values: (`elevator`, `cafeteria`, `shop`, `auditory`,
         `conferenceRoom`, `audioguide`, `cloakRoom`, `forDisabled`, `forBabies`,
         `guidedTour`, `restaurant`, `ramp`, `reservation`) or any other value
@@ -148,14 +154,14 @@ used by applications.
 
     -   Normative References:
         [http://schema.org/openingHoursSpecification](http://schema.org/openingHoursSpecification)
-    -   Attribute type: List of
+    -   Attribute type: Property. List of
         [OpeningHoursSpecification](https://schema.org/OpeningHoursSpecification)
     -   Optional
 
 -   `touristArea` : Tourist area at which this museum is located. Precise
     semantics might depend on the application or target country or region. For
     instance `Costa del Sol`.
-    -   Attribute type: [Text](https://schema.org/Text)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
     -   Optional
 -   `contactPoint` : Contact point for the museum.
 
@@ -163,7 +169,7 @@ used by applications.
         [https://schema.org/ContactPoint](https://schema.org/ContactPoint)
 
 -   `refSeeAlso` : Reference to one or more related entities.
-    -   Attribute type: List of References
+    -   Attribute type: Property. List of References
     -   Optional
 
 ## Examples
@@ -279,6 +285,89 @@ Sample uses simplified representation for data consumers `?options=keyValues`
     ],
     "touristArea": "Barcelona-Capital",
     "source": "http://www.tourspain.es"
+}
+```
+
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:Museum:Museum-Barcelona-MACBA-1234",
+    "type": "Museum",
+    "alternateName": {
+        "type": "Property",
+        "value": "MACBA"
+    },
+    "openingHoursSpecification": {
+        "type": "Property",
+        "value": [
+            {
+                "dayOfWeek": "Mo, Wed, Thu, Fr",
+                "closes": "19:30",
+                "opens": "11:00"
+            },
+            {
+                "dayOfWeek": "Sat",
+                "closes": "21:00",
+                "opens": "10:00"
+            },
+            {
+                "dayOfWeek": "Sun",
+                "closes": "15:00",
+                "opens": "10:00"
+            }
+        ]
+    },
+    "description": {
+        "type": "Property",
+        "value": "The MACBA was designed by the American architect Richard Meier and inaugurated in 1995."
+    },
+    "source": {
+        "type": "Property",
+        "value": "http://www.tourspain.es"
+    },
+    "artPeriod": {
+        "type": "Property",
+        "value": ["contemporary"]
+    },
+    "museumType": {
+        "type": "Property",
+        "value": ["fineArts"]
+    },
+    "facilities": {
+        "type": "Property",
+        "value": ["shop", "cloakRoom", "guidedTour"]
+    },
+    "location": {
+        "type": "GeoProperty",
+        "value": {
+            "type": "Point",
+            "coordinates": [2.1668771521199393, 41.38302235796602]
+        }
+    },
+    "address": {
+        "type": "Property",
+        "value": {
+            "addressCountry": "ES",
+            "addressLocality": "Barcelona",
+            "streetAddress": "Plaza Dels \u00c0ngels, 1",
+            "type": "PostalAddress"
+        }
+    },
+    "touristArea": {
+        "type": "Property",
+        "value": "Barcelona-Capital"
+    },
+    "name": {
+        "type": "Property",
+        "value": "Museo de Arte Contemporaneo de Barcelona"
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
 }
 ```
 

@@ -1,5 +1,8 @@
 # Off Street Parking
 
+**Note: The latest version of this Data Model can be
+found at [https://github.com/smart-data-models/dataModel.Parking](https://github.com/smart-data-models/dataModel.Parking)**
+
 ## Description
 
 A site, off street, intended to park vehicles, managed independently and with
@@ -22,31 +25,31 @@ The data model is defined as shown below:
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `dateCreated` : Entity's creation timestamp
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
-        -   Attribute type: Text or URL
+        -   Attribute type: Property. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
         -   Optional
 
 -   `dateModified` : Last update timestamp of this entity
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `status` : Status of the parking site.
 
-    -   Attribute type: List of [Text](http://schema.org/Text)
+    -   Attribute type: Property. List of [Text](http://schema.org/Text)
     -   Metadata:
         -   `timestamp` : Timestamp of the last attribute update
         -   Type: [DateTime](https://schema.org/DateTime)
@@ -62,26 +65,27 @@ The data model is defined as shown below:
 -   `location` : Geolocation of the parking site represented by a GeoJSON
     (Multi)Polygon or Point.
 
-    -   Attribute type: `geo:json`.
+    -   Attribute type: GeoProperty. `geo:json`.
     -   Normative References:
         [https://tools.ietf.org/html/rfc7946](https://tools.ietf.org/html/rfc7946)
     -   Mandatory if `address` is not defined.
 
 -   `address` : Registered parking site civic address.
 
+    -   Attribute type: Property. [Address](https://schema.org/address)
     -   Normative References:
         [https://schema.org/address](https://schema.org/address)
     -   Mandatory if `location` is not defined.
 
 -   `name` : Name given to the parking site.
-
-    -   Normative References: [https://schema.org/name](https://schema.org/name)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/name` equivalent to [name](https://schema.org/name)
     -   Mandatory
 
 -   `description` : Description about the parking site.
 
-    -   Normative References:
-        [https://schema.org/description](https://schema.org/description)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/description` equivalent to [description](https://schema.org/description)
     -   Optional
 
 -   `image` : A URL containing a photo of this parking site.
@@ -95,7 +99,7 @@ The data model is defined as shown below:
     Particularities and detailed descriptions should be found under the
     corresponding specific attributes.
 
-    -   Attribute type: List of [Text](http://schema.org/Text)
+    -   Attribute type: Property. List of [Text](http://schema.org/Text)
     -   Allowed values:
         -   (`public`, `private`, `publicPrivate`, `urbanDeterrentParking`,
             `parkingGarage`, `parkingLot`, `shortTerm`, `mediumTerm`,
@@ -117,7 +121,7 @@ The data model is defined as shown below:
     other allowed vehicle types might be reported under the attribute
     `extraSpotNumber` and through specific entities of type _ParkingGroup_.
 
-    -   Attribute type: List of [Text](http://schema.org/Text)
+    -   Attribute type: Property. List of [Text](http://schema.org/Text)
     -   Allowed Values: The following values defined by _VehicleTypeEnum_,
         [DATEX 2 version 2.3](http://d2docs.ndwcloud.nu/downloads/modelv23.html):
         -   (`agriculturalVehicle`, `bicycle`, `bus`, `car`, `caravan`,
@@ -132,9 +136,9 @@ The data model is defined as shown below:
     needed to park. When a permit is composed by more than one item (and) they
     can be combined with a ",". For instance "residentPermit,disabledPermit"
     stays that both, at the same time, a resident and a disabled permit are
-    needed to park. If empty or `null`, no permit is needed.
+    needed to park. If the list is empty no permit is needed.
 
-    -   Attribute type: List of [Text](http://schema.org/Text)
+    -   Attribute type: Property. List of [Text](http://schema.org/Text)
     -   Allowed values: The following, defined by the _PermitTypeEnum_
         enumeration of DATEX II version 2.3.
         -   one Of (`employeePermit`, `studentPermit`, `fairPermit`,
@@ -151,15 +155,15 @@ The data model is defined as shown below:
     -   Optional
 
 -   `maximumParkingDuration` : Maximum allowed stay at site, on a general basis,
-    encoded as a ISO8601 duration. A `null` or empty value indicates an
-    indefinite duration.
+    encoded as a ISO8601 duration. An empty value or when non present indicates
+    an indefinite duration.
 
-    -   Attribute type: [Text](http://schema.org/Text)
+    -   Attribute type: Property. [Text](http://schema.org/Text)
     -   Optional
 
 -   `chargeType` : Type(s) of charge performed by the parking site.
 
-    -   Attribute type: List of [Text](http://schema.org/Text)
+    -   Attribute type: Property. List of [Text](http://schema.org/Text)
     -   Allowed values: Some of those defined by the DATEX II version 2.3 _
         ChargeTypeEnum_ enumeration:
         -   (`flat`, `minimum`, `maximum`, `additionalIntervalPrice`
@@ -170,12 +174,12 @@ The data model is defined as shown below:
 
 -   `priceRatePerMinute` : Price rate per minute.
 
-    -   Attribute type: [Number](https://schema.org/Number)
+    -   Attribute type: Property. [Number](https://schema.org/Number)
     -   Optional
 
 -   `priceCurrency` : Price currency of price rate per minute.
 
-    -   Attribute type: [Text](http://schema.org/Text)
+    -   Attribute type: Property. [Text](http://schema.org/Text)
     -   Normative references:
         [https://schema.org/priceCurrency](https://schema.org/priceCurrency)
     -   Optional
@@ -189,7 +193,7 @@ The data model is defined as shown below:
 -   `usageScenario` : Usage scenario(s). Gives more details to the `category`
     attribute.
 
-    -   Attribute type: List of [Text](http://schema.org/Text)
+    -   Attribute type: Property. List of [Text](http://schema.org/Text)
     -   Allowed values: Those defined by the enumeration
         _ParkingUsageScenarioEnum_ of DATEX II version 2.3:
         -   (`truckParking`, `parkAndRide`, `parkAndCycle`, `parkAndWalk`,
@@ -204,7 +208,7 @@ The data model is defined as shown below:
     This number can be difficult to be obtained for those parking locations on
     which spots are not clearly marked by lines.
 
-    -   Attribute type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Allowed values: Any positive integer number or 0.
         -   Normative references: DATEX 2 version 2.3 attribute
             _parkingNumberOfSpaces_ of the _ParkingRecord_ class.
@@ -215,7 +219,7 @@ The data model is defined as shown below:
     term parkers and so on). This might be harder to estimate at those parking
     locations on which spots borders are not clearly marked by lines.
 
-    -   Attribute type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Allowed values: A positive integer number, including 0. It must lower or
         equal than `totalSpotNumber`.
     -   Metadata:
@@ -226,13 +230,13 @@ The data model is defined as shown below:
 -   `measuresPeriod` : The measures period related to availableSpotNumber and
     priceRatePerMinute.
 
-    -   Attribute type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Optional
 
 -   `measuresPeriodUnit` : The measures period unit related to
     availableSpotNumber and priceRatePerMinute.
 
-    -   Attribute type: [unitText](http://schema.org/unitText)
+    -   Attribute type: Property. [unitText](http://schema.org/unitText)
     -   Optional
 
 -   `extraSpotNumber` : The number of extra spots _available_, i.e. free. This
@@ -243,7 +247,7 @@ The data model is defined as shown below:
     vehicle type. C/ Any other group of parking spots not subject to the general
     condition rules conveyed by this entity.
 
-    -   Attribute type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Allowed values: A positive integer number, including 0.
     -   Metadata:
         -   `timestamp` : Timestamp of the last attribute update
@@ -252,7 +256,7 @@ The data model is defined as shown below:
 
 -   `occupancyDetectionType` : Occupancy detection method(s).
 
-    -   Attribute type: List of [Text](http://schema.org/Text)
+    -   Attribute type: Property. List of [Text](http://schema.org/Text)
     -   Allowed values: The following from DATEX II version 2.3 _
         OccupancyDetectionTypeEnum_:
         -   (`none`, `balancing`, `singleSpaceDetection`, `modelBased`,
@@ -262,7 +266,7 @@ The data model is defined as shown below:
 
 -   `parkingMode` : Parking mode(s).
 
-    -   Attribute type: List of [Text](http://schema.org/Text)
+    -   Attribute type: Property. List of [Text](http://schema.org/Text)
     -   Allowed values: Those defined by the DATEX II version 2.3
         _ParkingModeEnum_ enumeration:
         -   (`perpendicularParking`, `parallelParking`, `echelonParking`)
@@ -270,33 +274,33 @@ The data model is defined as shown below:
 
 -   `averageSpotWidth` : The average width of parking spots.
 
-    -   Attribute type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Default unit: Meters
     -   Optional
 
 -   `averageSpotLength` : The average length of parking spots.
 
-    -   Attribute type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Default unit: Meters
     -   Optional
 
 -   `maximumAllowedHeight` : Maximum allowed height for vehicles. If there are
     multiple zones, it will be the minimum height of all the zones.
 
-    -   Attribute type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Default unit: Meters
     -   Optional
 
 -   `maximumAllowedWidth` : Maximum allowed width for vehicles. If there are
     multiple zones, it will be the minimum width of all the zones.
 
-    -   Attribute type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Default unit: Meters
     -   Optional
 
 -   `layout` : Parking layout. Gives more details to the `category` attribute.
 
-    -   Attribute type: [Text](http://schema.org/Text)
+    -   Attribute type: Property. [Text](http://schema.org/Text)
     -   Allowed values: As per the _ParkingLayoutEnum_ of DATEX II version 2.3:
         -   one Of (`automatedParkingGarage`, `surface`, `multiStorey`,
             `singleLevel`, `multiLevel`, `openSpace`, `covered`, `nested`,
@@ -336,21 +340,21 @@ The data model is defined as shown below:
 -   `highestFloor` : For parking sites with multiple floor levels, highest
     floor.
 
-    -   Attribute type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Allowed values: An integer number. 0 is ground level. Upper floors are
         positive numbers. Lower floors are negative ones.
     -   Optional
 
 -   `lowestFloor` : For parking sites with multiple floor levels, lowest floor.
 
-    -   Attribute type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Allowed values: An integer number.
     -   Optional
 
 -   `firstAvailableFloor` : Number of the floor closest to the ground which
     currently has available parking spots.
 
-    -   Attribute type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Metadata:
         -   `timestamp` : Timestamp of the last attribute update
         -   Type: [DateTime](https://schema.org/DateTime)
@@ -361,7 +365,7 @@ The data model is defined as shown below:
 -   `specialLocation` : If the parking site is at a special location (airport,
     depatment store, etc.) it conveys what is such special location.
 
-    -   Attribute type: [Text](http://schema.org/Text)
+    -   Attribute type: Property. [Text](http://schema.org/Text)
     -   Allowed values: Those defined by _ParkingSpecialLocationEnum_ of
         [DATEX II version 2.3](http://www.datex2.eu/content/parking-publications-extension-v10a):
         (`airportTerminal`, `exhibitonCentre`, `shoppingCentre`,
@@ -374,7 +378,7 @@ The data model is defined as shown below:
 
 -   `reservationType` : Conditions for reservation.
 
-    -   Attribute type: [Text](http://schema.org/Text)
+    -   Attribute type: Property. [Text](http://schema.org/Text)
     -   Allowed values: The following specified by _ReservationTypeEnum_ of
         DATEX II version 2.3:
         -   one Of (`optional`, `mandatory`, `notAvailable`, `partly`).
@@ -382,11 +386,11 @@ The data model is defined as shown below:
 
 -   `owner` : Parking site's owner.
 
-    -   Attribute type: [Text](http://schema.org/Text)
+    -   Attribute type: Property. List of [Text](http://schema.org/Text) or List of URIs
     -   Optional
 
 -   `provider` : Parking site service provider.
-
+    -   Attribute Type: Property. [Provider](http://schema.org/provider)
     -   Normative references:
         [https://schema.org/provider](https://schema.org/provider)
     -   Optional
@@ -399,21 +403,21 @@ The data model is defined as shown below:
 
 -   `refParkingAccess` : Parking site's access point(s).
 
-    -   Attribute type: List of references to
+    -   Attribute type: Property. List of references to
         [ParkingAccess](../../ParkingAccess/doc/spec.md)
     -   Optional
 
 -   `refParkingSpot` : Individual parking spots belonging to this offstreet
     parking site.
 
-    -   Attribute type: List of references to
+    -   Attribute type: Relationship. List of references to
         [ParkingSpot](../../ParkingSpot/doc/spec.md)
     -   Optional
 
 -   `refParkingGroup` : Parking site's identified group(s). A group can
     correspond to a zone, a complete storey, a group of spots, etc.
 
-    -   Attribute type: List of references to
+    -   Attribute type: Relationship. List of references to
         [ParkingGroup](../../ParkingGroup/doc/spec.md)
     -   Optional
 
@@ -421,7 +425,7 @@ The data model is defined as shown below:
     depend on the application or target city. For instance, it can be a
     neighbourhood, burough or district.
 
-    -   Attribute type: [Text](http://schema.org/Text)
+    -   Attribute type: Property. [Text](http://schema.org/Text)
     -   Optional
 
 -   `aggregateRating` : Aggregated rating for this parking site.
@@ -429,10 +433,9 @@ The data model is defined as shown below:
         [https://schema.org/aggregateRating](https://schema.org/aggregateRating)
     -   Optional
 
-**Note**: JSON Schemas only capture the NGSI simplified representation, this
-means that to test the JSON schema examples with a
-[FIWARE NGSI version 2](http://fiware.github.io/specifications/ngsiv2/stable)
-API implementation, you need to use the `keyValues` mode (`options=keyValues`).
+**Note**: JSON Schemas are intended to capture the data type and associated
+constraints of the different Attributes, regardless their final representation
+format in NGSI(v2, LD).
 
 ## Examples
 
@@ -547,6 +550,85 @@ A public off street parking underground controlled by a barrier.
 }
 ```
 
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:OffStreetParking:porto-ParkingLot-23889",
+    "type": "OffStreetParking",
+    "modifiedAt": "2016-06-02T09:25:55.00Z",
+    "category": {
+        "type": "Property",
+        "value": [
+            "underground",
+            "public",
+            "feeCharged",
+            "mediumTerm",
+            "barrierAccess"
+        ]
+    },
+    "layout": {
+        "type": "Property",
+        "value": ["multiLevel"]
+    },
+    "name": {
+        "type": "Property",
+        "value": "Parque de estacionamento Trindade"
+    },
+    "requiredPermit": {
+        "type": "Property",
+        "value": []
+    },
+    "allowedVehicleType": {
+        "type": "Property",
+        "value": ["car"]
+    },
+    "availableSpotNumber": {
+        "type": "Property",
+        "value": 132,
+        "observedAt": "2018-09-21T12:00:00Z"
+    },
+    "totalSpotNumber": {
+        "type": "Property",
+        "value": 414
+    },
+    "location": {
+        "type": "GeoProperty",
+        "value": {
+            "type": "Point",
+            "coordinates": [-8.60961198807, 41.150691773]
+        }
+    },
+    "chargeType": {
+        "type": "Property",
+        "value": ["temporaryPrice"]
+    },
+    "address": {
+        "type": "Property",
+        "value": {
+            "addressLocality": "Porto",
+            "addressCountry": "Portugal",
+            "streetAddress": "Rua de Fernandes Tom\u00e1s",
+            "type": "PostalAddress"
+        }
+    },
+    "maximumParkingDuration": {
+        "type": "Property",
+        "value": "PT8H"
+    },
+    "description": {
+        "type": "Property",
+        "value": "Municipal car park located near the Trindade metro station and the Town Hall"
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
+}
+```
+
 Urban Deterrent (xxxx and ride) parking. Free. 2 hours at a maximum.
 
 ```json
@@ -566,7 +648,7 @@ Urban Deterrent (xxxx and ride) parking. Free. 2 hours at a maximum.
     "chargeType": ["freeParking"],
     "allowedVehicleType": ["car"],
     "maximumParkingDuration": "PT2H",
-    "requiredPermit": null,
+    "requiredPermit": [],
     "areaServed": "Centro",
     "address": {
         "streetAddress": "Calle La India",
@@ -589,7 +671,7 @@ Long stay parking. Maximum 4 days. Charging depends on time spent.
     "chargeType": ["temporaryPrice"],
     "allowedVehicleType": ["car"],
     "maximumParkingDuration": "P4D",
-    "requiredPermit": null,
+    "requiredPermit": [],
     "address": {
         "streetAddress": "Paseo de Zorrilla, 96",
         "addressLocality": "Valladolid",
@@ -632,7 +714,7 @@ Two different groups are needed:
     "category": ["offstreet", "shortTerm"],
     "totalSpotNumber": 150,
     "availableSpotNumber": 40,
-    "requiredPermit": null,
+    "requiredPermit": [],
     "refParkingSite": "parking-example-234",
     "allowedVehicleType": "car",
     "maximumParkingDuration": "PT2H"
@@ -658,7 +740,7 @@ Two different groups are needed:
     "requiredPermit": "residentPermit",
     "refParkingSite": "parking-example-234",
     "allowedVehicleType": "car",
-    "maximumParkingDuration": null
+    "maximumParkingDuration": ""
     /* Other required fields (Check model) */
 }
 ```

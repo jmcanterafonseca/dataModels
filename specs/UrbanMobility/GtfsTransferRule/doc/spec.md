@@ -19,33 +19,34 @@ The data model is defined as shown below:
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `dateCreated` : Entity's creation timestamp.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `dateModified` : Last update timestamp of this Entity.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `name` : Name given to this transfer rule.
-
     -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/name` equivalent to [name](https://schema.org/name)
     -   Optional
 
 -   `description`: Description given to this transfer rule.
 
     -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/description` equivalent to [description](https://schema.org/description)
     -   Optional
 
 -   `hasOrigin`: Trip associated to this Entity.
@@ -116,6 +117,41 @@ Sample uses simplified representation for data consumers `?options=keyValues`
     "hasDestination": "urn:ngsi-ld:GtfsStop:Malaga_508",
     "transferType": "0",
     "minimumTransferTime": 10
+}
+```
+
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:GtfsTransferRule:Malaga:Linea1_Linea5",
+    "type": "GtfsTransferRule",
+    "transferType": {
+        "type": "Property",
+        "value": "0"
+    },
+    "minimumTransferTime": {
+        "type": "Property",
+        "value": 10
+    },
+    "hasDestination": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:GtfsStop:Malaga_508"
+    },
+    "hasOrigin": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:GtfsStop:Malaga_101"
+    },
+    "name": {
+        "type": "Property",
+        "value": "L1_L5"
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
 }
 ```
 

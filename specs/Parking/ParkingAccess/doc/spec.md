@@ -1,5 +1,8 @@
 # Parking access
 
+**Note: The latest version of this Data Model can be
+found at [https://github.com/smart-data-models/dataModel.Parking](https://github.com/smart-data-models/dataModel.Parking)**
+
 ## Description
 
 Represents an access point to a parking site, normally an offstreet parking.
@@ -14,53 +17,54 @@ The data model is defined as shown below:
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `location` : Geolocation of the access point represented by a GeoJSON Point.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: GeoProperty. Text or URL
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `location` : Geolocation of the access point represented by a GeoJSON Point.
 
-    -   Attribute type: `geo:json`.
+    -   Attribute type: GeoProperty. `geo:json`.
     -   Normative References:
         [https://tools.ietf.org/html/rfc7946](https://tools.ietf.org/html/rfc7946)
     -   Mandatory
 
 -   `address` : Registered civic address of the access point.
 
+    -   Attribute type: Property. [Address](https://schema.org/address)
     -   Normative References:
         [https://schema.org/address](https://schema.org/address)
     -   Optional
 
 -   `name` : Name given to the access point.
-
-    -   Normative References: [https://schema.org/name](https://schema.org/name)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/name` equivalent to [name](https://schema.org/name)
     -   Optional
 
 -   `description` : Description of the access point.
 
-    -   Normative References:
-        [https://schema.org/description](https://schema.org/description)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/description` equivalent to [description](https://schema.org/description)
     -   Optional
 
 -   `category` : Category of the access point (entrance, exit, etc.)
 
-    -   Attribute type: List of
+    -   Attribute type: Property. List of
         [https://schema.org/Text](https://schema.org/Text)
     -   Allowed values: Those specificed by the DATEX II _AccessCategoryEnum_. -
         Other values meaningful to the application.
@@ -69,13 +73,13 @@ The data model is defined as shown below:
 -   `refOffStreetParking` : The offstreet parking site this access point gives
     access to.
 
-    -   Attribute type: Reference to an entity of type
+    -   Attribute type: Relationship. Reference to an entity of type
         [OffStreetParking](../../OffStreetParking/doc/spec.md)
     -   Mandatory
 
 -   `features` : Equipment or facilities provided by the access point.
 
-    -   Attribute type: List of
+    -   Attribute type: Property. List of
         [https://schema.org/Text](https://schema.org/Text)
     -   Allowed values: Those specified by the DATEX II _essEquipmentEnum_ and
         by _AccessibilityEnum_.
@@ -101,14 +105,13 @@ The data model is defined as shown below:
     -   Optional
 
 -   `slope` : Slope of the access point (in relative terms).
-    -   Attribute Type: [Number](https://schema.org/Number)
+    -   Attribute type: Property. [Number](https://schema.org/Number)
     -   Attribute Value: A number between 0 and 1.
     -   Optional
 
-**Note**: JSON Schemas only capture the NGSI simplified representation, this
-means that to test the JSON schema examples with a
-[FIWARE NGSI version 2](http://fiware.github.io/specifications/ngsiv2/stable)
-API implementation, you need to use the `keyValues` mode (`options=keyValues`).
+**Note**: JSON Schemas are intended to capture the data type and associated
+constraints of the different Attributes, regardless their final representation
+format in NGSI(v2, LD).
 
 ## Examples
 
@@ -159,6 +162,44 @@ Sample uses simplified representation for data consumers `?options=keyValues`
     "category": ["vehicleEntrance"],
     "refOffStreetParking": "porto-OffStreetParking-23889",
     "features": ["barrier"]
+}
+```
+
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:ParkingAccess:accesspoint-trinidade-1",
+    "type": "ParkingAccess",
+    "category": {
+        "type": "Property",
+        "value": ["vehicleEntrance"]
+    },
+    "name": {
+        "type": "Property",
+        "value": "Trinidade main entrance"
+    },
+    "location": {
+        "type": "GeoProperty",
+        "value": {
+            "type": "Point",
+            "coordinates": [-8.60961198807, 41.150691773]
+        }
+    },
+    "refOffStreetParking": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:OffStreetParking:porto-OffStreetParking-23889"
+    },
+    "features": {
+        "type": "Property",
+        "value": ["barrier"]
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
 }
 ```
 

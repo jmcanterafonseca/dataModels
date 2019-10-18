@@ -1,23 +1,21 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "$id": "https://github.com/Fiware/dataModels/tree/master/KeyPerformanceIndicator/schema.json",
+  "$id": "https://fiware.github.io/data-models/specs/KeyPerformanceIndicator/schema.json",
   "title": "FIWARE - Key Performance Indicator",
   "description": "A Key Performance Indicator (KPI) is a type of performance measurement. KPIs evaluate the success of an organization or of a particular activity in which it engages.",
   "type": "object",
   "allOf": [
     {
-      "$ref": "https://fiware.github.io/dataModels/common-schema.json#/definitions/GSMA-Commons"
+      "$ref": "https://fiware.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
     },
     {
-      "$ref": "https://fiware.github.io/dataModels/common-schema.json#/definitions/Location-Commons"
+      "$ref": "https://fiware.github.io/data-models/common-schema.json#/definitions/Location-Commons"
     },
     {
       "properties": {
         "type": {
           "type": "string",
-          "enum": [
-            "KeyPerformanceIndicator"
-          ],
+          "enum": ["KeyPerformanceIndicator"],
           "description": "NGSI Entity type"
         },
         "category": {
@@ -73,11 +71,7 @@
         },
         "calculationMethod": {
           "type": "string",
-          "enum": [
-            "manual",
-            "automatic",
-            "semiautomatic"
-          ]
+          "enum": ["manual", "automatic", "semiautomatic"]
         },
         "calculationFormula": {
           "type": "string"
@@ -99,10 +93,7 @@
                 "minItems": 1
               }
             },
-            "required": [
-              "entityType",
-              "attrs"
-            ]
+            "required": ["entityType", "attrs"]
           }
         },
         "calculationPeriod": {
@@ -117,29 +108,14 @@
               "format": "date"
             }
           },
-          "required": [
-            "from",
-            "to"
-          ]
+          "required": ["from", "to"]
         },
         "currentStanding": {
           "type": "string",
-          "enum": [
-            "veryGood",
-            "good",
-            "fair",
-            "bad",
-            "veryBad"
-          ]
+          "enum": ["veryGood", "good", "fair", "bad", "veryBad"]
         },
         "kpiValue": {
-          "type": [
-            "string",
-            "number",
-            "boolean",
-            "object",
-            "array"
-          ]
+          "type": ["string", "number", "boolean", "object", "array"]
         },
         "effectiveSince": {
           "type": "string",
@@ -179,14 +155,10 @@
         {
           "anyOf": [
             {
-              "required": [
-                "process"
-              ]
+              "required": ["process"]
             },
             {
-              "required": [
-                "product"
-              ]
+              "required": ["product"]
             }
           ]
         }

@@ -18,7 +18,7 @@ is identified by `refTarget`.
 ## Data Model
 
 A JSON Schema corresponding to this data model can be found
-[here](https://fiware.github.io/dataModels/specs/User/Activity/schema.json).
+[here](https://fiware.github.io/data-models/specs/User/Activity/schema.json).
 
 -   `id` : Unique identifier.
 
@@ -26,45 +26,45 @@ A JSON Schema corresponding to this data model can be found
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `dateModified` : Last update timestamp of this entity.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `dateCreated` : Entity's creation timestamp.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `dateActivityStarted` : Activity's start timestamp.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Mandatory
 
 -   `dateActivityEnded` : Activity's end timestamp.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Optional
 
 -   `refAgent` : Reference to the agent (i.e. a person) performing the activity.
     It may be another NGSI Entity or any `Agent` identified by an URI.
 
-    -   Attribute type: Reference to an Entity or
+    -   Attribute type: Relationship. Reference to an Entity or
         [https://schema.org/URL](https://schema.org/URL).
     -   Mandatory
 
 -   `activityType` : The action performed (e.g. Drive).
 
-    -   Attribute type: [Text](https://schema.org/Text)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
     -   Normative References:
         [https://schema.org/Action](https://schema.org/Action),
         [https://www.w3.org/TR/activitystreams-vocabulary/#activity-types](https://www.w3.org/TR/activitystreams-vocabulary/#activity-types),
@@ -74,19 +74,18 @@ A JSON Schema corresponding to this data model can be found
 -   `refObject` : Reference to the object of the action (e.g. Car1). It may be
     another NGSI Entity or any `Object` identified by an URI.
 
-    -   Attribute type: Reference to an Entity or
+    -   Attribute type: Relationship. Reference to an Entity or
         [https://schema.org/URL](https://schema.org/URL).
     -   Optional
 
 -   `refTarget` : Reference to the target of the action (e.g. Office1).
-    -   Attribute type: Reference to an Entity or
+    -   Attribute type: Relationship. Reference to an Entity or
         [https://schema.org/URL](https://schema.org/URL).
     -   Optional
 
-**Note**: JSON Schemas only capture the NGSI simplified representation, this
-means that to test the JSON schema examples with a
-[FIWARE NGSI version 2](http://fiware.github.io/specifications/ngsiv2/stable)
-API implementation, you need to use the `keyValues` mode (`options=keyValues`).
+**Note**: JSON Schemas are intended to capture the data type and associated
+constraints of the different Attributes, regardless their final representation
+format in NGSI(v2, LD).
 
 ## Examples
 
@@ -137,6 +136,48 @@ Sample uses simplified representation for data consumers `?options=keyValues`
     "refObject": "Car1",
     "refTarget": "Office1",
     "refAgent": "User1"
+}
+```
+
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:UserActivity:UserActivity1",
+    "type": "UserActivity",
+    "description": {
+        "type": "Property",
+        "value": "User1 drive Car1 to Office1"
+    },
+    "refTarget": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:Target:Office1"
+    },
+    "activityType": {
+        "type": "Property",
+        "value": "Drive"
+    },
+    "dateActivityStarted": {
+        "type": "Property",
+        "value": {
+            "@type": "DateTime",
+            "@value": "2016-11-30T07:00:00.00Z"
+        }
+    },
+    "refAgent": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:Agent:User1"
+    },
+    "refObject": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:Object:Car1"
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
 }
 ```
 

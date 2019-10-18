@@ -5,7 +5,9 @@
 It represents an observation of those acoustic parameters that estimate noise
 pressure levels at a certain place and time. This entity is primarily associated
 with the Smart City and environment vertical segments and related IoT
-applications.
+applications. In addition it also represents a break down of the frequencies
+present in the sound in accordance with the ISO 3741:2010 standard frequencies
+of 100 Hz to 10 000 Hz one-third octave band.
 
 ## Data Model
 
@@ -17,28 +19,28 @@ The data model is defined as shown below:
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `dateCreated` : Entity's creation timestamp.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `dateModified` : Last update timestamp of this entity.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `location` : Location of this observation represented by a GeoJSON geometry.
 
-    -   Attribute type: `geo:json`.
+    -   Attribute type: GeoProperty. `geo:json`.
     -   Normative References:
         [https://tools.ietf.org/html/rfc7946](https://tools.ietf.org/html/rfc7946)
     -   Mandatory if `address` is not present.
@@ -50,8 +52,8 @@ The data model is defined as shown below:
     -   Mandatory if `location` is not present.
 
 -   `name` : Name given to this observation.
-
-    -   Normative References: [https://schema.org/name](https://schema.org/name)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/name` equivalent to [name](https://schema.org/name)
     -   Optional
 
 -   `description` : Description given to this observation.
@@ -65,24 +67,24 @@ The data model is defined as shown below:
     Broker for datetime intervals, it can be used two separate attributes:
     `dateObservedFrom`, `dateObservedTo`.
 
-    -   Attribute type: ISO8601 interval represented as
+    -   Attribute type: Property. ISO8601 interval represented as
         [Text](https://schema.org/Text).
     -   Optional
 
 -   `dateObservedFrom` : Observation period start date and time. See
     `dateObserved`.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime).
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime).
     -   Mandatory
 
 -   `dateObservedTo` : Observation period end date and time. See `dateObserved`.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime).
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime).
     -   Mandatory
 
 -   `refDevice` : A reference to the device which captured this observation.
 
-    -   Attribute type: Reference to an entity of type `Device`
+    -   Attribute type: Relationship. Reference to an entity of type `Device`
     -   Optional
 
 -   `sonometerClass` : Class of sonometer (0, 1, 2) according to
@@ -91,13 +93,24 @@ The data model is defined as shown below:
     observations. It allows to convey, roughly, information about the precision
     of the measurements.
 
-    -   Attribute type: [Text](https://schema.org/Text)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
     -   Allowed values: one of (`"0"`, `"1"`, `"2"`)
     -   Optional
 
+-   `frequencies` : Specifies the frequencies collected from the sensor
+    represented by the ISO 3741:2010 standard frequencies of 100 Hz to 10 000 Hz
+    one-third octave band. The value of each frequency is the A-weighted decibel
+    value recorded.
+
+    -   `Attribute type` : A StructuredObject of frequency : value pairs as
+        defined by the ISO 3741:2010 standard where the values are represented
+        as Numbers
+    -   Mandatory
+
 -   `refPointOfInterest` : A reference to a point of interest associated to this
     observation.
-    -   Attribute type: Reference to an entity of type `PointOfInterest`
+    -   Attribute type: Relationship. Reference to an entity of type
+        `PointOfInterest`
     -   Optional
 
 ### Representing acoustic parameters
@@ -113,7 +126,7 @@ acoustic measurand name, as follows:
     char, such char shall be substituted by the `_` char. For instance, the
     measurand "LAeq,d" shall be represented by an Attribute which name shall be
     `LAeq_d`.
--   Attribute type: [Number](https://schema.org/Number)
+-   Attribute type: Property. [Number](https://schema.org/Number)
 -   Attribute value: corresponds to the value for the measurand as a number
     expressed in decibels.
 -   Attribute Metadata:
@@ -130,10 +143,15 @@ There are two options for representing them:
 -   B/ Adding weather-related properties defined at
     [WeatherObserved](../../../Weather/WeatherObserved/doc/spec.md).
 
-**Note**: JSON Schemas only capture the NGSI simplified representation, this
-means that to test the JSON schema examples with a
-[FIWARE NGSI version 2](http://fiware.github.io/specifications/ngsiv2/stable)
-API implementation, you need to use the `keyValues` mode (`options=keyValues`).
+### Representing Frequency Data
+
+As the number of frequencies collected may vary from the ISO standard it is
+suggested that anything outside of this range be omitted and if frequencies
+within this range are missing the values are set to 0
+
+**Note**: JSON Schemas are intended to capture the data type and associated
+constraints of the different Attributes, regardless their final representation
+format in NGSI(v2, LD).
 
 ## Examples
 
@@ -191,6 +209,34 @@ Normalized NGSI Response
                 "value": "A-weighted, equivalent, day period, sound level"
             }
         }
+    },
+    "frequencies": {
+        "value": {
+            "100": 40,
+            "125":  40,
+            "160": 40,
+            "200": 40,
+            "250": 40,
+            "315": 40,
+            "400": 40,
+            "500": 40,
+            "630": 40,
+            "800": 40,
+            "1000": 40,
+            "1250": 40,
+            "1600": 40,
+            "2000": 40,
+            "2500": 40,
+            "3150": 40,
+            "4000": 40,
+            "8000": 40,
+            "10000": 40
+        },
+        "metadata": {
+            "description": {
+                "value": "A-weighted, frequency, sound level "
+            }
+        }
     }
 }
 ```
@@ -212,7 +258,80 @@ Sample uses simplified representation for data consumers `?options=keyValues`
     "location": {
         "type": "Point",
         "coordinates": [-2.698, 42.8491]
+    },
+    "frequencies": {
+        "100": 40,
+        "125": 40,
+        "160": 40,
+        "200": 40,
+        "250": 40,
+        "315": 40,
+        "400": 40,
+        "500": 40,
+        "630": 40,
+        "800": 40,
+        "1000": 40,
+        "1250": 40,
+        "1600": 40,
+        "2000": 40,
+        "2500": 40,
+        "3150": 40,
+        "4000": 40,
+        "8000": 40,
+        "10000": 40
     }
+}
+```
+
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:NoiseLevelObserved:Vitoria-NoiseLevelObserved-2016-12-28T11:00:00_2016-12-28T12:00:00",
+    "type": "NoiseLevelObserved",
+    "dateObservedFrom": {
+        "type": "Property",
+        "value": {
+            "@type": "DateTime",
+            "@value": "2016-12-28T11:00:00.00Z"
+        }
+    },
+    "LAmax": {
+        "type": "Property",
+        "value": 94.5
+    },
+    "LAeq": {
+        "type": "Property",
+        "value": 67.8
+    },
+    "dateObservedTo": {
+        "type": "Property",
+        "value": {
+            "@type": "DateTime",
+            "@value": "2016-12-28T12:00:00.00Z"
+        }
+    },
+    "LAeq_d": {
+        "type": "Property",
+        "value": 65.4
+    },
+    "location": {
+        "type": "GeoProperty",
+        "value": {
+            "type": "Point",
+            "coordinates": [-2.698, 42.8491]
+        }
+    },
+    "LAS": {
+        "type": "Property",
+        "value": 91.6
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
 }
 ```
 

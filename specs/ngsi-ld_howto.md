@@ -1,5 +1,8 @@
 # NGSI-LD HowTo
 
+A tutorial that can complement this howto can be found at 
+[https://github.com/FIWARE/tutorials.Linked-Data](https://github.com/FIWARE/tutorials.Linked-Data).
+
 ## Introduction
 
 The FIWARE NGSI v2 information model has been evolved to better support linked
@@ -33,9 +36,10 @@ terms to URIs, so that vocabularies can be used to define terms unambiguously.
 First of all, each Data Model shall have a JSON-LD `@context`, providing an
 unambiguous definition by mapping terms to URIs. For practicality reasons, it is
 recommended to have a unique `@context` resource, containing all terms, subject
-to be used in every FIWARE Data Model, the same way as schema.org does. The
-following steps have to be followed in order to migrate existing NGSI v2
-instantiations of the FIWARE Data Models to NGSI-LD:
+to be used in every FIWARE Data Model, the same way as
+[http://schema.org](http://schema.org) does. The following steps have to be
+followed in order to migrate existing NGSI v2 instantiations of the FIWARE Data
+Models to NGSI-LD:
 
 -   NGSI v2 entity `id` attributes have to be converted to URIs, preferably
     using the NGSI-LD URN
@@ -53,7 +57,7 @@ instantiations of the FIWARE Data Models to NGSI-LD:
 
 The FIWARE Community has already provided a simple script to migrate FIWARE NGSI
 entity representations to NGSI-LD, see
-[normalized2LD.py](https://github.com/Fiware/dataModels/blob/master/tools/normalized2LD.py)
+[normalized2LD.py](https://github.com/FIWARE/data-models/blob/master/tools/normalized2LD.py)
 
 ## Example of migration to NGSI-LD
 
@@ -142,8 +146,8 @@ published by FIWARE at the suggested URL.
         "object": "urn:ngsi-ld:PointOfInterest:RZ:MainSquare"
     },
     "@context": [
-        "https://schema.lab.fiware.org/ld/jsonldcontext.jsonld",
-        "http://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
     ]
 }
 ```
@@ -170,18 +174,18 @@ published by FIWARE at the suggested URL.
         }
     },
     "@context": [
-        "https://schema.lab.fiware.org/ld/jsonldcontext.jsonld",
-        "http://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
     ]
 }
 ```
 
-The content of the JSON-LD `@context` could contain the mappings enumerated
-below. Observe that `refPointOfInterest` is labelled as an `@id`, as it is
-actually pointing to another Entity (linked data). On the other hand, there are
-certain terms such as `location` or `unitCode` which are not included in the
-`@context`, as they pertain to the Core JSON-LD `@context` which is always
-implicit (and cannot be overwritten).
+The content of the JSON-LD `@context` would contain the mappings enumerated
+below, plus many others. Observe that `refPointOfInterest` is labelled as an
+`@id`, as it is actually pointing to another Entity (linked data). On the other
+hand, there are certain terms such as `location` or `unitCode` which are not
+included in the `@context`, as they pertain to the Core JSON-LD `@context` which
+is always implicit (and **cannot be overwritten**).
 
 ```json
 {
@@ -196,4 +200,350 @@ implicit (and cannot be overwritten).
         "description": "http://schema.org/description"
     }
 }
+```
+
+## API Examples
+
+### Entity Creation (`application/ld+json`)
+
+Observe that the request MIME type is set to `application/ld+json`. The
+`@context` contains two parts: the ETSI Core `@context` and the FIWARE Data
+Models `@context`. The ETSI core `@context` part could have been omitted as it
+is always **implicit** (and cannot be overwritten).
+
+Note: When using `application/ld+json` the payload must always contain a
+`@context` member.
+
+```
+curl -X POST \
+  http://localhost:3000/ngsi-ld/v1/entities/ \
+  -H 'Content-Type: application/ld+json' \
+  -H 'Content-Length: 903' \
+  -d '{
+    "id": "urn:ngsi-ld:ParkingSpot:santander:daoiz_velarde_1_5:3",
+    "type": "ParkingSpot",
+    "status": {
+        "type": "Property",
+        "value": "free",
+        "observedAt": "2018-09-21T12:00:00Z"
+    },
+    "category": {
+        "type": "Property",
+        "value": [
+            "onstreet"
+        ]
+    },
+    "refParkingSite": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:ParkingSite:santander:daoiz_velarde_1_5"
+    },
+    "name": {
+        "type": "Property",
+        "value": "A-13"
+    },
+    "location": {
+        "type": "GeoProperty",
+        "value": {
+            "type": "Point",
+            "coordinates": [
+                -3.80356167695194,
+                43.46296641666926
+            ]
+        }
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
+}'
+```
+
+### Entity Creation (`application/json`)
+
+In this case the payload should not contain any `@context` member, since the
+`@context` is conveyed as a `Link` header in the request. It is noteworthy, that
+**only one `Link` header pointing to the JSON-LD `@context` is allowed**. That's
+why only the FIWARE Data Models URI `@context` is provided as the target of a
+Link header. Remember that the ETSI Core `@context` is always implicit.
+
+Note: If no `Link` header is provided the Entity members will be mapped to the
+Default `@context` which implies that they will be under the dummy
+`example.org/ngsi-ld` namespace.
+
+```
+curl -X POST \
+  http://localhost:3000/ngsi-ld/v1/entities/ \
+  -H 'Link: <https://schema.lab.fiware.org/ld/context>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+  -H 'content-length: 884' \
+  -d '{
+        "id": "urn:ngsi-ld:ParkingSpot:santander:daoiz_velarde_1_5:3",
+        "type": "ParkingSpot",
+        "status": {
+            "type": "Property",
+            "value": "free",
+            "observedAt": "2018-09-21T12:00:00Z"
+        },
+        "category": {
+            "type": "Property",
+            "value": [
+                "onstreet"
+            ]
+        },
+        "refParkingSite": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:ParkingSite:santander:daoiz_velarde_1_5"
+        },
+        "name": {
+            "type": "Property",
+            "value": "A-13"
+        },
+        "location": {
+            "type": "GeoProperty",
+            "value": {
+                "type": "Point",
+                "coordinates": [
+                    -3.80356167695194,
+                    43.46296641666926
+                ]
+            }
+        }
+    }'
+```
+
+### Entity Retrieval (`application/ld+json`)
+
+GET requests should **always** contain a `Link` header to the corresponding
+`@context`, so that the Broker can be informed of what is the `@context` of a
+query or retrieval operation.
+
+_In this case if a `Link` header had not been provided, the resulting JSON
+object would have contained long URIs as member keys, and not the short names
+that were used when creating the Entity. (as per the `@context` provided)_
+
+Note: Remember that if no `Link` header is provided the default `@context` will
+be used. The default `@context` maps every JSON member to the
+`http://example.org/ngsi-ld` dummy namespace.
+
+```
+curl -X GET \
+  http://localhost:3000/ngsi-ld/v1/entities/urn:ngsi-ld:ParkingSpot:santander:daoiz_velarde_1_5:3 \
+  -H 'Accept: application/ld+json' \
+  -H 'Link: <https://schema.lab.fiware.org/ld/context>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+```
+
+Response will contain what is shown below (headers and payload). Observe that
+this response does not include any `Link` header as it is indeed
+`application/ld+json`, and, therefore, the `@context` is already a payload
+member.
+
+```
+Content-Type: application/ld+json
+
+{
+    "id": "urn:ngsi-ld:ParkingSpot:santander:daoiz_velarde_1_5:3",
+    "type": "ParkingSpot",
+    "status": {
+        "type": "Property",
+        "value": "free",
+        "observedAt": "2018-09-21T12:00:00Z"
+    },
+    "category": {
+        "type": "Property",
+        "value": [
+            "onstreet"
+        ]
+    },
+    "refParkingSite": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:ParkingSite:santander:daoiz_velarde_1_5"
+    },
+    "name": {
+        "type": "Property",
+        "value": "A-13"
+    },
+    "location": {
+        "type": "GeoProperty",
+        "value": {
+            "type": "Point",
+            "coordinates": [
+                -3.80356167695194,
+                43.46296641666926
+            ]
+        }
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
+}
+```
+
+### Entity Retrieval (`application/json`)
+
+GET requests should **always** contain a `Link` header to the corresponding
+`@context`, so that the Broker can be informed of what is the `@context` of a
+query or retrieval operation. In this case if a `Link` header had not been
+provided the resulting JSON object would have contained long URIs as member keys
+and not the short names that were used when creating the Entity.
+
+Note: If no `Link` header is provided the default `@context` will be used.
+Remember that the default `@context` maps every JSON member to the
+`http://example.org/ngsi-ld` dummy namespace.
+
+```
+curl -X GET \
+  http://localhost:3000/ngsi-ld/v1/entities/urn:ngsi-ld:ParkingSpot:santander:daoiz_velarde_1_5:3 \
+  -H 'Accept: application/json' \
+  -H 'Link: <https://schema.lab.fiware.org/ld/context>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+```
+
+Response will contain what is shown below. Observe that this response **does
+include** the `Link` header, as it is `application/json`, and, therefore, the
+`@context` does not appear as a member of the JSON payload.
+
+```
+Content-Type: application/json
+Link: <https://schema.lab.fiware.org/ld/context>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"
+
+{
+    "id": "urn:ngsi-ld:ParkingSpot:santander:daoiz_velarde_1_5:3",
+    "type": "ParkingSpot",
+    "status": {
+        "type": "Property",
+        "value": "free",
+        "observedAt": "2018-09-21T12:00:00Z"
+    },
+    "category": {
+        "type": "Property",
+        "value": [
+            "onstreet"
+        ]
+    },
+    "refParkingSite": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:ParkingSite:santander:daoiz_velarde_1_5"
+    },
+    "name": {
+        "type": "Property",
+        "value": "A-13"
+    },
+    "location": {
+        "type": "GeoProperty",
+        "value": {
+            "type": "Point",
+            "coordinates": [
+                -3.80356167695194,
+                43.46296641666926
+            ]
+        }
+    }
+}
+```
+
+### Query Entities (`application/ld+json`)
+
+GET requests should **always** contain a `Link` header to the corresponding
+`@context`, so that the Broker can be informed of what is the `@context` of a
+query.
+
+_In this case if a `Link` header had not been provided, **there would not have
+been query results**, as all the Query terms would have been mapped to the
+default `@context` and no matching would have happened._
+
+Note: Remember that if no `Link` header is provided the default `@context` will
+be used. The default `@context` maps every JSON member to the
+`http://example.org/ngsi-ld` dummy namespace.
+
+```
+curl -X GET \
+  http://localhost:3000/ngsi-ld/v1/entities/?type=ParkingSpot&q=status==free&attrs=name,location \
+  -H 'Accept: application/ld+json' \
+  -H 'Link: <https://schema.lab.fiware.org/ld/context>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+```
+
+Response will contain what is shown below (headers and payload). Observe that
+this response does not include any `Link` header as it is indeed
+`application/ld+json`, and, therefore, the `@context` is already a payload
+member of the matching Entities. The Core `@context` is referenced and included
+for the sake of completeness although in this particular case, as the FIWARE
+Data Models already contains the Core `@context` that could have been omitted.
+
+```
+Content-Type: application/ld+json
+
+[
+    {
+        "id": "urn:ngsi-ld:ParkingSpot:santander:daoiz_velarde_1_5:3",
+        "type": "ParkingSpot",
+        "name": {
+            "type": "Property",
+            "value": "A-13"
+        },
+        "location": {
+            "type": "GeoProperty",
+            "value": {
+                "type": "Point",
+                "coordinates": [
+                    -3.80356167695194,
+                    43.46296641666926
+                ]
+            }
+        },
+        "@context": [
+            "https://schema.lab.fiware.org/ld/context",
+            "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+        ]
+    }
+]
+```
+
+### Query Entities (`application/json`)
+
+GET requests should **always** contain a `Link` header to the corresponding
+`@context`, so that the Broker can be informed of what is the `@context` of a
+query.
+
+_In this case if a `Link` header had not been provided, there would not have
+been query results, as all the Query terms would have been mapped to the default
+`@context` and no matching would have happened._
+
+Note: If no `Link` header is provided the default `@context` will be used.
+Remember that the default `@context` maps every JSON member to the
+`http://example.org/ngsi-ld` dummy namespace.
+
+```
+curl -X GET \
+  http://localhost:3000/ngsi-ld/v1/entities/?type=ParkingSpot&q=status==free&attrs=name,location \
+  -H 'Accept: application/json' \
+  -H 'Link: <https://schema.lab.fiware.org/ld/context>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+```
+
+Response will contain what is shown below. Observe that this response **does
+include** the `Link` header, as its MIME type is `application/json`, and,
+therefore, the `@context` does not appear as a member of the JSON payload.
+
+```
+Content-Type: application/json
+Link: <https://schema.lab.fiware.org/ld/context>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"
+
+[
+    {
+        "id": "urn:ngsi-ld:ParkingSpot:santander:daoiz_velarde_1_5:3",
+        "type": "ParkingSpot",
+        "name": {
+            "type": "Property",
+            "value": "A-13"
+        },
+        "location": {
+            "type": "GeoProperty",
+            "value": {
+                "type": "Point",
+                "coordinates": [
+                    -3.80356167695194,
+                    43.46296641666926
+                ]
+            }
+        }
+    }
+]
 ```

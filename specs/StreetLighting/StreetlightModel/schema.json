@@ -1,20 +1,24 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "$id": "https://fiware.github.io/dataModels/specs/StreetLighting/Streetlight/schema.json",
+  "$id": "https://fiware.github.io/data-models/specs/StreetLighting/Streetlight/schema.json",
   "title": "FIWARE - Street Lighting / Streetlight model",
   "description": "A Street light model",
   "type": "object",
   "allOf": [
-    { "$ref": "https://fiware.github.io/dataModels/common-schema.json#/definitions/GSMA-Commons" },
-    { "$ref": "https://fiware.github.io/dataModels/common-schema.json#/definitions/Location-Commons" },
-    { "$ref": "https://fiware.github.io/dataModels/common-schema.json#/definitions/PhysicalObject-Commons" },
+    {
+      "$ref": "https://fiware.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://fiware.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "$ref": "https://fiware.github.io/data-models/common-schema.json#/definitions/PhysicalObject-Commons"
+    },
     {
       "properties": {
         "type": {
           "type": "string",
-          "enum": [
-            "StreetlightModel"
-          ]
+          "enum": ["StreetlightModel"]
         },
         "name": {
           "type": "string"
@@ -44,12 +48,7 @@
         },
         "columnMadeOf": {
           "type": "string",
-          "enum": [
-            "steel",
-            "aluminium",
-            "wood",
-            "other"
-          ]
+          "enum": ["steel", "aluminium", "wood", "other"]
         },
         "columnColor": {
           "type": "string"
@@ -85,11 +84,7 @@
         },
         "lampTechnology": {
           "type": "string",
-          "enum": [
-            "LED",
-            "LPS",
-            "HPS"
-          ]
+          "enum": ["LED", "LPS", "HPS"]
         },
         "colorTemperature": {
           "type": "number",
@@ -139,9 +134,5 @@
       }
     }
   ],
-  "required": [
-    "id",
-    "type",
-    "name"
-  ]
+  "required": ["id", "type", "name"]
 }

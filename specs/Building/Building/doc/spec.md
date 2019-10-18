@@ -7,8 +7,8 @@ associated with the vertical segments of smart homes, smart cities, industry and
 related IoT applications.
 
 This data model has been partially developed in cooperation with mobile
-operators and the [GSMA](http://www.gsma.com/connectedliving/iot-big-data/),
-compared to GSMA data model following changes are introduced:
+operators and the [GSMA](https://www.gsma.com/iot/iot-big-data/), compared to
+GSMA data model following changes are introduced:
 
 -   the reference to `BuildingType` is removed, since `BuildingType` compared to
     `category` attribute does not introduce significant information.
@@ -25,7 +25,7 @@ compared to GSMA data model following changes are introduced:
 ## Data Model
 
 For a full description of the following attributes refer to GSMA
-[IoT Big Data Harmonised Data Model](https://www.gsma.com/iot/wp-content/uploads/2016/06/CLP.26-v4.0.pdf)
+[IoT Big Data Harmonised Data Model](https://github.com/GSMADeveloper/NGSI-LD-Entities)
 
 -   `id`
 
@@ -33,23 +33,23 @@ For a full description of the following attributes refer to GSMA
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `dateModified` : Last update timestamp of this entity.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `dateCreated` : Entity's creation timestamp.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `owner`
@@ -61,7 +61,9 @@ For a full description of the following attributes refer to GSMA
     -   Required
 
 -   `location`
-
+    -   Attribute type: GeoProperty. `geo:json`.
+    -   Normative References:
+        [https://tools.ietf.org/html/rfc7946](https://tools.ietf.org/html/rfc7946)
     -   Optional.
 
 -   `containedInPlace`
@@ -69,11 +71,15 @@ For a full description of the following attributes refer to GSMA
     -   Optional.
 
 -   `address`
-
+    -   Attribute type: Property. [Address](https://schema.org/address)
+    -   Normative References:
+        [https://schema.org/address](https://schema.org/address)
     -   Required
 
 -   `description`
 
+    -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/description` equivalent to [description](https://schema.org/description)
     -   Optional
 
 -   `occupier`
@@ -93,14 +99,14 @@ For a full description of the following attributes refer to GSMA
 
 The following attribute has been introduced:
 
--   `openingHours` : The number of floors above ground level in this building.
-    -   Attribute type: List of [Opening Hours](http://schema.org/openingHours)
+-   `openingHours` : Opening hours of this building.
+    -   Normative references:
+        [https://schema.org/openingHours](https://schema.org/openingHours)
     -   Optional
 
-**Note**: JSON Schemas only capture the NGSI simplified representation, this
-means that to test the JSON schema examples with a
-[FIWARE NGSI version 2](http://fiware.github.io/specifications/ngsiv2/stable)
-API implementation, you need to use the `keyValues` mode (`options=keyValues`).
+**Note**: JSON Schemas are intended to capture the data type and associated
+constraints of the different Attributes, regardless their final representation
+format in NGSI(v2, LD).
 
 ## Examples
 
@@ -162,43 +168,7 @@ Normalized NGSI response
         ]
     },
     "openingHours": {
-        "value": [
-            {
-                "dayOfWeek": "http://schema.org/Sunday",
-                "closes": "17:00:00",
-                "opens": "09:00:00"
-            },
-            {
-                "dayOfWeek": "http://schema.org/Saturday",
-                "closes": "17:00:00",
-                "opens": "09:00:00"
-            },
-            {
-                "dayOfWeek": "http://schema.org/Thursday",
-                "closes": "17:00:00",
-                "opens": "09:00:00"
-            },
-            {
-                "dayOfWeek": "http://schema.org/Tuesday",
-                "closes": "17:00:00",
-                "opens": "09:00:00"
-            },
-            {
-                "dayOfWeek": "http://schema.org/Friday",
-                "closes": "17:00:00",
-                "opens": "09:00:00"
-            },
-            {
-                "dayOfWeek": "http://schema.org/Monday",
-                "closes": "17:00:00",
-                "opens": "09:00:00"
-            },
-            {
-                "dayOfWeek": "http://schema.org/Wednesday",
-                "closes": "17:00:00",
-                "opens": "09:00:00"
-            }
-        ]
+        "value": ["Mo-Fr 10:00-19:00", "Sa 10:00-22:00", "Su 10:00-21:00"]
     },
     "dataProvider": {
         "value": "OperatorA"
@@ -251,42 +221,89 @@ Sample uses simplified representation for data consumers `?options=keyValues`
     "floorsBelowGround": 0,
     "description": "Office block",
     "mapUrl": "http://www.example.com",
-    "openingHours": [
-        {
-            "closes": "17:00:00",
-            "dayOfWeek": "http://schema.org/Sunday",
-            "opens": "09:00:00"
-        },
-        {
-            "closes": "17:00:00",
-            "dayOfWeek": "http://schema.org/Saturday",
-            "opens": "09:00:00"
-        },
-        {
-            "closes": "17:00:00",
-            "dayOfWeek": "http://schema.org/Thursday",
-            "opens": "09:00:00"
-        },
-        {
-            "closes": "17:00:00",
-            "dayOfWeek": "http://schema.org/Tuesday",
-            "opens": "09:00:00"
-        },
-        {
-            "closes": "17:00:00",
-            "dayOfWeek": "http://schema.org/Friday",
-            "opens": "09:00:00"
-        },
-        {
-            "closes": "17:00:00",
-            "dayOfWeek": "http://schema.org/Monday",
-            "opens": "09:00:00"
-        },
-        {
-            "closes": "17:00:00",
-            "dayOfWeek": "http://schema.org/Wednesday",
-            "opens": "09:00:00"
+    "openingHours": ["Mo-Fr 10:00-19:00", "Sa 10:00-22:00", "Su 10:00-21:00"]
+}
+```
+
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:Building:building-a85e3da145c1",
+    "type": "Building",
+    "modifiedAt": "2016-08-08T10:18:16Z",
+    "createdAt": "2016-08-08T10:18:16Z",
+    "category": {
+        "type": "Property",
+        "value": ["office"]
+    },
+    "floorsBelowGround": {
+        "type": "Property",
+        "value": 0
+    },
+    "description": {
+        "type": "Property",
+        "value": "Office block"
+    },
+    "floorsAboveGround": {
+        "type": "Property",
+        "value": 7
+    },
+    "occupier": {
+        "type": "Relationship",
+        "object": ["urn:ngsi-ld:Person:9830f692-7677-11e6-838b-4f9fb3dc5a4f"]
+    },
+    "mapUrl": {
+        "type": "Property",
+        "value": "http://www.example.com"
+    },
+    "source": {
+        "type": "Property",
+        "value": "http://www.example.com"
+    },
+    "location": {
+        "type": "GeoProperty",
+        "value": {
+            "type": "Polygon",
+            "coordinates": [[[100, 0], [101, 0], [101, 1], [100, 1], [100, 0]]]
         }
+    },
+    "address": {
+        "type": "Property",
+        "value": {
+            "addressLocality": "London",
+            "postalCode": "EC4N 8AF",
+            "streetAddress": "25 Walbrook",
+            "type": "PostalAddress"
+        }
+    },
+    "owner": {
+        "type": "Relationship",
+        "object": [
+            "urn:ngsi-ld:Person:cdfd9cb8-ae2b-47cb-a43a-b9767ffd5c84",
+            "urn:ngsi-ld:Person:1be9cd61-ef59-421f-a326-4b6c84411ad4"
+        ]
+    },
+    "openingHours": {
+        "type": "Property",
+        "value": ["Mo-Fr 10:00-19:00", "Sa 10:00-22:00", "Su 10:00-21:00"]
+    },
+    "dataProvider": {
+        "type": "Property",
+        "value": "OperatorA"
+    },
+    "containedInPlace": {
+        "type": "Property",
+        "value": {
+            "type": "Polygon",
+            "coordinates": [[[100, 0], [101, 0], [101, 1], [100, 1], [100, 0]]]
+        }
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
     ]
 }
 ```

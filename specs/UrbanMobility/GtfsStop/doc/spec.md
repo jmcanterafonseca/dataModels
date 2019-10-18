@@ -23,28 +23,29 @@ The data model is defined as shown below:
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `dateCreated` : Entity's creation timestamp.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `dateModified` : Last update timestamp of this Entity.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `name`: Same as GTFS `stop_name`.
 
     -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/name` equivalent to [name](https://schema.org/name)
     -   Mandatory
 
 -   `code`: Same as GTFS `stop_code`.
@@ -60,6 +61,7 @@ The data model is defined as shown below:
 -   `description`: Same as GTFS `stop_desc`.
 
     -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/description` equivalent to [description](https://schema.org/description)
     -   Optional
 
 -   `location`: Stop's location encoded as GeoJSON Point which coordinates shall
@@ -95,9 +97,9 @@ The data model is defined as shown below:
     -   Optional
 
 -   `operatedBy` : Agency that operates this stop.
-    -   Attribute type: Relationship. It shall point to an Entity of Type
-        [GtfsAgency](../../GtfsAgency/doc/spec.md)
-    -   Mandatory
+    -   Attribute type: List of Relationships. They shall point to an Entity of
+        Type [GtfsAgency](../../GtfsAgency/doc/spec.md)
+    -   Optional
 
 ## Examples
 
@@ -144,6 +146,40 @@ Sample uses simplified representation for data consumers `?options=keyValues`
         "coordinates": [-4.424393, 36.716872]
     },
     "operatedBy": "urn:ngsi-ld:GtfsAgency:Malaga_EMT"
+}
+```
+
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:GtfsStop:Malaga_101",
+    "type": "GtfsStop",
+    "code": {
+        "type": "Property",
+        "value": "101"
+    },
+    "operatedBy": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:GtfsAgency:Malaga_EMT"
+    },
+    "location": {
+        "type": "GeoProperty",
+        "value": {
+            "type": "Point",
+            "coordinates": [-4.424393, 36.716872]
+        }
+    },
+    "name": {
+        "type": "Property",
+        "value": "Alameda Principal Sur"
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
 }
 ```
 

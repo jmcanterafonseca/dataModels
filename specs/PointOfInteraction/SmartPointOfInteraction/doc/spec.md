@@ -26,18 +26,18 @@ The data model is defined as shown below:
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `category` : Defines the type of interaction.
 
-    -   Attribute type: List of [Text](http://schema.org/Text)
+    -   Attribute type: Property. List of [Text](http://schema.org/Text)
     -   Allowed values: `information`, `entertainment`, `infotainment`,
         `co-creation` or any other extended value defined by the application.
     -   Mandatory
@@ -46,7 +46,7 @@ The data model is defined as shown below:
     using geoJSON format. It can be represented by a feature of type `Polygon`
     or `Multipolygon`.
 
-    -   Attribute type: `geo:json`.
+    -   Attribute type: Property. `geo:json`.
     -   Normative References:
         [https://tools.ietf.org/html/rfc7946](https://tools.ietf.org/html/rfc7946)
     -   Optional
@@ -56,7 +56,7 @@ The data model is defined as shown below:
     'announcedUrl' field specifies the broadcasted URL which could be this same
     URL or a shortened one.
 
-    -   Attribute type: [URL](https://schema.org/URL)
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Mandatory
 
 -   `availability`: Specifies the time intervals in which this interactive
@@ -67,26 +67,25 @@ The data model is defined as shown below:
     a service which is only active on dayweeks will be encoded as
     "availability": "Mo,Tu,We,Th,Fr,Sa 09:00-20:00".
 
-    -   Attribute type: [Text](https://schema.org/Text)
-    -   Mandatory. It can be `null`.
+    -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Mandatory.
 
 -   `refRelatedEntity` : List of entities improved with this Smart Point of
     Interaction. The entity type could be any such as a “Parking”, “Point of
     Interest”, etc.
 
-    -   Attribute type: List of references to entities.
+    -   Attribute type: Relationship. List of references to entities.
     -   Optional
 
 -   `refSmartSpot` : References to the “Smart Spot” devices which are part of
     the Smart Point of Interaction.
-    -   Attribute type: Reference to one or more entities of type
+    -   Attribute type: Relationship. Reference to one or more entities of type
         [SmartSpot](../../SmartSpot/doc/spec.md)
     -   Optional
 
-**Note**: JSON Schemas only capture the NGSI simplified representation, this
-means that to test the JSON schema examples with a
-[FIWARE NGSI version 2](http://fiware.github.io/specifications/ngsiv2/stable)
-API implementation, you need to use the `keyValues` mode (`options=keyValues`).
+**Note**: JSON Schemas are intended to capture the data type and associated
+constraints of the different Attributes, regardless their final representation
+format in NGSI(v2, LD).
 
 ## Examples
 
@@ -163,6 +162,59 @@ Sample uses simplified representation for data consumers `?options=keyValues`
         "SSPOT-F94C58E29DD5",
         "SSPOT-F94C53E21DD2",
         "SSPOT-F94C51A295D9"
+    ]
+}
+```
+
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:SmartPointOfInteraction:SPOI-ES-4326",
+    "type": "SmartPointOfInteraction",
+    "category": {
+        "type": "Property",
+        "value": ["co-creation"]
+    },
+    "applicationUrl": {
+        "type": "Property",
+        "value": "http://www.example.org"
+    },
+    "areaCovered": {
+        "type": "Property",
+        "value": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [25.774, -80.19],
+                    [18.466, -66.118],
+                    [32.321, -64.757],
+                    [25.774, -80.19]
+                ]
+            ]
+        }
+    },
+    "availability": {
+        "type": "Property",
+        "value": "Tu,Th 16:00-20:00"
+    },
+    "refSmartSpot": {
+        "type": "Relationship",
+        "object": [
+            "urn:ngsi-ld:SmartSpot:SSPOT-F94C58E29DD5",
+            "urn:ngsi-ld:SmartSpot:SSPOT-F94C53E21DD2",
+            "urn:ngsi-ld:SmartSpot:SSPOT-F94C51A295D9"
+        ]
+    },
+    "refRelatedEntity": {
+        "type": "Relationship",
+        "object": ["urn:ngsi-ld:RelatedEntity:POI-PlazaCazorla-3123"]
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
     ]
 }
 ```

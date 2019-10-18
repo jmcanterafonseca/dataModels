@@ -20,23 +20,23 @@ The data model is defined as shown below:
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `dateCreated` : Entity's creation timestamp.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `dateModified`: Last update timestamp of this Entity.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `headSign`: Same as GTFS `trip_headsign`.
@@ -135,6 +135,41 @@ Sample uses simplified representation for data consumers `?options=keyValues`
     "direction": "0",
     "hasRoute": "urn:ngsi-ld:gtfs:Route:Spain:Malaga:1",
     "hasShape": "urn:ngsi-ld:GtfsShape:Shape01"
+}
+```
+
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:GtfsTrip:Spain:Malaga:1",
+    "type": "GtfsTrip",
+    "direction": {
+        "type": "Property",
+        "value": 0
+    },
+    "headSign": {
+        "type": "Property",
+        "value": "San Andr\u00e9s"
+    },
+    "hasRoute": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:GtfsRoute:Spain:Malaga:1"
+    },
+    "hasService": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:GtfsService:Malaga_LAB"
+    },
+    "hasShape": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:GtfsShape:Shape01"
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
 }
 ```
 

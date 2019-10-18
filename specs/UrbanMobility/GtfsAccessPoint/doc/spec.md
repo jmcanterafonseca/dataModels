@@ -23,22 +23,22 @@ The data model is defined as shown below:
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `dateCreated` : Entity's creation timestamp.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `dateModified` : Last update timestamp of this Entity.
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 The following Attributes shall be as mandated by
@@ -109,6 +109,45 @@ Sample uses simplified representation for data consumers `?options=keyValues`
         "addressCountry": "ES"
     },
     "hasParentStation": "urn:ngsi-ld:GtfsStation:Madrid:est_90_21"
+}
+```
+
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:AccessPoint:Madrid:acc_4_1_3",
+    "type": "GtfsAccessPoint",
+    "name": {
+        "type": "Property",
+        "value": "Bravo Murillo"
+    },
+    "hasParentStation": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:GtfsStation:Madrid:est_90_21"
+    },
+    "location": {
+        "type": "GeoProperty",
+        "value": {
+            "type": "Point",
+            "coordinates": [-3.69036, 40.46629]
+        }
+    },
+    "address": {
+        "type": "Property",
+        "value": {
+            "addressLocality": "Madrid",
+            "addressCountry": "ES",
+            "streetAddress": "Calle de Bravo Murillo 377",
+            "type": "PostalAddress"
+        }
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
 }
 ```
 

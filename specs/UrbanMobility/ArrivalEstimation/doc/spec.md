@@ -20,23 +20,23 @@ The data model is defined as shown below:
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `dateCreated` : Entity's creation timestamp.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `dateModified` : Last update timestamp of this Entity.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `hasStop` : Stop to which this estimation applies to.
@@ -123,6 +123,41 @@ Sample uses simplified representation for data consumers `?options=keyValues`
     "remainingTime": "PT8M5S",
     "remainingDistance": 1200,
     "headSign": "Plaza Italia"
+}
+```
+
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:ArrivalEstimation:L5C1_Stop74_1",
+    "type": "ArrivalEstimation",
+    "hasTrip": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:GtfsTrip:tus:5C1"
+    },
+    "headSign": {
+        "type": "Property",
+        "value": "Plaza Italia"
+    },
+    "remainingTime": {
+        "type": "Property",
+        "value": "PT8M5S"
+    },
+    "hasStop": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:GtfsStop:tus:74"
+    },
+    "remainingDistance": {
+        "type": "Property",
+        "value": 1200
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
 }
 ```
 

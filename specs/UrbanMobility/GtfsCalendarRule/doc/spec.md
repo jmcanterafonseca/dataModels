@@ -19,23 +19,23 @@ The data model is defined as shown below:
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `dateCreated` : Entity's creation timestamp.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `dateModified` : Last update timestamp of this Entity.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `hasService` : Service to which this rule applies to. Derived from
@@ -47,12 +47,14 @@ The data model is defined as shown below:
 
 -   `name` : Name of this rule
 
-    -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Attribute type: Property. [Text](https://schema.org/Text).
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/name` equivalent to [name](https://schema.org/name)
     -   Optional
 
 -   `description`: Description of this rule
 
     -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/description` equivalent to [description](https://schema.org/description)
     -   Optional
 
 -   `monday`: Same as GTFS `monday`
@@ -120,12 +122,14 @@ Normalized NGSI response
 
 ```json
 {
-    "id": "urn:ngsi-ld:GtfsCalendarRule:Madrid:Rule1267",
+    "id": "urn:ngsi-ld:CalendarRule:Madrid:Rule1267",
     "type": "GtfsCalendarRule",
     "startDate": {
+        "type": "Date",
         "value": "2018-01-01"
     },
     "endDate": {
+        "type": "Date",
         "value": "2019-01-01"
     },
     "name": {
@@ -178,6 +182,71 @@ Sample uses simplified representation for data consumers `?options=keyValues`
     "sunday": false,
     "startDate": "2018-01-01",
     "endDate": "2019-01-01"
+}
+```
+
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:CalendarRule:Madrid:Rule1267",
+    "type": "GtfsCalendarRule",
+    "startDate": {
+        "type": "Property",
+        "value": {
+            "@type": "Date",
+            "@value": "2018-01-01"
+        }
+    },
+    "endDate": {
+        "type": "Property",
+        "value": {
+            "@type": "Date",
+            "@value": "2019-01-01"
+        }
+    },
+    "name": {
+        "type": "Property",
+        "value": "Rule Hospital Service 1"
+    },
+    "monday": {
+        "type": "Property",
+        "value": true
+    },
+    "tuesday": {
+        "type": "Property",
+        "value": true
+    },
+    "friday": {
+        "type": "Property",
+        "value": true
+    },
+    "wednesday": {
+        "type": "Property",
+        "value": true
+    },
+    "thursday": {
+        "type": "Property",
+        "value": true
+    },
+    "sunday": {
+        "type": "Property",
+        "value": false
+    },
+    "hasService": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:GtfsService:Madrid:Hospital_1"
+    },
+    "saturday": {
+        "type": "Property",
+        "value": false
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
 }
 ```
 

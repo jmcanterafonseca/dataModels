@@ -22,23 +22,23 @@ The data model is defined as shown below:
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `dateCreated` : Entity's creation timestamp.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `dateModified` : Last update timestamp of this Entity.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `hasStop` : It shall point to another Entity(ies) of type `GtfsStop`
@@ -123,6 +123,49 @@ Sample uses simplified representation for data consumers `?options=keyValues`
         "addressCountry": "ES"
     },
     "hasStop": ["urn:ngsi-ld:GtfsStop:Madrid_par_4_1"]
+}
+```
+
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:GtfsStation:Madrid:est_90_21",
+    "type": "GtfsStation",
+    "code": {
+        "type": "Property",
+        "value": "21"
+    },
+    "name": {
+        "type": "Property",
+        "value": "Intercambiador de Plaza de Castilla"
+    },
+    "hasStop": {
+        "type": "Relationship",
+        "object": ["urn:ngsi-ld:GtfsStop:Madrid_par_4_1"]
+    },
+    "location": {
+        "type": "GeoProperty",
+        "value": {
+            "type": "Point",
+            "coordinates": [-3.6892, 40.4669]
+        }
+    },
+    "address": {
+        "type": "Property",
+        "value": {
+            "addressLocality": "Madrid",
+            "addressCountry": "ES",
+            "streetAddress": "Paseo de la Castellana 189",
+            "type": "PostalAddress"
+        }
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
 }
 ```
 

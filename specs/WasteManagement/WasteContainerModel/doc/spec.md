@@ -1,5 +1,8 @@
 # Waste Container Model
 
+**Note: The latest version of this Data Model can be
+found at [https://github.com/smart-data-models/dataModel.WasteManagement](https://github.com/smart-data-models/dataModel.WasteManagement)**
+
 ## Description
 
 A model of waste container which captures the static properties of a class of
@@ -15,53 +18,53 @@ The data model is defined as shown below:
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `name`. Name given to this container model. It is a "well-known",
     mnemotechnic or codename. This attribute is different than `modelName` which
     conveys the formal model name given by the manufacturer.
-
-    -   Normative References: [https://schema.org/name](https://schema.org/name)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/name` equivalent to [name](https://schema.org/name)
     -   Mandatory
 
 -   `width`. Width of the container.
 
-    -   Attribute type: [Number](https://schema.org/Number).
+    -   Attribute type: Property. [Number](https://schema.org/Number).
     -   Default Unit: Meters
     -   See also: [https://schema.org/width](https://schema.org/width)
     -   Optional
 
 -   `height`. Height of the container.
 
-    -   Attribute type: [Number](https://schema.org/Number).
+    -   Attribute type: Property. [Number](https://schema.org/Number).
     -   Default Unit: Meters
     -   See also: [https://schema.org/height](https://schema.org/height)
     -   Optional
 
 -   `depth`. Depth of the container.
 
-    -   Attribute type: [Number](https://schema.org/Number).
+    -   Attribute type: Property. [Number](https://schema.org/Number).
     -   Default Unit: Meters
     -   See also: [https://schema.org/depth](https://schema.org/depth)
     -   Optional
 
 -   `weight`. Weight of the container.
 
-    -   Attribute type: [Number](https://schema.org/Number).
+    -   Attribute type: Property. [Number](https://schema.org/Number).
     -   Default Unit: Kilograms
     -   See also: [https://schema.org/weight](https://schema.org/weight)
     -   Optional
 
 -   `cargoVolume`. Total volume the container can hold.
 
-    -   Attribute type: [Number](https://schema.org/Number).
+    -   Attribute type: Property. [Number](https://schema.org/Number).
     -   Normative References:
         [https://schema.org/cargoVolume](https://schema.org/cargoVolume)
     -   Default Unit: liters
@@ -69,19 +72,19 @@ The data model is defined as shown below:
 
 -   `maximumLoad`. Maximum load the container can hold safely.
 
-    -   Attribute type: [Number](https://schema.org/Number).
+    -   Attribute type: Property. [Number](https://schema.org/Number).
     -   Default Unit: Kilograms
     -   Optional
 
 -   `recommendedLoad`. Manufacturer recommended load for the container.
 
-    -   Attribute type: [Number](https://schema.org/Number).
+    -   Attribute type: Property. [Number](https://schema.org/Number).
     -   Default Unit: Kilograms
     -   Optional
 
 -   `category`. Container’s category.
 
-    -   Attribute type: List of [Text](https://schema.org/Text).
+    -   Attribute type: Property. List of [Text](https://schema.org/Text).
     -   Allowed values (Informative):
         -   `dumpster`. See
             [https://en.wikipedia.org/wiki/Dumpster](https://en.wikipedia.org/wiki/Dumpster)
@@ -92,23 +95,23 @@ The data model is defined as shown below:
 
 -   `insertHolesNumber`. Number of insert holes the container has.
 
-    -   Attribute type: [Number](https://schema.org/Number).
+    -   Attribute type: Property. [Number](https://schema.org/Number).
     -   Optional
 
 -   `madeOf`. Material the container is made of.
 
-    -   Attribute type: [Text](https://schema.org/Text)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
     -   Allowed values: one Of (`plastic`, `wood` , `metal`, `other`)
     -   Optional
 
 -   `madeOfCode`. Material Code as per standard tables. TBD.
 
-    -   Attribute type: [Text](https://schema.org/Text)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
     -   Optional
 
 -   `brandName`. Name of the brand.
 
-    -   Attribute type: [Text](https://schema.org/Text)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
     -   See also: [https://schema.org/brand](https://schema.org/brand)
     -   Optional
 
@@ -116,25 +119,25 @@ The data model is defined as shown below:
     is different than `name` which is just a codename usually given by
     municipalities.
 
-    -   Attribute type: [Text](https://schema.org/Text)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
     -   See also: [https://schema.org/model](https://schema.org/model)
     -   Optional
 
 -   `manufacturerName`. Name of the manufacturer.
 
-    -   Attribute type: [Text](https://schema.org/Text)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
     -   See also: [https://schema.org/model](https://schema.org/manufacturer)
     -   Optional
 
 -   `description`. Description about the waste container model.
 
-    -   Normative References:
-        [https://schema.org/description](https://schema.org/description)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/description` equivalent to [description](https://schema.org/description)
     -   Optional
 
 -   `colors`. Available colors.
 
-    -   Attribute type: List of [Text](https://schema.org/Text)
+    -   Attribute type: Property. List of [Text](https://schema.org/Text)
     -   Allowed Values:
         -   A color keyword as specified by
             [W3C Color Keywords](https://www.w3.org/TR/SVG/types.html#ColorKeywords)
@@ -156,7 +159,7 @@ The data model is defined as shown below:
     -   Optional
 
 -   `features`. A list of container features.
-    -   Attribute type: List of [Text](https://schema.org/Text)
+    -   Attribute type: Property. List of [Text](https://schema.org/Text)
     -   Allowed Values:
         -   `wheels`
         -   `lid`
@@ -165,10 +168,9 @@ The data model is defined as shown below:
         -   `lockable`
         -   Any other value meaningful for the application.
 
-**Note**: JSON Schemas only capture the NGSI simplified representation, this
-means that to test the JSON schema examples with a
-[FIWARE NGSI version 2](http://fiware.github.io/specifications/ngsiv2/stable)
-API implementation, you need to use the `keyValues` mode (`options=keyValues`).
+**Note**: JSON Schemas are intended to capture the data type and associated
+constraints of the different Attributes, regardless their final representation
+format in NGSI(v2, LD).
 
 ## Examples
 
@@ -235,6 +237,65 @@ Sample uses simplified representation for data consumers `?options=keyValues`
     "madeOf": "plastic",
     "features": ["wheels", "lid"],
     "category": ["dumpster"]
+}
+```
+
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:WasteContainerModel:wastecontainermodel:c1",
+    "type": "WasteContainerModel",
+    "category": {
+        "type": "Property",
+        "value": ["dumpster"]
+    },
+    "cargoVolume": {
+        "type": "Property",
+        "value": 150
+    },
+    "modelName": {
+        "type": "Property",
+        "value": "C1"
+    },
+    "name": {
+        "type": "Property",
+        "value": "Dumpster_Brute_2009_Plastic_Green"
+    },
+    "compliantWith": {
+        "type": "Property",
+        "value": ["UNE-EN 840-2:2013"]
+    },
+    "madeOf": {
+        "type": "Property",
+        "value": "plastic"
+    },
+    "height": {
+        "type": "Property",
+        "value": 0.8
+    },
+    "width": {
+        "type": "Property",
+        "value": 0.5
+    },
+    "depth": {
+        "type": "Property",
+        "value": 0.4
+    },
+    "brandName": {
+        "type": "Property",
+        "value": "Brute"
+    },
+    "features": {
+        "type": "Property",
+        "value": ["wheels", "lid"]
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
 }
 ```
 

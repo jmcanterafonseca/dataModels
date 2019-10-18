@@ -1,23 +1,21 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "$id": "https://fiware.github.io/dataModels/specs/Building/Building/schema.json",
+  "$id": "https://fiware.github.io/data-models/specs/Building/Building/schema.json",
   "title": "FIWARE - Building schema",
   "description": "Information on a given Building",
   "type": "object",
   "allOf": [
     {
-      "$ref": "https://fiware.github.io/dataModels/common-schema.json#/definitions/GSMA-Commons"
+      "$ref": "https://fiware.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
     },
     {
-      "$ref": "https://fiware.github.io/dataModels/common-schema.json#/definitions/Location-Commons"
+      "$ref": "https://fiware.github.io/data-models/common-schema.json#/definitions/Location-Commons"
     },
     {
       "properties": {
         "type": {
           "type": "string",
-          "enum": [
-            "Building"
-          ],
+          "enum": ["Building"],
           "description": "NGSI Entity type"
         },
         "category": {
@@ -90,17 +88,19 @@
             ]
           }
         },
-        "containedInPlace": { "$ref": "http://json-schema.org/geojson/geometry.json#" },
+        "containedInPlace": {
+          "$ref": "http://geojson.org/schema/Geometry.json#"
+        },
         "occupier": {
           "type": "array",
           "items": {
-            "oneOf": [ 
+            "oneOf": [
               {
                 "type": "string",
                 "format": "uri"
               },
               {
-                "$ref": "https://fiware.github.io/dataModels/common-schema.json#/definitions/EntityIdentifierType"
+                "$ref": "https://fiware.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
               }
             ]
           }
@@ -118,37 +118,11 @@
         "openingHours": {
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "dayOfWeek": {
-                "type": "string"
-              },
-              "opens": {
-                "type": "string",
-                "format": "time"
-              },
-              "closes": {
-                "type": "string",
-                "format": "time"
-              },
-              "validFrom": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "validThrough": {
-                "type": "string",
-                "format": "date-time"
-              }
-            }
+            "type": "string"
           }
         }
       }
     }
   ],
-  "required": [
-    "type",
-    "id",
-    "category",
-    "address"
-  ]
+  "required": ["type", "id", "category", "address"]
 }

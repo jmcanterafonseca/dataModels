@@ -21,27 +21,29 @@ The data model is defined as shown below:
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `dateCreated` : Entity's creation timestamp.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `dateModified` : Last update timestamp of this Entity.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `source` : A sequence of characters giving the original source of the Entity
     data as a URL. It shall point to the URL of the original GTFS feed used to
-    generate this Entity. + Attribute type: [URL](https://schema.org/URL) +
-    Mandatory
+    generate this Entity.
+    -   Attribute type: Property. [URL](https://schema.org/URL)
+    -   Mandatory
 
 -   `name`: Same as GTFS `agency_name`.
 
     -   Attribute type: Property. [Text](https://schema.org/Text).
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/name` equivalent to [name](https://schema.org/name)
     -   Mandatory
 
 -   `page`: Same as GTFS `agency_url`.
@@ -69,8 +71,9 @@ The data model is defined as shown below:
     -   Optional
 
 -   `address`: Agency's civic address.
-    -   Attribute type: Property.
-        [PostalAddress](https://schema.org/PostalAddress)
+    -   Attribute type: Property. [Address](https://schema.org/address)
+    -   Normative References:
+        [https://schema.org/address](https://schema.org/address)
     -   Optional
 
 ## Examples
@@ -114,6 +117,41 @@ Sample uses simplified representation for data consumers `?options=keyValues`
     "timezone": "Europe/Madrid",
     "language": "ES",
     "source": "http://datosabiertos.malaga.eu/dataset/lineas-y-horarios-bus-google-transit/resource/24e86888-b91e-45bf-a48c-09855832fd52"
+}
+```
+
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:GtfsAgency:Malaga_EMT",
+    "type": "GtfsAgency",
+    "name": {
+        "type": "Property",
+        "value": "Empresa Malague\u00f1a de Transportes"
+    },
+    "language": {
+        "type": "Property",
+        "value": "ES"
+    },
+    "page": {
+        "type": "Property",
+        "value": "http://www.emtmalaga.es/"
+    },
+    "source": {
+        "type": "Property",
+        "value": "http://datosabiertos.malaga.eu/dataset/lineas-y-horarios-bus-google-transit/resource/24e86888-b91e-45bf-a48c-09855832fd52"
+    },
+    "timezone": {
+        "type": "Property",
+        "value": "Europe/Madrid"
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
 }
 ```
 

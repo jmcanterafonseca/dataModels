@@ -40,36 +40,36 @@ A JSON Schema corresponding to this data model can be found
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. [Text](https://schema.org/Text) or URL
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `name` : Name given to the measurement location or target.
-
-    -   Normative References: [https://schema.org/name](https://schema.org/name)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/name` equivalent to [name](https://schema.org/name)
     -   Optional
 
 -   `description` : A longer description of the measurement.
 
-    -   Normative References:
-        [https://schema.org/description](https://schema.org/description)
+    -   Attribute type: Property. [Text](https://schema.org/Text)
+    -   Normative References: `https://uri.etsi.org/ngsi-ld/description` equivalent to [description](https://schema.org/description)
     -   Optional
 
 -   `location` : location of the measurement target represented by a GeoJSON
     point.
 
-    -   Attribute type: `geo:json`.
+    -   Attribute type: Property. `geo:json`.
     -   Normative References:
         [https://tools.ietf.org/html/draft-ietf-geojson-03](https://tools.ietf.org/html/draft-ietf-geojson-03)
     -   Optional
 
 -   `address` : Civic address where the measurement target is located.
-
+    -   Attribute type: Property. [Address](https://schema.org/address)
     -   Normative References:
         [https://schema.org/address](https://schema.org/address)
     -   Optional
@@ -83,30 +83,30 @@ A JSON Schema corresponding to this data model can be found
 
 -   `refDevice` : Device(s) used to obtain the measurement.
 
-    -   Attribute type: List of Reference to entity(ies) of type
+    -   Attribute type: Property. List of Reference to entity(ies) of type
         [Device](../../../Device/Device/doc/spec.md)
     -   Optional
 
 -   `refTargetDevice` : Device(s) for which the measurement was taken.
 
-    -   Attribute type: List of Reference to entity(ies) of type
+    -   Attribute type: Relationship. List of Reference to entity(ies) of type
         [Device](../../../Device/Device/doc/spec.md)
     -   Optional
 
 -   `dateModified` : Last update timestamp of this entity.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `dateCreated` : Entity's creation timestamp.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `totalActiveEnergyImport` : Total energy imported i.e. consumed since
     metering started (since `dateEnergyMeteringStarted`).
 
-    -   Attribute type: [Number](https://schema.org/Number)
+    -   Attribute type: Property. [Number](https://schema.org/Number)
     -   Default unit: kilowatt hour (kWh).
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -118,7 +118,7 @@ A JSON Schema corresponding to this data model can be found
     regards to fundamental frequency reactive power) since the metering start
     date (`dateEnergyMeteringStarted`).
 
-    -   Attribute type: [Number](https://schema.org/Number)
+    -   Attribute type: Property. [Number](https://schema.org/Number)
         -   Default unit: kilovolt-ampere-reactive-hour (kVArh).
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -130,7 +130,7 @@ A JSON Schema corresponding to this data model can be found
     regards to apparent power) since the metering start date
     (`dateEnergyMeteringStarted`).
 
-    -   Attribute type: [Number](https://schema.org/Number)
+    -   Attribute type: Property. [Number](https://schema.org/Number)
         -   Default unit: kilovolt-ampere-hour (kVAh).
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -141,7 +141,7 @@ A JSON Schema corresponding to this data model can be found
 -   `totalActiveEnergyExport` : Total energy exported since metering started
     (since `dateEnergyMeteringStarted`).
 
-    -   Attribute type: [Number](https://schema.org/Number)
+    -   Attribute type: Property. [Number](https://schema.org/Number)
     -   Default unit: kilowatt hour (kWh).
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -152,7 +152,7 @@ A JSON Schema corresponding to this data model can be found
 -   `totalReactiveEnergyExport` : Total fundamental frequency reactive energy
     exported since metering started (since `dateEnergyMeteringStarted`).
 
-    -   Attribute type: [Number](https://schema.org/Number)
+    -   Attribute type: Property. [Number](https://schema.org/Number)
     -   Default unit: kilovolt-ampere-reactive-hour (kVArh).
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -163,7 +163,7 @@ A JSON Schema corresponding to this data model can be found
 -   `totalApparentEnergyExport` : Total energy exported (with regards to
     apparent power) since the metering start date (`dateEnergyMeteringStarted`).
 
-    -   Attribute type: [Number](https://schema.org/Number)
+    -   Attribute type: Property. [Number](https://schema.org/Number)
         -   Default unit: kilovolt-ampere-hour (kVAh).
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -176,7 +176,7 @@ A JSON Schema corresponding to this data model can be found
     which names will be equal to the name of each of the alternating current
     phases: L1, L2, L3.
 
-    -   Attribute Type: [StructuredValue](http://schema.org/StructuredValue)
+    -   Attribute type: Property. [StructuredValue](http://schema.org/StructuredValue)
     -   Default unit: kilowatt hour (kWh)
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -189,7 +189,7 @@ A JSON Schema corresponding to this data model can be found
     conveyed by subproperties which names will be equal to the name of each of
     the alternating current phases: L1, L2, L3.
 
-    -   Attribute Type: [StructuredValue](http://schema.org/StructuredValue)
+    -   Attribute type: Property. [StructuredValue](http://schema.org/StructuredValue)
     -   Default unit: kilovolt-ampere-reactive-hour (kVArh)
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -202,7 +202,7 @@ A JSON Schema corresponding to this data model can be found
     subproperties which names will be equal to the name of each of the
     alternating current phases: L1, L2, L3.
 
-    -   Attribute Type: [StructuredValue](http://schema.org/StructuredValue)
+    -   Attribute type: Property. [StructuredValue](http://schema.org/StructuredValue)
     -   Default unit: kilovolt-ampere-hour (kVAh)
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -215,7 +215,7 @@ A JSON Schema corresponding to this data model can be found
     will be equal to the name of each of the alternating current phases: L1, L2,
     L3.
 
-    -   Attribute Type: [StructuredValue](http://schema.org/StructuredValue)
+    -   Attribute type: Property. [StructuredValue](http://schema.org/StructuredValue)
     -   Default unit: kilowatt hour (kWh)
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -228,7 +228,7 @@ A JSON Schema corresponding to this data model can be found
     subproperties which names will be equal to the name of each of the
     alternating current phases: L1, L2, L3.
 
-    -   Attribute Type: [StructuredValue](http://schema.org/StructuredValue)
+    -   Attribute type: Property. [StructuredValue](http://schema.org/StructuredValue)
     -   Default unit: kilovolt-ampere-reactive-hour (kVArh)
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -241,7 +241,7 @@ A JSON Schema corresponding to this data model can be found
     which names will be equal to the name of each of the alternating current
     phases: L1, L2, L3.
 
-    -   Attribute Type: [StructuredValue](http://schema.org/StructuredValue)
+    -   Attribute type: Property. [StructuredValue](http://schema.org/StructuredValue)
     -   Default unit: kilovolt-ampere-hour (kVAh)
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -251,12 +251,12 @@ A JSON Schema corresponding to this data model can be found
 
 -   `dateEnergyMeteringStarted` : The starting date for metering energy.
 
-    -   Attribute Type: [DateTime](http://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](http://schema.org/DateTime)
     -   Optional
 
 -   `frequency` : The frequency of the circuit.
 
-    -   Attribute type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Default unit: Hertz (Hz)
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -272,7 +272,7 @@ A JSON Schema corresponding to this data model can be found
 
 -   `totalActivePower` : Active power consumed (counting all phases)
 
-    -   Attribute Type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Default unit: watt (W).
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -288,7 +288,7 @@ A JSON Schema corresponding to this data model can be found
 
 -   `totalReactivePower` : Reactive power consumed (counting all phases).
 
-    -   Attribute Type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Default unit: volt-ampere-reactive (VAr).
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -304,7 +304,7 @@ A JSON Schema corresponding to this data model can be found
 
 -   `totalApparentPower` : Apparent power consumed (counting all phases).
 
-    -   Attribute Type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Default unit: volt-ampere (VA).
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -322,7 +322,7 @@ A JSON Schema corresponding to this data model can be found
     conveyed by subproperties which names will be equal to the name of each of
     the alternating current phases: L1, L2, L3.
 
-    -   Attribute Type: [StructuredValue](http://schema.org/StructuredValue)
+    -   Attribute type: Property. [StructuredValue](http://schema.org/StructuredValue)
     -   Default unit: watt (W)
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -340,7 +340,7 @@ A JSON Schema corresponding to this data model can be found
     be conveyed by subproperties which names will be equal to the name of each
     of the alternating current phases: L1, L2, L3.
 
-    -   Attribute Type: [StructuredValue](http://schema.org/StructuredValue)
+    -   Attribute type: Property. [StructuredValue](http://schema.org/StructuredValue)
     -   Default unit: volt-ampere (VA)
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -358,7 +358,7 @@ A JSON Schema corresponding to this data model can be found
     will be conveyed by subproperties whose names will be equal to the name of
     each of the alternating current phases: L1, L2, L3.
 
-    -   Attribute Type: [StructuredValue](http://schema.org/StructuredValue)
+    -   Attribute type: Property. [StructuredValue](http://schema.org/StructuredValue)
     -   Default unit: volts-ampere-reactive (VAr)
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -374,7 +374,7 @@ A JSON Schema corresponding to this data model can be found
 
 -   `totalPowerFactor` : Power factor including all phases.
 
-    -   Attribute Type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Allowed values: A number between -1 and 1.
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -394,7 +394,7 @@ A JSON Schema corresponding to this data model can be found
 -   `powerFactor` : Power factor for each phase. The actual values will be
     conveyed by one subproperty per alternating current phase: L1, L2 and L3
 
-    -   Attribute Type: [StructuredValue](http://schema.org/StructuredValue)
+    -   Attribute type: Property. [StructuredValue](http://schema.org/StructuredValue)
     -   Allowed values: A number between -1 and 1.
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -414,7 +414,7 @@ A JSON Schema corresponding to this data model can be found
 -   `totalDisplacementPowerFactor` : Displacement power factor including all
     phases. The quantity is based on the fundamental frequency of the system
 
-    -   Attribute Type: [Number](http://schema.org/Number)
+    -   Attribute type: Property. [Number](http://schema.org/Number)
     -   Allowed values: A number between -1 and 1.
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -436,7 +436,7 @@ A JSON Schema corresponding to this data model can be found
     values will be conveyed by one subproperty per alternating current phase:
     L1, L2 and L3
 
-    -   Attribute Type: [StructuredValue](http://schema.org/StructuredValue)
+    -   Attribute type: Property. [StructuredValue](http://schema.org/StructuredValue)
     -   Allowed values: A number between -1 and 1.
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -457,7 +457,7 @@ A JSON Schema corresponding to this data model can be found
     subproperty per alternating current phase and the neutral wire: L1, L2, L3
     and N.
 
-    -   Attribute Type: [StructuredValue](http://schema.org/StructuredValue)
+    -   Attribute type: Property. [StructuredValue](http://schema.org/StructuredValue)
     -   Default unit: Ampers (A)
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -475,7 +475,7 @@ A JSON Schema corresponding to this data model can be found
     actual values will be conveyed by one subproperty per alternating current
     phase: L1, L2 and L3
 
-    -   Attribute Type: [StructuredValue](http://schema.org/StructuredValue)
+    -   Attribute type: Property. [StructuredValue](http://schema.org/StructuredValue)
     -   Default unit: Volts (V)
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -492,7 +492,7 @@ A JSON Schema corresponding to this data model can be found
 -   `phaseToPhaseVoltage` : Voltage between phases. A value for each phase pair:
     phases 1 and 2 (L12), phases 2 and 3 (L32), phases 3 and 1 (L31).
 
-    -   Attribute Type: [StructuredValue](http://schema.org/StructuredValue)
+    -   Attribute type: Property. [StructuredValue](http://schema.org/StructuredValue)
     -   Default unit: Volts (V)
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -510,7 +510,7 @@ A JSON Schema corresponding to this data model can be found
     actual values will be conveyed by one subproperty per alternating current
     phase: L1, L2 and L3
 
-    -   Attribute Type: [StructuredValue](http://schema.org/StructuredValue)
+    -   Attribute type: Property. [StructuredValue](http://schema.org/StructuredValue)
     -   Allowed values: A number between 0 and 1.
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -528,7 +528,7 @@ A JSON Schema corresponding to this data model can be found
     values will be conveyed by one subproperty per alternating current phase:
     L1, L2 and L3
 
-    -   Attribute Type: [StructuredValue](http://schema.org/StructuredValue)
+    -   Attribute type: Property. [StructuredValue](http://schema.org/StructuredValue)
     -   Allowed values: A number between 0 and 1.
     -   Attribute metadata:
         -   `timestamp`: Timestamp when the last update of the attribute
@@ -542,10 +542,9 @@ A JSON Schema corresponding to this data model can be found
             -   type: [Number](http://schema.org/Number)
     -   Optional
 
-**Note**: JSON Schemas only capture the NGSI simplified representation, this
-means that to test the JSON schema examples with a
-[FIWARE NGSI version 2](http://fiware.github.io/specifications/ngsiv2/stable)
-API implementation, you need to use the `keyValues` mode (`options=keyValues`).
+**Note**: JSON Schemas are intended to capture the data type and associated
+constraints of the different Attributes, regardless their final representation
+format in NGSI(v2, LD).
 
 ## Examples
 
@@ -948,6 +947,291 @@ Sample uses simplified representation for data consumers `?options=keyValues`
         "L2": 0.45807529,
         "L3": 0.4938652
     }
+}
+```
+
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:ThreePhaseAcMeasurement:ThreePhaseAcMeasurement:LV3_Ventilation",
+    "type": "ThreePhaseAcMeasurement",
+    "dateEnergyMeteringStarted": {
+        "type": "Property",
+        "value": {
+            "@type": "DateTime",
+            "@value": "2018-07-07T15:05:59.408Z"
+        }
+    },
+    "refDevice": {
+        "type": "Relationship",
+        "object": ["urn:ngsi-ld:Device:Device:eQL-EDF3GL-2006201705"]
+    },
+    "name": {
+        "type": "Property",
+        "value": "HKAPK0200"
+    },
+    "description": {
+        "type": "Property",
+        "value": "measurement corresponding to the ventilation machine rooms"
+    },
+    "totalActiveEnergyImport": {
+        "type": "Property",
+        "value": 150781.96448,
+        "observedAt": "2019-01-24T22:00:00.173Z"
+    },
+    "totalReactiveEnergyImport": {
+        "type": "Property",
+        "value": 20490.3392,
+        "observedAt": "2019-01-24T22:00:00.173Z"
+    },
+    "totalActiveEnergyExport": {
+        "type": "Property",
+        "value": 1059.80176,
+        "observedAt": "2019-01-24T22:00:00.173Z"
+    },
+    "totalReactiveEnergyExport": {
+        "type": "Property",
+        "value": 93275.02176,
+        "observedAt": "2019-01-24T22:00:00.173Z"
+    },
+    "totalActivePower": {
+        "type": "Property",
+        "value": 31700.269531,
+        "observedAt": "2019-01-24T22:00:00.173Z",
+        "measurementType": {
+            "type": "Property",
+            "value": "average"
+        },
+        "measurementInterval": {
+            "type": "Property",
+            "value": 1
+        }
+    },
+    "activePower": {
+        "type": "Property",
+        "value": {
+            "L1": 11996.416016,
+            "L2": 9461.501953,
+            "L3": 10242.351562
+        },
+        "observedAt": "2019-01-24T22:00:00.173Z",
+        "measurementType": {
+            "type": "Property",
+            "value": "average"
+        },
+        "measurementInterval": {
+            "type": "Property",
+            "value": 1
+        }
+    },
+    "totalReactivePower": {
+        "type": "Property",
+        "value": -7830.332031,
+        "observedAt": "2019-01-24T22:00:00.173Z",
+        "measurementType": {
+            "type": "Property",
+            "value": "average"
+        },
+        "measurementInterval": {
+            "type": "Property",
+            "value": 1
+        }
+    },
+    "reactivePower": {
+        "type": "Property",
+        "value": {
+            "L1": -2612.606934,
+            "L2": -2209.906006,
+            "L3": -3007.81958
+        },
+        "observedAt": "2019-01-24T22:00:00.173Z",
+        "measurementType": {
+            "type": "Property",
+            "value": "average"
+        },
+        "measurementInterval": {
+            "type": "Property",
+            "value": 1
+        }
+    },
+    "totalApparentPower": {
+        "type": "Property",
+        "value": 36019.089844,
+        "observedAt": "2019-01-24T22:00:00.173Z",
+        "measurementType": {
+            "type": "Property",
+            "value": "average"
+        },
+        "measurementInterval": {
+            "type": "Property",
+            "value": 1
+        }
+    },
+    "apparentPower": {
+        "type": "Property",
+        "value": {
+            "L1": 13201.412109,
+            "L2": 10755.304688,
+            "L3": 11941.094727
+        },
+        "observedAt": "2019-01-24T22:00:00.173Z",
+        "measurementType": {
+            "type": "Property",
+            "value": "average"
+        },
+        "measurementInterval": {
+            "type": "Property",
+            "value": 1
+        }
+    },
+    "powerFactor": {
+        "type": "Property",
+        "value": {
+            "L1": 0.908817,
+            "L2": 0.879906,
+            "L3": 0.859293
+        },
+        "observedAt": "2019-01-24T22:00:00.173Z",
+        "measurementType": {
+            "type": "Property",
+            "value": "average"
+        },
+        "measurementInterval": {
+            "type": "Property",
+            "value": 1
+        },
+        "onlyPositive": {
+            "type": "Property",
+            "value": true
+        }
+    },
+    "displacementPowerFactor": {
+        "type": "Property",
+        "value": {
+            "L1": 0.978013,
+            "L2": 0.973317,
+            "L3": 0.960382
+        },
+        "observedAt": "2019-01-24T22:00:00.173Z",
+        "measurementType": {
+            "type": "Property",
+            "value": "average"
+        },
+        "measurementInterval": {
+            "type": "Property",
+            "value": 1
+        },
+        "onlyPositive": {
+            "type": "Property",
+            "value": true
+        }
+    },
+    "frequency": {
+        "type": "Property",
+        "value": 50.020672,
+        "observedAt": "2019-01-24T22:00:00.173Z",
+        "measurementType": {
+            "type": "Property",
+            "value": "average"
+        },
+        "measurementInterval": {
+            "type": "Property",
+            "value": 1
+        }
+    },
+    "current": {
+        "type": "Property",
+        "value": {
+            "L1": 56.126038,
+            "L2": 45.894356,
+            "L3": 50.872452,
+            "N": 0.0
+        },
+        "observedAt": "2019-01-24T22:00:00.173Z",
+        "measurementType": {
+            "type": "Property",
+            "value": "rms"
+        },
+        "measurementInterval": {
+            "type": "Property",
+            "value": 1
+        }
+    },
+    "phaseVoltage": {
+        "type": "Property",
+        "value": {
+            "L1": 234.961304,
+            "L2": 234.563477,
+            "L3": 235.354034
+        },
+        "observedAt": "2019-01-24T22:00:00.173Z",
+        "measurementType": {
+            "type": "Property",
+            "value": "rms"
+        },
+        "measurementInterval": {
+            "type": "Property",
+            "value": 1
+        }
+    },
+    "phaseToPhaseVoltage": {
+        "type": "Property",
+        "value": {
+            "L12": 406.769196,
+            "L23": 407.081238,
+            "L31": 407.734558
+        },
+        "observedAt": "2019-01-24T22:00:00.173Z",
+        "measurementType": {
+            "type": "Property",
+            "value": "rms"
+        },
+        "measurementInterval": {
+            "type": "Property",
+            "value": 1
+        }
+    },
+    "thdVoltage": {
+        "type": "Property",
+        "value": {
+            "L1": 0.01471114,
+            "L2": 0.01600046,
+            "L3": 0.01541459
+        },
+        "observedAt": "2019-01-24T22:00:00.173Z",
+        "measurementType": {
+            "type": "Property",
+            "value": "average"
+        },
+        "measurementInterval": {
+            "type": "Property",
+            "value": 1
+        }
+    },
+    "thdCurrent": {
+        "type": "Property",
+        "value": {
+            "L1": 0.38497337,
+            "L2": 0.45807529,
+            "L3": 0.4938652
+        },
+        "observedAt": "2019-01-24T22:00:00.173Z",
+        "measurementType": {
+            "type": "Property",
+            "value": "average"
+        },
+        "measurementInterval": {
+            "type": "Property",
+            "value": 1
+        }
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
 }
 ```
 

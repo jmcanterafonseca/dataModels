@@ -1,18 +1,18 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "$id": "https://fiware.github.io/dataModels/specs/UrbanMobility/GtfsAgency/schema.json",
+  "$id": "https://fiware.github.io/data-models/specs/UrbanMobility/GtfsAgency/schema.json",
   "title": "NGSI GTFS Schema - Agency",
   "description": "GTFS Agency",
   "type": "object",
   "allOf": [
-    { "$ref": "https://fiware.github.io/dataModels/common-schema.json#/definitions/GSMA-Commons" },
+    {
+      "$ref": "https://fiware.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
     {
       "properties": {
         "type": {
           "type": "string",
-          "enum": [
-            "GtfsAgency"
-          ],
+          "enum": ["GtfsAgency"],
           "description": "NGSI Entity type"
         },
         "source": {
@@ -40,10 +40,5 @@
       }
     }
   ],
-  "required": [
-    "id",
-    "type",
-    "name",
-    "source"
-  ]
+  "required": ["id", "type", "name", "source"]
 }

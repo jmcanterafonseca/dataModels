@@ -21,23 +21,23 @@ The data model is defined as shown below:
 
 -   `source` : A sequence of characters giving the source of the entity data.
 
-    -   Attribute type: Text or URL
+    -   Attribute type: Property. [Text](https://schema.org/Text) or [URL](https://schema.org/URL)
     -   Optional
 
 -   `dataProvider` : Specifies the URL to information about the provider of this
     information
 
-    -   Attribute type: URL
+    -   Attribute type: Property. [URL](https://schema.org/URL)
     -   Optional
 
 -   `dateCreated` : Entity's creation timestamp.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `dateModified`: Last update timestamp of this Entity.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `hasTrip`: Same as GTFS `trip_id`.
@@ -139,6 +139,45 @@ Sample uses simplified representation for data consumers `?options=keyValues`
     "stopSequence": 4,
     "arrivalTime": "07:04:24",
     "departureTime": "07:04:24"
+}
+```
+
+### LD Example
+
+Sample uses the NGSI-LD representation
+
+```json
+{
+    "id": "urn:ngsi-ld:GtfsStopTime:Spain:Madrid:EMT:FE0010011_737",
+    "type": "GtfsStopTime",
+    "departureTime": {
+        "type": "Property",
+        "value": "07:04:24"
+    },
+    "hasTrip": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:GtfsTrip:Madrid:EMT:FE0010011"
+    },
+    "stopSequence": {
+        "type": "Property",
+        "value": 4
+    },
+    "distanceTravelled": {
+        "type": "Property",
+        "value": 759
+    },
+    "arrivalTime": {
+        "type": "Property",
+        "value": "07:04:24"
+    },
+    "hasStop": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:GtfsStop:Madrid:EMT:737"
+    },
+    "@context": [
+        "https://schema.lab.fiware.org/ld/context",
+        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+    ]
 }
 ```
 
